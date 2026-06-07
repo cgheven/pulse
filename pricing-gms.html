@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pulse GMS pricing — simple per-member pricing for gym management. First month free.">
+<title>GMS Pricing — Pulse Gym Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+<style>
+:root{
+  --bg:#07080F;--s1:#0D0F1C;--s2:#111422;--s3:#181B2E;
+  --border:rgba(255,255,255,0.06);--border-hi:rgba(255,255,255,0.11);
+  --gold:#F5A623;--gold-dim:rgba(245,166,35,0.09);--gold-glow:rgba(245,166,35,0.22);
+  --blue:#5B8AF8;--blue-dim:rgba(91,138,248,0.09);--blue-glow:rgba(91,138,248,0.22);
+  --purple:#A855F7;--purple-dim:rgba(168,85,247,0.09);--purple-glow:rgba(168,85,247,0.22);
+  --green:#22C55E;--red:#EF4444;--amber:#EAB308;
+  --t1:#fff;--t2:rgba(255,255,255,0.54);--t3:rgba(255,255,255,0.28);
+  --r1:6px;--r2:10px;--r3:14px;--r4:20px;
+  --accent-color:#5B8AF8;--accent-dim:rgba(91,138,248,0.09);
+  --accent-glow:rgba(91,138,248,0.22);--accent-rgb:91,138,248;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t2);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}button{font-family:inherit;cursor:pointer}
+.mesh{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 50% at 0% 20%,rgba(91,138,248,0.08) 0%,transparent 55%),
+             radial-gradient(ellipse 40% 40% at 100% 80%,rgba(245,166,35,0.04) 0%,transparent 55%)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:0 24px;transition:background .3s,border-color .3s}
+nav.stuck{background:rgba(7,8,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:9px;color:var(--t1);font-size:1.1rem;font-weight:700;letter-spacing:-0.02em}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:0.875rem;font-weight:500;color:var(--t3);transition:color .15s}
+.nav-links a:hover,.nav-links a.active{color:var(--t1)}
+.nav-right{display:flex;gap:9px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:var(--r2);font-size:0.85rem;font-weight:600;border:none;transition:all .18s;white-space:nowrap;cursor:pointer}
+.btn-primary{background:var(--gold);color:#0A0B10;box-shadow:0 2px 14px rgba(245,166,35,0.26)}
+.btn-primary:hover{background:#FFBE4A;transform:translateY(-1px);box-shadow:0 4px 22px rgba(245,166,35,0.38)}
+.btn-ghost{background:rgba(255,255,255,0.05);color:var(--t2);border:1px solid var(--border)}
+.btn-ghost:hover{background:rgba(255,255,255,0.09);color:var(--t1);border-color:var(--border-hi)}
+.btn-lg{padding:14px 26px;font-size:0.9rem}
+.hamburger{display:none;flex-direction:column;gap:4.5px;background:none;border:none;padding:4px;cursor:pointer}
+.hamburger span{width:20px;height:1.5px;background:var(--t2);border-radius:2px}
+.mobile-nav{display:none;position:fixed;inset:0;z-index:800;background:rgba(7,8,15,0.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-size:1.5rem;font-weight:600;color:var(--t1)}
+.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--t2);font-size:1.4rem;cursor:pointer}
+
+.product-switcher{display:flex;align-items:center;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.ps-label{font-size:0.75rem;color:var(--t3);font-weight:500}
+.ps-tabs{display:flex;gap:3px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:var(--r2);padding:3px}
+.ps-tab{padding:6px 14px;border-radius:7px;font-size:0.78rem;font-weight:500;color:var(--t3);background:none;border:none;cursor:pointer;transition:all .15s;text-decoration:none;display:inline-flex}
+.ps-tab:hover{color:var(--t1)}
+.ps-tab.on{background:var(--s3);color:var(--t1);border:1px solid var(--border-hi)}
+
+.section-label{display:inline-flex;align-items:center;gap:7px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);margin-bottom:12px}
+.section-label::before{content:'';width:12px;height:1px;background:var(--t3)}
+
+.page-hero{padding:110px 0 56px}
+.hero-back{display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--t3);margin-bottom:20px;transition:color .15s}
+.hero-back:hover{color:var(--t1)}
+
+.calc-box{background:var(--s2);border:1px solid var(--border);border-radius:var(--r4);padding:36px 40px;margin-top:40px}
+.calc-title{font-size:1rem;font-weight:600;color:var(--t1);margin-bottom:6px}
+.calc-sub{font-size:0.85rem;margin-bottom:28px}
+.calc-input-row{display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.calc-num{width:80px;height:48px;background:var(--s3);border:1px solid var(--border-hi);border-radius:var(--r2);color:var(--t1);font-size:1.1rem;font-weight:600;text-align:center;font-family:'Inter',sans-serif;-moz-appearance:textfield}
+.calc-num::-webkit-outer-spin-button,.calc-num::-webkit-inner-spin-button{-webkit-appearance:none}
+.calc-num:focus{outline:none;border-color:var(--accent-color)}
+.calc-unit-label{font-size:0.9rem;color:var(--t2)}
+.calc-slider{-webkit-appearance:none;width:100%;height:4px;border-radius:2px;outline:none;margin-bottom:20px;background:linear-gradient(to right,#5B8AF8 var(--pct,12%),rgba(255,255,255,.1) var(--pct,12%))}
+.calc-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#5B8AF8;cursor:pointer;box-shadow:0 0 8px rgba(91,138,248,.5)}
+.calc-slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#5B8AF8;cursor:pointer;border:none}
+.calc-result{background:var(--s3);border-radius:var(--r3);padding:24px 28px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.calc-res-item .res-label{font-size:0.7rem;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.calc-res-item .res-val{font-size:1.6rem;font-weight:700;color:var(--t1);letter-spacing:-0.03em;line-height:1}
+.calc-res-item .res-sub{font-size:0.75rem;color:var(--t3);margin-top:4px}
+.calc-res-item.highlight .res-val{color:var(--accent-color)}
+.calc-res-item.saving .res-val{color:var(--green)}
+.calc-rec{margin-top:16px;padding:11px 16px;border-radius:var(--r2);font-size:0.82rem;font-weight:500;display:flex;align-items:center;gap:8px;background:var(--blue-dim);border:1px solid var(--blue-glow);color:var(--blue)}
+
+.toggle-wrap{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:36px}
+.toggle-lbl{font-size:0.875rem;color:var(--t3);transition:color .2s}
+.toggle-lbl.on{color:var(--t1);font-weight:500}
+.toggle{position:relative;width:46px;height:25px;cursor:pointer;display:block}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-track{position:absolute;inset:0;background:var(--s3);border:1px solid var(--border-hi);border-radius:99px;transition:background .2s}
+.toggle-track::after{content:'';position:absolute;top:3px;left:3px;width:17px;height:17px;background:var(--t3);border-radius:50%;transition:transform .2s,background .2s}
+.toggle input:checked~.toggle-track::after{transform:translateX(21px);background:var(--blue)}
+.save-badge{background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.2);border-radius:99px;padding:2px 9px;font-size:.7rem;font-weight:600}
+
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+.plan{background:var(--s2);border:1px solid var(--border);border-radius:var(--r4);padding:30px 26px;position:relative;transition:border-color .2s,transform .2s;overflow:visible}
+.plan:hover{transform:translateY(-3px)}
+.plan-popular{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent-color);color:#0A0B10;padding:3px 14px;border-radius:99px;font-size:.67rem;font-weight:700;white-space:nowrap}
+.plan.pop{border-color:rgba(91,138,248,.28);background:linear-gradient(160deg,rgba(91,138,248,.05),var(--s2) 50%)}
+.plan-name{font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#5B8AF8;margin-bottom:6px}
+.plan-desc{font-size:.82rem;margin-bottom:18px}
+.plan-price .curr{font-size:.95rem;color:var(--t3);vertical-align:top;margin-top:7px;display:inline-block}
+.plan-price .amt{font-size:2.4rem;font-weight:700;color:var(--t1);letter-spacing:-0.04em}
+.plan-price .per{font-size:.78rem;color:var(--t3)}
+.plan-unit{font-size:.73rem;color:var(--t3);margin-bottom:20px}
+.plan-divider{border:none;border-top:1px solid var(--border);margin-bottom:18px}
+.plan-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
+.plan-feats li{display:flex;align-items:flex-start;gap:8px;font-size:.83rem}
+.plan-feats li i{flex-shrink:0;margin-top:1px;font-size:.85rem;color:#5B8AF8}
+.plan-feats li.off{opacity:.3}
+.plan-feats li.off i{color:var(--t3)}
+.pricing-note{text-align:center;margin-top:16px;font-size:.78rem;color:var(--t3)}
+
+.comp-wrap{overflow-x:auto;background:var(--s2);border:1px solid var(--border);border-radius:var(--r3);margin-top:56px}
+.comp-table{width:100%;border-collapse:collapse;font-size:.83rem}
+.comp-table caption{font-size:1.3rem;font-weight:600;color:var(--t1);letter-spacing:-0.02em;padding:28px 24px 20px;text-align:left;caption-side:top;display:block}
+.comp-table th,.comp-table td{padding:12px 16px;border-bottom:1px solid var(--border);text-align:left;vertical-align:middle}
+.comp-table th{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);background:var(--s2)}
+.comp-table td:first-child{color:var(--t2)}
+.comp-table td:not(:first-child){text-align:center;color:var(--t1);font-weight:500}
+.comp-table tr.cat td{background:rgba(255,255,255,.02);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--t3);padding:10px 16px}
+.comp-table .pop-col{background:rgba(91,138,248,.03)}
+.comp-table i.yes{color:var(--green);font-size:1rem}
+.comp-table i.no{color:var(--t3);font-size:1rem}
+
+.testi-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
+.ts-card{background:var(--s2);border:1px solid var(--border);border-radius:var(--r3);padding:24px;transition:border-color .2s}
+.ts-card:hover{border-color:var(--border-hi)}
+.ts-stars{color:var(--gold);font-size:.78rem;margin-bottom:10px;display:flex;gap:2px}
+.ts-quote{font-size:.875rem;color:var(--t2);line-height:1.75;margin-bottom:16px}
+.ts-name{font-size:.82rem;font-weight:600;color:var(--t1)}
+.ts-role{font-size:.75rem;color:var(--t3)}
+
+.faq-section{padding:80px 0;border-top:1px solid var(--border)}
+.faq-head{max-width:500px;margin:0 auto 40px;text-align:center}
+.faq-head h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;color:var(--t1);letter-spacing:-0.02em;margin-bottom:10px}
+.faq-list{max-width:660px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:16px;width:100%;background:none;border:none;text-align:left;cursor:pointer}
+.faq-q span{font-size:.9rem;font-weight:500;color:var(--t2);transition:color .15s}
+.faq-q:hover span{color:var(--t1)}
+.faq-ico{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--t3);flex-shrink:0;transition:transform .25s,background .2s;font-size:.72rem}
+.faq-item.open .faq-ico{transform:rotate(45deg);background:var(--accent-dim);color:var(--accent-color);border-color:var(--accent-glow)}
+.faq-item.open .faq-q span{color:var(--t1)}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-ans p{padding-bottom:18px;font-size:.875rem;line-height:1.8}
+.faq-item.open .faq-ans{max-height:260px}
+
+.cta-section{padding:80px 0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--border)}
+.cta-section::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 60% at 50% 100%,rgba(91,138,248,.07),transparent 65%)}
+.cta-inner{position:relative;z-index:1;max-width:560px;margin:0 auto}
+.cta-inner h2{font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:600;color:var(--t1);letter-spacing:-0.025em;margin-bottom:12px}
+.cta-inner p{font-size:.975rem;margin-bottom:30px}
+.cta-urgency{display:inline-flex;align-items:center;gap:7px;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.18);border-radius:99px;padding:5px 14px;margin-top:14px;font-size:.77rem;color:var(--green)}
+
+footer{background:var(--s1);border-top:1px solid var(--border);padding:48px 0 28px;position:relative;z-index:1}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.foot-brand p{font-size:.78rem;margin-top:10px;max-width:200px;line-height:1.7}
+.foot-col h4{font-size:.65rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--t3);margin-bottom:12px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.foot-col ul a{font-size:.8rem;color:var(--t3);transition:color .15s}
+.foot-col ul a:hover{color:var(--t1)}
+.foot-bottom{border-top:1px solid var(--border);padding-top:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot-bottom p{font-size:.73rem;color:var(--t3)}
+.social-links{display:flex;gap:7px}
+.slink{width:30px;height:30px;border-radius:var(--r1);background:rgba(255,255,255,.04);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--t3);font-size:.82rem;transition:all .15s}
+.slink:hover{background:rgba(255,255,255,.08);color:var(--t1);border-color:var(--border-hi)}
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:800;width:48px;height:48px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.35rem;box-shadow:0 4px 14px rgba(37,211,102,.36);transition:transform .2s}
+.wa-float:hover{transform:scale(1.1)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+@media(max-width:900px){.plan-grid{grid-template-columns:1fr}.testi-strip{grid-template-columns:1fr}}
+@media(max-width:768px){.nav-links,.nav-right{display:none}.hamburger{display:flex}.foot-grid{grid-template-columns:1fr 1fr}.calc-result{grid-template-columns:1fr}}
+@media(max-width:480px){.foot-grid{grid-template-columns:1fr}.calc-box{padding:16px 14px}}
+
+/* COMPACT */
+.page-hero{padding:78px 0 0}
+.page-nav-row{display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap}
+.page-hero h1{font-size:1.5rem!important;line-height:1.2!important;margin-bottom:3px!important;font-weight:600!important;letter-spacing:-0.025em!important}
+.page-hero p{font-size:.8rem!important;margin-bottom:0!important;max-width:none!important}
+.calc-box{padding:14px 18px;margin-top:12px}
+.calc-title,.calc-sub{display:none}
+.calc-input-row{margin-bottom:6px;gap:10px}
+.calc-num{height:34px;font-size:.92rem}
+.calc-slider{margin-bottom:8px}
+.calc-result{grid-template-columns:repeat(2,1fr)!important;gap:10px;padding:12px 14px}
+.calc-res-item .res-label{font-size:.62rem}
+.calc-res-item .res-val{font-size:1.05rem}
+.calc-res-item .res-sub{font-size:.67rem;margin-top:2px}
+.calc-rec{padding:7px 12px;font-size:.76rem;margin-top:8px}
+.toggle-wrap{margin:14px 0 12px}
+section[style*="padding:0 0 80px"]{padding-bottom:20px!important}
+.plan{padding:16px 14px}
+.plan-popular{font-size:.62rem;padding:2px 12px}
+.plan-name{margin-bottom:2px}
+.plan-desc{display:none}
+.plan-price .amt{font-size:1.85rem}
+.plan-unit{margin-bottom:11px;font-size:.69rem}
+.plan-divider{margin-bottom:11px}
+.plan-feats{gap:5px;margin-bottom:13px}
+.plan-feats li{font-size:.77rem;gap:6px}
+.plan-feats li.off{display:none}
+.plan-feats li:nth-child(n+6){display:none}
+.plan .btn{padding:8px 14px;font-size:.78rem}
+.pricing-note{margin-top:8px;font-size:.74rem}
+</style>
+</head>
+<body>
+<div class="mesh"></div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><path d="M2 11 L5 11 L7.5 4 L10 18 L12.5 7 L15 14 L17 11 L20 11" stroke="#F5A623" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Pulse
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#platform">Products</a></li>
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://app.yourpulse.io/login" class="btn btn-ghost" target="_blank" rel="noopener">Sign In</a>
+      <a href="https://wa.me/923001234567?text=Hi%2C%20I%27m%20interested%20in%20Pulse%20GMS" class="btn btn-primary" target="_blank" rel="noopener">Get Started <i class="ri-arrow-right-line"></i></a>
+    </div>
+    <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="menuClose"><i class="ri-close-line"></i></button>
+  <a href="index.html#platform" onclick="closeMenu()">Products</a>
+  <a href="pricing.html" onclick="closeMenu()">All Pricing</a>
+  <a href="pricing-bms.html" onclick="closeMenu()">BMS Pricing</a>
+  <a href="pricing-hms.html" onclick="closeMenu()">HMS Pricing</a>
+  <a href="https://wa.me/923001234567?text=Hi%2C%20I%27m%20interested%20in%20Pulse%20GMS" class="btn btn-primary" target="_blank" rel="noopener" onclick="closeMenu()">Get Started Free</a>
+</div>
+
+<div class="page-hero">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="page-nav-row">
+        <a href="pricing.html" class="hero-back"><i class="ri-arrow-left-line"></i> All pricing</a>
+        <div class="ps-tabs">
+          <a href="pricing-bms.html" class="ps-tab">BMS</a>
+          <span class="ps-tab on">GMS</span>
+          <a href="pricing-hms.html" class="ps-tab">HMS</a>
+        </div>
+      </div>
+      <h1>Simple pricing for your gym.</h1>
+      <p>Per active member · First month free · No card required</p>
+    </div>
+
+    <div class="calc-box reveal d1">
+      <div class="calc-input-row">
+        <input type="number" class="calc-num" id="calcNum" value="120" min="20" max="1000">
+        <span class="calc-unit-label">active members</span>
+      </div>
+      <input type="range" class="calc-slider" id="calcSlider" min="20" max="1000" step="10" value="120">
+      <div class="calc-result">
+        <div class="calc-res-item highlight">
+          <div class="res-label">Monthly Cost</div>
+          <div class="res-val" id="calc-monthly">Rs. 17,880</div>
+          <div class="res-sub" id="calc-plan-sub">Growth Plan</div>
+        </div>
+        <div class="calc-res-item">
+          <div class="res-label">If billed annually</div>
+          <div class="res-val" id="calc-annual">Rs. 214,560/yr</div>
+          <div class="res-sub">Save 20%</div>
+        </div>
+        <div class="calc-res-item saving">
+          <div class="res-label">vs Frontdesk Manager</div>
+          <div class="res-val" id="calc-saving">Save Rs. 7,120/mo</div>
+          <div class="res-sub">Typical: Rs. 25,000+/mo</div>
+        </div>
+        <div class="calc-res-item">
+          <div class="res-label">Breakdown</div>
+          <div class="res-val" style="font-size:0.9rem;padding-top:6px" id="calc-rec-text">Growth · Rs. 149/member × 120</div>
+        </div>
+      </div>
+      <div class="calc-rec"><i class="ri-information-line"></i> Annual billing saves 20% — switch the toggle below to see annual rates.</div>
+    </div>
+  </div>
+</div>
+
+<div style="padding:0 0 20px">
+  <div class="wrap">
+    <div class="toggle-wrap reveal">
+      <span class="toggle-lbl on" id="mlbl">Monthly</span>
+      <label class="toggle"><input type="checkbox" id="ptoggle"><span class="toggle-track"></span></label>
+      <span class="toggle-lbl" id="albl">Annual</span>
+      <span class="save-badge">Save 20%</span>
+    </div>
+
+    <div class="plan-grid">
+      <div class="plan reveal">
+        <div class="plan-name">Starter</div>
+        <div class="plan-desc">Everything you need to get your gym running digitally.</div>
+        <div class="plan-price"><span class="curr">Rs.</span><span class="amt" data-m="99" data-a="79">99</span><span class="per">/member/mo</span></div>
+        <div class="plan-unit billing-period">Billed monthly · up to 100 members</div>
+        <hr class="plan-divider">
+        <ul class="plan-feats">
+          <li><i class="ri-check-line"></i>Member profiles &amp; history</li>
+          <li><i class="ri-check-line"></i>QR code check-in</li>
+          <li><i class="ri-check-line"></i>Monthly/quarterly/annual plans</li>
+          <li><i class="ri-check-line"></i>JazzCash &amp; EasyPaisa payments</li>
+          <li><i class="ri-check-line"></i>Basic revenue reports</li>
+          <li><i class="ri-check-line"></i>Member freeze &amp; pause</li>
+          <li><i class="ri-check-line"></i>Email support</li>
+          <li class="off"><i class="ri-close-line"></i>Biometric check-in</li>
+          <li class="off"><i class="ri-close-line"></i>Trainer &amp; PT management</li>
+          <li class="off"><i class="ri-close-line"></i>Multi-branch dashboard</li>
+        </ul>
+        <a href="https://wa.me/923001234567?text=Hi%2C%20interested%20in%20Pulse%20GMS%20Starter" class="btn btn-ghost" style="width:100%;justify-content:center" target="_blank" rel="noopener">Talk to Sales <i class="ri-whatsapp-line"></i></a>
+      </div>
+
+      <div class="plan pop reveal d1">
+        <div class="plan-popular">Most Popular</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-desc">For serious gyms growing their member base and trainer team.</div>
+        <div class="plan-price"><span class="curr">Rs.</span><span class="amt" data-m="149" data-a="119">149</span><span class="per">/member/mo</span></div>
+        <div class="plan-unit billing-period">Billed monthly · up to 500 members</div>
+        <hr class="plan-divider">
+        <ul class="plan-feats">
+          <li><i class="ri-check-line"></i>Everything in Starter</li>
+          <li><i class="ri-check-line"></i>Biometric device integration</li>
+          <li><i class="ri-check-line"></i>Trainer profiles &amp; commissions</li>
+          <li><i class="ri-check-line"></i>PT session tracking</li>
+          <li><i class="ri-check-line"></i>Referral &amp; social commission system</li>
+          <li><i class="ri-check-line"></i>Class scheduling</li>
+          <li><i class="ri-check-line"></i>Lead pipeline &amp; prospect tracking</li>
+          <li><i class="ri-check-line"></i>Custom membership plans</li>
+          <li><i class="ri-check-line"></i>Priority WhatsApp support</li>
+          <li class="off"><i class="ri-close-line"></i>Multi-branch dashboard</li>
+        </ul>
+        <a href="https://wa.me/923001234567?text=Hi%2C%20I%27d%20like%20to%20start%20a%20free%20trial%20of%20GMS%20Growth" class="btn btn-primary" style="width:100%;justify-content:center" target="_blank" rel="noopener">Start Free Trial <i class="ri-arrow-right-line"></i></a>
+      </div>
+
+      <div class="plan reveal d2">
+        <div class="plan-name">Pro</div>
+        <div class="plan-desc">Enterprise-grade tools for multi-branch gym networks.</div>
+        <div class="plan-price"><span class="curr">Rs.</span><span class="amt" data-m="199" data-a="159">199</span><span class="per">/member/mo</span></div>
+        <div class="plan-unit billing-period">Billed monthly · unlimited members</div>
+        <hr class="plan-divider">
+        <ul class="plan-feats">
+          <li><i class="ri-check-line"></i>Everything in Growth</li>
+          <li><i class="ri-check-line"></i>Multi-branch unified dashboard</li>
+          <li><i class="ri-check-line"></i>Custom role permissions</li>
+          <li><i class="ri-check-line"></i>Advanced P&amp;L per branch</li>
+          <li><i class="ri-check-line"></i>Dedicated onboarding manager</li>
+          <li><i class="ri-check-line"></i>API access</li>
+          <li><i class="ri-check-line"></i>Custom branding</li>
+        </ul>
+        <a href="https://wa.me/923001234567?text=Hi%2C%20interested%20in%20Pulse%20GMS%20Pro" class="btn btn-ghost" style="width:100%;justify-content:center" target="_blank" rel="noopener">Talk to Sales <i class="ri-whatsapp-line"></i></a>
+      </div>
+    </div>
+
+    <p class="pricing-note reveal"><i class="ri-shield-check-line" style="color:var(--green);margin-right:5px"></i> First month completely free. No credit card required. Cancel anytime.</p>
+
+    <div class="comp-wrap reveal">
+      <table class="comp-table">
+        <caption>Full feature comparison</caption>
+        <thead>
+          <tr><th style="width:40%">Feature</th><th>Starter</th><th class="pop-col">Growth</th><th>Pro</th></tr>
+        </thead>
+        <tbody>
+          <tr class="cat"><td colspan="4">Check-In &amp; Attendance</td></tr>
+          <tr><td>QR code check-in</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>App-based check-in</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Biometric device integration</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Check-in history per member</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+
+          <tr class="cat"><td colspan="4">Membership Management</td></tr>
+          <tr><td>Monthly/quarterly/annual plans</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Custom plan creation</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Member freeze &amp; pause</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Defaulter tracking &amp; alerts</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Bulk member import</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+
+          <tr class="cat"><td colspan="4">Payments</td></tr>
+          <tr><td>JazzCash / EasyPaisa</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Cash &amp; bank transfer</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Auto-payment receipts</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Payment history per member</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+
+          <tr class="cat"><td colspan="4">Staff &amp; Trainers</td></tr>
+          <tr><td>Staff management</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Trainer commission tracking</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>PT session management</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Referral commission system</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+
+          <tr class="cat"><td colspan="4">Reporting</td></tr>
+          <tr><td>Basic revenue report</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>P&amp;L statements</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Multi-branch reports</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-subtract-line no"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Lead pipeline analytics</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+
+          <tr class="cat"><td colspan="4">Support</td></tr>
+          <tr><td>Email support</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>WhatsApp support</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>Dedicated onboarding manager</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-subtract-line no"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+          <tr><td>API access</td><td><i class="ri-subtract-line no"></i></td><td class="pop-col"><i class="ri-subtract-line no"></i></td><td><i class="ri-check-line yes"></i></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="testi-strip">
+      <div class="ts-card reveal">
+        <div class="ts-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p class="ts-quote">"We used to track memberships in a notebook. When GMS showed me which members were about to expire, I called them before they left. Retention improved in the first month."</p>
+        <div class="ts-name">Usman Tariq</div>
+        <div class="ts-role">Owner, PowerHouse Gym · Lahore</div>
+      </div>
+      <div class="ts-card reveal d1">
+        <div class="ts-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p class="ts-quote">"My trainer now sees his own commission dashboard. No more disputes at month end. That alone made it worth it."</p>
+        <div class="ts-name">Nadia Akhtar</div>
+        <div class="ts-role">Manager, FitLife Studio · Karachi</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="faq-section">
+  <div class="wrap">
+    <div class="faq-head reveal">
+      <div class="section-label">GMS FAQ</div>
+      <h2>Frequently asked questions</h2>
+      <p>Answers for gym owners evaluating Pulse GMS.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>How is "active member" counted for billing?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
+        <div class="faq-ans"><p>Only members with an active, paid membership plan count. Expired, frozen, or free trial members are not counted. We reconcile monthly.</p></div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q"><span>What if members don't want to use an app?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
+        <div class="faq-ans"><p>No app needed. QR check-in works from any phone camera. Admins can also check in members manually from the dashboard. Members only need the portal if they want self-service.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Can I manage multiple gym branches?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
+        <div class="faq-ans"><p>Yes, on the Pro plan. One login, all branches — unified revenue, attendance, and member data across every location.</p></div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q"><span>Does money pass through Pulse?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
+        <div class="faq-ans"><p>No. All payments go directly between members and your gym via JazzCash, EasyPaisa, cash, or bank transfer. Pulse records and tracks those transactions.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>What biometric devices do you support?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
+        <div class="faq-ans"><p>We support ZKTeco and compatible fingerprint/face-recognition attendance devices. Our team handles the integration during onboarding at no extra cost.</p></div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q"><span>Can I try it before paying?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
+        <div class="faq-ans"><p>Yes — your first month is free with full access. No credit card required. You only enter billing details when you decide to continue.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="wrap">
+    <div class="cta-inner reveal">
+      <div class="section-label" style="justify-content:center">Get Started</div>
+      <h2>Your gym deserves better than a notebook.</h2>
+      <p>Go live before your next membership cycle. First month free, no card needed.</p>
+      <a href="https://wa.me/923001234567?text=Hi%2C%20I%27d%20like%20to%20start%20a%20free%20trial%20of%20GMS" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Start Free Trial <i class="ri-arrow-right-line"></i></a>
+      <div><div class="cta-urgency"><i class="ri-time-line"></i> We onboard 5 new gyms per week — secure your slot</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo">
+          <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M2 11 L5 11 L7.5 4 L10 18 L12.5 7 L15 14 L17 11 L20 11" stroke="#F5A623" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Pulse
+        </a>
+        <p>Management software for buildings, gyms, and hostels.</p>
+        <div class="social-links" style="margin-top:16px">
+          <a href="#" class="slink"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="slink"><i class="ri-twitter-x-line"></i></a>
+          <a href="#" class="slink"><i class="ri-linkedin-line"></i></a>
+          <a href="https://wa.me/923001234567" class="slink" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i></a>
+        </div>
+      </div>
+      <div class="foot-col"><h4>Pricing</h4><ul>
+        <li><a href="pricing-bms.html">BMS Pricing</a></li>
+        <li><a href="pricing-gms.html">GMS Pricing</a></li>
+        <li><a href="pricing-hms.html">HMS Pricing</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Company</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#platform">Products</a></li>
+        <li><a href="index.html#features">Features</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Legal</h4><ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Security</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2025 Pulse Technologies · yourpulse.io</p>
+      <p style="color:var(--gold);font-size:0.72rem;letter-spacing:.04em">PULSE OF YOUR BUSINESS</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/923001234567?text=Hi%2C%20I%27m%20interested%20in%20Pulse%20GMS" class="wa-float" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i></a>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('stuck',scrollY>10),{passive:true});
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('mobileNav').classList.add('open'));
+document.getElementById('menuClose').addEventListener('click',()=>document.getElementById('mobileNav').classList.remove('open'));
+function closeMenu(){document.getElementById('mobileNav').classList.remove('open')}
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')})});
+const tog=document.getElementById('ptoggle');
+tog.addEventListener('change',()=>{const a=tog.checked;document.getElementById('mlbl').classList.toggle('on',!a);document.getElementById('albl').classList.toggle('on',a);document.querySelectorAll('.plan-price .amt').forEach(el=>el.textContent=a?el.dataset.a:el.dataset.m);document.querySelectorAll('.billing-period').forEach(el=>el.textContent=a?'Billed annually':'Billed monthly');updateCalc()});
+
+const calcNum=document.getElementById('calcNum'),calcSlider=document.getElementById('calcSlider');
+function getRate(n){return n<=100?{plan:'Starter',monthly:99,annual:79}:n<=500?{plan:'Growth',monthly:149,annual:119}:{plan:'Pro',monthly:199,annual:159}}
+function updateCalc(){
+  const n=Math.max(20,Math.min(1000,parseInt(calcNum.value)||120));
+  calcSlider.value=n;
+  const pct=((n-20)/(1000-20))*100;
+  calcSlider.style.setProperty('--pct',pct+'%');
+  const r=getRate(n);
+  const isAnnual=tog.checked;
+  const rate=isAnnual?r.annual:r.monthly;
+  const monthly=rate*n;
+  const annualTotal=r.annual*n*12;
+  const saving=Math.max(0,25000-monthly);
+  document.getElementById('calc-monthly').textContent='Rs. '+monthly.toLocaleString();
+  document.getElementById('calc-plan-sub').textContent=r.plan+' Plan';
+  document.getElementById('calc-annual').textContent='Rs. '+annualTotal.toLocaleString()+'/yr';
+  document.getElementById('calc-saving').textContent=saving>0?'Save Rs. '+saving.toLocaleString()+'/mo':'Pays for itself';
+  document.getElementById('calc-rec-text').textContent=r.plan+' · Rs. '+rate+'/member × '+n;
+}
+calcNum.addEventListener('input',()=>{calcSlider.value=Math.min(Math.max(parseInt(calcNum.value)||20,20),1000);updateCalc()});
+calcSlider.addEventListener('input',()=>{calcNum.value=calcSlider.value;updateCalc()});
+updateCalc();
+</script>
+</body>
+</html>
