@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Pulse BMS pricing — per-flat pricing for residential buildings. Auto-billing, WhatsApp reminders, guard portal. First month free.">
+<meta name="description" content="Pulse BMS pricing — 3 tiers by flat count. No setup fees, no card to start. Every feature included in every plan.">
 <title>BMS Pricing — Pulse | Building Management System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,13 +14,9 @@
   --bg:#07080F;--s1:#0D0F1C;--s2:#111422;--s3:#181B2E;
   --border:rgba(255,255,255,0.06);--border-hi:rgba(255,255,255,0.11);
   --gold:#F5A623;--gold-dim:rgba(245,166,35,0.09);--gold-glow:rgba(245,166,35,0.22);
-  --blue:#5B8AF8;--blue-dim:rgba(91,138,248,0.09);
-  --purple:#A855F7;--purple-dim:rgba(168,85,247,0.09);
-  --green:#22C55E;--red:#EF4444;--amber:#EAB308;
+  --blue:#5B8AF8;--purple:#A855F7;--green:#22C55E;
   --t1:#fff;--t2:rgba(255,255,255,0.54);--t3:rgba(255,255,255,0.28);
   --r1:6px;--r2:10px;--r3:14px;--r4:20px;
-  --accent-color:#F5A623;--accent-dim:rgba(245,166,35,0.09);
-  --accent-glow:rgba(245,166,35,0.22);--accent-rgb:245,166,35;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -54,91 +50,108 @@ nav.stuck{background:rgba(7,8,15,0.85);backdrop-filter:blur(20px);border-bottom:
 .mobile-nav a{font-size:1.5rem;font-weight:600;color:var(--t1)}
 .mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--t2);font-size:1.4rem;cursor:pointer}
 
-/* switcher */
-.product-switcher{display:flex;align-items:center;gap:10px;margin-bottom:22px;flex-wrap:wrap}
-.ps-label{font-size:.75rem;color:var(--t3);font-weight:500}
+/* product switcher */
 .ps-tabs{display:flex;gap:3px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r2);padding:3px}
 .ps-tab{padding:6px 14px;border-radius:7px;font-size:.78rem;font-weight:500;color:var(--t3);background:none;border:none;cursor:pointer;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center}
 .ps-tab:hover{color:var(--t1)}
 .ps-tab.on{background:var(--s3);color:var(--t1);border:1px solid var(--border-hi)}
 
+/* hero */
+.page-hero{padding:80px 0 24px;text-align:center}
+.hero-back{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--t3);transition:color .15s}
+.hero-back:hover{color:var(--t1)}
+.page-nav-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.rolling-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:99px;border:1px solid rgba(245,166,35,0.22);background:rgba(245,166,35,0.06);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.rolling-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse-dot 1.8s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.35}}
+.hero-sub{font-size:.875rem;color:var(--t3);margin:14px 0 22px}
+
+/* toggle */
+.tog-wrap{display:inline-flex;align-items:center;gap:4px;padding:4px;border-radius:var(--r3);border:1px solid var(--border);background:var(--s2)}
+.tog-btn{padding:8px 22px;border-radius:10px;font-size:.85rem;font-weight:600;border:none;background:none;color:var(--t3);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.tog-btn.on{background:var(--gold);color:#0A0B10}
+.save-chip{font-size:.67rem;font-weight:700;padding:2px 7px;border-radius:6px;background:rgba(245,166,35,.14);color:var(--gold)}
+.tog-btn.on .save-chip{background:rgba(10,11,16,.18);color:#0A0B10}
+
+/* plan grid */
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;margin-top:32px}
+.plan{background:var(--s2);border:1px solid var(--border);border-radius:var(--r4);padding:28px 24px;position:relative;display:flex;flex-direction:column;gap:20px;transition:border-color .2s,transform .2s}
+.plan:hover{transform:translateY(-2px)}
+.plan.pop{border-color:rgba(245,166,35,.3);background:linear-gradient(160deg,rgba(245,166,35,.04),var(--s2) 55%)}
+.plan-popular{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:#0A0B10;padding:3px 14px;border-radius:99px;font-size:.67rem;font-weight:700;white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
+
+/* plan header */
+.plan-name-label{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:4px}
+.plan-range-label{font-size:.7rem;font-weight:500;color:var(--gold);margin-bottom:14px}
+.plan-price-row{display:flex;align-items:flex-end;gap:4px;margin-bottom:4px}
+.curr-sm{font-size:.875rem;color:var(--t3);padding-bottom:5px}
+.plan-amt{font-size:2.6rem;font-weight:700;color:var(--t1);letter-spacing:-0.04em;line-height:1;font-variant-numeric:tabular-nums}
+.per-sm{font-size:.8rem;color:var(--t3);padding-bottom:5px}
+.plan-annual-line{font-size:.73rem;color:var(--gold);margin-bottom:4px;display:none}
+.plan-tagline-text{font-size:.82rem;color:var(--t3)}
+
+/* tier panel */
+.tier-panel{border:2px solid rgba(245,166,35,.2);background:linear-gradient(135deg,rgba(245,166,35,.07),rgba(245,166,35,.02));border-radius:var(--r3);padding:12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 0 22px -10px rgba(245,166,35,.18)}
+
+/* flat-fee bar (Starter) */
+.flatfee-bar{height:40px;display:flex;align-items:center;gap:8px;padding:0 12px;border-radius:var(--r2);border:1px solid rgba(245,166,35,.25);background:var(--s2)}
+.flatfee-bar i{font-size:.9rem;color:var(--gold)}
+.flatfee-bar span{font-size:.68rem;font-weight:700;color:var(--gold);letter-spacing:.15em;text-transform:uppercase}
+
+/* calculator input */
+.tier-input-wrap{position:relative}
+.tier-input-wrap i{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:.85rem;color:var(--gold);pointer-events:none}
+.tier-input{width:100%;height:40px;padding:0 12px 0 36px;border-radius:var(--r2);border:1px solid rgba(245,166,35,.25);background:var(--s2);color:var(--t1);font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;-moz-appearance:textfield}
+.tier-input::-webkit-outer-spin-button,.tier-input::-webkit-inner-spin-button{-webkit-appearance:none}
+.tier-input::placeholder{font-size:.72rem;font-weight:500;color:var(--t3)}
+.tier-input:focus{outline:none;border-color:var(--gold)}
+
+/* 2-col result */
+.tier-2col{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tier-cell{border-radius:var(--r1);padding:8px 10px;border:1px solid rgba(245,166,35,.13);background:var(--s2)}
+.tier-cell.gold{background:rgba(245,166,35,.08);border-color:rgba(245,166,35,.24)}
+.cell-lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:3px}
+.tier-cell.gold .cell-lbl{color:var(--gold)}
+.cell-val{font-size:.92rem;font-weight:700;color:var(--t1);font-variant-numeric:tabular-nums}
+.tier-cell.gold .cell-val{color:var(--gold)}
+
+/* savings banner */
+.tier-save-bar{display:none;align-items:center;justify-content:center;border-radius:var(--r1);border:1px solid rgba(34,197,94,.22);background:rgba(34,197,94,.07);padding:7px 12px}
+.tier-save-bar.show{display:flex}
+.tier-save-bar span{font-size:.72rem;font-weight:700;color:var(--green)}
+
+/* plan bottom */
+.plan-bottom{margin-top:auto;display:flex;flex-direction:column}
+.plan-btn{width:100%;justify-content:center;padding:10px 16px;font-size:.83rem}
+.all-feats-note{text-align:center;font-size:.7rem;color:var(--t3);padding-top:14px;border-top:1px solid var(--border);margin-top:14px}
+
+.pricing-note{text-align:center;margin-top:16px;font-size:.78rem;color:var(--t3)}
+
+/* feature manifest */
+.manifest-box{border:1px solid rgba(245,166,35,.16);border-radius:var(--r4);overflow:hidden;margin-top:52px}
+.manifest-top-rule,.manifest-bottom-rule{height:1px;background:linear-gradient(to right,transparent,rgba(245,166,35,.35),transparent)}
+.manifest-header{padding:28px 32px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.manifest-kicker{font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.manifest-title{font-size:1.35rem;font-weight:600;color:var(--t1);letter-spacing:-0.02em;margin-bottom:8px}
+.manifest-sub{font-size:.82rem;color:var(--t3);max-width:380px;line-height:1.65}
+.manifest-count{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0}
+.manifest-count-lbl{font-size:.58rem;font-family:monospace;text-transform:uppercase;letter-spacing:.2em;color:var(--t3)}
+.manifest-count-num{font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1.1}
+.manifest-list{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.04)}
+.manifest-item{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:12px;background:var(--s2);padding:14px 24px;transition:background .15s}
+.manifest-item:hover{background:rgba(245,166,35,.03)}
+.manifest-num{font-family:monospace;font-size:.68rem;font-weight:600;color:rgba(245,166,35,.55);letter-spacing:.05em;transition:color .15s}
+.manifest-item:hover .manifest-num{color:var(--gold)}
+.manifest-feat{font-size:.83rem;color:var(--t2)}
+.manifest-check{font-size:.95rem;color:rgba(245,166,35,.4);transition:color .15s}
+.manifest-item:hover .manifest-check{color:var(--gold)}
+
+/* section label */
 .section-label{display:inline-flex;align-items:center;gap:7px;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);margin-bottom:12px}
 .section-label::before{content:'';width:12px;height:1px;background:var(--t3)}
 
-/* hero */
-.page-hero{padding:110px 0 48px}
-.hero-back{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--t3);margin-bottom:18px;transition:color .15s}
-.hero-back:hover{color:var(--t1)}
-.page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:600;color:var(--t1);letter-spacing:-0.03em;line-height:1.07;margin-bottom:14px}
-.page-hero p{font-size:1rem;max-width:520px}
-
-/* calculator */
-.calc-box{background:var(--s2);border:1px solid var(--border);border-radius:var(--r4);padding:36px 40px;margin-top:44px}
-.calc-title{font-size:1rem;font-weight:600;color:var(--t1);margin-bottom:5px}
-.calc-sub{font-size:.85rem;margin-bottom:26px}
-.calc-input-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap}
-.calc-num{width:80px;height:46px;background:var(--s3);border:1px solid var(--border-hi);border-radius:var(--r2);color:var(--t1);font-size:1.1rem;font-weight:600;text-align:center;font-family:'Inter',sans-serif;-moz-appearance:textfield}
-.calc-num::-webkit-outer-spin-button,.calc-num::-webkit-inner-spin-button{-webkit-appearance:none}
-.calc-num:focus{outline:none;border-color:var(--gold)}
-.calc-unit-label{font-size:.9rem;color:var(--t2)}
-.calc-slider{-webkit-appearance:none;width:100%;height:4px;border-radius:2px;outline:none;margin-bottom:18px;background:linear-gradient(to right,var(--gold) var(--pct,30%),rgba(255,255,255,.1) var(--pct,30%))}
-.calc-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 0 8px rgba(245,166,35,.5)}
-.calc-slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--gold);cursor:pointer;border:none}
-.calc-result{background:var(--s3);border-radius:var(--r3);padding:24px 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.calc-res-item .res-label{font-size:.68rem;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
-.calc-res-item .res-val{font-size:1.5rem;font-weight:700;color:var(--t1);letter-spacing:-0.03em;line-height:1}
-.calc-res-item .res-sub{font-size:.73rem;color:var(--t3);margin-top:3px}
-.calc-res-item.highlight .res-val{color:var(--gold)}
-.calc-res-item.saving .res-val{color:var(--green)}
-.calc-rec{margin-top:16px;padding:11px 16px;border-radius:var(--r2);font-size:.82rem;font-weight:500;display:flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid var(--gold-glow);color:var(--gold)}
-.calc-rec i{flex-shrink:0}
-
-/* toggle */
-.toggle-wrap{display:flex;align-items:center;justify-content:center;gap:10px;margin:40px 0 32px}
-.toggle-lbl{font-size:.875rem;color:var(--t3);transition:color .2s}
-.toggle-lbl.on{color:var(--t1);font-weight:500}
-.toggle{position:relative;width:46px;height:25px;cursor:pointer;display:block}
-.toggle input{opacity:0;width:0;height:0}
-.toggle-track{position:absolute;inset:0;background:var(--s3);border:1px solid var(--border-hi);border-radius:99px;transition:background .2s}
-.toggle-track::after{content:'';position:absolute;top:3px;left:3px;width:17px;height:17px;background:var(--t3);border-radius:50%;transition:transform .2s,background .2s}
-.toggle input:checked~.toggle-track::after{transform:translateX(21px);background:var(--gold)}
-.save-badge{background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.2);border-radius:99px;padding:2px 9px;font-size:.7rem;font-weight:600}
-
-/* plans */
-.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.plan{background:var(--s2);border:1px solid var(--border);border-radius:var(--r4);padding:30px 26px;position:relative;transition:border-color .2s,transform .2s;overflow:visible}
-.plan:hover{transform:translateY(-3px)}
-.plan-popular{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:#0A0B10;padding:3px 14px;border-radius:99px;font-size:.67rem;font-weight:700;white-space:nowrap}
-.plan.pop{border-color:rgba(245,166,35,.28);background:linear-gradient(160deg,rgba(245,166,35,.05),var(--s2) 50%)}
-.plan-name{font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
-.plan-desc{font-size:.82rem;margin-bottom:18px}
-.plan-price .curr{font-size:.95rem;color:var(--t3);vertical-align:top;margin-top:7px;display:inline-block}
-.plan-price .amt{font-size:2.4rem;font-weight:700;color:var(--t1);letter-spacing:-0.04em}
-.plan-price .per{font-size:.78rem;color:var(--t3)}
-.plan-unit{font-size:.73rem;color:var(--t3);margin-bottom:20px}
-.plan-divider{border:none;border-top:1px solid var(--border);margin-bottom:18px}
-.plan-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
-.plan-feats li{display:flex;align-items:flex-start;gap:8px;font-size:.83rem}
-.plan-feats li i{flex-shrink:0;margin-top:1px;font-size:.85rem;color:var(--gold)}
-.plan-feats li.off{opacity:.3}
-.plan-feats li.off i{color:var(--t3)}
-.pricing-note{text-align:center;margin-top:16px;font-size:.78rem;color:var(--t3)}
-
-/* comparison table */
-.comp-wrap{overflow-x:auto;background:var(--s2);border:1px solid var(--border);border-radius:var(--r3);margin-top:56px}
-.comp-table{width:100%;border-collapse:collapse;font-size:.83rem}
-.comp-table caption{font-size:1.3rem;font-weight:600;color:var(--t1);letter-spacing:-0.02em;padding:28px 24px 20px;text-align:left;caption-side:top;display:block}
-.comp-table th,.comp-table td{padding:12px 16px;border-bottom:1px solid var(--border);text-align:left;vertical-align:middle}
-.comp-table th{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);background:var(--s2)}
-.comp-table td:first-child{color:var(--t2)}
-.comp-table td:not(:first-child){text-align:center;color:var(--t1);font-weight:500}
-.comp-table tr.cat td{background:rgba(255,255,255,.02);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--t3);padding:10px 16px}
-.comp-table .pop-col{background:rgba(245,166,35,.03)}
-.comp-table i.yes{color:var(--gold);font-size:1rem}
-.comp-table i.no{color:var(--t3);font-size:1rem}
-
 /* testimonials */
-.testi-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
+.testi-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:52px}
 .ts-card{background:var(--s2);border:1px solid var(--border);border-radius:var(--r3);padding:24px;transition:border-color .2s}
 .ts-card:hover{border-color:var(--border-hi)}
 .ts-stars{color:var(--gold);font-size:.78rem;margin-bottom:10px;display:flex;gap:2px}
@@ -190,44 +203,11 @@ footer{background:var(--s1);border-top:1px solid var(--border);padding:48px 0 28
 /* animations */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
-.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}
 
-@media(max-width:900px){.plan-grid{grid-template-columns:1fr}.testi-strip{grid-template-columns:1fr}.calc-result{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.nav-links,.nav-right{display:none}.hamburger{display:flex}.foot-grid{grid-template-columns:1fr 1fr}.calc-result{grid-template-columns:1fr}}
-@media(max-width:480px){.foot-grid{grid-template-columns:1fr}.calc-box{padding:16px 14px}}
-
-/* COMPACT — everything above the fold */
-.page-hero{padding:78px 0 0}
-.page-nav-row{display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap}
-.page-hero h1{font-size:1.5rem;line-height:1.2;margin-bottom:3px;color:var(--t1);font-weight:600;letter-spacing:-0.025em}
-.page-hero>div>div>p{font-size:.8rem;margin-bottom:0;max-width:none}
-.calc-box{padding:14px 18px;margin-top:12px}
-.calc-title,.calc-sub{display:none}
-.calc-input-row{margin-bottom:6px;gap:10px}
-.calc-num{height:34px;font-size:.92rem}
-.calc-unit-label{font-size:.8rem}
-.calc-slider{margin-bottom:8px}
-.calc-result{grid-template-columns:repeat(3,1fr)!important;gap:10px;padding:12px 14px}
-.calc-res-item .res-label{font-size:.62rem}
-.calc-res-item .res-val{font-size:1.05rem}
-.calc-res-item .res-sub{font-size:.67rem;margin-top:2px}
-.calc-rec{padding:7px 12px;font-size:.76rem;margin-top:8px}
-.toggle-wrap{margin:14px 0 12px}
-[style*="padding-bottom:80px"]{padding-bottom:20px!important}
-.plan{padding:16px 14px}
-.plan-popular{font-size:.62rem;padding:2px 12px}
-.plan-name{margin-bottom:2px}
-.plan-desc{display:none}
-.plan-price .amt{font-size:1.85rem}
-.plan-price .per{font-size:.74rem}
-.plan-unit{margin-bottom:11px;font-size:.69rem}
-.plan-divider{margin-bottom:11px}
-.plan-feats{gap:5px;margin-bottom:13px}
-.plan-feats li{font-size:.77rem;gap:6px}
-.plan-feats li.off{display:none}
-.plan-feats li:nth-child(n+6){display:none}
-.plan .btn{padding:8px 14px;font-size:.78rem}
-.pricing-note{margin-top:8px;font-size:.74rem}
+@media(max-width:900px){.plan-grid{grid-template-columns:1fr}.testi-strip{grid-template-columns:1fr}.manifest-list{grid-template-columns:1fr}}
+@media(max-width:768px){.nav-links,.nav-right{display:none}.hamburger{display:flex}.foot-grid{grid-template-columns:1fr 1fr}.manifest-header{flex-direction:column}.manifest-count{display:none}}
+@media(max-width:480px){.foot-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -258,7 +238,7 @@ footer{background:var(--s1);border-top:1px solid var(--border);padding:48px 0 28
   <a href="pricing.html" onclick="closeMenu()">All Pricing</a>
   <a href="pricing-gms.html" onclick="closeMenu()">GMS Pricing</a>
   <a href="pricing-hms.html" onclick="closeMenu()">HMS Pricing</a>
-  <a href="https://wa.me/923332994029?text=Hi%2C%20I%27m%20interested%20in%20Pulse%20BMS" class="btn btn-primary" target="_blank" rel="noopener" onclick="closeMenu()">Get Started Free</a>
+  <a href="https://wa.me/923332994029?text=Hi%2C%20I%27m%20interested%20in%20Pulse%20BMS" class="btn btn-primary" target="_blank" rel="noopener" onclick="closeMenu()">Get Started</a>
 </div>
 
 <!-- HERO -->
@@ -273,151 +253,176 @@ footer{background:var(--s1);border-top:1px solid var(--border);padding:48px 0 28
           <a href="pricing-hms.html" class="ps-tab">HMS</a>
         </div>
       </div>
-      <h1>Simple pricing for your building.</h1>
-      <p>3 tiers by flat count · No card to start · 20% off annual</p>
-    </div>
-
-    <!-- CALCULATOR -->
-    <div class="calc-box reveal d1" id="calculator">
-      <div class="calc-input-row">
-        <input type="number" class="calc-num" id="calcNum" value="150" min="10" max="500">
-        <span class="calc-unit-label">flats</span>
-      </div>
-      <input type="range" class="calc-slider" id="calcSlider" min="10" max="500" step="5" value="150">
-      <div class="calc-result">
-        <div class="calc-res-item highlight">
-          <div class="res-label">Monthly cost</div>
-          <div class="res-val" id="calc-monthly">Rs. 15,000</div>
-          <div class="res-sub" id="calc-plan-sub">Growth Plan</div>
-        </div>
-        <div class="calc-res-item">
-          <div class="res-label">Annual total</div>
-          <div class="res-val" id="calc-annual">Rs. 144,000/yr</div>
-          <div class="res-sub">Save 20%</div>
-        </div>
-        <div class="calc-res-item saving">
-          <div class="res-label">Annual saving</div>
-          <div class="res-val" id="calc-saving">Save Rs. 36,000/yr</div>
-          <div class="res-sub">vs. monthly billing</div>
-        </div>
-      </div>
-      <div class="calc-rec" id="calc-rec">
-        <i class="ri-information-line"></i>
-        <span>Growth plan · Rs. 100/flat × 150 flats</span>
+      <div class="rolling-badge"><span class="rolling-dot"></span>&nbsp; Rolling out in Pakistan</div>
+      <p class="hero-sub">No setup fees. No card to start. Every feature included in every tier.</p>
+      <div class="tog-wrap">
+        <button class="tog-btn on" id="tog-m" onclick="setAnnual(false)">Monthly</button>
+        <button class="tog-btn" id="tog-a" onclick="setAnnual(true)">Annual <span class="save-chip">Save 20%</span></button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- PLANS -->
-<div class="wrap" style="padding-bottom:20px">
-  <div class="toggle-wrap reveal">
-    <span class="toggle-lbl on" id="mlbl">Monthly</span>
-    <label class="toggle"><input type="checkbox" id="ptoggle"><span class="toggle-track"></span></label>
-    <span class="toggle-lbl" id="albl">Annual</span>
-    <span class="save-badge">Save 20%</span>
-  </div>
-
+<!-- PLAN GRID -->
+<div class="wrap" style="padding-bottom:64px">
   <div class="plan-grid">
+
     <!-- STARTER -->
     <div class="plan reveal">
-      <div class="plan-name">Starter</div>
-      <div class="plan-desc">Small buildings up to 100 flats. Fixed monthly fee — no per-flat math.</div>
-      <div class="plan-price"><span class="curr">Rs.</span><span class="amt" data-m="15,000" data-a="12,000">15,000</span><span class="per">/mo</span></div>
-      <div class="plan-unit">Up to 100 flats · <span class="billing-period">Billed monthly</span></div>
-      <hr class="plan-divider">
-      <ul class="plan-feats">
-        <li><i class="ri-check-line"></i>One-tap WhatsApp reminders to defaulters</li>
-        <li><i class="ri-check-line"></i>Auto maintenance bills + printable receipts</li>
-        <li><i class="ri-check-line"></i>Accountant-grade reports</li>
-        <li><i class="ri-check-line"></i>Project funds — lift, paint, generator</li>
-        <li><i class="ri-check-line"></i>Utility tracking — K-Electric, SSGC, water</li>
-        <li><i class="ri-check-line"></i>Union governance — proposals, voting, elections</li>
-        <li><i class="ri-check-line"></i>Resident portal — dues, payments, complaints</li>
-        <li><i class="ri-check-line"></i>Rent + sale listings</li>
-        <li><i class="ri-check-line"></i>Services marketplace</li>
-        <li><i class="ri-check-line"></i>Multi-role access — admin, union, owner, resident</li>
-      </ul>
-      <a href="https://wa.me/923332994029?text=Hi%2C%20I%27m%20interested%20in%20the%20Starter%20plan%20for%20Pulse%20BMS.%20How%20do%20I%20get%20started%3F" class="btn btn-ghost" style="width:100%;justify-content:center" target="_blank" rel="noopener">Talk to Sales <i class="ri-whatsapp-line"></i></a>
+      <div>
+        <div class="plan-name-label">Starter</div>
+        <div class="plan-range-label">Up to 100 flats</div>
+        <div class="plan-price-row">
+          <span class="curr-sm">PKR</span>
+          <span class="plan-amt" id="s-amt">15,000</span>
+          <span class="per-sm">/mo</span>
+        </div>
+        <div class="plan-annual-line" id="s-aline">20% off — billed annually</div>
+        <p class="plan-tagline-text">Small buildings = Flat monthly fee.</p>
+      </div>
+
+      <div class="tier-panel">
+        <div class="flatfee-bar">
+          <i class="ri-shield-check-line"></i>
+          <span>Flat fee — locked</span>
+        </div>
+        <div class="tier-2col">
+          <div class="tier-cell">
+            <div class="cell-lbl">Monthly</div>
+            <div class="cell-val" id="s-mcell">15,000</div>
+          </div>
+          <div class="tier-cell gold">
+            <div class="cell-lbl">Annual · save 20%</div>
+            <div class="cell-val" id="s-acell">144,000</div>
+          </div>
+        </div>
+        <div class="tier-save-bar" id="s-savebar">
+          <span>You save PKR 36,000 every year</span>
+        </div>
+      </div>
+
+      <div class="plan-bottom">
+        <a href="https://wa.me/923332994029?text=Hi%2C%20I%27m%20interested%20in%20the%20Starter%20plan%20for%20Pulse%20BMS.%20How%20do%20I%20get%20started%3F" class="btn btn-ghost plan-btn" target="_blank" rel="noopener">Talk to Sales <i class="ri-arrow-right-line"></i></a>
+        <p class="all-feats-note">All 10 features included →</p>
+      </div>
     </div>
 
     <!-- GROWTH -->
     <div class="plan pop reveal d1">
       <div class="plan-popular">Most Popular</div>
-      <div class="plan-name">Growth</div>
-      <div class="plan-desc">Mid-sized societies — pay per flat as your building grows.</div>
-      <div class="plan-price"><span class="curr">Rs.</span><span class="amt" data-m="100" data-a="80">100</span><span class="per">/flat/mo</span></div>
-      <div class="plan-unit">101–400 flats · <span class="billing-period">Billed monthly</span></div>
-      <hr class="plan-divider">
-      <ul class="plan-feats">
-        <li><i class="ri-check-line"></i>One-tap WhatsApp reminders to defaulters</li>
-        <li><i class="ri-check-line"></i>Auto maintenance bills + printable receipts</li>
-        <li><i class="ri-check-line"></i>Accountant-grade reports</li>
-        <li><i class="ri-check-line"></i>Project funds — lift, paint, generator</li>
-        <li><i class="ri-check-line"></i>Utility tracking — K-Electric, SSGC, water</li>
-        <li><i class="ri-check-line"></i>Union governance — proposals, voting, elections</li>
-        <li><i class="ri-check-line"></i>Resident portal — dues, payments, complaints</li>
-        <li><i class="ri-check-line"></i>Rent + sale listings</li>
-        <li><i class="ri-check-line"></i>Services marketplace</li>
-        <li><i class="ri-check-line"></i>Multi-role access — admin, union, owner, resident</li>
-      </ul>
-      <a href="https://wa.me/923332994029?text=Hi%2C%20I%27m%20interested%20in%20the%20Growth%20plan%20for%20Pulse%20BMS.%20How%20do%20I%20get%20started%3F" class="btn btn-primary" style="width:100%;justify-content:center" target="_blank" rel="noopener">Talk to Sales <i class="ri-arrow-right-line"></i></a>
+      <div>
+        <div class="plan-name-label">Growth</div>
+        <div class="plan-range-label">101 – 400 flats</div>
+        <div class="plan-price-row">
+          <span class="curr-sm">PKR</span>
+          <span class="plan-amt" id="g-amt">100</span>
+          <span class="per-sm">/flat /mo</span>
+        </div>
+        <div class="plan-annual-line" id="g-aline">20% off — billed annually</div>
+        <p class="plan-tagline-text">Mid-sized societies = Pay per flat.</p>
+      </div>
+
+      <div class="tier-panel">
+        <div class="tier-input-wrap">
+          <i class="ri-calculator-line"></i>
+          <input type="number" inputmode="numeric" min="0" placeholder="Calculate — enter flat count" class="tier-input" id="g-input">
+        </div>
+        <div id="g-result" style="display:none;margin-top:0">
+          <div class="tier-2col" style="margin-top:8px">
+            <div class="tier-cell">
+              <div class="cell-lbl">Monthly</div>
+              <div class="cell-val" id="g-monthly">—</div>
+            </div>
+            <div class="tier-cell gold">
+              <div class="cell-lbl">Annual · save 20%</div>
+              <div class="cell-val" id="g-annual">—</div>
+            </div>
+          </div>
+          <div class="tier-save-bar" id="g-savebar" style="margin-top:8px">
+            <span id="g-savetext"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-bottom">
+        <a href="https://wa.me/923332994029?text=Hi%2C%20I%27m%20interested%20in%20the%20Growth%20plan%20for%20Pulse%20BMS.%20How%20do%20I%20get%20started%3F" class="btn btn-primary plan-btn" target="_blank" rel="noopener" id="g-cta">Talk to Sales <i class="ri-arrow-right-line"></i></a>
+        <p class="all-feats-note">All 10 features included →</p>
+      </div>
     </div>
 
     <!-- PRO -->
     <div class="plan reveal d2">
-      <div class="plan-name">Pro</div>
-      <div class="plan-desc">Large societies of 401+ flats — best per-flat rate.</div>
-      <div class="plan-price"><span class="curr">Rs.</span><span class="amt" data-m="50" data-a="40">50</span><span class="per">/flat/mo</span></div>
-      <div class="plan-unit">401+ flats · <span class="billing-period">Billed monthly</span></div>
-      <hr class="plan-divider">
-      <ul class="plan-feats">
-        <li><i class="ri-check-line"></i>One-tap WhatsApp reminders to defaulters</li>
-        <li><i class="ri-check-line"></i>Auto maintenance bills + printable receipts</li>
-        <li><i class="ri-check-line"></i>Accountant-grade reports</li>
-        <li><i class="ri-check-line"></i>Project funds — lift, paint, generator</li>
-        <li><i class="ri-check-line"></i>Utility tracking — K-Electric, SSGC, water</li>
-        <li><i class="ri-check-line"></i>Union governance — proposals, voting, elections</li>
-        <li><i class="ri-check-line"></i>Resident portal — dues, payments, complaints</li>
-        <li><i class="ri-check-line"></i>Rent + sale listings</li>
-        <li><i class="ri-check-line"></i>Services marketplace</li>
-        <li><i class="ri-check-line"></i>Multi-role access — admin, union, owner, resident</li>
-      </ul>
-      <a href="https://wa.me/923332994029?text=Hi%2C%20I%27m%20interested%20in%20the%20Pro%20plan%20for%20Pulse%20BMS.%20How%20do%20I%20get%20started%3F" class="btn btn-ghost" style="width:100%;justify-content:center" target="_blank" rel="noopener">Talk to Sales <i class="ri-whatsapp-line"></i></a>
+      <div>
+        <div class="plan-name-label">Pro</div>
+        <div class="plan-range-label">401+ flats</div>
+        <div class="plan-price-row">
+          <span class="curr-sm">PKR</span>
+          <span class="plan-amt" id="p-amt">50</span>
+          <span class="per-sm">/flat /mo</span>
+        </div>
+        <div class="plan-annual-line" id="p-aline">20% off — billed annually</div>
+        <p class="plan-tagline-text">Large societies = Best per-flat rate.</p>
+      </div>
+
+      <div class="tier-panel">
+        <div class="tier-input-wrap">
+          <i class="ri-calculator-line"></i>
+          <input type="number" inputmode="numeric" min="0" placeholder="Calculate — enter flat count" class="tier-input" id="p-input">
+        </div>
+        <div id="p-result" style="display:none">
+          <div class="tier-2col" style="margin-top:8px">
+            <div class="tier-cell">
+              <div class="cell-lbl">Monthly</div>
+              <div class="cell-val" id="p-monthly">—</div>
+            </div>
+            <div class="tier-cell gold">
+              <div class="cell-lbl">Annual · save 20%</div>
+              <div class="cell-val" id="p-annual">—</div>
+            </div>
+          </div>
+          <div class="tier-save-bar" id="p-savebar" style="margin-top:8px">
+            <span id="p-savetext"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-bottom">
+        <a href="https://wa.me/923332994029?text=Hi%2C%20I%27m%20interested%20in%20the%20Pro%20plan%20for%20Pulse%20BMS.%20How%20do%20I%20get%20started%3F" class="btn btn-ghost plan-btn" target="_blank" rel="noopener" id="p-cta">Talk to Sales <i class="ri-arrow-right-line"></i></a>
+        <p class="all-feats-note">All 10 features included →</p>
+      </div>
     </div>
+
   </div>
-  <p class="pricing-note reveal"><i class="ri-information-line"></i>&nbsp; No setup fees · No card to start · Cancel anytime · Full data export included</p>
+  <p class="pricing-note">Prices in PKR. Pay less per flat as your society grows.</p>
 
-  <!-- COMPARISON TABLE -->
-  <div class="comp-wrap reveal">
-    <table class="comp-table">
-      <caption>Full feature comparison</caption>
-      <thead>
-        <tr>
-          <th style="width:40%">Feature</th>
-          <th>Starter</th>
-          <th class="pop-col">Growth</th>
-          <th>Pro</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="cat"><td colspan="4">Billing &amp; Payments</td></tr>
-        <tr><td>One-tap WhatsApp reminders to defaulters</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
-        <tr><td>Auto maintenance bills + printable receipts</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
-
-        <tr class="cat"><td colspan="4">Finance &amp; Reports</td></tr>
-        <tr><td>Accountant-grade reports</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
-        <tr><td>Project funds — lift, paint, generator</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
-        <tr><td>Utility tracking — K-Electric, SSGC, water, AMCs</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
-
-        <tr class="cat"><td colspan="4">Governance &amp; Community</td></tr>
-        <tr><td>Union governance — proposals, voting, elections</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
-        <tr><td>Resident portal — dues, payments, complaints</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
-        <tr><td>Rent + sale listings — visibility for the union</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
-        <tr><td>Services marketplace — neighbors offer + find help</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
-        <tr><td>Multi-role access — admin, union, owner, resident</td><td><i class="ri-check-line yes"></i></td><td class="pop-col"><i class="ri-check-line yes"></i></td><td><i class="ri-check-line yes"></i></td></tr>
-      </tbody>
-    </table>
+  <!-- FEATURE MANIFEST -->
+  <div class="manifest-box reveal">
+    <div class="manifest-top-rule"></div>
+    <div class="manifest-header">
+      <div>
+        <p class="manifest-kicker">The Standard Stack</p>
+        <h3 class="manifest-title">Every plan ships with every feature.</h3>
+        <p class="manifest-sub">Tier choice is purely about flat count. The product surface itself is identical from Starter to Pro.</p>
+      </div>
+      <div class="manifest-count">
+        <span class="manifest-count-lbl">Manifest</span>
+        <span class="manifest-count-num">10</span>
+        <span class="manifest-count-lbl">items</span>
+      </div>
+    </div>
+    <ul class="manifest-list">
+      <li class="manifest-item"><span class="manifest-num">01</span><span class="manifest-feat">One-tap WhatsApp reminders to defaulters</span><i class="ri-check-line manifest-check"></i></li>
+      <li class="manifest-item"><span class="manifest-num">02</span><span class="manifest-feat">Auto maintenance bills + printable receipts</span><i class="ri-check-line manifest-check"></i></li>
+      <li class="manifest-item"><span class="manifest-num">03</span><span class="manifest-feat">Accountant-grade reports</span><i class="ri-check-line manifest-check"></i></li>
+      <li class="manifest-item"><span class="manifest-num">04</span><span class="manifest-feat">Project funds — lift, paint, generator</span><i class="ri-check-line manifest-check"></i></li>
+      <li class="manifest-item"><span class="manifest-num">05</span><span class="manifest-feat">Utility tracking — K-Electric, SSGC, water, AMCs</span><i class="ri-check-line manifest-check"></i></li>
+      <li class="manifest-item"><span class="manifest-num">06</span><span class="manifest-feat">Union governance — proposals, voting, elections</span><i class="ri-check-line manifest-check"></i></li>
+      <li class="manifest-item"><span class="manifest-num">07</span><span class="manifest-feat">Resident portal — dues, payments, complaints</span><i class="ri-check-line manifest-check"></i></li>
+      <li class="manifest-item"><span class="manifest-num">08</span><span class="manifest-feat">Rent + sale listings — visibility for the union</span><i class="ri-check-line manifest-check"></i></li>
+      <li class="manifest-item"><span class="manifest-num">09</span><span class="manifest-feat">Services marketplace — neighbors offer + find help</span><i class="ri-check-line manifest-check"></i></li>
+      <li class="manifest-item"><span class="manifest-num">10</span><span class="manifest-feat">Multi-role access — admin, union, owner, resident</span><i class="ri-check-line manifest-check"></i></li>
+    </ul>
+    <div class="manifest-bottom-rule"></div>
   </div>
 
   <!-- TESTIMONIALS -->
@@ -481,8 +486,8 @@ footer{background:var(--s1);border-top:1px solid var(--border);padding:48px 0 28
     <div class="cta-inner reveal">
       <div class="section-label" style="justify-content:center">Get Started</div>
       <h2>Your building deserves better than WhatsApp groups.</h2>
-      <p>Go live before your next billing cycle. First month free, no card needed.</p>
-      <a href="https://wa.me/923332994029?text=Hi%2C%20I%27d%20like%20to%20start%20Pulse%20BMS%20for%20free" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Start Free Trial <i class="ri-arrow-right-line"></i></a>
+      <p>Go live before your next billing cycle. No card needed.</p>
+      <a href="https://wa.me/923332994029?text=Hi%2C%20I%27m%20interested%20in%20Pulse%20BMS.%20Can%20you%20help%20me%20choose%20the%20right%20plan%3F" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Talk to Sales <i class="ri-arrow-right-line"></i></a>
       <div><div class="cta-urgency"><i class="ri-time-line"></i> We onboard 5 new buildings per week — secure your slot</div></div>
     </div>
   </div>
@@ -531,53 +536,78 @@ footer{background:var(--s1);border-top:1px solid var(--border);padding:48px 0 28
 <a href="https://wa.me/923332994029?text=Hi%2C%20I%27m%20interested%20in%20Pulse%20BMS" class="wa-float" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i></a>
 
 <script>
+const WA = '923332994029';
+let annual = false;
+
+function waLink(msg){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(msg)}
+function fmt(n){return n.toLocaleString('en-PK')}
+
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('stuck',scrollY>10),{passive:true});
 document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('mobileNav').classList.add('open'));
 document.getElementById('menuClose').addEventListener('click',()=>document.getElementById('mobileNav').classList.remove('open'));
 function closeMenu(){document.getElementById('mobileNav').classList.remove('open')}
+
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')})});
-const tog=document.getElementById('ptoggle');
-tog.addEventListener('change',()=>{const a=tog.checked;document.getElementById('mlbl').classList.toggle('on',!a);document.getElementById('albl').classList.toggle('on',a);document.querySelectorAll('.plan-price .amt').forEach(el=>el.textContent=a?el.dataset.a:el.dataset.m);document.querySelectorAll('.billing-period').forEach(el=>el.textContent=a?'Billed annually':'Billed monthly');updateCalc()});
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item'),open=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!open)item.classList.add('open')})});
 
-/* PRICE CALCULATOR */
-const calcNum=document.getElementById('calcNum'),calcSlider=document.getElementById('calcSlider');
-function getRate(n){
-  if(n<=100)return{plan:'Starter',isFlat:true,monthly:15000,annualMonthly:12000};
-  if(n<=400)return{plan:'Growth',isFlat:false,perFlat:100,perFlatAnnual:80};
-  return{plan:'Pro',isFlat:false,perFlat:50,perFlatAnnual:40};
+function setAnnual(a){
+  annual = a;
+  document.getElementById('tog-m').classList.toggle('on',!a);
+  document.getElementById('tog-a').classList.toggle('on',a);
+
+  /* Starter */
+  document.getElementById('s-amt').textContent   = a ? '12,000' : '15,000';
+  document.getElementById('s-aline').style.display = a ? 'block' : 'none';
+  document.getElementById('s-mcell').textContent = a ? '12,000' : '15,000';
+  document.getElementById('s-savebar').classList.toggle('show', a);
+
+  /* Growth & Pro headlines */
+  document.getElementById('g-amt').textContent = a ? '80' : '100';
+  document.getElementById('g-aline').style.display = a ? 'block' : 'none';
+  document.getElementById('p-amt').textContent = a ? '40' : '50';
+  document.getElementById('p-aline').style.display = a ? 'block' : 'none';
+
+  calcGrowth();
+  calcPro();
 }
-function updateCalc(){
-  const n=Math.max(10,Math.min(500,parseInt(calcNum.value)||150));
-  calcSlider.value=n;
-  const pct=((n-10)/(500-10))*100;
-  calcSlider.style.setProperty('--pct',pct+'%');
-  const r=getRate(n);
-  const isAnnual=tog.checked;
-  let monthly,annualTotal,saving,recText;
-  if(r.isFlat){
-    monthly=isAnnual?r.annualMonthly:r.monthly;
-    annualTotal=r.annualMonthly*12;
-    saving=(r.monthly-r.annualMonthly)*12;
-    recText='Starter plan · flat fee, no per-flat calculation';
-  }else{
-    const rate=isAnnual?r.perFlatAnnual:r.perFlat;
-    monthly=n*rate;
-    annualTotal=n*r.perFlatAnnual*12;
-    saving=n*(r.perFlat-r.perFlatAnnual)*12;
-    recText=r.plan+' plan · Rs. '+(isAnnual?r.perFlatAnnual:r.perFlat)+'/flat × '+n+' flats';
-  }
-  document.getElementById('calc-monthly').textContent='Rs. '+monthly.toLocaleString();
-  document.getElementById('calc-plan-sub').textContent=r.plan+' Plan';
-  document.getElementById('calc-annual').textContent='Rs. '+annualTotal.toLocaleString()+'/yr';
-  document.getElementById('calc-saving').textContent='Save Rs. '+saving.toLocaleString()+'/yr';
-  document.getElementById('calc-rec').innerHTML='<i class="ri-information-line"></i><span>'+recText+'</span>';
+
+function calcGrowth(){
+  const flats = Math.max(0, parseInt(document.getElementById('g-input').value)||0);
+  const res = document.getElementById('g-result');
+  if(!flats){res.style.display='none';return;}
+  res.style.display='block';
+  const base = flats * 100;
+  const disc = Math.round(base * 0.8);
+  const annualTotal = disc * 12;
+  const saving = base * 12 - annualTotal;
+  document.getElementById('g-monthly').textContent = fmt(annual ? disc : base);
+  document.getElementById('g-annual').textContent  = fmt(annualTotal);
+  const bar = document.getElementById('g-savebar');
+  if(annual){document.getElementById('g-savetext').textContent='You save PKR '+fmt(saving)+' every year';bar.classList.add('show');}
+  else{bar.classList.remove('show');}
+  document.getElementById('g-cta').href = waLink("Hi, I'm interested in the Growth plan for Pulse BMS. My society has "+flats+" flats. How do I get started?");
 }
-calcNum.addEventListener('input',()=>{calcSlider.value=Math.min(Math.max(parseInt(calcNum.value)||10,10),500);updateCalc()});
-calcSlider.addEventListener('input',()=>{calcNum.value=calcSlider.value;updateCalc()});
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
-updateCalc();
+
+function calcPro(){
+  const flats = Math.max(0, parseInt(document.getElementById('p-input').value)||0);
+  const res = document.getElementById('p-result');
+  if(!flats){res.style.display='none';return;}
+  res.style.display='block';
+  const base = flats * 50;
+  const disc = Math.round(base * 0.8);
+  const annualTotal = disc * 12;
+  const saving = base * 12 - annualTotal;
+  document.getElementById('p-monthly').textContent = fmt(annual ? disc : base);
+  document.getElementById('p-annual').textContent  = fmt(annualTotal);
+  const bar = document.getElementById('p-savebar');
+  if(annual){document.getElementById('p-savetext').textContent='You save PKR '+fmt(saving)+' every year';bar.classList.add('show');}
+  else{bar.classList.remove('show');}
+  document.getElementById('p-cta').href = waLink("Hi, I'm interested in the Pro plan for Pulse BMS. Our society has "+flats+" flats. How do I get started?");
+}
+
+document.getElementById('g-input').addEventListener('input', calcGrowth);
+document.getElementById('p-input').addEventListener('input', calcPro);
 </script>
 </body>
 </html>
