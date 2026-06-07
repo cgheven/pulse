@@ -557,31 +557,6 @@ nav.stuck{
 .pricing-note{text-align:center;margin-top:24px;font-size:0.8rem;color:var(--t3)}
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   FAQ
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.faq-list{max-width:680px;margin:0 auto}
-.faq-item{border-bottom:1px solid var(--border)}
-.faq-q{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 0;gap:16px;width:100%;
-  background:none;border:none;text-align:left;cursor:pointer;
-}
-.faq-q span{font-size:0.9375rem;font-weight:500;color:var(--t2);transition:color 0.15s}
-.faq-q:hover span{color:var(--t1)}
-.faq-ico{
-  width:26px;height:26px;border-radius:50%;
-  background:rgba(255,255,255,0.05);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--t3);flex-shrink:0;transition:transform 0.25s,background 0.2s;
-  font-size:0.75rem;
-}
-.faq-item.open .faq-ico{transform:rotate(45deg);background:var(--gold-dim);color:var(--gold);border-color:var(--gold-glow)}
-.faq-item.open .faq-q span{color:var(--t1)}
-.faq-ans{max-height:0;overflow:hidden;transition:max-height 0.35s ease}
-.faq-ans p{padding-bottom:20px;font-size:0.875rem;line-height:1.8}
-.faq-item.open .faq-ans{max-height:280px}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    FINAL CTA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 #cta{
@@ -716,7 +691,6 @@ footer{
       <li><a href="#platform">Products</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-right">
       <a href="https://app.yourpulse.io/login" class="btn btn-ghost" style="padding:9px 18px;font-size:0.82rem" target="_blank" rel="noopener">Sign In</a>
@@ -734,7 +708,6 @@ footer{
   <a href="#platform" onclick="closeMenu()">Products</a>
   <a href="#features" onclick="closeMenu()">Features</a>
   <a href="pricing.html" onclick="closeMenu()">Pricing</a>
-  <a href="#faq" onclick="closeMenu()">FAQ</a>
   <a href="https://wa.me/923001234567?text=Hi%2C%20I%27m%20interested%20in%20Pulse" class="btn btn-primary btn-lg" target="_blank" rel="noopener" onclick="closeMenu()">Get Started Free</a>
 </div>
 
@@ -1281,50 +1254,7 @@ footer{
 </section>
 
 
-<!-- ━━━━━ FAQ ━━━━━ -->
-<section id="faq" class="alt">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="section-label">FAQ</div>
-      <h2 class="title">Everything you want to know<br>before starting</h2>
-      <p>Still have questions? Message us on WhatsApp — we respond within the hour.</p>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item reveal">
-        <button class="faq-q"><span>Does money pass through Pulse?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
-        <div class="faq-ans"><p>No. Pulse is a management and tracking platform, not a payment processor. Residents pay your organisation directly — cash, JazzCash, EasyPaisa, or bank transfer. Pulse records and tracks those payments. All money stays between your residents and your building.</p></div>
-      </div>
-      <div class="faq-item reveal d1">
-        <button class="faq-q"><span>What if our residents don't use smartphones?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
-        <div class="faq-ans"><p>The admin portal handles everything. Residents who prefer paying in person do so as usual — the admin logs it in Pulse. WhatsApp reminders are sent from the admin's account, so the resident doesn't need to install anything or have a Pulse account to receive them.</p></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q"><span>How long does setup actually take?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
-        <div class="faq-ans"><p>Most buildings go live in under 24 hours. Our onboarding team helps you import your resident list, configure billing, and invite your first stakeholders in a single session. If you're migrating from Excel, we handle the data transfer for you.</p></div>
-      </div>
-      <div class="faq-item reveal d1">
-        <button class="faq-q"><span>Is our data secure?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
-        <div class="faq-ans"><p>Yes. Pulse uses encrypted HTTPS connections, role-based access controls, and daily automated backups. No one outside your organisation can access your data. Every action on the platform is audit-logged internally — you'll always know who changed what and when.</p></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q"><span>Can we try it before paying?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
-        <div class="faq-ans"><p>Yes — your first month is completely free with full platform access. No credit card required at any point during the trial. You only need to enter billing details when you decide to continue.</p></div>
-      </div>
-      <div class="faq-item reveal d1">
-        <button class="faq-q"><span>Do you support multiple buildings or branches?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
-        <div class="faq-ans"><p>Yes, on the Pro plan. Property owners and gym chains get a unified multi-location dashboard — one login, every property. Revenue, occupancy, expenses, and complaints across all locations at a glance.</p></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q"><span>What happens if we want to cancel?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
-        <div class="faq-ans"><p>Cancel anytime with no questions asked and no penalty. Before you leave, you can export everything — payment history, resident records, financial reports — in standard formats. Your data belongs to you, not us.</p></div>
-      </div>
-      <div class="faq-item reveal d1">
-        <button class="faq-q"><span>Is there an Urdu language option?</span><div class="faq-ico"><i class="ri-add-line"></i></div></button>
-        <div class="faq-ans"><p>The platform currently runs in English with PKR currency throughout. Urdu language support is on our roadmap for later this year. WhatsApp messages can be customised and sent in Urdu manually by the admin at any time.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ━━━━━ FINAL CTA ━━━━━ -->
 <section id="cta">
@@ -1473,15 +1403,6 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* ─── FAQ accordion ─── */
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  });
-});
 
 /* ─── pricing toggle ─── */
 const tog = document.getElementById('ptoggle');
