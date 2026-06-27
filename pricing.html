@@ -5,18 +5,18 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="canonical" href="https://yourpulse.io/pricing">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Simple, transparent pricing for Pulse BMS, GMS, and HMS. No setup fees, no hidden costs. Pay only for what you manage. 7-day free trial.">
+<meta name="description" content="Simple, transparent pricing for Pulse BMS, GMS, HMS, DMS, and Clinic. No setup fees, no hidden costs. Pay only for what you manage. 7-day free trial.">
 <meta name="keywords" content="Pulse pricing Pakistan, building management software price, gym management software cost, hostel management system pricing, society software Pakistan price">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Pulse Technologies">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Pulse">
 <meta property="og:title" content="Pricing | Pulse — Management Software for Pakistan">
-<meta property="og:description" content="Simple, transparent pricing for buildings, gyms, and hostels. No setup fees, no hidden costs. 7-day free trial.">
+<meta property="og:description" content="Simple, transparent pricing for buildings, gyms, hostels, clinics, and inventory. No setup fees, no hidden costs. 7-day free trial.">
 <meta property="og:url" content="https://yourpulse.io/pricing">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pricing | Pulse — Management Software for Pakistan">
-<meta name="twitter:description" content="Simple, transparent pricing for buildings, gyms, and hostels. No setup fees, no hidden costs. 7-day free trial.">
+<meta name="twitter:description" content="Simple, transparent pricing for buildings, gyms, hostels, clinics, and inventory. No setup fees, no hidden costs. 7-day free trial.">
 <title>Pricing | Pulse — Management Software for Pakistan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
   --gold:#F5A623;--gold-dim:rgba(245,166,35,0.09);--gold-glow:rgba(245,166,35,0.22);
   --blue:#5B8AF8;--blue-dim:rgba(91,138,248,0.09);--blue-glow:rgba(91,138,248,0.22);
   --purple:#A855F7;--purple-dim:rgba(168,85,247,0.09);--purple-glow:rgba(168,85,247,0.22);
-  --green:#22C55E;--t1:#fff;--t2:rgba(255,255,255,0.54);--t3:rgba(255,255,255,0.28);
+  --green:#22C55E;--teal:#14B8A6;--teal-dim:rgba(20,184,166,0.09);--teal-glow:rgba(20,184,166,0.22);--rose:#F43F5E;--rose-dim:rgba(244,63,94,0.09);--rose-glow:rgba(244,63,94,0.22);--t1:#fff;--t2:rgba(255,255,255,0.54);--t3:rgba(255,255,255,0.28);
   --r1:6px;--r2:10px;--r3:14px;--r4:20px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -84,6 +84,8 @@ nav.stuck{background:rgba(7,8,15,0.85);backdrop-filter:blur(20px);border-bottom:
 .hub-card.bms:hover{border-color:var(--gold-glow);box-shadow:0 20px 60px rgba(245,166,35,0.08)}
 .hub-card.gms:hover{border-color:var(--blue-glow);box-shadow:0 20px 60px rgba(91,138,248,0.08)}
 .hub-card.hms:hover{border-color:var(--purple-glow);box-shadow:0 20px 60px rgba(168,85,247,0.08)}
+.hub-card.dms:hover{border-color:var(--teal-glow);box-shadow:0 20px 60px rgba(20,184,166,0.08)}
+.hub-card.clinic:hover{border-color:var(--rose-glow);box-shadow:0 20px 60px rgba(244,63,94,0.08)}
 .hub-card::before{
   content:'';position:absolute;inset:0;
   background:radial-gradient(ellipse 70% 40% at 50% 0%,var(--glow-color,transparent),transparent 70%);
@@ -92,16 +94,22 @@ nav.stuck{background:rgba(7,8,15,0.85);backdrop-filter:blur(20px);border-bottom:
 .hub-card.bms{--glow-color:rgba(245,166,35,0.06)}
 .hub-card.gms{--glow-color:rgba(91,138,248,0.06)}
 .hub-card.hms{--glow-color:rgba(168,85,247,0.06)}
+.hub-card.dms{--glow-color:rgba(20,184,166,0.06)}
+.hub-card.clinic{--glow-color:rgba(244,63,94,0.06)}
 .hub-card:hover::before{opacity:1}
 
 .hub-icon{width:48px;height:48px;border-radius:var(--r2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:18px}
 .hub-icon.bms{background:var(--gold-dim);color:var(--gold)}
 .hub-icon.gms{background:var(--blue-dim);color:var(--blue)}
 .hub-icon.hms{background:var(--purple-dim);color:var(--purple)}
+.hub-icon.dms{background:var(--teal-dim);color:var(--teal)}
+.hub-icon.clinic{background:var(--rose-dim);color:var(--rose)}
 .hub-badge{font-size:0.65rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;margin-bottom:6px}
 .hub-badge.bms{color:var(--gold)}
 .hub-badge.gms{color:var(--blue)}
 .hub-badge.hms{color:var(--purple)}
+.hub-badge.dms{color:var(--teal)}
+.hub-badge.clinic{color:var(--rose)}
 .hub-card h2{font-size:1.1rem;font-weight:600;color:var(--t1);margin-bottom:6px;letter-spacing:-0.01em}
 .hub-card .tagline{font-size:0.85rem;color:var(--t3);margin-bottom:18px}
 .hub-bullets{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:28px;flex:1}
@@ -110,10 +118,14 @@ nav.stuck{background:rgba(7,8,15,0.85);backdrop-filter:blur(20px);border-bottom:
 .hub-card.bms .hub-bullets li::before{background:var(--gold)}
 .hub-card.gms .hub-bullets li::before{background:var(--blue)}
 .hub-card.hms .hub-bullets li::before{background:var(--purple)}
+.hub-card.dms .hub-bullets li::before{background:var(--teal)}
+.hub-card.clinic .hub-bullets li::before{background:var(--rose)}
 .hub-cta{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-radius:var(--r2);font-size:0.85rem;font-weight:600;transition:all .18s;margin-top:auto}
 .hub-cta.bms{background:var(--gold-dim);border:1px solid var(--gold-glow);color:var(--gold)}
 .hub-cta.gms{background:var(--blue-dim);border:1px solid var(--blue-glow);color:var(--blue)}
 .hub-cta.hms{background:var(--purple-dim);border:1px solid var(--purple-glow);color:var(--purple)}
+.hub-cta.dms{background:var(--teal-dim);border:1px solid var(--teal-glow);color:var(--teal)}
+.hub-cta.clinic{background:var(--rose-dim);border:1px solid var(--rose-glow);color:var(--rose)}
 .hub-cta:hover{opacity:0.8;transform:translateX(2px)}
 
 /* common includes */
@@ -243,6 +255,36 @@ footer{background:var(--s1);border-top:1px solid var(--border);padding:48px 0 28
           See HMS pricing <i class="ri-arrow-right-line"></i>
         </div>
       </a>
+      <a href="https://dms.yourpulse.io/pricing" class="hub-card dms reveal" target="_blank" rel="noopener">
+        <div class="hub-icon dms"><i class="ri-box-3-line"></i></div>
+        <div class="hub-badge dms">DMS</div>
+        <h2>Inventory Management</h2>
+        <p class="tagline">For shops, warehouses &amp; distributors</p>
+        <ul class="hub-bullets">
+          <li>Real-time stock tracking</li>
+          <li>Purchase &amp; sale orders</li>
+          <li>Supplier &amp; vendor management</li>
+          <li>WhatsApp invoicing</li>
+        </ul>
+        <div class="hub-cta dms">
+          See DMS pricing <i class="ri-arrow-right-line"></i>
+        </div>
+      </a>
+      <a href="https://clinic.yourpulse.io/pricing" class="hub-card clinic reveal d1" target="_blank" rel="noopener">
+        <div class="hub-icon clinic"><i class="ri-hospital-line"></i></div>
+        <div class="hub-badge clinic">Clinic</div>
+        <h2>Clinic Management</h2>
+        <p class="tagline">For clinics, doctors &amp; healthcare providers</p>
+        <ul class="hub-bullets">
+          <li>Patient records &amp; history</li>
+          <li>Appointment scheduling</li>
+          <li>Prescription management</li>
+          <li>Billing &amp; payments</li>
+        </ul>
+        <div class="hub-cta clinic">
+          See Clinic pricing <i class="ri-arrow-right-line"></i>
+        </div>
+      </a>
     </div>
   </div>
 </div>
@@ -312,7 +354,7 @@ footer{background:var(--s1);border-top:1px solid var(--border);padding:48px 0 28
         <a href="index.html" class="logo">
           <img src="logo_transparent_background.png" alt="Pulse" style="height:72px;filter:brightness(0) invert(1)">
         </a>
-        <p>Management software for buildings, gyms, and hostels.</p>
+        <p>Management software for buildings, gyms, hostels, clinics, and more.</p>
         <div class="social-links" style="margin-top:16px">
           <a href="#" class="slink"><i class="ri-instagram-line"></i></a>
           <a href="#" class="slink"><i class="ri-twitter-x-line"></i></a>
@@ -324,6 +366,8 @@ footer{background:var(--s1);border-top:1px solid var(--border);padding:48px 0 28
         <li><a href="pricing-bms.html">BMS Pricing</a></li>
         <li><a href="pricing-gms.html">GMS Pricing</a></li>
         <li><a href="pricing-hms.html">HMS Pricing</a></li>
+        <li><a href="https://dms.yourpulse.io/pricing" target="_blank" rel="noopener">DMS Pricing</a></li>
+        <li><a href="https://clinic.yourpulse.io/pricing" target="_blank" rel="noopener">Clinic Pricing</a></li>
       </ul></div>
       <div class="foot-col"><h4>Company</h4><ul>
         <li><a href="index.html">Home</a></li>

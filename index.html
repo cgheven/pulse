@@ -5,18 +5,18 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="canonical" href="https://yourpulse.io">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Pulse is management software for buildings, gyms, and hostels in Pakistan. Auto-billing, WhatsApp payment reminders, financial reports, and resident portals. 7-day free trial.">
-<meta name="keywords" content="building management system Pakistan, society management software, gym management software Pakistan, hostel management system Pakistan, maintenance billing software, WhatsApp billing reminders, residential society software Karachi, BMS GMS HMS Pakistan">
+<meta name="description" content="Pulse is management software for buildings, gyms, hostels, clinics, and inventory in Pakistan. Auto-billing, WhatsApp payment reminders, financial reports. 7-day free trial.">
+<meta name="keywords" content="building management system Pakistan, society management software, gym management software Pakistan, hostel management system Pakistan, clinic management software Pakistan, inventory management system Pakistan, maintenance billing software, WhatsApp billing reminders, BMS GMS HMS DMS Pakistan">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Pulse Technologies">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Pulse">
 <meta property="og:title" content="Pulse | Management Software for Pakistan">
-<meta property="og:description" content="Pulse is management software for buildings, gyms, and hostels in Pakistan. Auto-billing, WhatsApp reminders, financial reports. 7-day free trial.">
+<meta property="og:description" content="Pulse is management software for buildings, gyms, hostels, clinics, and inventory in Pakistan. Auto-billing, WhatsApp reminders, financial reports. 7-day free trial.">
 <meta property="og:url" content="https://yourpulse.io">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pulse | Management Software for Pakistan">
-<meta name="twitter:description" content="Pulse is management software for buildings, gyms, and hostels in Pakistan. Auto-billing, WhatsApp reminders, financial reports. 7-day free trial.">
+<meta name="twitter:description" content="Pulse is management software for buildings, gyms, hostels, clinics, and inventory in Pakistan. Auto-billing, WhatsApp reminders, financial reports. 7-day free trial.">
 <title>Pulse | Management Software for Pakistan</title>
 <script type="application/ld+json">
 {
@@ -40,7 +40,7 @@
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "url": "https://yourpulse.io",
-      "description": "Management software for buildings, gyms, and hostels in Pakistan. Auto-billing, WhatsApp reminders, financial reports.",
+      "description": "Management software for buildings, gyms, hostels, clinics, and inventory in Pakistan. Auto-billing, WhatsApp reminders, financial reports.",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -77,6 +77,14 @@
 
   --purple:     #A855F7;
   --purple-dim: rgba(168,85,247,0.09);
+
+  --teal:       #14B8A6;
+  --teal-dim:   rgba(20,184,166,0.09);
+  --teal-glow:  rgba(20,184,166,0.20);
+
+  --rose:       #F43F5E;
+  --rose-dim:   rgba(244,63,94,0.09);
+  --rose-glow:  rgba(244,63,94,0.20);
 
   --green:  #22C55E;
   --red:    #EF4444;
@@ -258,6 +266,8 @@ nav.stuck{
 .ptab[data-p="bms"].active .dot{background:var(--gold)}
 .ptab[data-p="gms"].active .dot{background:var(--blue)}
 .ptab[data-p="hms"].active .dot{background:var(--purple)}
+.ptab[data-p="dms"].active .dot{background:var(--teal)}
+.ptab[data-p="clinic"].active .dot{background:var(--rose)}
 
 /* hero dynamic content */
 .hero-content{transition:opacity 0.18s ease,transform 0.18s ease}
@@ -266,6 +276,8 @@ nav.stuck{
 .display span.accent-bms{color:var(--gold)}
 .display span.accent-gms{color:var(--blue)}
 .display span.accent-hms{color:var(--purple)}
+.display span.accent-dms{color:var(--teal)}
+.display span.accent-clinic{color:var(--rose)}
 
 .hero-sub{font-size:1rem;color:var(--t2);margin-top:18px;max-width:440px;line-height:1.75}
 .hero-ctas{display:flex;align-items:center;gap:10px;margin-top:32px;flex-wrap:wrap}
@@ -421,7 +433,7 @@ nav.stuck{
 .platform-intro .display{font-size:clamp(2rem,4vw,3rem)}
 .platform-intro p{margin-top:16px;font-size:1rem;max-width:480px}
 
-.platform-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.platform-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
 .pcard{
   background:var(--s2);border:1px solid var(--border);
   border-radius:var(--r3);padding:28px 22px;
@@ -438,7 +450,8 @@ nav.stuck{
 .icon-bms{background:var(--gold-dim);color:var(--gold)}
 .icon-gms{background:var(--blue-dim);color:var(--blue)}
 .icon-hms{background:var(--purple-dim);color:var(--purple)}
-.icon-more{background:rgba(255,255,255,0.05);color:var(--t3)}
+.icon-dms{background:var(--teal-dim);color:var(--teal)}
+.icon-clinic{background:var(--rose-dim);color:var(--rose)}
 .pcard-badge{
   font-size:0.65rem;font-weight:700;letter-spacing:0.09em;
   text-transform:uppercase;margin-bottom:6px;
@@ -446,7 +459,8 @@ nav.stuck{
 .pcard-badge.bms{color:var(--gold)}
 .pcard-badge.gms{color:var(--blue)}
 .pcard-badge.hms{color:var(--purple)}
-.pcard-badge.soon-label{color:var(--t3)}
+.pcard-badge.dms{color:var(--teal)}
+.pcard-badge.clinic{color:var(--rose)}
 .pcard h3{font-size:0.9rem;margin-bottom:6px}
 .pcard p{font-size:0.82rem;margin-bottom:16px}
 .pcard ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
@@ -679,7 +693,7 @@ footer{
    RESPONSIVE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 @media(max-width:1024px){
-  .platform-cards{grid-template-columns:repeat(2,1fr)}
+  .platform-cards{grid-template-columns:repeat(3,1fr)}
   .feat-grid{grid-template-columns:repeat(3,1fr)}.prod-feat-grid{grid-template-columns:repeat(2,1fr)}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
@@ -759,7 +773,7 @@ footer{
       <div class="hero-left">
         <div class="hero-eyebrow reveal">
           <span class="live-dot"></span>
-          Now live across Pakistan — buildings, gyms &amp; hostels
+          Now live across Pakistan — buildings, gyms, hostels &amp; more
         </div>
 
         <!-- product tabs -->
@@ -772,6 +786,12 @@ footer{
           </button>
           <button class="ptab" data-p="hms">
             <span class="dot"></span> HMS
+          </button>
+          <button class="ptab" data-p="dms">
+            <span class="dot"></span> DMS
+          </button>
+          <button class="ptab" data-p="clinic">
+            <span class="dot"></span> Clinic
           </button>
         </div>
 
@@ -997,6 +1017,126 @@ footer{
                 </div>
               </div>
 
+              <!-- DMS -->
+              <div class="mock-slide" id="slide-dms">
+                <div class="mock-body">
+                  <div class="mock-sidebar">
+                    <div class="mock-nav-item on"><i class="ri-dashboard-line"></i><span>Overview</span></div>
+                    <div class="mock-nav-item"><i class="ri-box-3-line"></i><span>Inventory</span></div>
+                    <div class="mock-nav-item"><i class="ri-file-list-3-line"></i><span>Orders</span></div>
+                    <div class="mock-nav-item"><i class="ri-truck-line"></i><span>Suppliers</span></div>
+                    <div class="mock-nav-item"><i class="ri-receipt-line"></i><span>Invoices</span></div>
+                    <div class="mock-nav-item"><i class="ri-bar-chart-line"></i><span>Reports</span></div>
+                  </div>
+                  <div class="mock-main">
+                    <div class="mock-heading">June 2025 — Stock Overview</div>
+                    <div class="mock-stats">
+                      <div class="mock-stat-card">
+                        <div class="mock-stat-lbl">Stock Value</div>
+                        <div class="mock-stat-val g">8.4L</div>
+                        <div class="mock-stat-sub pos">↑ 5% MoM</div>
+                      </div>
+                      <div class="mock-stat-card">
+                        <div class="mock-stat-lbl">Orders</div>
+                        <div class="mock-stat-val" style="color:var(--teal)">24</div>
+                        <div class="mock-stat-sub pos">today</div>
+                      </div>
+                      <div class="mock-stat-card">
+                        <div class="mock-stat-lbl">Low Stock</div>
+                        <div class="mock-stat-val r">6</div>
+                        <div class="mock-stat-sub neg">reorder now</div>
+                      </div>
+                    </div>
+                    <div class="mock-heading" style="margin-top:12px">Stock Items</div>
+                    <div class="mock-rows">
+                      <div class="mock-row">
+                        <span class="flat" style="width:auto">SKU-01</span>
+                        <span class="name">Basmati Rice 50kg</span>
+                        <span class="amt">142 units</span>
+                        <span class="badge badge-paid">In Stock</span>
+                      </div>
+                      <div class="mock-row">
+                        <span class="flat" style="width:auto">SKU-02</span>
+                        <span class="name">Cooking Oil 5L</span>
+                        <span class="amt">8 units</span>
+                        <span class="badge badge-due">Low</span>
+                      </div>
+                      <div class="mock-row">
+                        <span class="flat" style="width:auto">SKU-03</span>
+                        <span class="name">Sugar 1kg</span>
+                        <span class="amt">230 units</span>
+                        <span class="badge badge-paid">In Stock</span>
+                      </div>
+                    </div>
+                    <div class="mock-action" style="background:rgba(20,184,166,0.09);border-color:rgba(20,184,166,0.25);color:var(--teal)">
+                      <i class="ri-whatsapp-line"></i>
+                      <span>Send invoice to 3 pending customers</span>
+                      <i class="ri-arrow-right-line arrow"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Clinic -->
+              <div class="mock-slide" id="slide-clinic">
+                <div class="mock-body">
+                  <div class="mock-sidebar">
+                    <div class="mock-nav-item on"><i class="ri-dashboard-line"></i><span>Overview</span></div>
+                    <div class="mock-nav-item"><i class="ri-user-heart-line"></i><span>Patients</span></div>
+                    <div class="mock-nav-item"><i class="ri-calendar-check-line"></i><span>Appointments</span></div>
+                    <div class="mock-nav-item"><i class="ri-medicine-bottle-line"></i><span>Prescriptions</span></div>
+                    <div class="mock-nav-item"><i class="ri-money-rupee-circle-line"></i><span>Billing</span></div>
+                    <div class="mock-nav-item"><i class="ri-bar-chart-line"></i><span>Reports</span></div>
+                  </div>
+                  <div class="mock-main">
+                    <div class="mock-heading">Today — Patient Overview</div>
+                    <div class="mock-stats">
+                      <div class="mock-stat-card">
+                        <div class="mock-stat-lbl">Patients</div>
+                        <div class="mock-stat-val" style="color:var(--rose)">28</div>
+                        <div class="mock-stat-sub pos">today</div>
+                      </div>
+                      <div class="mock-stat-card">
+                        <div class="mock-stat-lbl">Revenue</div>
+                        <div class="mock-stat-val g">42K</div>
+                        <div class="mock-stat-sub pos">↑ 11% MoM</div>
+                      </div>
+                      <div class="mock-stat-card">
+                        <div class="mock-stat-lbl">Pending</div>
+                        <div class="mock-stat-val r">5</div>
+                        <div class="mock-stat-sub neg">bills due</div>
+                      </div>
+                    </div>
+                    <div class="mock-heading" style="margin-top:12px">Today's Appointments</div>
+                    <div class="mock-rows">
+                      <div class="mock-row">
+                        <span class="flat" style="width:auto">10:00</span>
+                        <span class="name">Ayesha Siddiqui</span>
+                        <span class="amt">General</span>
+                        <span class="badge badge-paid">Done</span>
+                      </div>
+                      <div class="mock-row">
+                        <span class="flat" style="width:auto">11:30</span>
+                        <span class="name">Omar Farooq</span>
+                        <span class="amt">Follow-up</span>
+                        <span class="badge badge-pend">Waiting</span>
+                      </div>
+                      <div class="mock-row">
+                        <span class="flat" style="width:auto">2:00</span>
+                        <span class="name">Nadia Malik</span>
+                        <span class="amt">General</span>
+                        <span class="badge badge-vac">Scheduled</span>
+                      </div>
+                    </div>
+                    <div class="mock-action" style="background:rgba(244,63,94,0.09);border-color:rgba(244,63,94,0.25);color:var(--rose)">
+                      <i class="ri-whatsapp-line"></i>
+                      <span>Remind 5 patients with pending bills</span>
+                      <i class="ri-arrow-right-line arrow"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div><!-- /.mock-panel -->
           </div><!-- /.mock-shell -->
         </div><!-- /.mock-wrap -->
@@ -1023,7 +1163,7 @@ footer{
     <div class="platform-intro reveal">
       <div class="section-label">The Platform</div>
       <h2 class="title">Pakistan runs on paper.<br>Not for long.</h2>
-      <p>Purpose-built for buildings, gyms, and hostels.</p>
+      <p>Purpose-built for buildings, gyms, hostels, clinics &amp; more.</p>
     </div>
     <div class="platform-cards">
       <div class="pcard reveal">
@@ -1068,17 +1208,33 @@ footer{
         </ul>
         <a href="pricing-hms.html" class="plink" style="color:var(--purple)">Explore HMS <i class="ri-arrow-right-line"></i></a>
       </div>
-      <div class="pcard soon reveal d3">
-        <div class="pcard-icon icon-more"><i class="ri-add-line"></i></div>
-        <div class="pcard-badge soon-label">Coming Soon</div>
-        <h3>More Verticals</h3>
-        <p>Parking lots, co-working spaces, storage facilities.</p>
+      <div class="pcard reveal d3">
+        <div class="pcard-icon icon-dms"><i class="ri-box-3-line"></i></div>
+        <div class="pcard-badge dms">Inventory</div>
+        <h3>Inventory Management</h3>
+        <p>Stock tracking, purchase orders, and supplier management in one system.</p>
         <ul>
-          <li>Parking Management</li>
-          <li>Co-working Spaces</li>
-          <li>Self-storage Units</li>
+          <li>Real-time stock tracking</li>
+          <li>Purchase &amp; sale orders</li>
+          <li>Supplier management</li>
+          <li>WhatsApp invoicing</li>
+          <li>Expense &amp; P&amp;L reports</li>
         </ul>
-        <a href="https://wa.me/923336673553?text=Notify%20me%20about%20new%20Pulse%20products" class="plink" style="color:var(--t3)" target="_blank" rel="noopener">Get Notified <i class="ri-arrow-right-line"></i></a>
+        <a href="https://dms.yourpulse.io/pricing" class="plink" style="color:var(--teal)" target="_blank" rel="noopener">Explore DMS <i class="ri-arrow-right-line"></i></a>
+      </div>
+      <div class="pcard reveal d4">
+        <div class="pcard-icon icon-clinic"><i class="ri-hospital-line"></i></div>
+        <div class="pcard-badge clinic">Clinic</div>
+        <h3>Clinic Management</h3>
+        <p>Patient records, appointments, prescriptions, and billing — all in one.</p>
+        <ul>
+          <li>Patient records &amp; history</li>
+          <li>Appointment scheduling</li>
+          <li>Prescription management</li>
+          <li>Billing &amp; payments</li>
+          <li>Doctor dashboards</li>
+        </ul>
+        <a href="https://clinic.yourpulse.io/pricing" class="plink" style="color:var(--rose)" target="_blank" rel="noopener">Explore Clinic <i class="ri-arrow-right-line"></i></a>
       </div>
     </div>
   </div>
@@ -1234,7 +1390,7 @@ footer{
         <a href="#" class="logo">
           <img src="logo_transparent_background.png" alt="Pulse" style="height:72px;filter:brightness(0) invert(1)">
         </a>
-        <p>Management software for buildings, gyms, and hostels. Built in Pakistan for the world.</p>
+        <p>Management software for buildings, gyms, hostels, clinics, and more. Built in Pakistan for the world.</p>
         <div class="social-links" style="margin-top:18px">
           <a href="#" class="slink"><i class="ri-instagram-line"></i></a>
           <a href="#" class="slink"><i class="ri-twitter-x-line"></i></a>
@@ -1248,7 +1404,8 @@ footer{
           <li><a href="#platform">Pulse BMS</a></li>
           <li><a href="#platform">Pulse GMS</a></li>
           <li><a href="#platform">Pulse HMS</a></li>
-          <li><a href="#platform">Coming Soon</a></li>
+          <li><a href="https://dms.yourpulse.io" target="_blank" rel="noopener">Pulse DMS</a></li>
+          <li><a href="https://clinic.yourpulse.io" target="_blank" rel="noopener">Pulse Clinic</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -1305,6 +1462,20 @@ const P = {
     sub:    'Bed allocation, monthly billing, tenant records, and complaint management — full occupancy visibility in one screen.',
     title:  'Pulse HMS — Star Hostel · Gulshan',
     slide:  'slide-hms'
+  },
+  dms: {
+    label:  'Inventory Management System',
+    hl:     'Your inventory,<br><span class="accent-dms">tracked.</span>',
+    sub:    'Real-time stock tracking, purchase orders, supplier management, and WhatsApp invoicing — built for Pakistani businesses.',
+    title:  'Pulse DMS — Al-Hamd Traders, Karachi',
+    slide:  'slide-dms'
+  },
+  clinic: {
+    label:  'Clinic Management System',
+    hl:     'Your clinic,<br><span class="accent-clinic">streamlined.</span>',
+    sub:    'Patient records, appointments, prescriptions, and billing — everything a doctor needs, nothing they don\'t.',
+    title:  'Pulse Clinic — City Health Clinic, Lahore',
+    slide:  'slide-clinic'
   }
 };
 
