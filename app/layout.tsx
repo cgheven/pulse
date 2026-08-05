@@ -3,12 +3,12 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Pulse HMS - Hostel Management System | PulseHub',
+  title: 'Pulse HMS',
   description: 'Pulse of Your Business. Advanced hostel management system designed to streamline operations, increase efficiency, and boost your bottom line with real-time monitoring and intelligent automation.',
   keywords: ['hostel management', 'property management', 'booking system', 'guest management', 'PulseHub'],
   generator: 'v0.app',
   openGraph: {
-    title: 'Pulse HMS - Hostel Management System',
+    title: 'Pulse HMS',
     description: 'The heartbeat of your hostel business. Manage bookings, guests, and operations effortlessly.',
     type: 'website',
   },
