@@ -30,13 +30,13 @@ export default function Hero() {
                 nativeButton={false}
                 render={
                   <a
-                    href="https://hostel.yourpulse.io/find/6b10826b"
+                    href="https://najam.hostels.yourpulse.io/"
                     target="_blank"
                     rel="noopener noreferrer"
                   />
                 }
               >
-                See Your Mini Website
+                See Your Website
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
