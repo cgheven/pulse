@@ -63,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en-GB" className="bg-background overflow-x-clip">
+    <html lang="en-GB" className="bg-background max-w-full overflow-x-clip">
       <body className="antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

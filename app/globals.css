@@ -158,13 +158,22 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground overflow-x-clip;
+    @apply bg-background text-foreground max-w-full overflow-x-clip;
   }
   img,
   video,
   canvas {
     max-width: 100%;
+  }
+  img:not([data-nimg='fill']),
+  video,
+  canvas {
     height: auto;
+  }
+
+  img[data-nimg='fill'] {
+    max-width: none;
+    height: 100%;
   }
 }
 

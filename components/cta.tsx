@@ -4,8 +4,8 @@ import { routes } from '@/lib/navigation'
 export default function Cta() {
   return (
     <CtaBand
-      heading="Take Control of Your Accommodation Operations"
-      text="Bring properties, residents, rent, occupancy and daily operations into one connected platform."
+      heading="Start Managing Your Properties More Easily"
+      text="Open a 14-day free trial, or book a demonstration if you would like to see PulseHub with your properties in mind."
       secondaryHref={routes.contact}
       secondaryLabel="Book a Demo"
     />

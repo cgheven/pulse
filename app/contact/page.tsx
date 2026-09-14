@@ -39,7 +39,7 @@ export default function ContactPage() {
   return (
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
-      <section className="mx-auto max-w-4xl px-4 pb-20 pt-32 sm:px-6">
+      <section className="mx-auto max-w-4xl px-4 pb-16 pt-24 sm:px-6 sm:pt-28">
         <h1 className="text-[clamp(1.75rem,5vw,3.25rem)] font-bold leading-tight">
           Let’s Talk About Your Accommodation Operations
         </h1>

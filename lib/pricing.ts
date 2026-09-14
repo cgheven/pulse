@@ -1,4 +1,20 @@
-export const ANNUAL_NOTE = 'Pay annually and get 2 months free.'
+export const MONTHS_PAID_ANNUALLY = 10
+export const MONTHS_INCLUDED_ANNUALLY = 12
+export const ANNUAL_MONTHS_SAVED = MONTHS_INCLUDED_ANNUALLY - MONTHS_PAID_ANNUALLY
+
+export const ANNUAL_NOTE = `Annual billing: pay for ${MONTHS_PAID_ANNUALLY} months, get ${MONTHS_INCLUDED_ANNUALLY}. Save the equivalent of ${ANNUAL_MONTHS_SAVED} months.`
+
+/** Platform capabilities included on every plan. Plans differ by property allowance. */
+export const corePlanFeatures = [
+  'Property management',
+  'Room and occupancy management',
+  'Resident records',
+  'Rent and payment tracking',
+  'Maintenance management',
+  'Utility and bill allocation',
+  'Reports and financial insights',
+  'Team access',
+] as const
 
 export type PricingPlan = {
   id: 'basic' | 'standard' | 'business'
@@ -11,62 +27,45 @@ export type PricingPlan = {
   features: string[]
 }
 
+function planFromMonthly(
+  plan: Omit<PricingPlan, 'yearly' | 'features'> & { propertyLabel: string },
+): PricingPlan {
+  const { propertyLabel, ...rest } = plan
+  return {
+    ...rest,
+    yearly: rest.monthly * MONTHS_PAID_ANNUALLY,
+    features: [propertyLabel, ...corePlanFeatures],
+  }
+}
+
 export const pricingPlans: PricingPlan[] = [
-  {
+  planFromMonthly({
     id: 'basic',
     name: 'Basic',
-    description: 'Essential tools for managing one accommodation property.',
+    description: 'For one accommodation property.',
     monthly: 79,
-    yearly: 790,
     properties: 1,
     highlight: false,
-    features: [
-      '1 property',
-      'Room and occupancy management',
-      'Resident records',
-      'Rent and payment tracking',
-      'Reports and financial insights',
-    ],
-  },
-  {
+    propertyLabel: '1 property',
+  }),
+  planFromMonthly({
     id: 'standard',
     name: 'Standard',
-    description: 'More capacity for operators managing a growing property portfolio.',
+    description: 'For a growing portfolio of up to 3 properties.',
     monthly: 149,
-    yearly: 1490,
     properties: 3,
     highlight: true,
-    features: [
-      '3 properties',
-      'Room and occupancy management',
-      'Resident records',
-      'Rent and payment tracking',
-      'Maintenance management',
-      'Reports and financial insights',
-      'Team access',
-      'Multi-property management',
-    ],
-  },
-  {
+    propertyLabel: '3 properties',
+  }),
+  planFromMonthly({
     id: 'business',
     name: 'Business',
-    description: 'Centralised management for larger accommodation portfolios.',
+    description: 'For a larger portfolio of up to 10 properties.',
     monthly: 249,
-    yearly: 2490,
     properties: 10,
     highlight: false,
-    features: [
-      '10 properties',
-      'Room and occupancy management',
-      'Resident records',
-      'Rent and payment tracking',
-      'Maintenance management',
-      'Utility and bill allocation',
-      'Reports and financial insights',
-      'Team access',
-      'Multi-property management',
-    ],
-  },
+    propertyLabel: '10 properties',
+  }),
 ]
 
 export function formatGbp(amount: number) {
@@ -75,4 +74,12 @@ export function formatGbp(amount: number) {
     currency: 'GBP',
     maximumFractionDigits: 0,
   }).format(amount)
+}
+
+export function annualSaving(monthly: number) {
+  return monthly * ANNUAL_MONTHS_SAVED
+}
+
+export function propertyLabel(properties: number) {
+  return properties === 1 ? '1 property' : `${properties} properties`
 }

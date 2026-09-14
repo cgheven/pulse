@@ -1,45 +1,45 @@
-import { Eye, Layers, Link2, MousePointerClick, Files, SlidersHorizontal } from 'lucide-react'
+import { BedDouble, Building2, CreditCard, MousePointerClick, Receipt, Users } from 'lucide-react'
 import { CardGrid, SectionHeading } from '@/components/card-grid'
 
 export default function Benefits() {
   return (
-    <section className="px-4 py-20 sm:px-6 lg:px-8">
+    <section className="px-4 py-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          heading="Built to Make Accommodation Operations Easier"
-          subtitle="Spend less time on administration and more time managing your properties."
+          heading="Built for the details that matter"
+          subtitle="From room-level occupancy to payment history and property-level reporting, PulseHub keeps the details of your accommodation business connected."
         />
         <CardGrid
           items={[
             {
-              icon: Files,
-              title: 'Less Administration',
-              description: 'Reduce spreadsheets, manual records and repetitive payment follow-ups.',
+              icon: BedDouble,
+              title: 'Room and bed-level management',
+              description: 'Organise rooms, beds, availability and allocations instead of treating a property as a single unit.',
             },
             {
-              icon: Eye,
-              title: 'Better Visibility',
-              description: 'See occupancy, upcoming payments, overdue balances and operational tasks at a glance.',
+              icon: Users,
+              title: 'Centralised resident records',
+              description: 'Keep profiles, tenancy details, documents and payment history attached to each resident.',
             },
             {
-              icon: SlidersHorizontal,
-              title: 'More Control',
-              description: 'Manage properties, residents, staff and finances from one central platform.',
+              icon: CreditCard,
+              title: 'Rent and payment tracking',
+              description: 'See schedules, deposits, partial payments, overdue balances and receipts in one place.',
             },
             {
-              icon: Layers,
-              title: 'Designed for Growing Operators',
-              description: 'Start with one property and expand as your accommodation portfolio grows.',
+              icon: Receipt,
+              title: 'Utility and bill allocation',
+              description: 'Allocate shared costs across rooms, residents or properties.',
+            },
+            {
+              icon: Building2,
+              title: 'Property and portfolio visibility',
+              description: 'Review occupancy, collections and expenses at property level, then manage multiple sites from one account.',
             },
             {
               icon: MousePointerClick,
-              title: 'Simple to Use',
-              description: 'A clean interface designed to help teams complete everyday tasks with fewer clicks.',
-            },
-            {
-              icon: Link2,
-              title: 'One Connected Platform',
-              description: 'Bring resident management, occupancy, payments, maintenance and reporting together.',
+              title: 'Straightforward daily workflows',
+              description: 'A clean interface designed to help small and mid-sized operators complete everyday tasks with fewer clicks.',
             },
           ]}
         />

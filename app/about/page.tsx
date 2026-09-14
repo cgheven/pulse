@@ -23,7 +23,7 @@ export default function AboutPage() {
   return (
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
-      <section className="mx-auto max-w-3xl px-4 pb-12 pt-32 sm:px-6">
+      <section className="mx-auto max-w-3xl px-4 pb-10 pt-24 sm:px-6 sm:pt-28">
         <h1 className="text-[clamp(1.75rem,5vw,3.25rem)] font-bold leading-tight">
           Practical Software for Better Accommodation Operations
         </h1>

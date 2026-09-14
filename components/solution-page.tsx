@@ -2,6 +2,7 @@ import { CtaBand } from '@/components/cta-band'
 import { CardGrid } from '@/components/card-grid'
 import { FaqList } from '@/components/faq-list'
 import { PageHero } from '@/components/page-hero'
+import { ProductVisual } from '@/components/product-visual'
 import SiteShell from '@/components/site-shell'
 import { jsonLdScript } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
@@ -14,16 +15,26 @@ export function SolutionPage({
   heading,
   text,
   supporting,
+  problemHeading,
+  problem,
+  outcomes,
   sections,
   faqs,
+  ctaHeading,
+  ctaText,
 }: {
   path: string
   title: string
   heading: string
   text: string
-  supporting: string
+  supporting?: string
+  problemHeading: string
+  problem: string
+  outcomes: { icon?: LucideIcon; title: string; description: string }[]
   sections: { icon?: LucideIcon; title: string; description: string }[]
   faqs: { question: string; answer: string }[]
+  ctaHeading: string
+  ctaText: string
 }) {
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -56,13 +67,26 @@ export function SolutionPage({
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <PageHero heading={heading} text={text} supporting={supporting} />
-      <section className="px-4 py-12 sm:px-6 lg:px-8">
+      <section className="px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 sm:p-8">
+          <h2 className="text-2xl font-bold sm:text-3xl">{problemHeading}</h2>
+          <p className="mt-4 text-base leading-relaxed text-foreground/70 sm:text-lg">{problem}</p>
+        </div>
+      </section>
+      <section className="px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-8 text-2xl font-bold sm:text-3xl">What you can manage</h2>
+          <h2 className="mb-6 text-2xl font-bold sm:text-3xl">How PulseHub helps</h2>
+          <CardGrid items={outcomes} columns="two" />
+        </div>
+      </section>
+      <ProductVisual />
+      <section className="px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="mb-6 text-2xl font-bold sm:text-3xl">Manage Your Accommodation Operations</h2>
           <CardGrid items={sections} columns="two" />
         </div>
       </section>
-      <section className="px-4 py-12 sm:px-6 lg:px-8">
+      <section className="px-4 py-6 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center text-sm text-foreground/70">
           <p>
             Next,{' '}
@@ -81,14 +105,11 @@ export function SolutionPage({
           </p>
         </div>
       </section>
-      <section className="px-4 py-12 sm:px-6 lg:px-8">
-        <h2 className="mb-8 text-center text-2xl font-bold sm:text-3xl">Questions</h2>
+      <section className="px-4 py-10 sm:px-6 lg:px-8">
+        <h2 className="mb-6 text-center text-2xl font-bold sm:text-3xl">Frequently Asked Questions</h2>
         <FaqList items={faqs} />
       </section>
-      <CtaBand
-        heading="Start with a free trial"
-        text="Set up your properties, rooms and residents, or contact us if you would like a demonstration first."
-      />
+      <CtaBand heading={ctaHeading} text={ctaText} />
     </SiteShell>
   )
 }

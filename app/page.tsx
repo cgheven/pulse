@@ -1,14 +1,13 @@
 import Audience from '@/components/audience'
-import Benefits from '@/components/benefits'
 import Cta from '@/components/cta'
 import Features from '@/components/features'
 import Hero from '@/components/hero'
-import HeroBenefits from '@/components/hero-benefits'
 import HomeFaq, { homeFaqs } from '@/components/home-faq'
+import MemberLedgerShowcase from '@/components/member-ledger-showcase'
+import PaymentsShowcase from '@/components/payments-showcase'
 import Portfolio from '@/components/portfolio'
 import PricingGrid from '@/components/pricing-grid'
 import SiteShell from '@/components/site-shell'
-import Workflow from '@/components/workflow'
 import { pricingPlans } from '@/lib/pricing'
 import { jsonLdScript, pageMetadata } from '@/lib/seo'
 import { APP_ORIGIN, CONTACT_EMAIL, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site'
@@ -81,15 +80,14 @@ export default function Page() {
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <Hero />
-      <HeroBenefits />
       <Audience />
       <Features />
-      <Benefits />
-      <Workflow />
+      <MemberLedgerShowcase />
+      <PaymentsShowcase />
       <Portfolio />
       <PricingGrid
         heading="Pricing That Scales With Your Property Portfolio"
-        subtitle="GBP pricing with a clear property allowance on each plan. Pay annually and get 2 months free."
+        subtitle="GBP pricing by property allowance — 1, 3 or 10 properties — with the same core platform on every plan. Start a 14-day free trial with no card required. Choose monthly, or annual billing to save 2 months."
       />
       <HomeFaq />
       <Cta />

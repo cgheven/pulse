@@ -1,12 +1,26 @@
 import { CtaBand } from '@/components/cta-band'
 import { CardGrid } from '@/components/card-grid'
+import { ProductScreenshot } from '@/components/feature-showcase'
+import { featureGroups } from '@/components/features'
 import { PageHero } from '@/components/page-hero'
 import SiteShell from '@/components/site-shell'
-import { BedDouble, Shield } from 'lucide-react'
-import { productFeatures } from '@/components/features'
 import { jsonLdScript, pageMetadata } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
+import { screenshots } from '@/lib/screenshots'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
+
+const productViews = [
+  {
+    heading: 'Resident records',
+    text: 'Keep resident profiles, applications, deposits, notices and check-outs organised in one place.',
+    screenshot: screenshots.residents,
+  },
+  {
+    heading: 'Maintenance requests',
+    text: 'Track resident complaints and maintenance requests from open through to resolved. The complaints screen includes QR-based submission.',
+    screenshot: screenshots.complaints,
+  },
+]
 
 export const metadata = pageMetadata({
   title: 'Accommodation Management Features',
@@ -14,59 +28,6 @@ export const metadata = pageMetadata({
     'Explore PulseHub features for property, room, resident, rent, occupancy, maintenance, utilities and multi-property management.',
   path: routes.features,
 })
-
-const groups = [
-  {
-    heading: 'Property and Room Management',
-    items: productFeatures.filter((item) => item.title === 'Room & Occupancy Management'),
-  },
-  {
-    heading: 'Resident Management',
-    items: productFeatures.filter((item) => item.title === 'Resident Management'),
-  },
-  {
-    heading: 'Rent and Payments',
-    items: productFeatures.filter((item) =>
-      ['Rent & Payment Management', 'Automated Rent Reminders'].includes(item.title),
-    ),
-  },
-  {
-    heading: 'Occupancy and Availability',
-    items: [
-      {
-        icon: BedDouble,
-        title: 'Occupancy visibility',
-        description: 'See which rooms and beds are occupied or available, and keep resident allocations up to date.',
-      },
-    ],
-  },
-  {
-    heading: 'Maintenance and Requests',
-    items: productFeatures.filter((item) => item.title === 'Maintenance & Requests'),
-  },
-  {
-    heading: 'Utilities and Shared Costs',
-    items: productFeatures.filter((item) => item.title === 'Utility & Bill Allocation'),
-  },
-  {
-    heading: 'Reports and Analytics',
-    items: productFeatures.filter((item) => item.title === 'Reports & Financial Insights'),
-  },
-  {
-    heading: 'Team Access and Permissions',
-    items: [
-      {
-        icon: Shield,
-        title: 'Team access',
-        description: 'Give property managers the access they need, with role-based permissions for operational work.',
-      },
-    ],
-  },
-  {
-    heading: 'Multi-Property Management',
-    items: productFeatures.filter((item) => item.title === 'Multi-Property Management'),
-  },
-]
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -84,11 +45,28 @@ export default function FeaturesPage() {
         heading="Everything You Need to Manage Accommodation"
         text="One connected platform for properties, rooms, residents, payments, occupancy, maintenance and reporting."
       />
-      {groups.map((group) => (
-        <section key={group.heading} className="px-4 py-12 sm:px-6 lg:px-8">
+      {featureGroups.map((group) => (
+        <section key={group.id} id={group.id} className="scroll-mt-24 px-4 py-8 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <h2 className="mb-8 text-2xl font-bold sm:text-3xl">{group.heading}</h2>
+            <h2 className="mb-5 text-2xl font-bold sm:text-3xl">{group.heading}</h2>
             <CardGrid items={group.items} columns="two" />
+          </div>
+        </section>
+      ))}
+      {productViews.map((view, index) => (
+        <section key={view.heading} className={`scroll-mt-20 px-4 py-12 sm:px-6 lg:px-8 ${index % 2 === 0 ? 'bg-muted/30' : ''}`}>
+          <div className="mx-auto max-w-6xl">
+            <div className="mx-auto mb-6 max-w-3xl space-y-3 text-center sm:mb-8">
+              <h2 className="text-2xl font-bold sm:text-3xl">{view.heading}</h2>
+              <p className="text-base leading-relaxed text-foreground/70 sm:text-lg">{view.text}</p>
+            </div>
+            <ProductScreenshot
+              src={view.screenshot.src}
+              alt={view.screenshot.alt}
+              width={view.screenshot.width}
+              height={view.screenshot.height}
+              sizes="(max-width: 1152px) calc(100vw - 2rem), 1152px"
+            />
           </div>
         </section>
       ))}

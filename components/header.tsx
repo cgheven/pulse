@@ -18,7 +18,7 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-sm">
+    <header className="fixed top-0 z-50 w-full max-w-full overflow-x-clip border-b border-border bg-background/95 backdrop-blur-sm">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Primary">
         <div className="flex h-16 items-center justify-between gap-4">
           <Link href="/" className="flex min-w-0 items-center gap-3" onClick={close}>

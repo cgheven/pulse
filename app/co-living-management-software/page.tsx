@@ -1,7 +1,7 @@
 import { SolutionPage } from '@/components/solution-page'
 import { pageMetadata } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
-import { BarChart3, BedDouble, Building2, CreditCard, Receipt, Users, Wrench } from 'lucide-react'
+import { BarChart3, BedDouble, Building2, ClipboardList, CreditCard, Eye, Files, Receipt, Users, Wrench } from 'lucide-react'
 
 export const metadata = pageMetadata({
   title: 'Co-Living Management Software',
@@ -18,25 +18,83 @@ export default function ColivingPage() {
       heading="Manage Your Co-Living Properties in One Place"
       text="Manage shared living spaces, residents, payments and property operations from one central dashboard."
       supporting="Make shared accommodation operations easier to manage with connected property, resident, payment and occupancy information."
+      problemHeading="Shared living needs connected operations"
+      problem="Manage shared spaces, room availability, resident information, shared costs and property operations from one central platform."
+      outcomes={[
+        {
+          icon: Files,
+          title: 'Reduce manual administration',
+          description: 'Stop splitting occupancy, resident files and shared costs across separate spreadsheets and message threads.',
+        },
+        {
+          icon: Eye,
+          title: 'Improve room and occupancy visibility',
+          description: 'Keep room availability and allocations visible across shared living spaces.',
+        },
+        {
+          icon: CreditCard,
+          title: 'Track payments more clearly',
+          description: 'See rent schedules, deposits, outstanding balances and payment history next to each resident.',
+        },
+        {
+          icon: ClipboardList,
+          title: 'Keep property information organised',
+          description: 'Record maintenance, utility allocation and property reports in the same platform as occupancy.',
+        },
+      ]}
       sections={[
         { icon: BedDouble, title: 'Room and occupancy management', description: 'Keep rooms, beds and availability organised across shared living spaces.' },
         { icon: Users, title: 'Resident profiles', description: 'Store resident information, documents and payment history together.' },
         { icon: CreditCard, title: 'Rent and payment tracking', description: 'Track rent schedules, deposits, partial payments and overdue balances.' },
         { icon: Receipt, title: 'Shared utility allocation', description: 'Allocate shared costs across rooms or residents.' },
         { icon: Wrench, title: 'Maintenance management', description: 'Record maintenance work and keep a clear history of property issues.' },
-        { icon: Building2, title: 'Multi-property control', description: 'Manage more than one co-living site from a single account, where your plan allows.' },
+        { icon: Building2, title: 'Multi-property control', description: 'Manage more than one co-living site from a single account, up to the property allowance on your plan.' },
         { icon: BarChart3, title: 'Reports and operational visibility', description: 'See occupancy, collections, outstanding balances and property performance.' },
       ]}
       faqs={[
         {
-          question: 'Is PulseHub suitable for co-living operators?',
-          answer: 'Yes. PulseHub helps co-living operators manage rooms, residents, payments, utilities and day-to-day property operations.',
+          question: 'What type of co-living operators can use PulseHub?',
+          answer:
+            'PulseHub is for operators managing shared living spaces who need room occupancy, resident records, payments, shared costs and day-to-day property tasks in one place. It is not a community, events or resident social app.',
+        },
+        {
+          question: 'Can I manage multiple properties?',
+          answer:
+            'Yes. Each plan has a published property allowance: 1, 3 or 10 properties. If your portfolio grows, move to the next plan. Contact us if you need a larger allowance.',
+        },
+        {
+          question: 'Can I track rent and overdue payments?',
+          answer:
+            'Yes. PulseHub helps you track rent schedules, deposits, partial payments, outstanding balances and payment history.',
+        },
+        {
+          question: 'Can I manage rooms and occupancy?',
+          answer:
+            'Yes. You can organise rooms, beds, availability and resident allocations across shared living spaces.',
+        },
+        {
+          question: 'Can I manage maintenance requests?',
+          answer:
+            'Yes. Maintenance management is part of the PulseHub platform on every plan. You can record issues, assign follow-up and keep a history of property work.',
         },
         {
           question: 'Does PulseHub include a resident community or events app?',
-          answer: 'No. PulseHub focuses on operational management — occupancy, residents, payments, maintenance and reporting — rather than community or events features.',
+          answer:
+            'No. PulseHub focuses on operational management — occupancy, residents, payments, maintenance and reporting — rather than community or events features.',
+        },
+        {
+          question: 'Is a free trial available?',
+          answer:
+            'Yes. You can start a 14-day free trial with no card required from the Start Free Trial button.',
+        },
+        {
+          question: 'Can I book a product demonstration?',
+          answer:
+            'Yes. Use Book a Demo to contact the PulseHub team and request a walkthrough of co-living operations.',
         },
       ]}
+      ctaHeading="Bring your co-living operations into one platform."
+      ctaText="Start a free trial, or book a demonstration to see PulseHub with shared living operations in mind."
     />
   )
 }

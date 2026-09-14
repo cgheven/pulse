@@ -14,10 +14,10 @@ export function PageHero({
   supporting?: string
 }) {
   return (
-    <section className="px-4 pb-16 pt-32 sm:px-6 lg:px-8">
+    <section className="px-4 pb-10 pt-24 sm:px-6 sm:pt-28 lg:px-8">
       <div className="mx-auto max-w-4xl text-center">
         {eyebrow ? <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-primary">{eyebrow}</p> : null}
-        <h1 className="text-[clamp(1.75rem,5vw,3.25rem)] font-bold leading-tight">{heading}</h1>
+        <h1 className="text-balance text-[clamp(1.75rem,5vw,3.25rem)] font-bold leading-tight">{heading}</h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/70">{text}</p>
         {supporting ? <p className="mx-auto mt-3 max-w-2xl text-base text-foreground/60">{supporting}</p> : null}
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">

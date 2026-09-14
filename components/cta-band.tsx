@@ -16,14 +16,14 @@ export function CtaBand({
   const secondaryIsExternal = secondaryHref.startsWith('http') || secondaryHref.startsWith('mailto:')
 
   return (
-    <section className="px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-3xl space-y-6 rounded-2xl border border-primary/20 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 p-8 text-center sm:p-12">
+    <section className="px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl space-y-5 rounded-2xl border border-primary/20 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 p-6 text-center sm:p-10">
         <h2 className="text-3xl font-bold sm:text-4xl">{heading}</h2>
         <p className="text-lg text-foreground/70">{text}</p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Button
             size="lg"
-            className="min-h-11 bg-primary px-5 hover:bg-primary/90"
+            className="min-h-11 whitespace-normal bg-primary px-5 hover:bg-primary/90"
             nativeButton={false}
             render={<a href={SIGN_UP_URL} />}
           >
@@ -32,7 +32,7 @@ export function CtaBand({
           <Button
             size="lg"
             variant="outline"
-            className="min-h-11 border-primary px-5 text-primary hover:bg-primary/10"
+            className="min-h-11 whitespace-normal border-primary px-5 text-primary hover:bg-primary/10"
             nativeButton={false}
             render={<a href={secondaryHref} {...(secondaryIsExternal ? { rel: secondaryHref.startsWith('https') ? 'noopener noreferrer' : undefined } : {})} />}
           >

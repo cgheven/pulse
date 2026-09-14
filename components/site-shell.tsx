@@ -11,7 +11,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
         Skip to content
       </a>
       <Header />
-      <main id="main" className="min-h-screen">
+      <main id="main" className="min-h-screen w-full max-w-full overflow-x-clip">
         {children}
       </main>
       <Footer />
