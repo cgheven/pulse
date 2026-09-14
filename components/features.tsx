@@ -1,4 +1,4 @@
-import { BarChart3, BedDouble, Bell, Building2, CreditCard, Eye, FileText, Landmark, LayoutGrid, Receipt, Shield, Users, Wallet, Wrench } from 'lucide-react'
+import { BarChart3, BedDouble, Bell, Building2, CreditCard, FileText, Landmark, LayoutGrid, Receipt, Shield, Users, Wrench } from 'lucide-react'
 import { CardGrid, SectionHeading } from '@/components/card-grid'
 import { routes } from '@/lib/navigation'
 
@@ -6,17 +6,17 @@ export const productFeatures = [
   {
     icon: BedDouble,
     title: 'Room & Occupancy Management',
-    description: 'Manage properties, floors, rooms, beds, availability and resident allocations with complete visibility.',
+        description: 'Properties, floors, rooms, beds and allocations.',
   },
   {
     icon: Users,
     title: 'Resident Management',
-    description: 'Keep resident profiles, tenancy information, documents, payment records and communication history in one place.',
+        description: 'Profiles, tenancy details, documents and payment history.',
   },
   {
     icon: CreditCard,
     title: 'Rent & Payment Management',
-    description: 'Track rent schedules, deposits, partial payments, overdue balances, receipts and payment history.',
+        description: 'Schedules, deposits, partial payments and overdue balances.',
   },
   {
     icon: Bell,
@@ -26,7 +26,7 @@ export const productFeatures = [
   {
     icon: Wrench,
     title: 'Maintenance & Requests',
-    description: 'Record maintenance issues, assign tasks, track progress and maintain a clear history of property-related work.',
+        description: 'Record issues, assign follow-up and keep a work history.',
   },
   {
     icon: Receipt,
@@ -48,117 +48,122 @@ export const productFeatures = [
 export const featureGroups = [
   {
     id: 'rooms',
-    heading: 'Property and Room Management',
+    heading: 'Property, Rooms and Occupancy',
+    subtitle: 'See the layout of each site and which rooms and beds are occupied, available or allocated.',
+    columns: 'two' as const,
     items: [
       {
         icon: BedDouble,
-        title: 'Room Management',
-        description: 'Organise properties, floors, rooms and beds so your team can see the layout of each site.',
+        title: 'Rooms and Beds',
+        description: 'Organise properties, floors, rooms and beds.',
       },
       {
         icon: LayoutGrid,
-        title: 'Occupancy Management',
-        description: 'See which rooms and beds are occupied or available, and keep resident allocations up to date.',
+        title: 'Occupancy',
+        description: 'See which rooms and beds are occupied or available.',
       },
     ],
   },
   {
     id: 'residents',
-    heading: 'Resident Management',
+    heading: 'Resident Records and Member History',
+    subtitle: 'Each person’s profile, documents and history — separate from property rent collection.',
+    columns: 'two' as const,
     items: [
       {
         icon: Users,
         title: 'Resident Records',
-        description: 'Keep resident profiles, payment records and communication history in one place.',
+        description: 'Profiles, payment records and communication history.',
       },
       {
         icon: FileText,
         title: 'Documents and Tenancy Details',
-        description: 'Store tenancy information and supporting documents alongside each resident record.',
+        description: 'Tenancy information stored with the resident record.',
       },
     ],
   },
   {
     id: 'payments',
     heading: 'Rent and Payments',
+    subtitle: 'What is due, paid or outstanding — the rent screen, not the member timeline.',
+    columns: 'three' as const,
     items: [
       {
         icon: CreditCard,
-        title: 'Rent Tracking',
-        description: 'Track rent schedules and see which payments are upcoming, paid or overdue.',
-      },
-      {
-        icon: Wallet,
-        title: 'Payment Records',
-        description: 'Keep receipts, partial payments and payment history attached to each resident.',
+        title: 'Rent and Payment Tracking',
+        description: 'Schedules, receipts, partial payments and overdue balances.',
       },
       {
         icon: Landmark,
         title: 'Deposits',
-        description: 'Record deposits collected and keep them visible alongside other payment activity.',
+        description: 'Deposits kept visible with other payment activity.',
       },
       {
         icon: Bell,
-        title: 'Automated Reminders',
-        description: 'Reduce manual follow-ups with reminders for upcoming payments, overdue rent and important resident updates.',
+        title: 'Payment Reminders',
+        description: 'Upcoming and overdue rent reminders.',
       },
     ],
   },
   {
     id: 'operations',
     heading: 'Maintenance and Shared Costs',
+    subtitle: 'Log issues through to resolution, and allocate shared bills.',
+    columns: 'two' as const,
     items: [
       {
         icon: Wrench,
-        title: 'Maintenance Requests',
-        description: 'Record maintenance issues, assign tasks, track progress and keep a history of property-related work.',
+        title: 'Maintenance and Complaints',
+        description: 'Complaints and maintenance requests, with progress and history.',
       },
       {
         icon: Receipt,
         title: 'Utility and Bill Allocation',
-        description: 'Manage shared utility costs and allocate bills across rooms, residents or properties.',
+        description: 'Shared utility and other bills across rooms or residents.',
       },
     ],
   },
   {
     id: 'portfolio',
-    heading: 'Reporting and Portfolio Control',
+    heading: 'Reporting and Multiple Properties',
+    subtitle: 'The dashboard shows the selected property. Switch site from the header, or compare sites in All Properties.',
+    columns: 'three' as const,
     items: [
       {
         icon: BarChart3,
         title: 'Reports and Financial Insights',
-        description: 'Review occupancy, collections, outstanding balances, expenses and property performance.',
+        description: 'Occupancy, collections, balances, expenses and performance.',
       },
       {
         icon: Building2,
-        title: 'Multi-Property Management',
-        description: 'Manage multiple HMOs, co-living properties or accommodation sites from one central account.',
+        title: 'Property Switcher and All Properties',
+        description: 'Switch the selected site, or compare occupancy, collections, costs and profit. Plans allow 1, 3 or 10 properties.',
       },
       {
         icon: Shield,
-        title: 'Team Access and Permissions',
-        description: 'Give property managers the access they need, with role-based permissions for operational work.',
-      },
-      {
-        icon: Eye,
-        title: 'Property-Level Visibility',
-        description: 'See occupancy, collections and outstanding balances for each property without rebuilding reports from spreadsheets.',
+        title: 'Team Access',
+        description: 'Role-based access for property managers.',
       },
     ],
   },
 ]
 
 export default function Features() {
-  const homepageFeatures = productFeatures.filter(
-    (item) => !['Automated Rent Reminders', 'Utility & Bill Allocation'].includes(item.title),
+  const homepageFeatures = productFeatures.filter((item) =>
+    [
+      'Room & Occupancy Management',
+      'Resident Management',
+      'Rent & Payment Management',
+      'Maintenance & Requests',
+    ].includes(item.title),
   )
 
   return (
-    <section id="features" className="scroll-mt-20 px-4 py-12 sm:px-6 lg:px-8">
+    <section id="features" className="scroll-mt-20 px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           heading="Manage Your Accommodation Operations"
-          subtitle="The capabilities operators use every day — rooms, residents, rent, maintenance, reporting and multiple properties."
+          subtitle="Rooms, residents, rent and maintenance — the daily work of running a site."
         />
         <CardGrid items={homepageFeatures} columns="three" />
         <p className="mt-6 text-center">

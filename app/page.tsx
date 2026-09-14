@@ -87,7 +87,7 @@ export default function Page() {
       <Portfolio />
       <PricingGrid
         heading="Pricing That Scales With Your Property Portfolio"
-        subtitle="GBP pricing by property allowance — 1, 3 or 10 properties — with the same core platform on every plan. Start a 14-day free trial with no card required. Choose monthly, or annual billing to save 2 months."
+        subtitle="1, 3 or 10 properties. 14-day free trial, no card. Annual billing saves 2 months."
       />
       <HomeFaq />
       <Cta />

@@ -67,20 +67,20 @@ export function SolutionPage({
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <PageHero heading={heading} text={text} supporting={supporting} />
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
+      <section className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
         <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 sm:p-8">
           <h2 className="text-2xl font-bold sm:text-3xl">{problemHeading}</h2>
           <p className="mt-4 text-base leading-relaxed text-foreground/70 sm:text-lg">{problem}</p>
         </div>
       </section>
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
+      <section className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-6 text-2xl font-bold sm:text-3xl">How PulseHub helps</h2>
           <CardGrid items={outcomes} columns="two" />
         </div>
       </section>
       <ProductVisual />
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
+      <section className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-6 text-2xl font-bold sm:text-3xl">Manage Your Accommodation Operations</h2>
           <CardGrid items={sections} columns="two" />
@@ -105,7 +105,7 @@ export function SolutionPage({
           </p>
         </div>
       </section>
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
+      <section className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
         <h2 className="mb-6 text-center text-2xl font-bold sm:text-3xl">Frequently Asked Questions</h2>
         <FaqList items={faqs} />
       </section>

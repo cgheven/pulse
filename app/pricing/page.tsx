@@ -23,15 +23,14 @@ export default function PricingPage() {
   return (
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
-      <div className="px-4 pb-2 pt-24 text-center sm:px-6 sm:pt-28 lg:px-8">
-        <h1 className="text-[clamp(1.75rem,5vw,3.25rem)] font-bold">Pricing That Scales With Your Property Portfolio</h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/70">
-          Clear monthly and annual GBP pricing. Start a 14-day free trial with no card required. Choose monthly, or annual billing to save 2 months.
+      <div className="px-4 pb-0 pt-20 text-center sm:px-6 sm:pt-28 lg:px-8">
+        <h1 className="text-[clamp(1.5rem,6vw,3.25rem)] font-bold leading-[1.18]">Pricing That Scales With Your Portfolio</h1>
+        <p className="mx-auto mt-3 max-w-2xl text-base text-foreground/70 sm:mt-4 sm:text-lg">
+          14-day free trial, no card. Annual billing saves 2 months.
         </p>
       </div>
       <PricingGrid
-        heading="Choose a plan"
-        subtitle="Every plan includes the PulseHub platform. Choose the property allowance that matches your portfolio: 1, 3 or 10 properties."
+        subtitle="Every plan includes the PulseHub platform. Choose 1, 3 or 10 properties."
       />
       <CtaBand
         heading="Not sure which plan fits?"

@@ -19,19 +19,19 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 z-50 w-full max-w-full overflow-x-clip border-b border-border bg-background/95 backdrop-blur-sm">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Primary">
-        <div className="flex h-16 items-center justify-between gap-4">
-          <Link href="/" className="flex min-w-0 items-center gap-3" onClick={close}>
+      <nav className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Primary">
+        <div className="flex h-14 items-center justify-between gap-3 sm:h-16 sm:gap-4">
+          <Link href="/" className="flex min-w-0 items-center gap-2 sm:gap-3" onClick={close}>
             <Image
               src="/logo.png"
               alt="PulseHub"
               width={44}
               height={44}
-              className="h-11 w-11 shrink-0 rounded-xl"
+              className="h-9 w-9 shrink-0 rounded-xl sm:h-11 sm:w-11"
               priority
             />
             <div className="flex min-w-0 flex-col leading-tight">
-              <span className="text-lg font-bold text-foreground">PulseHub</span>
+              <span className="text-base font-bold text-foreground sm:text-lg">PulseHub</span>
               <span className="hidden text-[10px] font-semibold tracking-[0.12em] text-primary sm:block">
                 ACCOMMODATION MANAGEMENT
               </span>
@@ -108,20 +108,33 @@ export default function Header() {
             </Button>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setIsOpen((open) => !open)}
-            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
-            aria-expanded={isOpen}
-            aria-controls="mobile-navigation"
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          >
-            {isOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <Button
+              size="sm"
+              className="min-h-9 bg-primary px-3 hover:bg-primary/90"
+              nativeButton={false}
+              render={<a href={SIGN_UP_URL} />}
+            >
+              Free Trial
+            </Button>
+            <button
+              type="button"
+              onClick={() => setIsOpen((open) => !open)}
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            >
+              {isOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
+            </button>
+          </div>
         </div>
 
-        {isOpen && (
-          <div id="mobile-navigation" className="space-y-2 border-t border-border pb-4 pt-4 lg:hidden">
+        {isOpen ? (
+          <div
+            id="mobile-navigation"
+            className="absolute inset-x-0 top-full z-50 space-y-1 border-b border-border bg-background px-4 py-4 shadow-lg sm:px-6 lg:hidden"
+          >
             <Link href="/features" onClick={close} className="block min-h-11 py-2 text-sm font-medium text-foreground/80">
               Features
             </Link>
@@ -154,7 +167,7 @@ export default function Header() {
               </Button>
             </div>
           </div>
-        )}
+        ) : null}
       </nav>
     </header>
   )

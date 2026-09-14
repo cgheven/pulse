@@ -5,7 +5,7 @@ export default function Cta() {
   return (
     <CtaBand
       heading="Start Managing Your Properties More Easily"
-      text="Open a 14-day free trial, or book a demonstration if you would like to see PulseHub with your properties in mind."
+      text="14-day free trial, no card — or book a demonstration for your properties."
       secondaryHref={routes.contact}
       secondaryLabel="Book a Demo"
     />

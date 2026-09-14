@@ -37,7 +37,7 @@ export function ProductVisual({
   className?: string
 }) {
   return (
-    <section className={cn('px-4 py-14 sm:px-6 lg:px-8', className)}>
+    <section className={cn('px-4 py-8 sm:px-6 sm:py-14 lg:px-8', className)}>
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto mb-8 max-w-3xl space-y-3 text-center">
           <h2 className="text-2xl font-bold sm:text-3xl lg:text-4xl">{heading}</h2>

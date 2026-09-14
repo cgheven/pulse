@@ -4,11 +4,11 @@ import { routes } from '@/lib/navigation'
 
 export default function Audience() {
   return (
-    <section className="px-4 py-12 sm:px-6 lg:px-8">
+    <section className="px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           heading="Who PulseHub Is For"
-          subtitle="PulseHub is built for room-based accommodation operators who need occupancy, residents, rent and property tasks in one place."
+          subtitle="Room-based operators who need occupancy, residents, rent and property tasks in one place."
         />
         <CardGrid
           columns="four"
@@ -16,25 +16,25 @@ export default function Audience() {
             {
               icon: Home,
               title: 'HMO Operators',
-              description: 'Room-level occupancy, residents and rent for licensed HMOs and shared houses.',
+              description: 'Licensed HMOs and shared houses.',
               href: routes.hmo,
             },
             {
               icon: Users,
               title: 'Co-Living Operators',
-              description: 'Shared living sites that need occupancy, payments and resident operations in one place.',
+              description: 'Shared living sites and occupancy.',
               href: routes.coliving,
             },
             {
               icon: GraduationCap,
-              title: 'Student Accommodation Providers',
-              description: 'Student houses and halls with rooms, residents and payment records to keep organised.',
+              title: 'Student Accommodation',
+              description: 'Student houses and halls.',
               href: routes.student,
             },
             {
               icon: Building2,
-              title: 'Shared Accommodation Businesses',
-              description: 'Room-based shared accommodation that outgrows spreadsheets and disconnected tools.',
+              title: 'Shared Accommodation',
+              description: 'Room-based sites outgrowing spreadsheets.',
               href: routes.features,
             },
           ]}
