@@ -2,42 +2,40 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import './globals.css'
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site'
 
 const GA_MEASUREMENT_ID = 'G-KTBY62T8PL'
-
-const SITE_URL = 'https://www.yourpulse.io'
-const SITE_TITLE = 'Pulse HMS — Hostel Management System'
-const SITE_DESCRIPTION =
-  'Pulse HMS is a hostel management system built for Pakistani hostel owners: rent and AC bill tracking, WhatsApp payment reminders, a branded mini website, and a multi-branch dashboard, live in 24 hours.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: SITE_TITLE,
-    template: '%s | Pulse HMS',
+    default: `${SITE_NAME} — Hostel Management Software`,
+    template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    'hostel management system',
-    'hostel management software Pakistan',
-    'rent collection software',
-    'WhatsApp rent reminders',
-    'hostel billing software',
-    'multi-branch hostel management',
+    'hostel management software',
+    'student accommodation management',
+    'co-living management software',
+    'HMO management software',
+    'rent and occupancy management',
+    'accommodation management software',
+    'property management for hostels',
+    'multi-property accommodation management',
+    'resident and tenant management',
+    'accommodation billing software',
     'PulseHub',
-    'Pulse HMS',
   ],
-  authors: [{ name: 'PulseHub' }],
-  generator: 'v0.app',
+  authors: [{ name: SITE_NAME }],
   alternates: {
-    canonical: '/',
+    canonical: `${SITE_URL}/`,
   },
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    url: SITE_URL,
-    siteName: 'Pulse HMS',
-    locale: 'en_US',
+  url: `${SITE_URL}/`,
+    siteName: SITE_NAME,
+    locale: 'en_GB',
     type: 'website',
   },
   twitter: {
@@ -76,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="en-GB" className="bg-background overflow-x-clip">
       <body className="antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

@@ -3,10 +3,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Check } from 'lucide-react'
-
-function waLink(message: string) {
-  return `https://wa.me/923336673553?text=${encodeURIComponent(message)}`
-}
+import { SIGN_UP_URL, WHATSAPP_PRICING_URL } from '@/lib/site'
 
 type Cycle = 'monthly' | 'yearly'
 
@@ -47,23 +44,24 @@ export default function Pricing() {
   const [cycle, setCycle] = useState<Cycle>('monthly')
 
   return (
-    <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="pricing" className="scroll-mt-20 py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
         <div className="text-center space-y-4 mb-10">
-          <h2 className="text-4xl lg:text-5xl font-bold">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-            Priced per branch. Pick the package that fits your hostel.
+          <p className="text-lg sm:text-xl text-foreground/70 max-w-2xl mx-auto">
+            Priced per branch. Pick the package that fits your hostel or accommodation business.
           </p>
         </div>
 
         <div className="flex justify-center mb-10">
-          <div className="inline-flex items-center rounded-full border border-border bg-card p-1">
+          <div className="inline-flex max-w-full items-center rounded-full border border-border bg-card p-1" role="group" aria-label="Billing cycle">
             <button
               type="button"
               onClick={() => setCycle('monthly')}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
+              aria-pressed={cycle === 'monthly'}
+              className={`min-h-11 px-5 py-2 rounded-full text-sm font-semibold transition-colors motion-reduce:transition-none ${
                 cycle === 'monthly'
                   ? 'bg-primary text-primary-foreground'
                   : 'text-foreground/60'
@@ -74,7 +72,8 @@ export default function Pricing() {
             <button
               type="button"
               onClick={() => setCycle('yearly')}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
+              aria-pressed={cycle === 'yearly'}
+              className={`flex items-center gap-2 min-h-11 px-4 sm:px-5 py-2 rounded-full text-sm font-semibold transition-colors motion-reduce:transition-none ${
                 cycle === 'yearly'
                   ? 'bg-primary text-primary-foreground'
                   : 'text-foreground/60'
@@ -82,7 +81,7 @@ export default function Pricing() {
             >
               Yearly
               <span
-                className={`text-xs font-bold rounded-full px-2 py-0.5 ${
+                className={`text-xs font-bold rounded-full px-2 py-0.5 whitespace-nowrap ${
                   cycle === 'yearly'
                     ? 'bg-primary-foreground/20 text-primary-foreground'
                     : 'bg-primary/10 text-primary'
@@ -94,19 +93,16 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          {plans.map((plan, index) => {
+        <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto items-start">
+          {plans.map((plan) => {
             const priceInfo = plan[cycle]
-            const whatsappUrl = waLink(
-              `Hi! I'm interested in the ${plan.name} package (${priceInfo.price}/branch, ${cycle}) for Pulse HMS. Can you share more details?`
-            )
 
             return (
               <div
-                key={index}
-                className={`rounded-2xl transition-all duration-300 ${
+                key={plan.name}
+                className={`rounded-2xl transition-all duration-300 motion-reduce:transition-none ${
                   plan.highlight
-                    ? 'sm:scale-105 border-2 border-primary shadow-lg shadow-primary/20 bg-card'
+                    ? 'border-2 border-primary shadow-lg shadow-primary/20 bg-card sm:mt-0'
                     : 'border border-border bg-card hover:border-primary/50'
                 }`}
               >
@@ -116,7 +112,7 @@ export default function Pricing() {
                   </div>
                 )}
 
-                <div className="p-8">
+                <div className="p-6 sm:p-8">
                   <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                   <p className="text-foreground/60 mb-6">{plan.description}</p>
 
@@ -130,26 +126,26 @@ export default function Pricing() {
 
                   <Button
                     size="lg"
-                    className={`w-full mb-6 ${
+                    className={`w-full mb-6 min-h-11 ${
                       plan.highlight
                         ? 'bg-primary hover:bg-primary/90'
                         : 'border border-primary text-primary hover:bg-primary/10 bg-transparent'
                     }`}
                     variant={plan.highlight ? 'default' : 'outline'}
                     nativeButton={false}
-                    render={<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" />}
+                    render={<a href={SIGN_UP_URL} />}
                   >
-                    Get Started
+                    Start free trial
                   </Button>
 
-                  <div className="space-y-2.5">
-                    {plan.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start gap-2.5">
-                        <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <ul className="space-y-2.5">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-2.5">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
                         <span className="text-foreground/80 text-sm">{feature}</span>
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
             )
@@ -162,17 +158,17 @@ export default function Pricing() {
           </p>
           <Button
             variant="outline"
-            className="border-primary text-primary hover:bg-primary/10"
+            className="border-primary text-primary hover:bg-primary/10 min-h-11 px-5"
             nativeButton={false}
             render={
               <a
-                href={waLink("Hi! I have a question about Pulse HMS pricing.")}
+                href={WHATSAPP_PRICING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               />
             }
           >
-            Contact Us
+            Contact us
           </Button>
         </div>
       </div>
