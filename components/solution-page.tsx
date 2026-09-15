@@ -3,6 +3,7 @@ import { CardGrid } from '@/components/card-grid'
 import { FaqList } from '@/components/faq-list'
 import { PageHero } from '@/components/page-hero'
 import { ProductVisual } from '@/components/product-visual'
+import { SolutionPageView } from '@/components/solution-page-view'
 import SiteShell from '@/components/site-shell'
 import { jsonLdScript } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
@@ -65,6 +66,7 @@ export function SolutionPage({
 
   return (
     <SiteShell>
+      <SolutionPageView path={path} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <PageHero heading={heading} text={text} supporting={supporting} />
       <section className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8">

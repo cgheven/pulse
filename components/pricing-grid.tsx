@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { Check } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { SIGN_UP_URL } from '@/lib/site'
+import { StartTrialButton } from '@/components/tracked-cta'
+import { trackPricingViewed } from '@/lib/analytics'
 import { routes } from '@/lib/navigation'
 import {
   ANNUAL_MONTHS_SAVED,
@@ -19,9 +20,28 @@ import {
 export default function PricingGrid({ heading, subtitle }: { heading?: string; subtitle: string }) {
   const [cycle, setCycle] = useState<'monthly' | 'yearly'>('monthly')
   const isAnnual = cycle === 'yearly'
+  const pathname = usePathname()
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const node = sectionRef.current
+    if (!node) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return
+        trackPricingViewed(pathname)
+        observer.disconnect()
+      },
+      { threshold: 0.25 },
+    )
+
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [pathname])
 
   return (
-    <section id="pricing" className="scroll-mt-20 bg-muted/30 px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <section id="pricing" ref={sectionRef} className="scroll-mt-20 bg-muted/30 px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto mb-6 max-w-3xl space-y-3 text-center sm:mb-8 sm:space-y-4">
           {heading ? <h2 className="text-2xl font-bold sm:text-3xl lg:text-4xl">{heading}</h2> : null}
@@ -91,17 +111,14 @@ export default function PricingGrid({ heading, subtitle }: { heading?: string; s
                       </p>
                     ) : null}
                   </div>
-                  <Button
+                  <StartTrialButton
+                    location="pricing"
                     size="lg"
                     variant={plan.highlight ? 'default' : 'outline'}
                     className={`min-h-11 w-full whitespace-normal ${
                       plan.highlight ? 'bg-primary hover:bg-primary/90' : 'border-primary text-primary hover:bg-primary/10'
                     }`}
-                    nativeButton={false}
-                    render={<a href={SIGN_UP_URL} />}
-                  >
-                    Start Free Trial
-                  </Button>
+                  />
                 </div>
               </div>
             )

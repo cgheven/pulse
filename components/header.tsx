@@ -4,8 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { ChevronDown, Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { SIGN_IN_URL, SIGN_UP_URL } from '@/lib/site'
+import { SignInButton, StartTrialButton } from '@/components/tracked-cta'
 import { primaryNav, solutionLinks } from '@/lib/navigation'
 
 export default function Header() {
@@ -89,34 +88,26 @@ export default function Header() {
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Button
-              variant="outline"
+            <SignInButton
+              location="header"
               size="sm"
               className="min-h-9 border-primary px-3 text-primary hover:bg-primary/10"
-              nativeButton={false}
-              render={<a href={SIGN_IN_URL} />}
-            >
-              Sign in
-            </Button>
-            <Button
+            />
+            <StartTrialButton
+              location="header"
               size="sm"
               className="min-h-9 bg-primary px-3 hover:bg-primary/90"
-              nativeButton={false}
-              render={<a href={SIGN_UP_URL} />}
-            >
-              Start Free Trial
-            </Button>
+            />
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
-            <Button
+            <StartTrialButton
+              location="header"
               size="sm"
               className="min-h-9 bg-primary px-3 hover:bg-primary/90"
-              nativeButton={false}
-              render={<a href={SIGN_UP_URL} />}
             >
               Free Trial
-            </Button>
+            </StartTrialButton>
             <button
               type="button"
               onClick={() => setIsOpen((open) => !open)}
@@ -150,21 +141,11 @@ export default function Header() {
               </Link>
             ))}
             <div className="flex flex-col gap-2 pt-3">
-              <Button
-                variant="outline"
+              <SignInButton
+                location="header"
                 className="min-h-11 border-primary text-primary hover:bg-primary/10"
-                nativeButton={false}
-                render={<a href={SIGN_IN_URL} />}
-              >
-                Sign in
-              </Button>
-              <Button
-                className="min-h-11 bg-primary hover:bg-primary/90"
-                nativeButton={false}
-                render={<a href={SIGN_UP_URL} />}
-              >
-                Start Free Trial
-              </Button>
+              />
+              <StartTrialButton location="header" className="min-h-11 bg-primary hover:bg-primary/90" />
             </div>
           </div>
         ) : null}

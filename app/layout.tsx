@@ -1,10 +1,8 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import Script from 'next/script'
 import './globals.css'
+import { GoogleAnalytics } from '@/components/google-analytics'
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site'
-
-const GA_MEASUREMENT_ID = 'G-KTBY62T8PL'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -67,18 +65,7 @@ export default function RootLayout({
       <body className="antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
-          `}
-        </Script>
+        <GoogleAnalytics />
       </body>
     </html>
   )

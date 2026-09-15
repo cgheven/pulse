@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { DashboardImage } from '@/components/product-visual'
-import { SIGN_UP_URL } from '@/lib/site'
+import { StartTrialButton } from '@/components/tracked-cta'
 import { routes } from '@/lib/navigation'
 
 export default function Hero() {
@@ -17,14 +17,11 @@ export default function Hero() {
             Rooms, residents, rent, maintenance and multiple properties — for HMO, co-living, student and shared-property operators.
           </p>
           <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
-            <Button
+            <StartTrialButton
+              location="hero"
               size="lg"
               className="min-h-11 whitespace-normal bg-primary px-5 hover:bg-primary/90"
-              nativeButton={false}
-              render={<a href={SIGN_UP_URL} />}
-            >
-              Start Free Trial
-            </Button>
+            />
             <Button
               size="lg"
               variant="outline"

@@ -1,10 +1,10 @@
 import SiteShell from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
+import { StartTrialButton } from '@/components/tracked-cta'
 import {
   CONTACT_EMAIL,
   DEMO_MAILTO,
   GENERAL_MAILTO,
-  SIGN_UP_URL,
   SUPPORT_MAILTO,
   SALES_MAILTO,
   SITE_NAME,
@@ -47,9 +47,7 @@ export default function ContactPage() {
           Choose an enquiry type to open an email, or start a free trial if you are ready to set up your account.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Button className="min-h-11 bg-primary hover:bg-primary/90" nativeButton={false} render={<a href={SIGN_UP_URL} />}>
-            Start Free Trial
-          </Button>
+          <StartTrialButton location="other" className="min-h-11 bg-primary hover:bg-primary/90" />
           <Button variant="outline" className="min-h-11 border-primary text-primary hover:bg-primary/10" nativeButton={false} render={<a href={DEMO_MAILTO} />}>
             Book a Demo
           </Button>

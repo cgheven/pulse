@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { Button } from '@/components/ui/button'
-import { SIGN_UP_URL } from '@/lib/site'
+import { StartTrialButton } from '@/components/tracked-cta'
 import { routes } from '@/lib/navigation'
 import { cn } from '@/lib/utils'
 
@@ -26,14 +26,11 @@ export function PageHero({
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-foreground/70 sm:mt-6 sm:text-lg">{text}</p>
           {supporting ? <p className="mx-auto mt-3 max-w-2xl text-base text-foreground/60">{supporting}</p> : null}
           <div className="mt-6 flex flex-col justify-center gap-3 sm:mt-8 sm:flex-row">
-            <Button
+            <StartTrialButton
+              location="hero"
               size="lg"
               className="min-h-11 whitespace-normal bg-primary px-5 hover:bg-primary/90"
-              nativeButton={false}
-              render={<a href={SIGN_UP_URL} />}
-            >
-              Start Free Trial
-            </Button>
+            />
             <Button
               size="lg"
               variant="outline"

@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { SIGN_UP_URL } from '@/lib/site'
+import { StartTrialButton } from '@/components/tracked-cta'
 import { routes } from '@/lib/navigation'
 
 export function CtaBand({
@@ -21,14 +21,11 @@ export function CtaBand({
         <h2 className="text-2xl font-bold sm:text-3xl lg:text-4xl">{heading}</h2>
         <p className="text-base text-foreground/70 sm:text-lg">{text}</p>
         <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
-          <Button
+          <StartTrialButton
+            location="final_cta"
             size="lg"
             className="min-h-11 whitespace-normal bg-primary px-5 hover:bg-primary/90"
-            nativeButton={false}
-            render={<a href={SIGN_UP_URL} />}
-          >
-            Start Free Trial
-          </Button>
+          />
           <Button
             size="lg"
             variant="outline"
