@@ -6,6 +6,7 @@ export const GA_MEASUREMENT_ID = 'G-KTBY62T8PL'
 export const analyticsEvents = {
   startTrialClicked: 'start_trial_clicked',
   signInClicked: 'sign_in_clicked',
+  demoRequested: 'demo_requested',
   pricingViewed: 'pricing_viewed',
   solutionPageViewed: 'solution_page_viewed',
   faqOpened: 'faq_opened',
@@ -216,6 +217,13 @@ export function trackSignIn(ctaLocation: CtaLocation) {
   trackEvent(analyticsEvents.signInClicked, contextParams({
     cta_location: ctaLocation,
     destination: 'login',
+  }))
+}
+
+export function trackDemoRequested(ctaLocation: CtaLocation) {
+  trackEvent(analyticsEvents.demoRequested, contextParams({
+    cta_location: ctaLocation,
+    destination: 'contact',
   }))
 }
 

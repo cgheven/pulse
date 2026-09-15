@@ -9,13 +9,16 @@ import { jsonLdScript } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
 import type { LucideIcon } from 'lucide-react'
+import type { ReactNode } from 'react'
 
 export function SolutionPage({
   path,
   title,
+  eyebrow,
   heading,
   text,
   supporting,
+  heroVisual,
   problemHeading,
   problem,
   outcomes,
@@ -26,9 +29,11 @@ export function SolutionPage({
 }: {
   path: string
   title: string
+  eyebrow?: string
   heading: string
   text: string
   supporting?: string
+  heroVisual?: ReactNode
   problemHeading: string
   problem: string
   outcomes: { icon?: LucideIcon; title: string; description: string }[]
@@ -68,7 +73,14 @@ export function SolutionPage({
     <SiteShell>
       <SolutionPageView path={path} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
-      <PageHero heading={heading} text={text} supporting={supporting} />
+      <PageHero
+        eyebrow={eyebrow}
+        heading={heading}
+        text={text}
+        supporting={supporting}
+        visual={heroVisual}
+        split={Boolean(heroVisual)}
+      />
       <section className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
         <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 sm:p-8">
           <h2 className="text-2xl font-bold sm:text-3xl">{problemHeading}</h2>

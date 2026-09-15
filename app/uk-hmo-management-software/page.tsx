@@ -1,4 +1,5 @@
 import { SolutionPage } from '@/components/solution-page'
+import { DashboardImage } from '@/components/product-visual'
 import { pageMetadata } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
 import { BarChart3, BedDouble, Building2, ClipboardList, CreditCard, Eye, Files, Receipt, Shield, Users, Wrench } from 'lucide-react'
@@ -15,9 +16,10 @@ export default function HmoPage() {
     <SolutionPage
       path={routes.hmo}
       title="HMO Management Software for UK Property Operators"
-      heading="HMO Management Software for Growing Property Portfolios"
-      text="Manage rooms, residents, rent and property operations across your HMO portfolio from one connected platform."
-      supporting="Replace disconnected spreadsheets and manual records with a clearer view of your rooms, residents, payments and property operations."
+      eyebrow="HMO Management Software"
+      heading="Manage Your HMO Portfolio Without the Spreadsheet Chaos"
+      text="Track rooms and occupancy, residents, rent and payments, and everyday property operations across every HMO in your portfolio — all in one platform."
+      heroVisual={<DashboardImage priority />}
       problemHeading="Why HMO operations get hard to manage"
       problem="Managing multiple rooms, rent schedules, residents and property tasks across an HMO portfolio can quickly become difficult with spreadsheets and disconnected tools."
       outcomes={[

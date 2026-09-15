@@ -1,6 +1,8 @@
 import { SolutionPage } from '@/components/solution-page'
+import { ProductScreenshot } from '@/components/feature-showcase'
 import { pageMetadata } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
+import { screenshots } from '@/lib/screenshots'
 import { BarChart3, BedDouble, Building2, ClipboardList, CreditCard, Eye, Files, Receipt, Users, Wrench } from 'lucide-react'
 
 export const metadata = pageMetadata({
@@ -15,9 +17,19 @@ export default function ColivingPage() {
     <SolutionPage
       path={routes.coliving}
       title="Co-Living Management Software"
-      heading="Manage Your Co-Living Properties in One Place"
-      text="Manage shared living spaces, residents, payments and property operations from one central dashboard."
-      supporting="Make shared accommodation operations easier to manage with connected property, resident, payment and occupancy information."
+      eyebrow="Co-Living Management Software"
+      heading="Run Every Co-Living Property From One Connected Platform"
+      text="Manage shared living spaces, rooms and occupancy, residents, rent, shared utilities and maintenance — across every property from one dashboard."
+      heroVisual={
+        <ProductScreenshot
+          src={screenshots.properties.src}
+          alt={screenshots.properties.alt}
+          width={screenshots.properties.width}
+          height={screenshots.properties.height}
+          priority
+          sizes="(max-width: 1023px) calc(100vw - 2rem), 592px"
+        />
+      }
       problemHeading="Shared living needs connected operations"
       problem="Manage shared spaces, room availability, resident information, shared costs and property operations from one central platform."
       outcomes={[

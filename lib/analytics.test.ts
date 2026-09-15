@@ -14,6 +14,7 @@ import {
   trackFaqOpened,
   trackOnce,
   trackPricingViewed,
+  trackDemoRequested,
   trackSignIn,
   trackSolutionPageViewed,
   trackStartTrial,
@@ -139,6 +140,23 @@ test('start_trial_clicked and sign_in_clicked fire only when called, with contro
       page_type: 'homepage',
       cta_location: 'header',
       destination: 'login',
+    },
+  ])
+})
+
+test('demo_requested fires with controlled params and no personal data', () => {
+  const { calls } = installGtagMock('/contact')
+
+  trackDemoRequested('final_cta')
+
+  assert.equal(calls.length, 1)
+  assert.deepEqual(calls[0], [
+    'event',
+    analyticsEvents.demoRequested,
+    {
+      page_type: 'contact',
+      cta_location: 'final_cta',
+      destination: 'contact',
     },
   ])
 })

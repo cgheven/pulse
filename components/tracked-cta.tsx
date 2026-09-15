@@ -2,7 +2,8 @@
 
 import type { ReactNode } from 'react'
 import { Button } from '@/components/ui/button'
-import { trackSignIn, trackStartTrial, type CtaLocation } from '@/lib/analytics'
+import { trackDemoRequested, trackSignIn, trackStartTrial, type CtaLocation } from '@/lib/analytics'
+import { routes } from '@/lib/navigation'
 import { SIGN_IN_URL, SIGN_UP_URL } from '@/lib/site'
 
 type ButtonSize = 'sm' | 'lg' | 'default'
@@ -32,6 +33,43 @@ export function StartTrialButton({
           href={SIGN_UP_URL}
           onClick={() => {
             trackStartTrial(location)
+          }}
+        />
+      }
+    >
+      {children}
+    </Button>
+  )
+}
+
+export function BookDemoButton({
+  location,
+  href = routes.contact,
+  className,
+  size = 'default',
+  variant = 'outline',
+  children = 'Book a Demo',
+}: {
+  location: CtaLocation
+  href?: string
+  className?: string
+  size?: ButtonSize
+  variant?: ButtonVariant
+  children?: ReactNode
+}) {
+  const isExternal = href.startsWith('http') || href.startsWith('mailto:')
+  return (
+    <Button
+      size={size}
+      variant={variant}
+      className={className}
+      nativeButton={false}
+      render={
+        <a
+          href={href}
+          {...(isExternal && href.startsWith('https') ? { rel: 'noopener noreferrer' } : {})}
+          onClick={() => {
+            trackDemoRequested(location)
           }}
         />
       }

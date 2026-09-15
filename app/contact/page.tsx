@@ -1,6 +1,5 @@
 import SiteShell from '@/components/site-shell'
-import { Button } from '@/components/ui/button'
-import { StartTrialButton } from '@/components/tracked-cta'
+import { BookDemoButton, StartTrialButton } from '@/components/tracked-cta'
 import {
   CONTACT_EMAIL,
   DEMO_MAILTO,
@@ -48,9 +47,7 @@ export default function ContactPage() {
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <StartTrialButton location="other" className="min-h-11 bg-primary hover:bg-primary/90" />
-          <Button variant="outline" className="min-h-11 border-primary text-primary hover:bg-primary/10" nativeButton={false} render={<a href={DEMO_MAILTO} />}>
-            Book a Demo
-          </Button>
+          <BookDemoButton location="other" href={DEMO_MAILTO} className="min-h-11 border-primary text-primary hover:bg-primary/10" />
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {enquiries.map((item) => (

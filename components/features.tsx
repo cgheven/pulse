@@ -165,7 +165,7 @@ export default function Features() {
           heading="Manage Your Accommodation Operations"
           subtitle="Rooms, residents, rent and maintenance — the daily work of running a site."
         />
-        <CardGrid items={homepageFeatures} columns="three" />
+        <CardGrid items={homepageFeatures} columns="four" />
         <p className="mt-6 text-center">
           <a href={routes.features} className="inline-flex min-h-11 items-center justify-center font-medium text-primary hover:underline">
             Explore the Platform

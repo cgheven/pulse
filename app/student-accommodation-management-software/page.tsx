@@ -1,6 +1,8 @@
 import { SolutionPage } from '@/components/solution-page'
+import { ProductScreenshot } from '@/components/feature-showcase'
 import { pageMetadata } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
+import { screenshots } from '@/lib/screenshots'
 import { BarChart3, BedDouble, Building2, ClipboardList, CreditCard, Eye, Files, Receipt, Users, Wrench } from 'lucide-react'
 
 export const metadata = pageMetadata({
@@ -15,9 +17,19 @@ export default function StudentPage() {
     <SolutionPage
       path={routes.student}
       title="Student Accommodation Management Software"
-      heading="Student Accommodation Management Made Simpler"
-      text="Keep rooms, residents, payments and accommodation operations organised with one simple management platform."
-      supporting="Give your team one reliable place to manage accommodation records, room availability, resident information and payment activity."
+      eyebrow="Student Accommodation Software"
+      heading="Manage Student Accommodation Through Every Move-In and Move-Out"
+      text="Handle room and bed allocation, resident records, occupancy and rent tracking — and keep everyday accommodation operations organised right through the year."
+      heroVisual={
+        <ProductScreenshot
+          src={screenshots.residents.src}
+          alt={screenshots.residents.alt}
+          width={screenshots.residents.width}
+          height={screenshots.residents.height}
+          priority
+          sizes="(max-width: 1023px) calc(100vw - 2rem), 592px"
+        />
+      }
       problemHeading="Built around the accommodation cycle"
       problem="Keep room allocations, resident records, occupancy and payment activity organised throughout the accommodation cycle."
       outcomes={[
