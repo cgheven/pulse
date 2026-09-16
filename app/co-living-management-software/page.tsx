@@ -19,7 +19,7 @@ export default function ColivingPage() {
       title="Co-Living Management Software"
       eyebrow="Co-Living Management Software"
       heading="Run Every Co-Living Property From One Connected Platform"
-      text="Manage shared living spaces, rooms and occupancy, residents, rent, shared utilities and maintenance — across every property from one dashboard."
+      text="Manage shared living spaces, rooms and occupancy, residents, rent, shared utilities and maintenance, across every property from one dashboard."
       heroVisual={
         <ProductScreenshot
           src={screenshots.properties.src}
@@ -83,7 +83,7 @@ export default function ColivingPage() {
         {
           question: 'Does PulseHub include a resident community or events app?',
           answer:
-            'No. PulseHub focuses on operational management — occupancy, residents, payments, maintenance and reporting — rather than community or events features.',
+            'No. PulseHub focuses on operational management (occupancy, residents, payments, maintenance and reporting) rather than community or events features.',
         },
         {
           question: 'Is a free trial available?',

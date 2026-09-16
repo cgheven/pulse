@@ -4,6 +4,7 @@ export const routes = {
   pricing: '/pricing',
   about: '/about',
   contact: '/contact',
+  blog: '/blog',
   cookies: '/cookie-policy',
   hmo: '/uk-hmo-management-software',
   student: '/student-accommodation-management-software',

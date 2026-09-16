@@ -30,7 +30,7 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Accommodation Management Software`,
+    default: `${SITE_NAME}: Accommodation Management Software`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,

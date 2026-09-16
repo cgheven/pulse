@@ -1,1 +1,1 @@
-PulseHub — accommodation management software for HMO, student, co-living and hostel operators.
+PulseHub: accommodation management software for HMO, student, co-living and hostel operators.

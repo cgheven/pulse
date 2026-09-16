@@ -18,7 +18,7 @@ export default function HmoPage() {
       title="HMO Management Software for UK Property Operators"
       eyebrow="HMO Management Software"
       heading="Manage Your HMO Portfolio Without the Spreadsheet Chaos"
-      text="Track rooms and occupancy, residents, rent and payments, and everyday property operations across every HMO in your portfolio — all in one platform."
+      text="Track rooms and occupancy, residents, rent and payments, and everyday property operations across every HMO in your portfolio, all in one platform."
       heroVisual={<DashboardImage priority />}
       problemHeading="Why HMO operations get hard to manage"
       problem="Managing multiple rooms, rent schedules, residents and property tasks across an HMO portfolio can quickly become difficult with spreadsheets and disconnected tools."

@@ -48,14 +48,14 @@ const jsonLd = {
       offers: pricingPlans.flatMap((plan) => [
         {
           '@type': 'Offer',
-          name: `${plan.name} — Monthly`,
+          name: `${plan.name} Monthly`,
           price: String(plan.monthly),
           priceCurrency: 'GBP',
           url: `${SITE_URL}/pricing`,
         },
         {
           '@type': 'Offer',
-          name: `${plan.name} — Annual`,
+          name: `${plan.name} Annual`,
           price: String(plan.yearly),
           priceCurrency: 'GBP',
           url: `${SITE_URL}/pricing`,
@@ -83,7 +83,7 @@ export default function Page() {
       <Portfolio />
       <PricingGrid
         heading="Pricing that grows with your portfolio"
-        subtitle="Plans by property allowance — 1, 3 or 10 properties. 14-day free trial, no card. Annual billing saves 2 months."
+        subtitle="Plans by property allowance: 1, 3 or 10 properties. 14-day free trial, no card. Annual billing saves 2 months."
       />
       <HomeFaq />
       <Cta />

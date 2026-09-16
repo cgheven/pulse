@@ -8,13 +8,13 @@ import Script from "next/script";
  *
  * The Pulse app (hostel.yourpulse.io) creates a Paddle transaction, then sends
  * the buyer here as /checkout?_ptxn=<transactionId>&return=<app-origin>. Paddle
- * opens the checkout on THIS domain — which is domain-approved — so the app's own
+ * opens the checkout on THIS domain (which is domain-approved) so the app's own
  * subdomain never needs approval. On success Paddle returns to the app's billing
  * page.
  *
  * Env (set in this project's hosting):
- *   NEXT_PUBLIC_PADDLE_CLIENT_TOKEN  — live client-side token
- *   NEXT_PUBLIC_PADDLE_ENV           — "production" (default) or "sandbox"
+ *   NEXT_PUBLIC_PADDLE_CLIENT_TOKEN  : live client-side token
+ *   NEXT_PUBLIC_PADDLE_ENV           : "production" (default) or "sandbox"
  */
 declare global {
   interface Window {

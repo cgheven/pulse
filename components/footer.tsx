@@ -21,7 +21,7 @@ export default function Footer() {
               <span className="text-lg font-bold">PulseHub</span>
             </Link>
             <p className="max-w-sm text-[15px] leading-relaxed text-muted-foreground">
-              One platform for room-based operators — properties, rooms, residents, rent and daily
+              One platform for room-based operators: properties, rooms, residents, rent and daily
               operations, across every site.
             </p>
             <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground/70">
@@ -52,6 +52,7 @@ export default function Footer() {
             <p className="mb-3 text-sm font-semibold">Company</p>
             <ul className="space-y-1 text-[15px] text-muted-foreground">
               <li><Link href={routes.about} className="inline-flex min-h-10 items-center hover:text-primary">About</Link></li>
+              <li><Link href={routes.blog} className="inline-flex min-h-10 items-center hover:text-primary">Blog</Link></li>
               <li><Link href={routes.contact} className="inline-flex min-h-10 items-center hover:text-primary">Contact</Link></li>
               <li>
                 <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex min-h-10 items-center gap-2 hover:text-primary">

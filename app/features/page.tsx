@@ -54,7 +54,7 @@ const groupVisuals: Record<string, ReactNode> = {
       <div id="member-timeline" className="scroll-mt-24">
         <h3 className="text-xl font-bold sm:text-2xl">Member Timeline</h3>
         <p className="mt-2 mb-4 max-w-3xl text-base leading-relaxed text-foreground/70 sm:mb-5 sm:text-lg">
-          A member’s history — admissions, room changes, charges, payments, deposits and complaints. Not the rent-collection screen.
+          A member’s history: admissions, room changes, charges, payments, deposits and complaints. Not the rent-collection screen.
         </p>
         <ProductVideo
           src="/videos/member-ledger.mp4"
@@ -113,7 +113,7 @@ export default function FeaturesPage() {
       <PageHero
         eyebrow="The platform"
         heading="Accommodation operations in one platform"
-        text="Rooms, residents, rent, maintenance and multiple properties — for HMO, student, co-living and hostel operators."
+        text="Rooms, residents, rent, maintenance and multiple properties, for HMO, student, co-living and hostel operators."
         visual={
           <figure className="min-w-0">
             <DashboardImage priority label="Portfolio overview" sizes="(max-width: 1023px) calc(100vw - 2rem), 42rem" />
@@ -147,7 +147,7 @@ export default function FeaturesPage() {
       })}
       <CtaBand
         heading="Use these tools with your properties"
-        text="Start a 14-day free trial, no card required — or book a walkthrough of rooms, residents, rent and daily operations."
+        text="Start a 14-day free trial with no card required, or book a walkthrough of rooms, residents, rent and daily operations."
       />
     </SiteShell>
   )

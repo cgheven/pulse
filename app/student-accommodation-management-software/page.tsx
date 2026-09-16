@@ -19,7 +19,7 @@ export default function StudentPage() {
       title="Student Accommodation Management Software"
       eyebrow="Student Accommodation Software"
       heading="Manage Student Accommodation Through Every Move-In and Move-Out"
-      text="Handle room and bed allocation, resident records, occupancy and rent tracking — and keep everyday accommodation operations organised right through the year."
+      text="Handle room and bed allocation, resident records, occupancy and rent tracking, and keep everyday accommodation operations organised right through the year."
       heroVisual={
         <ProductScreenshot
           src={screenshots.residents.src}
@@ -63,7 +63,7 @@ export default function StudentPage() {
         {
           question: 'Can I manage multiple properties?',
           answer:
-            'Yes. Plans are based on property allowance — Basic includes 1 property, Standard includes 3, and Business includes 10. Review pricing, or contact us if you operate a larger portfolio.',
+            'Yes. Plans are based on property allowance: Basic includes 1 property, Standard includes 3, and Business includes 10. Review pricing, or contact us if you operate a larger portfolio.',
         },
         {
           question: 'Can I track rent and overdue payments?',

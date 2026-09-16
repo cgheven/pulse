@@ -10,7 +10,7 @@ export const homeFaqs = [
   {
     question: 'Is PulseHub one platform or separate products for each use case?',
     answer:
-      'One platform. HMO, student, co-living and hostel operators all use the same PulseHub — rooms, residents, rent and reporting — shaped around their kind of accommodation, not separate software products.',
+      'One platform. HMO, student, co-living and hostel operators all use the same PulseHub (rooms, residents, rent and reporting), shaped around their kind of accommodation, not separate software products.',
   },
   {
     question: 'Can I manage multiple properties?',
@@ -20,12 +20,12 @@ export const homeFaqs = [
   {
     question: 'What is the member timeline?',
     answer:
-      'A complete history for each resident — admissions, room changes, charges, payments, deposits and complaints in one record. Rent collection lives on the Payments screen; the timeline is the person’s story.',
+      'A complete history for each resident: admissions, room changes, charges, payments, deposits and complaints in one record. Rent collection lives on the Payments screen; the timeline is their full history.',
   },
   {
     question: 'Is a free trial available?',
     answer:
-      'Yes — a 14-day free trial with no card required, from the Start Free Trial button. You can also book a demo to see PulseHub with your properties in mind.',
+      'Yes. A 14-day free trial with no card required, from the Start Free Trial button. You can also book a demo to see PulseHub with your properties in mind.',
   },
 ]
 

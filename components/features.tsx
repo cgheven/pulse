@@ -2,7 +2,7 @@ import { BarChart3, BedDouble, Bell, Building2, CreditCard, FileText, Landmark, 
 
 /**
  * Capability groups used by the /features page. The homepage no longer renders a
- * feature card grid — the product videos and screenshots carry that story.
+ * feature card grid. The product videos and screenshots carry that story.
  */
 export const featureGroups = [
   {
@@ -26,7 +26,7 @@ export const featureGroups = [
   {
     id: 'residents',
     heading: 'Resident Records and Member History',
-    subtitle: 'Each person’s profile, documents and history — separate from property rent collection.',
+    subtitle: 'Each person’s profile, documents and history, separate from property rent collection.',
     columns: 'two' as const,
     items: [
       {
@@ -44,7 +44,7 @@ export const featureGroups = [
   {
     id: 'payments',
     heading: 'Rent and Payments',
-    subtitle: 'What is due, paid or outstanding — the rent screen, not the member timeline.',
+    subtitle: 'What is due, paid or outstanding: the rent screen, not the member timeline.',
     columns: 'three' as const,
     items: [
       {

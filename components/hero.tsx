@@ -12,11 +12,11 @@ export default function Hero() {
             Accommodation management software
           </p>
           <h1 className="mt-5 text-balance font-display text-[clamp(2.4rem,6.2vw,4.25rem)] font-medium leading-[1.03] tracking-tight text-foreground">
-            Every room, resident and <span className="text-primary">rent payment</span> — in one place.
+            Every room, resident and <span className="text-primary">rent payment</span>, in one place.
           </h1>
           <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
             PulseHub brings occupancy, resident records, rent, utilities, maintenance and multi-property
-            reporting into one platform — built for HMO, student, co-living and hostel operators.
+            reporting into one platform, built for HMO, student, co-living and hostel operators.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
             <StartTrialButton

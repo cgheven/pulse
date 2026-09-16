@@ -7,7 +7,7 @@ export default function MemberLedgerShowcase() {
     <section id="member-timeline" className="scroll-mt-24 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <div className="reveal mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
         <div className="min-w-0 max-w-xl">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">02 — The difference</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">02 · The difference</p>
           <h2 className="mt-4 font-display text-[clamp(1.9rem,4vw,3.25rem)] font-medium leading-[1.06] tracking-tight">
             Everything about a resident, in one record.
           </h2>

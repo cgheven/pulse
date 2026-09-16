@@ -109,7 +109,7 @@ export default function PricingGrid({ heading, subtitle }: { heading?: string; s
                     </p>
                     {isAnnual ? (
                       <p className="mt-1 text-[15px] text-muted-foreground">
-                        Save {formatGbp(saving)} — {ANNUAL_MONTHS_SAVED} months included free.
+                        Save {formatGbp(saving)} ({ANNUAL_MONTHS_SAVED} months included free).
                       </p>
                     ) : null}
                   </div>
