@@ -2,7 +2,6 @@ import { CtaBand } from '@/components/cta-band'
 import { CardGrid } from '@/components/card-grid'
 import { FaqList } from '@/components/faq-list'
 import { PageHero } from '@/components/page-hero'
-import { ProductVisual } from '@/components/product-visual'
 import { SolutionPageView } from '@/components/solution-page-view'
 import SiteShell from '@/components/site-shell'
 import { jsonLdScript } from '@/lib/seo'
@@ -22,7 +21,6 @@ export function SolutionPage({
   problemHeading,
   problem,
   outcomes,
-  sections,
   faqs,
   ctaHeading,
   ctaText,
@@ -37,7 +35,6 @@ export function SolutionPage({
   problemHeading: string
   problem: string
   outcomes: { icon?: LucideIcon; title: string; description: string }[]
-  sections: { icon?: LucideIcon; title: string; description: string }[]
   faqs: { question: string; answer: string }[]
   ctaHeading: string
   ctaText: string
@@ -49,7 +46,7 @@ export function SolutionPage({
         '@type': 'WebPage',
         name: title,
         url: `${SITE_URL}${path}`,
-        isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: `${SITE_URL}/` },
+        isPartOf: { '@id': `${SITE_URL}/#website` },
       },
       {
         '@type': 'BreadcrumbList',
@@ -81,48 +78,55 @@ export function SolutionPage({
         visual={heroVisual}
         split={Boolean(heroVisual)}
       />
-      <section className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-        <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 sm:p-8">
-          <h2 className="text-2xl font-bold sm:text-3xl">{problemHeading}</h2>
-          <p className="mt-4 text-base leading-relaxed text-foreground/70 sm:text-lg">{problem}</p>
+
+      <section className="px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+        <div className="mx-auto max-w-3xl border-l-2 border-primary pl-6 sm:pl-8">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">The problem</p>
+          <h2 className="mt-3 font-display text-[clamp(1.6rem,3.2vw,2.5rem)] font-medium leading-[1.1] tracking-tight">
+            {problemHeading}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">{problem}</p>
         </div>
       </section>
-      <section className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+
+      <section className="px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-6 text-2xl font-bold sm:text-3xl">How PulseHub helps</h2>
-          <CardGrid items={outcomes} columns="two" />
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">How PulseHub helps</p>
+          <h2 className="mb-8 max-w-3xl font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium leading-[1.1] tracking-tight">
+            One platform for the daily work of running your site
+          </h2>
+          <CardGrid items={outcomes} columns="two" size="comfortable" />
         </div>
       </section>
-      <ProductVisual />
-      <section className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="mb-6 text-2xl font-bold sm:text-3xl">Manage Your Accommodation Operations</h2>
-          <CardGrid items={sections} columns="two" />
-        </div>
-      </section>
+
       <section className="px-4 py-6 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center text-sm text-foreground/70">
+        <div className="mx-auto max-w-3xl text-center font-mono text-sm text-muted-foreground">
           <p>
-            Next,{' '}
-            <a href={routes.features} className="font-medium text-primary hover:underline">
-              explore accommodation management features
+            Next:{' '}
+            <a href={routes.features} className="text-primary hover:underline">
+              explore the platform
             </a>
-            ,{' '}
-            <a href={routes.pricing} className="font-medium text-primary hover:underline">
+            {' · '}
+            <a href={routes.pricing} className="text-primary hover:underline">
               view pricing
             </a>
-            , or{' '}
-            <a href={routes.contact} className="font-medium text-primary hover:underline">
-              contact the PulseHub team
+            {' · '}
+            <a href={routes.contact} className="text-primary hover:underline">
+              contact the team
             </a>
-            .
           </p>
         </div>
       </section>
-      <section className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-        <h2 className="mb-6 text-center text-2xl font-bold sm:text-3xl">Frequently Asked Questions</h2>
-        <FaqList items={faqs} />
+
+      <section className="px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="mb-8 text-center font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium leading-[1.1] tracking-tight">
+            Frequently asked questions
+          </h2>
+          <FaqList items={faqs} />
+        </div>
       </section>
+
       <CtaBand heading={ctaHeading} text={ctaText} />
     </SiteShell>
   )

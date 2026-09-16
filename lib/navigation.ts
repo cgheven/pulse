@@ -11,13 +11,12 @@ export const routes = {
 } as const
 
 export const solutionLinks = [
-  { href: routes.hmo, label: 'HMO Management', description: 'Software for HMO operators' },
-  { href: routes.student, label: 'Student Accommodation', description: 'Software for student accommodation' },
-  { href: routes.coliving, label: 'Co-Living Management', description: 'Software for co-living operators' },
+  { href: routes.hmo, label: 'HMO Management', menuLabel: 'For HMO Operators' },
+  { href: routes.student, label: 'Student Accommodation', menuLabel: 'For Student Accommodation Operators' },
+  { href: routes.coliving, label: 'Co-Living Management', menuLabel: 'For Co-living Operators' },
 ] as const
 
 export const primaryNav = [
-  { href: routes.features, label: 'Features' },
   { href: routes.pricing, label: 'Pricing' },
   { href: routes.about, label: 'About' },
   { href: routes.contact, label: 'Contact' },

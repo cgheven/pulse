@@ -3,7 +3,7 @@ import { ProductScreenshot } from '@/components/feature-showcase'
 import { pageMetadata } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
 import { screenshots } from '@/lib/screenshots'
-import { BarChart3, BedDouble, Building2, ClipboardList, CreditCard, Eye, Files, Receipt, Users, Wrench } from 'lucide-react'
+import { ClipboardList, CreditCard, Eye, Files } from 'lucide-react'
 
 export const metadata = pageMetadata({
   title: 'Student Accommodation Management Software',
@@ -53,15 +53,6 @@ export default function StudentPage() {
           title: 'Keep property information organised',
           description: 'Record maintenance, shared costs and site-level reports next to the resident and room records you already use.',
         },
-      ]}
-      sections={[
-        { icon: BedDouble, title: 'Room and bed allocation', description: 'Organise rooms, beds and availability as residents move in and out.' },
-        { icon: Users, title: 'Resident records', description: 'Keep profiles, documents and allocation details in one place.' },
-        { icon: CreditCard, title: 'Occupancy and rent tracking', description: 'See who is in residence and which payments are upcoming, paid or overdue.' },
-        { icon: Wrench, title: 'Maintenance requests', description: 'Log issues, assign work and keep a record of what has been completed.' },
-        { icon: Receipt, title: 'Utility allocation', description: 'Allocate shared bills across rooms or residents where needed.' },
-        { icon: BarChart3, title: 'Operational reports', description: 'Review occupancy, collections and outstanding balances.' },
-        { icon: Building2, title: 'Multi-property management', description: 'Run more than one student accommodation site from one account, up to the property allowance on your plan.' },
       ]}
       faqs={[
         {

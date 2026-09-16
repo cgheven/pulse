@@ -5,7 +5,12 @@ export const homeFaqs = [
   {
     question: 'What type of accommodation businesses can use PulseHub?',
     answer:
-      'HMOs, co-living spaces, student accommodation, shared accommodation and other room-based operators.',
+      'HMOs, student accommodation, co-living, hostels, shared accommodation and other room-based operators who manage occupancy, residents, rent and property tasks.',
+  },
+  {
+    question: 'Is PulseHub one platform or separate products for each use case?',
+    answer:
+      'One platform. HMO, student, co-living and hostel operators all use the same PulseHub — rooms, residents, rent and reporting — shaped around their kind of accommodation, not separate software products.',
   },
   {
     question: 'Can I manage multiple properties?',
@@ -15,31 +20,20 @@ export const homeFaqs = [
   {
     question: 'What is the member timeline?',
     answer:
-      'A member’s history in PulseHub — admissions, room changes, charges, payments, deposits and complaints. Rent collection is on the Payments screen.',
-  },
-  {
-    question: 'Can I track rent and overdue payments?',
-    answer: 'Yes. PulseHub tracks rent schedules, payment records, outstanding balances, deposits and payment history.',
-  },
-  {
-    question: 'Can I manage rooms and occupancy?',
-    answer: 'Yes. You can organise properties, rooms, beds, availability and resident allocations.',
-  },
-  {
-    question: 'Can I manage maintenance requests?',
-    answer: 'Yes. Maintenance is included on every plan — record issues, assign follow-up and keep a history of the work.',
+      'A complete history for each resident — admissions, room changes, charges, payments, deposits and complaints in one record. Rent collection lives on the Payments screen; the timeline is the person’s story.',
   },
   {
     question: 'Is a free trial available?',
-    answer: 'Yes. A 14-day free trial with no card required, from the Start Free Trial button.',
+    answer:
+      'Yes — a 14-day free trial with no card required, from the Start Free Trial button. You can also book a demo to see PulseHub with your properties in mind.',
   },
 ]
 
 export default function HomeFaq() {
   return (
-    <section className="px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <section className="px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading heading="Frequently Asked Questions" />
+        <SectionHeading heading="Frequently asked questions" />
         <FaqList items={homeFaqs} />
       </div>
     </section>

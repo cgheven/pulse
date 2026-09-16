@@ -31,16 +31,13 @@ export default function Header() {
             />
             <div className="flex min-w-0 flex-col leading-tight">
               <span className="text-base font-bold text-foreground sm:text-lg">PulseHub</span>
-              <span className="hidden text-[10px] font-semibold tracking-[0.12em] text-primary sm:block">
+              <span className="hidden font-mono text-[10px] font-medium tracking-[0.14em] text-primary sm:block">
                 ACCOMMODATION MANAGEMENT
               </span>
             </div>
           </Link>
 
           <div className="hidden items-center gap-6 lg:flex">
-            <Link href="/features" className="rounded-sm text-sm font-medium text-foreground/70 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-              Features
-            </Link>
             <div className="relative">
               <button
                 type="button"
@@ -62,21 +59,23 @@ export default function Header() {
                   id="solutions-menu"
                   className="absolute left-0 top-full z-50 mt-2 w-72 rounded-xl border border-border bg-card p-2 shadow-lg"
                 >
+                  <p className="px-3 pb-2 pt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                    One platform · by use case
+                  </p>
                   {solutionLinks.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="block rounded-lg px-3 py-2 hover:bg-muted"
+                      className="block rounded-lg px-3 py-2 text-sm font-medium text-foreground hover:bg-muted focus-visible:bg-muted focus-visible:outline-none"
                       onClick={close}
                     >
-                      <span className="block text-sm font-semibold text-foreground">{item.label}</span>
-                      <span className="block text-xs text-foreground/60">{item.description}</span>
+                      {item.menuLabel}
                     </Link>
                   ))}
                 </div>
               )}
             </div>
-            {primaryNav.filter((item) => item.label !== 'Features').map((item) => (
+            {primaryNav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -126,16 +125,13 @@ export default function Header() {
             id="mobile-navigation"
             className="absolute inset-x-0 top-full z-50 space-y-1 border-b border-border bg-background px-4 py-4 shadow-lg sm:px-6 lg:hidden"
           >
-            <Link href="/features" onClick={close} className="block min-h-11 py-2 text-sm font-medium text-foreground/80">
-              Features
-            </Link>
-            <p className="pt-2 text-xs font-semibold uppercase tracking-wide text-foreground/50">Solutions</p>
+            <p className="pt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">One platform · by use case</p>
             {solutionLinks.map((item) => (
-              <Link key={item.href} href={item.href} onClick={close} className="block min-h-11 py-2 text-sm font-medium text-foreground/80">
-                {item.label}
+              <Link key={item.href} href={item.href} onClick={close} className="block min-h-11 py-2 text-[15px] font-medium text-foreground/80">
+                {item.menuLabel}
               </Link>
             ))}
-            {primaryNav.filter((item) => item.label !== 'Features').map((item) => (
+            {primaryNav.map((item) => (
               <Link key={item.href} href={item.href} onClick={close} className="block min-h-11 py-2 text-sm font-medium text-foreground/80">
                 {item.label}
               </Link>

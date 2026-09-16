@@ -1,13 +1,11 @@
-import Audience from '@/components/audience'
 import Cta from '@/components/cta'
-import Features from '@/components/features'
 import Hero from '@/components/hero'
 import HomeFaq, { homeFaqs } from '@/components/home-faq'
 import MemberLedgerShowcase from '@/components/member-ledger-showcase'
-import PaymentsShowcase from '@/components/payments-showcase'
 import Portfolio from '@/components/portfolio'
 import PricingGrid from '@/components/pricing-grid'
 import SiteShell from '@/components/site-shell'
+import UseCases from '@/components/use-cases'
 import { pricingPlans } from '@/lib/pricing'
 import { jsonLdScript, pageMetadata } from '@/lib/seo'
 import { APP_ORIGIN, CONTACT_EMAIL, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site'
@@ -80,14 +78,12 @@ export default function Page() {
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <Hero />
-      <Audience />
-      <Features />
+      <UseCases />
       <MemberLedgerShowcase />
-      <PaymentsShowcase />
       <Portfolio />
       <PricingGrid
-        heading="Pricing That Scales With Your Property Portfolio"
-        subtitle="1, 3 or 10 properties. 14-day free trial, no card. Annual billing saves 2 months."
+        heading="Pricing that grows with your portfolio"
+        subtitle="Plans by property allowance — 1, 3 or 10 properties. 14-day free trial, no card. Annual billing saves 2 months."
       />
       <HomeFaq />
       <Cta />

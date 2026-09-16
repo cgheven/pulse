@@ -1,50 +1,9 @@
 import { BarChart3, BedDouble, Bell, Building2, CreditCard, FileText, Landmark, LayoutGrid, Receipt, Shield, Users, Wrench } from 'lucide-react'
-import { CardGrid, SectionHeading } from '@/components/card-grid'
-import { routes } from '@/lib/navigation'
 
-export const productFeatures = [
-  {
-    icon: BedDouble,
-    title: 'Room & Occupancy Management',
-        description: 'Properties, floors, rooms, beds and allocations.',
-  },
-  {
-    icon: Users,
-    title: 'Resident Management',
-        description: 'Profiles, tenancy details, documents and payment history.',
-  },
-  {
-    icon: CreditCard,
-    title: 'Rent & Payment Management',
-        description: 'Schedules, deposits, partial payments and overdue balances.',
-  },
-  {
-    icon: Bell,
-    title: 'Automated Rent Reminders',
-    description: 'Reduce manual follow-ups with reminders for upcoming payments, overdue rent and important resident updates.',
-  },
-  {
-    icon: Wrench,
-    title: 'Maintenance & Requests',
-        description: 'Record issues, assign follow-up and keep a work history.',
-  },
-  {
-    icon: Receipt,
-    title: 'Utility & Bill Allocation',
-    description: 'Manage shared utility costs and allocate bills across rooms, residents or properties.',
-  },
-  {
-    icon: BarChart3,
-    title: 'Reports & Financial Insights',
-    description: 'Understand occupancy, revenue, collections, outstanding balances, expenses and property performance.',
-  },
-  {
-    icon: Building2,
-    title: 'Multi-Property Management',
-    description: 'Manage multiple HMOs, co-living properties or accommodation sites from one central account.',
-  },
-]
-
+/**
+ * Capability groups used by the /features page. The homepage no longer renders a
+ * feature card grid — the product videos and screenshots carry that story.
+ */
 export const featureGroups = [
   {
     id: 'rooms',
@@ -147,31 +106,3 @@ export const featureGroups = [
     ],
   },
 ]
-
-export default function Features() {
-  const homepageFeatures = productFeatures.filter((item) =>
-    [
-      'Room & Occupancy Management',
-      'Resident Management',
-      'Rent & Payment Management',
-      'Maintenance & Requests',
-    ].includes(item.title),
-  )
-
-  return (
-    <section id="features" className="scroll-mt-20 px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          heading="Manage Your Accommodation Operations"
-          subtitle="Rooms, residents, rent and maintenance — the daily work of running a site."
-        />
-        <CardGrid items={homepageFeatures} columns="four" />
-        <p className="mt-6 text-center">
-          <a href={routes.features} className="inline-flex min-h-11 items-center justify-center font-medium text-primary hover:underline">
-            Explore the Platform
-          </a>
-        </p>
-      </div>
-    </section>
-  )
-}

@@ -12,8 +12,8 @@ export default function CookiePolicyPage() {
   return (
     <SiteShell>
       <article className="mx-auto max-w-3xl px-4 pb-16 pt-24 sm:px-6 sm:pt-28">
-        <h1 className="text-4xl font-bold">Cookie Policy</h1>
-        <p className="mt-6 text-foreground/70">
+        <h1 className="font-display text-[clamp(2rem,5vw,3rem)] font-medium tracking-tight">Cookie Policy</h1>
+        <p className="mt-6 text-muted-foreground">
           This page describes cookies used on the PulseHub marketing website at yourpulse.io. It is not a certification or a legal advice document.
         </p>
         <h2 className="mt-10 text-2xl font-semibold">Cookies we use</h2>

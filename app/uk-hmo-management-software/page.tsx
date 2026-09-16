@@ -2,7 +2,7 @@ import { SolutionPage } from '@/components/solution-page'
 import { DashboardImage } from '@/components/product-visual'
 import { pageMetadata } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
-import { BarChart3, BedDouble, Building2, ClipboardList, CreditCard, Eye, Files, Receipt, Shield, Users, Wrench } from 'lucide-react'
+import { ClipboardList, CreditCard, Eye, Files } from 'lucide-react'
 
 export const metadata = pageMetadata({
   title: 'HMO Management Software for Property Operators',
@@ -43,16 +43,6 @@ export default function HmoPage() {
           title: 'Keep property information organised',
           description: 'Record maintenance, shared costs and property-level reports alongside the rest of your HMO operations.',
         },
-      ]}
-      sections={[
-        { icon: BedDouble, title: 'Room and occupancy management', description: 'Organise properties, rooms, beds, availability and resident allocations.' },
-        { icon: Users, title: 'Resident and tenancy records', description: 'Keep resident profiles, documents and payment history together.' },
-        { icon: CreditCard, title: 'Rent and payment tracking', description: 'See upcoming, paid and overdue rent without chasing through spreadsheets.' },
-        { icon: Receipt, title: 'Shared utility and bill allocation', description: 'Allocate shared costs across rooms, residents or properties.' },
-        { icon: Wrench, title: 'Maintenance and operational tasks', description: 'Record issues, assign follow-up and keep a history of property work.' },
-        { icon: BarChart3, title: 'Property-level reporting', description: 'Review occupancy, collections, outstanding balances and expenses.' },
-        { icon: Building2, title: 'Multi-property visibility', description: 'Monitor more than one HMO from a single PulseHub account, up to the property allowance on your plan.' },
-        { icon: Shield, title: 'Team access and permissions', description: 'Give managers access to the properties they operate.' },
       ]}
       faqs={[
         {

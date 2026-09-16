@@ -36,6 +36,14 @@
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-accent: var(--ink-accent);
+  --color-ink-border: var(--ink-border);
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, 'SFMono-Regular', monospace;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, 'Times New Roman', serif;
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -47,9 +55,14 @@
 
 :root {
   color-scheme: light;
-  --background: oklch(0.99 0.001 280);
-  --foreground: oklch(0.15 0.01 280);
-  --card: oklch(1 0 0);
+  --background: oklch(0.985 0.006 75);
+  --foreground: oklch(0.17 0.012 60);
+  --card: oklch(0.998 0.003 75);
+  --ink: oklch(0.18 0.012 65);
+  --ink-foreground: oklch(0.97 0.005 75);
+  --ink-muted: oklch(0.74 0.02 75);
+  --ink-accent: oklch(0.8 0.15 68);
+  --ink-border: oklch(1 0 0 / 12%);
   --card-foreground: oklch(0.15 0.01 280);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0.01 280);
@@ -62,8 +75,8 @@
   --accent: oklch(0.54 0.167 45);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.93 0.001 280);
-  --input: oklch(0.96 0.001 280);
+  --border: oklch(0.9 0.008 70);
+  --input: oklch(0.95 0.006 70);
   --ring: oklch(0.54 0.167 45);
   --chart-1: oklch(0.54 0.167 45);
   --chart-2: oklch(0.15 0.01 280);
@@ -177,6 +190,45 @@
   }
 }
 
+@layer utilities {
+  /* "Live" pulse dot used sparingly to imply real-time operations. */
+  .pulse-dot {
+    animation: pulse-ring 2.4s ease-out infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in oklch, var(--primary) 55%, transparent);
+    }
+    70% {
+      box-shadow: 0 0 0 6px transparent;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+
+  /* Scroll-reveal via native scroll-driven animations (no JS). */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+  }
+
+  @keyframes reveal-in {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -189,5 +241,11 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

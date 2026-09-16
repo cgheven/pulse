@@ -44,8 +44,10 @@ export default function PricingGrid({ heading, subtitle }: { heading?: string; s
     <section id="pricing" ref={sectionRef} className="scroll-mt-20 bg-muted/30 px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto mb-6 max-w-3xl space-y-3 text-center sm:mb-8 sm:space-y-4">
-          {heading ? <h2 className="text-2xl font-bold sm:text-3xl lg:text-4xl">{heading}</h2> : null}
-          <p className="text-base text-foreground/70 sm:text-lg">{subtitle}</p>
+          {heading ? (
+            <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-medium leading-[1.1] tracking-tight">{heading}</h2>
+          ) : null}
+          <p className="text-base text-muted-foreground sm:text-lg">{subtitle}</p>
         </div>
 
         <div className="mb-6 flex w-full flex-col items-center gap-2 sm:mb-8 sm:gap-3">
@@ -96,17 +98,17 @@ export default function PricingGrid({ heading, subtitle }: { heading?: string; s
                 <div className="flex flex-1 flex-col p-5 sm:p-8">
                   {plan.highlight ? <p className="mb-2 text-sm font-semibold text-primary">Most popular</p> : null}
                   <h3 className="text-xl font-bold sm:text-2xl">{plan.name}</h3>
-                  <p className="mt-1 text-sm text-foreground/60 sm:mt-2 sm:text-base">{plan.description}</p>
+                  <p className="mt-1 text-base text-muted-foreground sm:mt-2">{plan.description}</p>
                   <p className="mt-3 inline-flex w-fit rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
                     {propertyLabel(plan.properties)}
                   </p>
                   <div className="my-5 sm:my-6">
-                    <div className="text-3xl font-bold tabular-nums sm:text-4xl">{formatGbp(price)}</div>
-                    <p className="mt-1 text-sm text-foreground/60">
+                    <div className="font-mono text-3xl font-semibold tabular-nums sm:text-4xl">{formatGbp(price)}</div>
+                    <p className="mt-1 text-[15px] text-muted-foreground">
                       {isAnnual ? 'per year, billed annually' : 'per month'}
                     </p>
                     {isAnnual ? (
-                      <p className="mt-1 text-sm text-foreground/55">
+                      <p className="mt-1 text-[15px] text-muted-foreground">
                         Save {formatGbp(saving)} — {ANNUAL_MONTHS_SAVED} months included free.
                       </p>
                     ) : null}
@@ -129,13 +131,13 @@ export default function PricingGrid({ heading, subtitle }: { heading?: string; s
           <h3 className="text-center text-base font-semibold sm:text-lg">Every plan includes</h3>
           <ul className="mt-4 grid gap-2 sm:grid-cols-2">
             {corePlanFeatures.map((feature) => (
-              <li key={feature} className="flex items-start gap-2.5 text-sm text-foreground/80 sm:text-base">
+              <li key={feature} className="flex items-start gap-2.5 text-base text-foreground/80">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                 {feature}
               </li>
             ))}
           </ul>
-          <div className="mt-6 text-center text-sm text-foreground/60 sm:text-base">
+          <div className="mt-6 text-center text-base text-muted-foreground">
             <p>
               Need more than 10 properties?{' '}
               <a href={routes.contact} className="font-medium text-primary hover:underline">

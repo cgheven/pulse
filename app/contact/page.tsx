@@ -39,10 +39,11 @@ export default function ContactPage() {
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <section className="mx-auto max-w-4xl px-4 pb-16 pt-24 sm:px-6 sm:pt-28">
-        <h1 className="text-[clamp(1.75rem,5vw,3.25rem)] font-bold leading-tight">
-          Let’s Talk About Your Accommodation Operations
+        <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-primary">Contact</p>
+        <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.06] tracking-tight">
+          Let’s talk about your accommodation operations
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-foreground/70">
+        <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
           Choose an enquiry type to open an email, or start a free trial if you are ready to set up your account.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

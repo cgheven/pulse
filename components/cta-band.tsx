@@ -6,32 +6,38 @@ export function CtaBand({
   text,
   secondaryHref = routes.contact,
   secondaryLabel = 'Book a Demo',
+  note = 'One platform for HMO, student, co-living & hostel operators.',
 }: {
   heading: string
   text: string
   secondaryHref?: string
   secondaryLabel?: string
+  note?: string
 }) {
   return (
-    <section className="px-4 py-8 sm:px-6 sm:py-14 lg:px-8">
-      <div className="mx-auto max-w-3xl space-y-4 rounded-2xl border border-primary/20 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 p-5 text-center sm:space-y-5 sm:p-10">
-        <h2 className="text-2xl font-bold sm:text-3xl lg:text-4xl">{heading}</h2>
-        <p className="text-base text-foreground/70 sm:text-lg">{text}</p>
-        <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
+    <section className="px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl bg-ink px-6 py-12 text-ink-foreground sm:px-12 sm:py-16">
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-accent">Get started</p>
+        <h2 className="mt-4 max-w-2xl font-display text-3xl font-medium leading-[1.05] tracking-tight sm:text-4xl lg:text-5xl">
+          {heading}
+        </h2>
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg">{text}</p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <StartTrialButton
             location="final_cta"
             size="lg"
-            className="min-h-11 whitespace-normal bg-primary px-5 hover:bg-primary/90"
+            className="min-h-12 whitespace-normal bg-primary px-6 text-base hover:bg-primary/90"
           />
           <BookDemoButton
             location="final_cta"
             href={secondaryHref}
             size="lg"
-            className="min-h-11 whitespace-normal border-primary px-5 text-primary hover:bg-primary/10"
+            className="min-h-12 whitespace-normal border-ink-border bg-transparent px-6 text-base text-ink-foreground hover:bg-white/10 hover:text-ink-foreground"
           >
             {secondaryLabel}
           </BookDemoButton>
         </div>
+        {note ? <p className="mt-6 font-mono text-xs uppercase tracking-wide text-ink-muted">{note}</p> : null}
       </div>
     </section>
   )

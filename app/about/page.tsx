@@ -24,10 +24,11 @@ export default function AboutPage() {
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <section className="mx-auto max-w-3xl px-4 pb-10 pt-24 sm:px-6 sm:pt-28">
-        <h1 className="text-[clamp(1.75rem,5vw,3.25rem)] font-bold leading-tight">
-          Practical Software for Better Accommodation Operations
+        <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-primary">About PulseHub</p>
+        <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.06] tracking-tight">
+          Practical software for better accommodation operations
         </h1>
-        <div className="mt-8 space-y-5 text-lg leading-relaxed text-foreground/70">
+        <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
           <p>
             PulseHub helps accommodation operators bring property, room, resident, payment and operational information together in one connected platform. Our goal is to reduce administrative work and make everyday accommodation management clearer and easier.
           </p>

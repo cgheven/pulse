@@ -9,12 +9,14 @@ export function ProductVideo({
   height,
   ariaLabel,
   className,
+  label,
 }: {
   src: string
   width: number
   height: number
   ariaLabel: string
   className?: string
+  label?: string
 }) {
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -67,7 +69,17 @@ export function ProductVideo({
   }, [])
 
   return (
-    <div className={cn('w-full min-w-0 overflow-hidden rounded-2xl border border-primary/20 bg-card shadow-2xl shadow-primary/10', className)}>
+    <div className={cn('w-full min-w-0 overflow-hidden rounded-xl border border-border bg-card shadow-[0_28px_70px_-28px_rgb(0_0_0/0.30)]', className)}>
+      <div className="flex items-center gap-1.5 border-b border-border bg-muted/40 px-4 py-2.5">
+        <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" aria-hidden="true" />
+        <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" aria-hidden="true" />
+        <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" aria-hidden="true" />
+        {label ? (
+          <span className="ml-2 truncate font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
+            {label}
+          </span>
+        ) : null}
+      </div>
       <video
         ref={videoRef}
         autoPlay

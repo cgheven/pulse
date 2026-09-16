@@ -1,1 +1,1 @@
-Pulse HMS — Hostel Management, Simplified.
+PulseHub — accommodation management software for HMO, student, co-living and hostel operators.

@@ -12,9 +12,9 @@ export function SectionHeading({
   id?: string
 }) {
   return (
-    <div id={id} className="mx-auto mb-5 max-w-3xl scroll-mt-24 space-y-2 text-center sm:mb-8 sm:space-y-3">
-      <h2 className="text-2xl font-bold sm:text-3xl lg:text-4xl">{heading}</h2>
-      {subtitle ? <p className="text-base leading-relaxed text-foreground/70 sm:text-lg">{subtitle}</p> : null}
+    <div id={id} className="mx-auto mb-6 max-w-3xl scroll-mt-24 space-y-3 text-center sm:mb-10">
+      <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium leading-[1.1] tracking-tight">{heading}</h2>
+      {subtitle ? <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">{subtitle}</p> : null}
     </div>
   )
 }
@@ -53,7 +53,7 @@ export function CardGrid({
             <h3 className={cn('font-semibold', comfortable ? 'mb-1.5 text-lg leading-snug sm:mb-2.5 sm:text-xl' : 'mb-1.5 text-base sm:mb-2 sm:text-lg')}>
               {item.title}
             </h3>
-            <p className="leading-relaxed text-foreground/75 text-base">
+            <p className={cn('leading-relaxed text-foreground/80', comfortable ? 'text-base sm:text-lg' : 'text-base')}>
               {item.description}
             </p>
           </>
@@ -65,7 +65,7 @@ export function CardGrid({
               key={item.title}
               href={item.href}
               className={cn(
-                'rounded-xl border border-border bg-card transition-colors hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5',
+                'rounded-xl border border-border bg-card transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_18px_40px_-24px_rgb(0_0_0/0.25)]',
                 comfortable ? 'p-5 sm:p-7' : 'p-4 sm:p-6',
               )}
             >

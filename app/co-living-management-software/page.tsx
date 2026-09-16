@@ -3,7 +3,7 @@ import { ProductScreenshot } from '@/components/feature-showcase'
 import { pageMetadata } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
 import { screenshots } from '@/lib/screenshots'
-import { BarChart3, BedDouble, Building2, ClipboardList, CreditCard, Eye, Files, Receipt, Users, Wrench } from 'lucide-react'
+import { ClipboardList, CreditCard, Eye, Files } from 'lucide-react'
 
 export const metadata = pageMetadata({
   title: 'Co-Living Management Software',
@@ -53,15 +53,6 @@ export default function ColivingPage() {
           title: 'Keep property information organised',
           description: 'Record maintenance, utility allocation and property reports in the same platform as occupancy.',
         },
-      ]}
-      sections={[
-        { icon: BedDouble, title: 'Room and occupancy management', description: 'Keep rooms, beds and availability organised across shared living spaces.' },
-        { icon: Users, title: 'Resident profiles', description: 'Store resident information, documents and payment history together.' },
-        { icon: CreditCard, title: 'Rent and payment tracking', description: 'Track rent schedules, deposits, partial payments and overdue balances.' },
-        { icon: Receipt, title: 'Shared utility allocation', description: 'Allocate shared costs across rooms or residents.' },
-        { icon: Wrench, title: 'Maintenance management', description: 'Record maintenance work and keep a clear history of property issues.' },
-        { icon: Building2, title: 'Multi-property control', description: 'Manage more than one co-living site from a single account, up to the property allowance on your plan.' },
-        { icon: BarChart3, title: 'Reports and operational visibility', description: 'See occupancy, collections, outstanding balances and property performance.' },
       ]}
       faqs={[
         {
