@@ -1,4 +1,5 @@
 import { routes } from './navigation.ts'
+import { regionCodes } from './pricing.ts'
 import { APP_ORIGIN, SITE_URL } from './site.ts'
 
 export const GA_MEASUREMENT_ID = 'G-KTBY62T8PL'
@@ -7,6 +8,8 @@ export const analyticsEvents = {
   startTrialClicked: 'start_trial_clicked',
   signInClicked: 'sign_in_clicked',
   demoRequested: 'demo_requested',
+  demoSubmitted: 'demo_submitted',
+  countrySelected: 'country_selected',
   pricingViewed: 'pricing_viewed',
   solutionPageViewed: 'solution_page_viewed',
   faqOpened: 'faq_opened',
@@ -32,6 +35,7 @@ export type AnalyticsParams = {
   page_type?: PageType
   solution?: Solution
   destination?: Destination
+  region?: string
 }
 
 const allowedParamValues = {
@@ -39,6 +43,7 @@ const allowedParamValues = {
   page_type: new Set<string>(pageTypes),
   solution: new Set<string>(solutions),
   destination: new Set<string>(destinations),
+  region: new Set<string>(regionCodes),
 } as const
 
 const personalDataPattern = /@|\d{8,}/
@@ -225,6 +230,15 @@ export function trackDemoRequested(ctaLocation: CtaLocation) {
     cta_location: ctaLocation,
     destination: 'contact',
   }))
+}
+
+export function trackCountrySelected(region: string) {
+  trackEvent(analyticsEvents.countrySelected, contextParams({ region }))
+}
+
+/** Fires when a Book a Demo form submission is accepted by the API. */
+export function trackDemoSubmitted() {
+  trackEvent(analyticsEvents.demoSubmitted, contextParams({ destination: 'contact' }))
 }
 
 export function trackPricingViewed(path = currentPathname()) {

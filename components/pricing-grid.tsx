@@ -4,29 +4,47 @@ import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Check } from 'lucide-react'
 import { StartTrialButton } from '@/components/tracked-cta'
-import { trackPricingViewed } from '@/lib/analytics'
+import { trackCountrySelected, trackPricingViewed } from '@/lib/analytics'
 import { routes } from '@/lib/navigation'
 import {
   ANNUAL_MONTHS_SAVED,
   annualSaving,
   corePlanFeatures,
-  formatGbp,
+  DEFAULT_REGION_CODE,
+  formatPrice,
+  getRegion,
   MONTHS_INCLUDED_ANNUALLY,
   MONTHS_PAID_ANNUALLY,
-  pricingPlans,
-  propertyLabel,
+  regionPlans,
+  regions,
+  type RegionCode,
 } from '@/lib/pricing'
 
-export default function PricingGrid({ heading, subtitle }: { heading?: string; subtitle: string }) {
+export default function PricingGrid({
+  heading,
+  subtitle,
+  initialRegionCode = DEFAULT_REGION_CODE,
+  showSelector = true,
+}: {
+  heading?: string
+  subtitle: string
+  initialRegionCode?: RegionCode
+  showSelector?: boolean
+}) {
   const [cycle, setCycle] = useState<'monthly' | 'yearly'>('monthly')
+  const [regionCode, setRegionCode] = useState<RegionCode>(initialRegionCode)
   const isAnnual = cycle === 'yearly'
   const pathname = usePathname()
   const sectionRef = useRef<HTMLElement>(null)
 
+  const region = getRegion(regionCode)
+  const plans = regionPlans(region)
+  const perBranchMonthly = region.perBranchMonthly ?? 0
+  const perBranchAmount = isAnnual ? perBranchMonthly * MONTHS_PAID_ANNUALLY : perBranchMonthly
+
   useEffect(() => {
     const node = sectionRef.current
     if (!node) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return
@@ -35,10 +53,14 @@ export default function PricingGrid({ heading, subtitle }: { heading?: string; s
       },
       { threshold: 0.25 },
     )
-
     observer.observe(node)
     return () => observer.disconnect()
   }, [pathname])
+
+  function onRegionChange(code: RegionCode) {
+    setRegionCode(code)
+    trackCountrySelected(code)
+  }
 
   return (
     <section id="pricing" ref={sectionRef} className="scroll-mt-20 bg-muted/30 px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
@@ -50,19 +72,31 @@ export default function PricingGrid({ heading, subtitle }: { heading?: string; s
           <p className="text-base text-muted-foreground sm:text-lg">{subtitle}</p>
         </div>
 
-        <div className="mb-6 flex w-full flex-col items-center gap-2 sm:mb-8 sm:gap-3">
-          <div
-            className="grid w-full max-w-md grid-cols-2 rounded-full border border-border bg-card p-1"
-            role="group"
-            aria-label="Billing cycle"
-          >
+        <div className="mb-6 flex w-full flex-col items-center gap-3 sm:mb-8">
+          {showSelector ? (
+            <label className="flex items-center gap-2 text-sm font-medium text-foreground/80">
+              <span>Country / region</span>
+              <select
+                value={regionCode}
+                onChange={(event) => onRegionChange(event.target.value as RegionCode)}
+                className="min-h-9 rounded-lg border border-border bg-card px-3 py-1.5 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                aria-label="Choose your country or region for pricing"
+              >
+                {regions.map((item) => (
+                  <option key={item.code} value={item.code}>
+                    {item.label} ({item.currency})
+                  </option>
+                ))}
+              </select>
+            </label>
+          ) : null}
+
+          <div className="grid w-full max-w-md grid-cols-2 rounded-full border border-border bg-card p-1" role="group" aria-label="Billing cycle">
             <button
               type="button"
               aria-pressed={cycle === 'monthly'}
               onClick={() => setCycle('monthly')}
-              className={`min-h-11 rounded-full px-3 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-                cycle === 'monthly' ? 'bg-primary text-primary-foreground' : 'text-foreground/65 hover:text-foreground'
-              }`}
+              className={`min-h-11 rounded-full px-3 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${cycle === 'monthly' ? 'bg-primary text-primary-foreground' : 'text-foreground/65 hover:text-foreground'}`}
             >
               Monthly
             </button>
@@ -70,62 +104,79 @@ export default function PricingGrid({ heading, subtitle }: { heading?: string; s
               type="button"
               aria-pressed={isAnnual}
               onClick={() => setCycle('yearly')}
-              className={`min-h-11 rounded-full px-3 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-                isAnnual ? 'bg-primary text-primary-foreground' : 'text-foreground/65 hover:text-foreground'
-              }`}
+              className={`min-h-11 rounded-full px-3 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isAnnual ? 'bg-primary text-primary-foreground' : 'text-foreground/65 hover:text-foreground'}`}
             >
               Annual
             </button>
           </div>
-          <p className="max-w-md text-center text-sm text-foreground/65 sm:text-base" aria-live="polite">
+          <p className="max-w-md text-center text-[15px] text-muted-foreground" aria-live="polite">
             {isAnnual
               ? `Pay for ${MONTHS_PAID_ANNUALLY} months, get ${MONTHS_INCLUDED_ANNUALLY}. Save ${ANNUAL_MONTHS_SAVED} months.`
               : `Annual billing: pay ${MONTHS_PAID_ANNUALLY} months, get ${MONTHS_INCLUDED_ANNUALLY}.`}
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-6xl items-stretch gap-4 sm:gap-5 lg:grid-cols-3">
-          {pricingPlans.map((plan) => {
-            const price = isAnnual ? plan.yearly : plan.monthly
-            const saving = annualSaving(plan.monthly)
-            return (
-              <div
-                key={plan.id}
-                className={`relative flex flex-col rounded-2xl bg-card ${
-                  plan.highlight ? 'border-2 border-primary shadow-lg shadow-primary/15' : 'border border-border'
-                }`}
-              >
-                <div className="flex flex-1 flex-col p-5 sm:p-8">
-                  {plan.highlight ? <p className="mb-2 text-sm font-semibold text-primary">Most popular</p> : null}
-                  <h3 className="text-xl font-bold sm:text-2xl">{plan.name}</h3>
-                  <p className="mt-1 text-base text-muted-foreground sm:mt-2">{plan.description}</p>
-                  <p className="mt-3 inline-flex w-fit rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
-                    {propertyLabel(plan.properties)}
-                  </p>
-                  <div className="my-5 sm:my-6">
-                    <div className="font-mono text-3xl font-semibold tabular-nums sm:text-4xl">{formatGbp(price)}</div>
-                    <p className="mt-1 text-[15px] text-muted-foreground">
-                      {isAnnual ? 'per year, billed annually' : 'per month'}
-                    </p>
-                    {isAnnual ? (
-                      <p className="mt-1 text-[15px] text-muted-foreground">
-                        Save {formatGbp(saving)} ({ANNUAL_MONTHS_SAVED} months included free).
-                      </p>
-                    ) : null}
+        {region.model === 'per-branch' ? (
+          <div className="mx-auto max-w-md">
+            <div className="relative flex flex-col rounded-2xl border-2 border-primary bg-card shadow-lg shadow-primary/15">
+              <div className="flex flex-1 flex-col p-6 sm:p-8">
+                <p className="mb-2 text-sm font-semibold text-primary">Per branch</p>
+                <h3 className="text-xl font-bold sm:text-2xl">Simple per-branch pricing</h3>
+                <p className="mt-1 text-base text-muted-foreground">Pay for the branches you run, nothing more.</p>
+                <div className="my-5 sm:my-6">
+                  <div className="font-mono text-3xl font-semibold tabular-nums sm:text-4xl">
+                    {formatPrice(perBranchAmount, region)}
+                    <span className="ml-1 align-baseline text-base font-medium text-muted-foreground">
+                      {isAnnual ? '/ branch / year' : '/ branch / month'}
+                    </span>
                   </div>
-                  <StartTrialButton
-                    location="pricing"
-                    size="lg"
-                    variant={plan.highlight ? 'default' : 'outline'}
-                    className={`min-h-11 w-full whitespace-normal ${
-                      plan.highlight ? 'bg-primary hover:bg-primary/90' : 'border-primary text-primary hover:bg-primary/10'
-                    }`}
-                  />
+                  <p className="mt-2 text-[15px] text-muted-foreground">
+                    {isAnnual
+                      ? `${ANNUAL_MONTHS_SAVED} months free on annual billing. Example: 3 branches = ${formatPrice(perBranchMonthly * MONTHS_PAID_ANNUALLY * 3, region)} per year.`
+                      : `Example: 3 branches = ${formatPrice(perBranchMonthly * 3, region)} per month.`}
+                  </p>
                 </div>
+                <StartTrialButton location="pricing" size="lg" className="min-h-11 w-full whitespace-normal bg-primary hover:bg-primary/90" />
               </div>
-            )
-          })}
-        </div>
+            </div>
+          </div>
+        ) : (
+          <div className="mx-auto grid max-w-6xl items-stretch gap-4 sm:gap-5 lg:grid-cols-3">
+            {plans.map((plan) => {
+              const price = isAnnual ? plan.annual : plan.monthly
+              return (
+                <div
+                  key={plan.id}
+                  className={`relative flex flex-col rounded-2xl bg-card ${plan.highlight ? 'border-2 border-primary shadow-lg shadow-primary/15' : 'border border-border'}`}
+                >
+                  <div className="flex flex-1 flex-col p-5 sm:p-8">
+                    {plan.highlight ? <p className="mb-2 text-sm font-semibold text-primary">Most popular</p> : null}
+                    <h3 className="text-xl font-bold sm:text-2xl">{plan.name}</h3>
+                    <p className="mt-1 text-base text-muted-foreground sm:mt-2">{plan.description}</p>
+                    <p className="mt-3 inline-flex w-fit rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
+                      {plan.propertyLabel}
+                    </p>
+                    <div className="my-5 sm:my-6">
+                      <div className="font-mono text-3xl font-semibold tabular-nums sm:text-4xl">{formatPrice(price, region)}</div>
+                      <p className="mt-1 text-[15px] text-muted-foreground">{isAnnual ? 'per year, billed annually' : 'per month'}</p>
+                      {isAnnual ? (
+                        <p className="mt-1 text-[15px] text-muted-foreground">
+                          Save {formatPrice(annualSaving(plan.monthly), region)} ({ANNUAL_MONTHS_SAVED} months included free).
+                        </p>
+                      ) : null}
+                    </div>
+                    <StartTrialButton
+                      location="pricing"
+                      size="lg"
+                      variant={plan.highlight ? 'default' : 'outline'}
+                      className={`min-h-11 w-full whitespace-normal ${plan.highlight ? 'bg-primary hover:bg-primary/90' : 'border-primary text-primary hover:bg-primary/10'}`}
+                    />
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )}
 
         <div className="mx-auto mt-8 max-w-3xl sm:mt-10">
           <h3 className="text-center text-base font-semibold sm:text-lg">Every plan includes</h3>
@@ -139,11 +190,11 @@ export default function PricingGrid({ heading, subtitle }: { heading?: string; s
           </ul>
           <div className="mt-6 text-center text-base text-muted-foreground">
             <p>
-              Need more than 10 properties?{' '}
+              {region.model === 'per-branch' ? 'Running a large number of branches?' : 'Need more than 10 properties?'}{' '}
               <a href={routes.contact} className="font-medium text-primary hover:underline">
                 Contact us
-              </a>
-              .
+              </a>{' '}
+              for an Enterprise quote.
             </p>
           </div>
         </div>

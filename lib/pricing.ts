@@ -2,8 +2,6 @@ export const MONTHS_PAID_ANNUALLY = 10
 export const MONTHS_INCLUDED_ANNUALLY = 12
 export const ANNUAL_MONTHS_SAVED = MONTHS_INCLUDED_ANNUALLY - MONTHS_PAID_ANNUALLY
 
-export const ANNUAL_NOTE = `Annual billing: pay for ${MONTHS_PAID_ANNUALLY} months, get ${MONTHS_INCLUDED_ANNUALLY}. Save the equivalent of ${ANNUAL_MONTHS_SAVED} months.`
-
 /** Platform capabilities included on every plan. Plans differ by property allowance. */
 export const corePlanFeatures = [
   'Property management',
@@ -16,70 +14,107 @@ export const corePlanFeatures = [
   'Team access',
 ] as const
 
-export type PricingPlan = {
-  id: 'basic' | 'standard' | 'business'
+export type TierId = 'basic' | 'standard' | 'business'
+
+/** Tier structure is the same in every tiered market; only the amounts change. */
+export const tiers: {
+  id: TierId
   name: string
-  description: string
-  monthly: number
-  yearly: number
   properties: number
+  propertyLabel: string
+  description: string
   highlight: boolean
-  features: string[]
-}
-
-function planFromMonthly(
-  plan: Omit<PricingPlan, 'yearly' | 'features'> & { propertyLabel: string },
-): PricingPlan {
-  const { propertyLabel, ...rest } = plan
-  return {
-    ...rest,
-    yearly: rest.monthly * MONTHS_PAID_ANNUALLY,
-    features: [propertyLabel, ...corePlanFeatures],
-  }
-}
-
-export const pricingPlans: PricingPlan[] = [
-  planFromMonthly({
-    id: 'basic',
-    name: 'Basic',
-    description: 'For one accommodation property.',
-    monthly: 79,
-    properties: 1,
-    highlight: false,
-    propertyLabel: '1 property',
-  }),
-  planFromMonthly({
-    id: 'standard',
-    name: 'Standard',
-    description: 'For a growing portfolio of up to 3 properties.',
-    monthly: 149,
-    properties: 3,
-    highlight: true,
-    propertyLabel: '3 properties',
-  }),
-  planFromMonthly({
-    id: 'business',
-    name: 'Business',
-    description: 'For a larger portfolio of up to 10 properties.',
-    monthly: 249,
-    properties: 10,
-    highlight: false,
-    propertyLabel: '10 properties',
-  }),
+}[] = [
+  { id: 'basic', name: 'Basic', properties: 1, propertyLabel: '1 property', description: 'For one accommodation property.', highlight: false },
+  { id: 'standard', name: 'Standard', properties: 3, propertyLabel: 'Up to 3 properties', description: 'For a growing portfolio of up to 3 properties.', highlight: true },
+  { id: 'business', name: 'Business', properties: 10, propertyLabel: 'Up to 10 properties', description: 'For a larger portfolio of up to 10 properties.', highlight: false },
 ]
 
-export function formatGbp(amount: number) {
-  return new Intl.NumberFormat('en-GB', {
-    style: 'currency',
-    currency: 'GBP',
-    maximumFractionDigits: 0,
-  }).format(amount)
+export type RegionCode =
+  | 'gb' | 'ie' | 'au' | 'ca' | 'nz' | 'sg' | 'my' | 'ae' | 'sa' | 'in' | 'za' | 'bd' | 'np' | 'ph' | 'pk' | 'default'
+
+export type Region = {
+  code: RegionCode
+  /** Label shown in the country selector. */
+  label: string
+  currency: string
+  /** Display symbol/prefix used in front of the amount (matches the app's pricing). */
+  symbol: string
+  /** Tiered markets carry monthly amounts per tier; per-branch markets use perBranchMonthly. */
+  model: 'tiered' | 'per-branch'
+  monthly?: Record<TierId, number>
+  perBranchMonthly?: number
+}
+
+function tiered(code: RegionCode, label: string, currency: string, symbol: string, basic: number, standard: number, business: number): Region {
+  return { code, label, currency, symbol, model: 'tiered', monthly: { basic, standard, business } }
+}
+
+/**
+ * Single source of truth for marketing display. Mirrors the app's tier-pricing.
+ * Annual is always monthly x 10 (two months free), so only the monthly figure is stored.
+ */
+export const regions: Region[] = [
+  tiered('gb', 'United Kingdom', 'GBP', '£', 79, 149, 249),
+  tiered('ie', 'Ireland', 'EUR', '€', 79, 149, 249),
+  tiered('au', 'Australia', 'AUD', 'A$', 99, 179, 299),
+  tiered('ca', 'Canada', 'CAD', 'C$', 79, 149, 249),
+  tiered('nz', 'New Zealand', 'NZD', 'NZ$', 99, 189, 299),
+  tiered('sg', 'Singapore', 'SGD', 'S$', 99, 199, 329),
+  tiered('my', 'Malaysia', 'MYR', 'RM', 149, 299, 499),
+  tiered('ae', 'United Arab Emirates', 'AED', 'AED ', 299, 599, 999),
+  tiered('sa', 'Saudi Arabia', 'SAR', 'SAR ', 399, 799, 1499),
+  tiered('in', 'India', 'INR', '₹', 3999, 7999, 14999),
+  tiered('za', 'South Africa', 'ZAR', 'R', 799, 1499, 2499),
+  tiered('bd', 'Bangladesh', 'USD', '$', 29, 49, 79),
+  tiered('np', 'Nepal', 'USD', '$', 29, 49, 79),
+  tiered('ph', 'Philippines', 'USD', '$', 29, 49, 79),
+  { code: 'pk', label: 'Pakistan', currency: 'USD', symbol: '$', model: 'per-branch', perBranchMonthly: 15 },
+  tiered('default', 'Other countries', 'USD', '$', 79, 149, 249),
+]
+
+export const DEFAULT_REGION_CODE: RegionCode = 'gb'
+export const regionCodes = regions.map((region) => region.code)
+
+export function getRegion(code: string): Region {
+  return regions.find((region) => region.code === code) ?? regions.find((region) => region.code === DEFAULT_REGION_CODE)!
+}
+
+export function annualFor(monthly: number) {
+  return monthly * MONTHS_PAID_ANNUALLY
 }
 
 export function annualSaving(monthly: number) {
   return monthly * ANNUAL_MONTHS_SAVED
 }
 
-export function propertyLabel(properties: number) {
-  return properties === 1 ? '1 property' : `${properties} properties`
+/** Format an amount using the region's own symbol, e.g. "£149", "₹7,999", "AED 599". */
+export function formatPrice(amount: number, region: Region) {
+  return `${region.symbol}${amount.toLocaleString('en-US')}`
+}
+
+export type RegionPlan = {
+  id: TierId
+  name: string
+  description: string
+  propertyLabel: string
+  properties: number
+  highlight: boolean
+  monthly: number
+  annual: number
+}
+
+/** The three tier plans priced for a given (tiered) region. */
+export function regionPlans(region: Region): RegionPlan[] {
+  if (region.model !== 'tiered' || !region.monthly) return []
+  return tiers.map((tier) => ({
+    id: tier.id,
+    name: tier.name,
+    description: tier.description,
+    propertyLabel: tier.propertyLabel,
+    properties: tier.properties,
+    highlight: tier.highlight,
+    monthly: region.monthly![tier.id],
+    annual: annualFor(region.monthly![tier.id]),
+  }))
 }

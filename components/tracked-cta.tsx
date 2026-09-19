@@ -44,7 +44,7 @@ export function StartTrialButton({
 
 export function BookDemoButton({
   location,
-  href = routes.contact,
+  href = routes.bookDemo,
   className,
   size = 'default',
   variant = 'outline',

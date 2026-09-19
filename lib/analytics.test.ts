@@ -14,7 +14,9 @@ import {
   trackFaqOpened,
   trackOnce,
   trackPricingViewed,
+  trackCountrySelected,
   trackDemoRequested,
+  trackDemoSubmitted,
   trackSignIn,
   trackSolutionPageViewed,
   trackStartTrial,
@@ -159,6 +161,26 @@ test('demo_requested fires with controlled params and no personal data', () => {
       destination: 'contact',
     },
   ])
+})
+
+test('demo_submitted fires on a successful demo booking', () => {
+  const { calls } = installGtagMock('/book-demo')
+
+  trackDemoSubmitted()
+
+  assert.equal(calls.length, 1)
+  assert.deepEqual(calls[0], ['event', analyticsEvents.demoSubmitted, { page_type: 'other', destination: 'contact' }])
+})
+
+test('country_selected fires with a valid region code and drops unknown regions', () => {
+  const { calls } = installGtagMock('/pricing')
+
+  trackCountrySelected('pk')
+  trackCountrySelected('not-a-country')
+
+  assert.equal(calls.length, 2)
+  assert.deepEqual(calls[0], ['event', analyticsEvents.countrySelected, { page_type: 'pricing', region: 'pk' }])
+  assert.deepEqual(calls[1]?.[2], { page_type: 'pricing' })
 })
 
 test('analytics failures do not throw to the caller', () => {

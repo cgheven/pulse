@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'manage-multiple-hmo-properties-without-spreadsheets',
+    title: 'Manage Multiple HMOs Without Spreadsheets',
+    heading: 'How to Manage Multiple HMO Properties Without Spreadsheets',
+    description:
+      'Run several HMOs without spreadsheets: what to track per room and tenant, a weekly rhythm to stay on top, and how to move off Excel without losing data.',
+    excerpt:
+      'Why spreadsheets break once you run more than one HMO, what to track across a portfolio, a repeatable weekly system, and how to move off Excel without losing data.',
+    category: 'HMO management',
+    primaryKeyword: 'manage multiple HMO properties',
+    datePublished: '2026-09-20',
+    dateModified: '2026-09-20',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/all-properties.png',
+      width: 3024,
+      height: 1722,
+      alt: 'PulseHub All Properties view comparing occupancy, revenue, costs and net profit across an HMO portfolio',
+      label: 'All properties · portfolio',
+    },
+  },
+  {
     slug: 'hmo-management-software',
     title: 'HMO Management Software for UK Landlords',
     heading: 'HMO Management Software: How to Manage Multiple Properties, Tenants and Rent',

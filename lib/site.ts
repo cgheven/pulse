@@ -12,6 +12,12 @@ export const SIGN_UP_URL = `${APP_ORIGIN}/signup`
 export const PRIVACY_URL = `${APP_ORIGIN}/privacy`
 export const TERMS_URL = `${APP_ORIGIN}/terms`
 
+/**
+ * Book-a-demo lead capture. Lives in the Pulse app; called client-side from the
+ * marketing site (CORS is pre-allowed for the yourpulse.io origins). No API key.
+ */
+export const BOOK_DEMO_ENDPOINT = `${APP_ORIGIN}/api/book-demo`
+
 export const CONTACT_EMAIL = 'hello@yourpulse.io'
 
 export const DEMO_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Book a PulseHub demonstration')}&body=${encodeURIComponent(

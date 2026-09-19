@@ -2,7 +2,6 @@ import SiteShell from '@/components/site-shell'
 import { BookDemoButton, StartTrialButton } from '@/components/tracked-cta'
 import {
   CONTACT_EMAIL,
-  DEMO_MAILTO,
   GENERAL_MAILTO,
   SUPPORT_MAILTO,
   SALES_MAILTO,
@@ -29,7 +28,7 @@ const jsonLd = {
 
 const enquiries = [
   { href: GENERAL_MAILTO, title: 'General enquiry', text: 'Ask a question about PulseHub and how it fits your properties.' },
-  { href: DEMO_MAILTO, title: 'Book a demonstration', text: 'Request a walkthrough of rooms, residents, rent and daily operations.' },
+  { href: routes.bookDemo, title: 'Book a demonstration', text: 'Pick a time and we will walk you through rooms, residents, rent and daily operations.' },
   { href: SALES_MAILTO, title: 'Sales enquiry', text: 'Talk through plans, property allowances and onboarding.' },
   { href: SUPPORT_MAILTO, title: 'Support', text: 'Get help with an existing PulseHub account.' },
 ]
@@ -44,11 +43,11 @@ export default function ContactPage() {
           Let’s talk about your accommodation operations
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-          Choose an enquiry type to open an email, or start a free trial if you are ready to set up your account.
+          Book a demo, start a free trial, or choose an enquiry type below to email the team.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <StartTrialButton location="other" className="min-h-11 bg-primary hover:bg-primary/90" />
-          <BookDemoButton location="other" href={DEMO_MAILTO} className="min-h-11 border-primary text-primary hover:bg-primary/10" />
+          <BookDemoButton location="other" className="min-h-11 border-primary text-primary hover:bg-primary/10" />
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {enquiries.map((item) => (

@@ -6,7 +6,7 @@ import Portfolio from '@/components/portfolio'
 import PricingGrid from '@/components/pricing-grid'
 import SiteShell from '@/components/site-shell'
 import UseCases from '@/components/use-cases'
-import { pricingPlans } from '@/lib/pricing'
+import { getRegion, regionPlans } from '@/lib/pricing'
 import { jsonLdScript, pageMetadata } from '@/lib/seo'
 import { APP_ORIGIN, CONTACT_EMAIL, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site'
 
@@ -45,7 +45,7 @@ const jsonLd = {
       url: `${APP_ORIGIN}/`,
       image: `${SITE_URL}/opengraph-image.png`,
       provider: { '@id': `${SITE_URL}/#organization` },
-      offers: pricingPlans.flatMap((plan) => [
+      offers: regionPlans(getRegion('gb')).flatMap((plan) => [
         {
           '@type': 'Offer',
           name: `${plan.name} Monthly`,
@@ -56,7 +56,7 @@ const jsonLd = {
         {
           '@type': 'Offer',
           name: `${plan.name} Annual`,
-          price: String(plan.yearly),
+          price: String(plan.annual),
           priceCurrency: 'GBP',
           url: `${SITE_URL}/pricing`,
         },

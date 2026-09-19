@@ -44,7 +44,7 @@ export default function PricingPage() {
         </p>
       </div>
       <PricingGrid
-        subtitle="Every plan includes the PulseHub platform. Choose 1, 3 or 10 properties."
+        subtitle="Choose your country to see local pricing. Every plan includes the full PulseHub platform, for 1, 3 or 10 properties."
       />
       <CtaBand
         heading="Not sure which plan fits?"

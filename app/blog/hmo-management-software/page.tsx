@@ -423,6 +423,10 @@ export default function HmoBlogPost() {
               portfolio view meaningful.
             </li>
           </UL>
+          <P>
+            For a step-by-step version of this, see our guide to{' '}
+            <A href={postPath('manage-multiple-hmo-properties-without-spreadsheets')}>managing multiple HMO properties without spreadsheets</A>.
+          </P>
 
           <H2 id="vs-spreadsheets">HMO management software vs spreadsheets</H2>
           <P>

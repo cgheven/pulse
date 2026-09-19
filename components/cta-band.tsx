@@ -4,7 +4,7 @@ import { routes } from '@/lib/navigation'
 export function CtaBand({
   heading,
   text,
-  secondaryHref = routes.contact,
+  secondaryHref = routes.bookDemo,
   secondaryLabel = 'Book a Demo',
   note = 'One platform for HMO, student, co-living & hostel operators.',
 }: {
