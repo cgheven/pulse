@@ -6,6 +6,7 @@ export const routes = {
   contact: '/contact',
   bookDemo: '/book-demo',
   blog: '/blog',
+  uk: '/uk',
   pakistan: '/pakistan',
   cookies: '/cookie-policy',
   hmo: '/uk-hmo-management-software',

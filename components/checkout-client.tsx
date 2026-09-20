@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
+import { trackCheckoutStarted } from "@/lib/analytics";
 
 /**
  * Paddle checkout on the APPROVED domain (yourpulse.io).
  *
- * The Pulse app (hostel.yourpulse.io) creates a Paddle transaction, then sends
+ * The Pulse app (app.yourpulse.io) creates a Paddle transaction, then sends
  * the buyer here as /checkout?_ptxn=<transactionId>&return=<app-origin>. Paddle
  * opens the checkout on THIS domain (which is domain-approved) so the app's own
  * subdomain never needs approval. On success Paddle returns to the app's billing
@@ -47,6 +48,7 @@ export function CheckoutClient() {
         transactionId: txn,
         settings: { displayMode: "overlay", theme: "dark", allowLogout: false, ...(successUrl ? { successUrl } : {}) },
       });
+      trackCheckoutStarted();
     } catch {
       setError("Could not open the checkout. Please try again.");
       opened.current = false;

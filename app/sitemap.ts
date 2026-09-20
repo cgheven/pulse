@@ -19,6 +19,7 @@ const paths = [
   routes.contact,
   routes.bookDemo,
   routes.blog,
+  routes.uk,
   routes.pakistan,
   routes.hmo,
   routes.student,

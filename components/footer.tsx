@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-muted/50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 py-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-10 lg:py-16">
+        <div className="grid grid-cols-2 gap-8 py-10 sm:grid-cols-2 lg:grid-cols-6 lg:gap-10 lg:py-16">
           <div className="col-span-2">
             <Link href="/" className="mb-3 flex items-center gap-3">
               <Image src="/logo.png" alt="" width={44} height={44} className="h-10 w-10 rounded-xl sm:h-11 sm:w-11" />
@@ -60,6 +60,14 @@ export default function Footer() {
                   <span className="break-all">{CONTACT_EMAIL}</span>
                 </a>
               </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="mb-3 text-sm font-semibold">Markets</p>
+            <ul className="space-y-1 text-[15px] text-muted-foreground">
+              <li><Link href={routes.uk} className="inline-flex min-h-10 items-center hover:text-primary">United Kingdom</Link></li>
+              <li><Link href={routes.pakistan} className="inline-flex min-h-10 items-center hover:text-primary">Pakistan</Link></li>
             </ul>
           </div>
         </div>

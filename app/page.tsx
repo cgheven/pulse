@@ -7,7 +7,7 @@ import PricingGrid from '@/components/pricing-grid'
 import SiteShell from '@/components/site-shell'
 import UseCases from '@/components/use-cases'
 import { getRegion, regionPlans } from '@/lib/pricing'
-import { jsonLdScript, pageMetadata } from '@/lib/seo'
+import { jsonLdScript, marketHreflang, pageMetadata } from '@/lib/seo'
 import { APP_ORIGIN, CONTACT_EMAIL, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site'
 
 export const metadata = pageMetadata({
@@ -15,6 +15,7 @@ export const metadata = pageMetadata({
   description: SITE_DESCRIPTION,
   path: '/',
   absoluteTitle: true,
+  languages: marketHreflang,
 })
 
 const jsonLd = {

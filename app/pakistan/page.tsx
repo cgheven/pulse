@@ -24,13 +24,14 @@ import SiteShell from '@/components/site-shell'
 import { StartTrialButton } from '@/components/tracked-cta'
 import { routes } from '@/lib/navigation'
 import { screenshots } from '@/lib/screenshots'
-import { jsonLdScript, pageMetadata } from '@/lib/seo'
+import { jsonLdScript, marketHreflang, pageMetadata } from '@/lib/seo'
 import { SITE_URL } from '@/lib/site'
 
 const PATH = routes.pakistan
 
 export const metadata = pageMetadata({
   title: 'Hostel & Accommodation Management Software in Pakistan',
+  languages: marketHreflang,
   description:
     'Manage hostels, residents, rooms, rent, payments, receipts and multiple properties with PulseHub, accommodation management software built for operators in Pakistan.',
   path: PATH,

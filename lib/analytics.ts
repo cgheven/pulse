@@ -9,6 +9,7 @@ export const analyticsEvents = {
   signInClicked: 'sign_in_clicked',
   demoRequested: 'demo_requested',
   demoSubmitted: 'demo_submitted',
+  checkoutStarted: 'checkout_started',
   countrySelected: 'country_selected',
   pricingViewed: 'pricing_viewed',
   solutionPageViewed: 'solution_page_viewed',
@@ -239,6 +240,11 @@ export function trackCountrySelected(region: string) {
 /** Fires when a Book a Demo form submission is accepted by the API. */
 export function trackDemoSubmitted() {
   trackEvent(analyticsEvents.demoSubmitted, contextParams({ destination: 'contact' }))
+}
+
+/** Fires when the Paddle checkout overlay opens on /checkout. No transaction id is sent. */
+export function trackCheckoutStarted() {
+  trackEvent(analyticsEvents.checkoutStarted, contextParams())
 }
 
 export function trackPricingViewed(path = currentPathname()) {

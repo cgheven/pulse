@@ -14,6 +14,7 @@ import {
   trackFaqOpened,
   trackOnce,
   trackPricingViewed,
+  trackCheckoutStarted,
   trackCountrySelected,
   trackDemoRequested,
   trackDemoSubmitted,
@@ -161,6 +162,17 @@ test('demo_requested fires with controlled params and no personal data', () => {
       destination: 'contact',
     },
   ])
+})
+
+test('checkout_started fires without a transaction id or query string', () => {
+  const { calls } = installGtagMock('/checkout?_ptxn=secret123&return=https://app.yourpulse.io')
+
+  trackCheckoutStarted()
+
+  assert.equal(calls.length, 1)
+  assert.equal(calls[0]?.[1], analyticsEvents.checkoutStarted)
+  // page_type resolves from the query-stripped path; no _ptxn / return leaks through.
+  assert.deepEqual(calls[0]?.[2], { page_type: 'other' })
 })
 
 test('demo_submitted fires on a successful demo booking', () => {
