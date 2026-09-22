@@ -20,6 +20,7 @@ export function SolutionPage({
   heroVisual,
   problemHeading,
   problem,
+  outcomesHeading = 'One platform for the daily work of running your site',
   outcomes,
   faqs,
   ctaHeading,
@@ -34,6 +35,7 @@ export function SolutionPage({
   heroVisual?: ReactNode
   problemHeading: string
   problem: string
+  outcomesHeading?: string
   outcomes: { icon?: LucideIcon; title: string; description: string }[]
   faqs: { question: string; answer: string }[]
   ctaHeading: string
@@ -93,7 +95,7 @@ export function SolutionPage({
         <div className="mx-auto max-w-7xl">
           <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">How PulseHub helps</p>
           <h2 className="mb-8 max-w-3xl font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium leading-[1.1] tracking-tight">
-            One platform for the daily work of running your site
+            {outcomesHeading}
           </h2>
           <CardGrid items={outcomes} columns="two" size="comfortable" />
         </div>

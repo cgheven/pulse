@@ -32,25 +32,26 @@ export default function ColivingPage() {
       }
       problemHeading="Shared living needs connected operations"
       problem="Manage shared spaces, room availability, resident information, shared costs and property operations from one central platform."
+      outcomesHeading="Connected operations for shared living"
       outcomes={[
         {
           icon: Files,
-          title: 'Reduce manual administration',
+          title: 'Bring shared-living admin together',
           description: 'Stop splitting occupancy, resident files and shared costs across separate spreadsheets and message threads.',
         },
         {
           icon: Eye,
-          title: 'Improve room and occupancy visibility',
+          title: 'See rooms across shared spaces',
           description: 'Keep room availability and allocations visible across shared living spaces.',
         },
         {
           icon: CreditCard,
-          title: 'Track payments more clearly',
+          title: 'Track rent and shared costs',
           description: 'See rent schedules, deposits, outstanding balances and payment history next to each resident.',
         },
         {
           icon: ClipboardList,
-          title: 'Keep property information organised',
+          title: 'Manage utilities and upkeep',
           description: 'Record maintenance, utility allocation and property reports in the same platform as occupancy.',
         },
       ]}

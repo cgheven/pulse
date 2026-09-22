@@ -16,14 +16,12 @@ import {
 import { CtaBand } from '@/components/cta-band'
 import { FaqList } from '@/components/faq-list'
 import { ProductScreenshot } from '@/components/feature-showcase'
-import { ProductVideo } from '@/components/product-video'
-import { DashboardImage } from '@/components/product-visual'
 import { PageHero } from '@/components/page-hero'
 import PricingGrid from '@/components/pricing-grid'
 import SiteShell from '@/components/site-shell'
 import { StartTrialButton } from '@/components/tracked-cta'
 import { routes } from '@/lib/navigation'
-import { screenshots } from '@/lib/screenshots'
+import { pakistanScreenshots } from '@/lib/screenshots'
 import { jsonLdScript, marketHreflang, pageMetadata } from '@/lib/seo'
 import { SITE_URL } from '@/lib/site'
 
@@ -33,7 +31,7 @@ export const metadata = pageMetadata({
   title: 'Hostel & Accommodation Management Software in Pakistan',
   languages: marketHreflang,
   description:
-    'Manage hostels, residents, rooms, rent, payments, receipts and multiple properties with PulseHub, accommodation management software built for operators in Pakistan.',
+    'Hostel management software for Pakistan. Manage rooms, residents, rent, payments, receipts and multiple branches in PKR with PulseHub.',
   path: PATH,
 })
 
@@ -53,6 +51,18 @@ const workflows = [
   'Staff access',
   'Complaints and maintenance',
   'Reporting',
+]
+
+// What a resident's member timeline captures (shown beside the timeline screenshot).
+const timelineCaptures = [
+  'Admissions & check-in',
+  'Room & bed allocation',
+  'Rent & charges',
+  'Part-payments',
+  'Security deposits',
+  'Discounts & refunds',
+  'Room changes',
+  'Notices & check-out',
 ]
 
 const pakistanFeatures: { icon: typeof Wallet; title: string; description: string }[] = [
@@ -191,9 +201,19 @@ export default function PakistanPage() {
 
       <PageHero
         eyebrow="Hostel & accommodation management · Pakistan"
-        heading="Accommodation Management Software for Pakistan"
+        heading="Hostel Management Software for Pakistan"
         text="PulseHub helps Pakistani hostel and accommodation operators manage properties, rooms, residents, rent, payments, receipts and daily operations from one platform, with far less manual work."
-        visual={<DashboardImage priority sizes="(max-width: 1023px) calc(100vw - 2rem), 42rem" />}
+        visual={
+          <ProductScreenshot
+            src={pakistanScreenshots.dashboard.src}
+            alt={pakistanScreenshots.dashboard.alt}
+            width={pakistanScreenshots.dashboard.width}
+            height={pakistanScreenshots.dashboard.height}
+            priority
+            label="Hostel dashboard"
+            sizes="(max-width: 1023px) calc(100vw - 2rem), 42rem"
+          />
+        }
         split
       />
 
@@ -232,11 +252,11 @@ export default function PakistanPage() {
           </div>
           <div className="min-w-0">
             <ProductScreenshot
-              src={screenshots.properties.src}
-              alt={screenshots.properties.alt}
-              width={screenshots.properties.width}
-              height={screenshots.properties.height}
-              label="Occupancy across properties"
+              src={pakistanScreenshots.spaces.src}
+              alt={pakistanScreenshots.spaces.alt}
+              width={pakistanScreenshots.spaces.width}
+              height={pakistanScreenshots.spaces.height}
+              label="Rooms and occupancy"
               sizes="(max-width: 1023px) calc(100vw - 2rem), 40rem"
             />
           </div>
@@ -245,43 +265,61 @@ export default function PakistanPage() {
 
       {/* Residents, admissions and timeline */}
       <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-2 lg:gap-14">
-          <div className="order-2 min-w-0 lg:order-1">
-            <ProductScreenshot
-              src={screenshots.residents.src}
-              alt={screenshots.residents.alt}
-              width={screenshots.residents.width}
-              height={screenshots.residents.height}
-              label="Resident records"
-              sizes="(max-width: 1023px) calc(100vw - 2rem), 40rem"
-            />
+        <div className="mx-auto max-w-7xl">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <div className="order-2 min-w-0 lg:order-1">
+              <ProductScreenshot
+                src={pakistanScreenshots.tenants.src}
+                alt={pakistanScreenshots.tenants.alt}
+                width={pakistanScreenshots.tenants.width}
+                height={pakistanScreenshots.tenants.height}
+                label="Resident records"
+                sizes="(max-width: 1023px) calc(100vw - 2rem), 40rem"
+              />
+            </div>
+            <div className="order-1 min-w-0 lg:order-2">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Residents & admissions</p>
+              <h2 className="mt-4 font-display text-[clamp(1.6rem,3.6vw,2.5rem)] font-medium leading-tight tracking-tight">
+                Keep every resident record in one place
+              </h2>
+              <Lead>
+                Each resident has a profile with admission details, documents, bed allocation, and billing and
+                payment history. You can store CNIC details on the record, track deposits, and log complaints.
+                The full lifecycle, from admission and room allocation through billing, payments, room changes
+                and check-out, sits on one timeline.
+              </Lead>
+            </div>
           </div>
-          <div className="order-1 min-w-0 lg:order-2">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Residents & admissions</p>
-            <h2 className="mt-4 font-display text-[clamp(1.6rem,3.6vw,2.5rem)] font-medium leading-tight tracking-tight">
-              Keep every resident record in one place
-            </h2>
-            <Lead>
-              Each resident has a profile with admission details, documents, bed allocation, and billing and
-              payment history. You can store CNIC details on the record, track deposits, and log complaints.
-              The full lifecycle, from admission and room allocation through billing, payments, room changes
-              and check-out, sits on one timeline.
-            </Lead>
-            <div className="mt-6 flex flex-col gap-4 rounded-2xl border border-border bg-card p-4 sm:flex-row sm:items-start sm:p-5">
-              <div className="w-full max-w-[190px] shrink-0">
-                <ProductScreenshot
-                  src="/screenshots/member-ledger.png"
-                  alt="A resident timeline in PulseHub showing rent charged, part-payments, a deposit held, room changes and check-out notices"
-                  width={866}
-                  height={1522}
-                  frame={false}
-                  sizes="190px"
-                />
-              </div>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                A resident timeline keeps admissions, charges, payments, part-payments, deposits, room changes
-                and notices together, so a question about any resident is answered on one screen.
+
+          {/* Full-width timeline callout so the section reads dense, not empty. */}
+          <div className="mt-10 grid gap-6 rounded-2xl border border-border bg-card p-5 sm:mt-12 sm:p-8 lg:grid-cols-[200px_1fr] lg:items-center lg:gap-12">
+            <div className="mx-auto w-full max-w-[200px] lg:mx-0">
+              <ProductScreenshot
+                src="/screenshots/member-ledger.png"
+                alt="A resident timeline in PulseHub showing rent charged, part-payments, a deposit held, room changes and check-out notices"
+                width={866}
+                height={1522}
+                frame={false}
+                sizes="200px"
+              />
+            </div>
+            <div className="min-w-0">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">The resident timeline</p>
+              <h3 className="mt-3 font-display text-xl font-medium tracking-tight sm:text-2xl">
+                Everything about a resident, on one timeline
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                Admissions, charges, payments, deposits, room changes and notices in one record, so a question
+                about any resident is answered on one screen. The timeline captures:
               </p>
+              <ul className="mt-5 grid grid-cols-1 gap-x-8 gap-y-3 text-base text-foreground/85 sm:grid-cols-2">
+                {timelineCaptures.map((item) => (
+                  <li key={item} className="flex items-center gap-2.5">
+                    <Check className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -307,10 +345,10 @@ export default function PakistanPage() {
           </div>
           <div className="min-w-0">
             <ProductScreenshot
-              src={screenshots.payments.src}
-              alt={screenshots.payments.alt}
-              width={screenshots.payments.width}
-              height={screenshots.payments.height}
+              src={pakistanScreenshots.payments.src}
+              alt={pakistanScreenshots.payments.alt}
+              width={pakistanScreenshots.payments.width}
+              height={pakistanScreenshots.payments.height}
               label="Payments and receipts"
               sizes="(max-width: 1023px) calc(100vw - 2rem), 40rem"
             />
@@ -322,12 +360,13 @@ export default function PakistanPage() {
       <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="order-2 min-w-0 lg:order-1">
-            <ProductVideo
-              src="/videos/property-switcher.mp4"
-              width={3024}
-              height={1576}
-              label="All properties · portfolio"
-              ariaLabel="PulseHub property switcher moving between properties and reviewing the All Properties view with occupancy, collections, costs and profit"
+            <ProductScreenshot
+              src={pakistanScreenshots.branches.src}
+              alt={pakistanScreenshots.branches.alt}
+              width={pakistanScreenshots.branches.width}
+              height={pakistanScreenshots.branches.height}
+              label="All branches"
+              sizes="(max-width: 1023px) calc(100vw - 2rem), 40rem"
             />
           </div>
           <div className="order-1 min-w-0 lg:order-2">
@@ -424,10 +463,10 @@ export default function PakistanPage() {
         </div>
       </section>
 
-      {/* Pricing (Pakistan per-branch model) */}
+      {/* Pricing (Pakistan branch-tiered PKR model) */}
       <PricingGrid
         heading="Pakistan pricing"
-        subtitle="Simple per-branch pricing in USD. Pay for the branches you run, with two months free on annual billing."
+        subtitle="Per-branch pricing in rupees. The more branches you run, the lower the rate per branch. Two months free on annual billing."
         initialRegionCode="pk"
         showSelector={false}
       />

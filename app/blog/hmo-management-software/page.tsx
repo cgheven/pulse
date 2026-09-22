@@ -552,8 +552,9 @@ export default function HmoBlogPost() {
             spreadsheet grows, the WhatsApp threads multiply, and voids and arrears slip through. PulseHub
             brings rooms, tenants, rent, occupancy and maintenance into one account, with a portfolio view
             across every property. See how it fits your operation on the{' '}
-            <A href={routes.hmo}>HMO management page</A>, or start a free trial and set up your first property
-            in minutes.
+            <A href={routes.hmo}>HMO management page</A>, browse{' '}
+            <A href={routes.uk}>PulseHub for UK operators</A>, or start a free trial and set up your first
+            property in minutes.
           </P>
           <div className="mt-6">
             <StartTrialButton

@@ -33,6 +33,21 @@ export const tiers: {
 export type RegionCode =
   | 'gb' | 'ie' | 'au' | 'ca' | 'nz' | 'sg' | 'my' | 'ae' | 'sa' | 'in' | 'za' | 'bd' | 'np' | 'ph' | 'pk' | 'default'
 
+/** One volume band of a branch-tiered market: rate per branch up to a branch count. */
+export type BranchTier = {
+  /** Inclusive upper bound of branches for this per-branch rate. */
+  upTo: number
+  /** Monthly price per branch at this volume, in the region's currency. */
+  perBranchMonthly: number
+}
+
+/** A paid add-on offered in a specific market only. */
+export type PricingAddon = {
+  name: string
+  perBranchMonthly: number
+  description: string
+}
+
 export type Region = {
   code: RegionCode
   /** Label shown in the country selector. */
@@ -40,10 +55,17 @@ export type Region = {
   currency: string
   /** Display symbol/prefix used in front of the amount (matches the app's pricing). */
   symbol: string
-  /** Tiered markets carry monthly amounts per tier; per-branch markets use perBranchMonthly. */
-  model: 'tiered' | 'per-branch'
+  /**
+   * 'tiered' markets carry monthly amounts per tier (property allowance).
+   * 'branch-tiered' markets price per branch, with the rate dropping as branch count grows.
+   */
+  model: 'tiered' | 'branch-tiered'
   monthly?: Record<TierId, number>
-  perBranchMonthly?: number
+  branchTiers?: BranchTier[]
+  /** Branch count at or above which pricing becomes a custom Enterprise quote. */
+  enterpriseFrom?: number
+  /** Optional paid add-ons available in this market only. */
+  addons?: PricingAddon[]
 }
 
 function tiered(code: RegionCode, label: string, currency: string, symbol: string, basic: number, standard: number, business: number): Region {
@@ -69,7 +91,28 @@ export const regions: Region[] = [
   tiered('bd', 'Bangladesh', 'USD', '$', 29, 49, 79),
   tiered('np', 'Nepal', 'USD', '$', 29, 49, 79),
   tiered('ph', 'Philippines', 'USD', '$', 29, 49, 79),
-  { code: 'pk', label: 'Pakistan', currency: 'USD', symbol: '$', model: 'per-branch', perBranchMonthly: 15 },
+  {
+    code: 'pk',
+    label: 'Pakistan',
+    currency: 'PKR',
+    symbol: 'PKR ',
+    model: 'branch-tiered',
+    branchTiers: [
+      { upTo: 1, perBranchMonthly: 4500 },
+      { upTo: 4, perBranchMonthly: 4000 },
+      { upTo: 8, perBranchMonthly: 3500 },
+      { upTo: 15, perBranchMonthly: 3000 },
+      { upTo: 20, perBranchMonthly: 2500 },
+    ],
+    enterpriseFrom: 20,
+    addons: [
+      {
+        name: 'WhatsApp Automation',
+        perBranchMonthly: 2000,
+        description: 'Automated WhatsApp receipts, reminders and resident updates.',
+      },
+    ],
+  },
   tiered('default', 'Other countries', 'USD', '$', 79, 149, 249),
 ]
 

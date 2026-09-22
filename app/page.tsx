@@ -4,6 +4,7 @@ import HomeFaq, { homeFaqs } from '@/components/home-faq'
 import MemberLedgerShowcase from '@/components/member-ledger-showcase'
 import Portfolio from '@/components/portfolio'
 import PricingGrid from '@/components/pricing-grid'
+import { RegionSuggestion } from '@/components/region-suggestion'
 import SiteShell from '@/components/site-shell'
 import UseCases from '@/components/use-cases'
 import { getRegion, regionPlans } from '@/lib/pricing'
@@ -88,6 +89,7 @@ export default function Page() {
       />
       <HomeFaq />
       <Cta />
+      <RegionSuggestion />
     </SiteShell>
   )
 }

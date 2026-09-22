@@ -1,7 +1,6 @@
 export const SITE_URL = 'https://www.yourpulse.io'
 export const SITE_NAME = 'PulseHub'
-export const SITE_TITLE =
-  'Accommodation Management Software for HMOs & Co-Living | PulseHub'
+export const SITE_TITLE = 'Accommodation Management Software | PulseHub'
 export const SITE_DESCRIPTION =
   'Manage rooms, residents, rent, payments, occupancy and multiple properties with PulseHub accommodation management software.'
 

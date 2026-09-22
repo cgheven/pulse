@@ -30,3 +30,37 @@ export const screenshots = {
     alt: 'PulseHub complaints screen showing maintenance requests and resolution statuses',
   },
 } as const
+
+/** Real product screenshots from the Pakistan market (rupee pricing, AC and kitchen billing). */
+export const pakistanScreenshots = {
+  dashboard: {
+    src: '/screenshots/pk-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Pakistan hostel dashboard showing net profit, rent collected, outstanding dues, AC units, kitchen costs and staff salaries in rupees',
+  },
+  spaces: {
+    src: '/screenshots/pk-spaces.png',
+    width: 2990,
+    height: 1720,
+    alt: 'PulseHub Spaces screen showing hostel rooms with room type, capacity, monthly rent in rupees and AC status',
+  },
+  tenants: {
+    src: '/screenshots/pk-tenants.png',
+    width: 3016,
+    height: 1712,
+    alt: 'PulseHub Tenants screen showing active residents, waiting list, deposits, notice periods and check-out, with CNIC and phone search',
+  },
+  payments: {
+    src: '/screenshots/pk-payments.png',
+    width: 3024,
+    height: 1722,
+    alt: 'PulseHub Payments screen showing monthly rent collection in rupees, AC billing, paid and pending status and WhatsApp receipts',
+  },
+  branches: {
+    src: '/screenshots/pk-branches.png',
+    width: 3024,
+    height: 1652,
+    alt: 'PulseHub All Branches view comparing occupancy, collections, pending dues, deposits, costs and net profit across hostels',
+  },
+} as const

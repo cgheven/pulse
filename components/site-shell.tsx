@@ -1,6 +1,5 @@
 import Header from '@/components/header'
 import Footer from '@/components/footer'
-import { RegionSuggestion } from '@/components/region-suggestion'
 
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   return (
@@ -16,7 +15,6 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       <Footer />
-      <RegionSuggestion />
     </>
   )
 }

@@ -6,12 +6,13 @@ import { usePathname } from 'next/navigation'
 import { X } from 'lucide-react'
 import { routes } from '@/lib/navigation'
 
-type Region = { label: string; short: string; href: string }
+type Region = { lead: string; cta: string; href: string }
 
-// Only countries that have a dedicated regional page are suggested.
+// Only countries that have a dedicated regional page are suggested. This is a soft,
+// dismissible hint shown ONLY on the global homepage; it never redirects.
 const REGIONS: Record<string, Region> = {
-  GB: { label: 'the UK', short: 'UK', href: routes.uk },
-  PK: { label: 'Pakistan', short: 'Pakistan', href: routes.pakistan },
+  GB: { lead: 'Based in the UK?', cta: 'Explore PulseHub for the UK', href: routes.uk },
+  PK: { lead: 'Based in Pakistan?', cta: 'Explore PulseHub for Pakistan', href: routes.pakistan },
 }
 
 const DISMISS_KEY = 'pulse_region_suggestion_dismissed'
@@ -21,12 +22,15 @@ export function RegionSuggestion() {
   const [region, setRegion] = useState<Region | null>(null)
 
   useEffect(() => {
+    // GEO suggestion is only for the global homepage. No geo logic on /uk, /pakistan, or anywhere else.
+    if (pathname !== '/') return
+
     let cancelled = false
 
     try {
       if (localStorage.getItem(DISMISS_KEY) === '1') return
     } catch {
-      // localStorage may be unavailable (private mode); just proceed without persistence.
+      // localStorage may be unavailable (private mode); proceed without persistence.
     }
 
     fetch('/api/geo')
@@ -34,12 +38,10 @@ export function RegionSuggestion() {
       .then((data: { country?: string | null } | null) => {
         if (cancelled || !data?.country) return
         const match = REGIONS[data.country]
-        // Never suggest the page the visitor is already on.
-        if (!match || pathname === match.href) return
-        setRegion(match)
+        if (match) setRegion(match)
       })
       .catch(() => {
-        // Soft feature: silently do nothing on any error (e.g. no geo header locally).
+        // Soft feature: if GEO-IP is unavailable, do nothing.
       })
 
     return () => {
@@ -67,7 +69,7 @@ export function RegionSuggestion() {
     >
       <div className="mx-auto flex max-w-5xl flex-col items-start gap-3 px-4 py-3 sm:flex-row sm:items-center sm:px-6">
         <p className="flex-1 text-sm text-foreground/80">
-          Looking for PulseHub pricing and features for <strong className="font-semibold text-foreground">{region.label}</strong>?
+          <span className="font-semibold text-foreground">{region.lead}</span> See pricing and features for your region.
         </p>
         <div className="flex items-center gap-2">
           <Link
@@ -75,7 +77,7 @@ export function RegionSuggestion() {
             onClick={dismiss}
             className="inline-flex min-h-9 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            View {region.short} site
+            {region.cta}
           </Link>
           <button
             type="button"

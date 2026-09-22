@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import Link from 'next/link'
 import { BedDouble, Building2, GraduationCap, Home } from 'lucide-react'
 import { CardGrid, SectionHeading } from '@/components/card-grid'
 import { CtaBand } from '@/components/cta-band'
@@ -17,10 +18,10 @@ import { SITE_URL } from '@/lib/site'
 const PATH = routes.uk
 
 export const metadata = pageMetadata({
-  title: 'Accommodation Management Software for the UK',
+  title: 'HMO Management Software for the UK',
   languages: marketHreflang,
   description:
-    'HMO, student, co-living and hostel management software for UK operators. Manage rooms, residents, rent, payments and multiple properties, with GBP pricing.',
+    'HMO management software for UK landlords and operators. Manage rooms, tenants, rent, arrears, deposits and multiple HMOs in GBP with PulseHub.',
   path: PATH,
 })
 
@@ -63,7 +64,7 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebPage',
-      name: 'Accommodation Management Software for the UK',
+      name: 'HMO Management Software for the UK',
       url: `${SITE_URL}${PATH}`,
       isPartOf: { '@id': `${SITE_URL}/#website` },
     },
@@ -89,15 +90,26 @@ function Lead({ children }: { children: ReactNode }) {
   return <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">{children}</p>
 }
 
+function A({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="font-medium text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+    >
+      {children}
+    </Link>
+  )
+}
+
 export default function UkPage() {
   return (
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
 
       <PageHero
-        eyebrow="Accommodation management · United Kingdom"
-        heading="Accommodation Management Software for the UK"
-        text="PulseHub helps UK operators manage rooms, residents, rent, payments and multiple properties from one platform, for HMO, student, co-living and hostel accommodation."
+        eyebrow="HMO & accommodation management · United Kingdom"
+        heading="HMO Management Software for the UK"
+        text="PulseHub is HMO management software for UK landlords and operators: manage rooms, tenants, rent, arrears, deposits and multiple HMOs from one platform. It also runs student accommodation, co-living and hostels."
         visual={<DashboardImage priority sizes="(max-width: 1023px) calc(100vw - 2rem), 42rem" />}
         split
       />
@@ -115,14 +127,19 @@ export default function UkPage() {
       <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="min-w-0">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Day-to-day operations</p>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">HMO day-to-day operations</p>
             <h2 className="mt-4 font-display text-[clamp(1.6rem,3.6vw,2.5rem)] font-medium leading-tight tracking-tight">
-              Rooms, residents, rent and payments in one place
+              Run your HMOs at the room and tenant level
             </h2>
             <Lead>
-              Organise properties, rooms and beds, keep a record for every resident, and track rent, part-payments,
-              deposits and overdue balances without rebuilding a spreadsheet each month.
+              Organise each HMO into rooms and beds, keep a record for every tenant, and track rent, part-payments,
+              deposits and overdue balances without rebuilding a spreadsheet each month. Attach documents to a
+              tenant record and log maintenance and complaints as they come in.
             </Lead>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              For the full HMO feature set, see{' '}
+              <A href={routes.hmo}>PulseHub HMO management software</A>.
+            </p>
           </div>
           <div className="min-w-0">
             <ProductScreenshot
@@ -158,6 +175,28 @@ export default function UkPage() {
               outstanding dues. Give managers access to only the properties they run.
             </Lead>
           </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Arrears & voids</p>
+          <h2 className="mt-4 font-display text-[clamp(1.6rem,3.6vw,2.5rem)] font-medium leading-tight tracking-tight">
+            Stay on top of arrears and voids across your HMOs
+          </h2>
+          <Lead>
+            See overdue balances per tenant so arrears do not build up unnoticed, and check which rooms and beds
+            are vacant so voids get filled sooner. Across a portfolio, the All Properties view compares occupancy
+            and collections for every HMO in one place.
+          </Lead>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            New to running HMOs on software? Read our guide to{' '}
+            <A href="/blog/hmo-management-software">HMO management software</A>, or see how to{' '}
+            <A href="/blog/manage-multiple-hmo-properties-without-spreadsheets">
+              manage multiple HMO properties without spreadsheets
+            </A>
+            .
+          </p>
         </div>
       </section>
 

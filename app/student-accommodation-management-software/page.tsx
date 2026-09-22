@@ -32,25 +32,26 @@ export default function StudentPage() {
       }
       problemHeading="Built around the accommodation cycle"
       problem="Keep room allocations, resident records, occupancy and payment activity organised throughout the accommodation cycle."
+      outcomesHeading="Built around the student accommodation year"
       outcomes={[
         {
           icon: Files,
-          title: 'Reduce manual administration',
-          description: 'Keep allocations, resident files and payment activity in one system as people move in and out.',
+          title: 'Handle move-in and move-out',
+          description: 'Keep allocations, resident files and payment activity in one system as students move in and out.',
         },
         {
           icon: Eye,
-          title: 'Improve room and occupancy visibility',
-          description: 'See which rooms and beds are available and keep allocations current through the year.',
+          title: 'Track beds through the year',
+          description: 'See which rooms and beds are available and keep allocations current through the accommodation cycle.',
         },
         {
           icon: CreditCard,
-          title: 'Track payments more clearly',
+          title: 'Follow rent across terms',
           description: 'Follow upcoming, paid and overdue amounts without rebuilding occupancy lists in spreadsheets.',
         },
         {
           icon: ClipboardList,
-          title: 'Keep property information organised',
+          title: 'Keep site records together',
           description: 'Record maintenance, shared costs and site-level reports next to the resident and room records you already use.',
         },
       ]}

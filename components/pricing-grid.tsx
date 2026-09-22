@@ -39,8 +39,7 @@ export default function PricingGrid({
 
   const region = getRegion(regionCode)
   const plans = regionPlans(region)
-  const perBranchMonthly = region.perBranchMonthly ?? 0
-  const perBranchAmount = isAnnual ? perBranchMonthly * MONTHS_PAID_ANNUALLY : perBranchMonthly
+  const branchTiers = region.branchTiers ?? []
 
   useEffect(() => {
     const node = sectionRef.current
@@ -116,26 +115,70 @@ export default function PricingGrid({
           </p>
         </div>
 
-        {region.model === 'per-branch' ? (
-          <div className="mx-auto max-w-md">
-            <div className="relative flex flex-col rounded-2xl border-2 border-primary bg-card shadow-lg shadow-primary/15">
-              <div className="flex flex-1 flex-col p-6 sm:p-8">
-                <p className="mb-2 text-sm font-semibold text-primary">Per branch</p>
-                <h3 className="text-xl font-bold sm:text-2xl">Simple per-branch pricing</h3>
-                <p className="mt-1 text-base text-muted-foreground">Pay for the branches you run, nothing more.</p>
-                <div className="my-5 sm:my-6">
-                  <div className="font-mono text-3xl font-semibold tabular-nums sm:text-4xl">
-                    {formatPrice(perBranchAmount, region)}
-                    <span className="ml-1 align-baseline text-base font-medium text-muted-foreground">
-                      {isAnnual ? '/ branch / year' : '/ branch / month'}
-                    </span>
+        {region.model === 'branch-tiered' ? (
+          <div className="mx-auto max-w-3xl">
+            <div className="overflow-hidden rounded-2xl border-2 border-primary bg-card shadow-lg shadow-primary/15">
+              <div className="border-b border-border bg-primary/5 px-5 py-4 sm:px-6">
+                <p className="text-sm font-semibold text-primary">Per branch, lower as you grow</p>
+                <p className="mt-1 text-base text-muted-foreground">
+                  Pay for the branches you run. The more branches, the lower the rate per branch.
+                </p>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[420px] border-collapse text-left text-base">
+                  <caption className="sr-only">Per-branch pricing tiers for Pakistan.</caption>
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th scope="col" className="px-5 py-3 font-semibold sm:px-6">Branches</th>
+                      <th scope="col" className="px-5 py-3 font-semibold sm:px-6">
+                        {isAnnual ? 'Per branch / year' : 'Per branch / month'}
+                      </th>
+                      <th scope="col" className="px-5 py-3 font-semibold sm:px-6">
+                        {isAnnual ? 'Total / year' : 'Total / month'}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {branchTiers.map((tier) => {
+                      const per = isAnnual ? tier.perBranchMonthly * MONTHS_PAID_ANNUALLY : tier.perBranchMonthly
+                      const total = per * tier.upTo
+                      const branchesLabel = tier.upTo === 1 ? '1 branch' : `Up to ${tier.upTo} branches`
+                      const totalLabel = tier.upTo === 1 ? formatPrice(total, region) : `Up to ${formatPrice(total, region)}`
+                      return (
+                        <tr key={tier.upTo} className="border-b border-border/70">
+                          <th scope="row" className="px-5 py-3 font-medium sm:px-6">{branchesLabel}</th>
+                          <td className="px-5 py-3 font-mono tabular-nums sm:px-6">{formatPrice(per, region)}</td>
+                          <td className="px-5 py-3 font-mono tabular-nums text-foreground/85 sm:px-6">{totalLabel}</td>
+                        </tr>
+                      )
+                    })}
+                    {region.enterpriseFrom ? (
+                      <tr className="align-top">
+                        <th scope="row" className="px-5 py-3 font-medium sm:px-6">
+                          {region.enterpriseFrom} plus branches
+                        </th>
+                        <td className="px-5 py-3 text-muted-foreground sm:px-6">Custom</td>
+                        <td className="px-5 py-3 text-muted-foreground sm:px-6">Custom</td>
+                      </tr>
+                    ) : null}
+                  </tbody>
+                </table>
+              </div>
+              <div className="border-t border-border p-5 sm:p-6">
+                {region.addons?.length ? (
+                  <div className="mb-4 rounded-xl bg-primary/5 p-4">
+                    <p className="text-sm font-semibold text-primary">Available add-ons</p>
+                    <ul className="mt-2 space-y-1.5">
+                      {region.addons.map((addon) => (
+                        <li key={addon.name} className="text-[15px] text-foreground/85">
+                          <span className="font-medium text-foreground">{addon.name}</span>
+                          {': '}
+                          {formatPrice(addon.perBranchMonthly, region)} / branch / month. {addon.description}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="mt-2 text-[15px] text-muted-foreground">
-                    {isAnnual
-                      ? `${ANNUAL_MONTHS_SAVED} months free on annual billing. Example: 3 branches = ${formatPrice(perBranchMonthly * MONTHS_PAID_ANNUALLY * 3, region)} per year.`
-                      : `Example: 3 branches = ${formatPrice(perBranchMonthly * 3, region)} per month.`}
-                  </p>
-                </div>
+                ) : null}
                 <StartTrialButton location="pricing" size="lg" className="min-h-11 w-full whitespace-normal bg-primary hover:bg-primary/90" />
               </div>
             </div>
@@ -190,7 +233,9 @@ export default function PricingGrid({
           </ul>
           <div className="mt-6 text-center text-base text-muted-foreground">
             <p>
-              {region.model === 'per-branch' ? 'Running a large number of branches?' : 'Need more than 10 properties?'}{' '}
+              {region.model === 'branch-tiered'
+                ? `Running ${region.enterpriseFrom ?? 20} or more branches?`
+                : 'Need more than 10 properties?'}{' '}
               <a href={routes.contact} className="font-medium text-primary hover:underline">
                 Contact us
               </a>{' '}

@@ -22,25 +22,26 @@ export default function HmoPage() {
       heroVisual={<DashboardImage priority />}
       problemHeading="Why HMO operations get hard to manage"
       problem="Managing multiple rooms, rent schedules, residents and property tasks across an HMO portfolio can quickly become difficult with spreadsheets and disconnected tools."
+      outcomesHeading="One platform for every HMO in your portfolio"
       outcomes={[
         {
           icon: Files,
-          title: 'Reduce manual administration',
-          description: 'Keep room lists, resident records and rent activity together instead of updating separate spreadsheets.',
+          title: 'Cut HMO admin',
+          description: 'Keep room lists, tenant records and rent activity together instead of updating separate spreadsheets.',
         },
         {
           icon: Eye,
-          title: 'Improve room and occupancy visibility',
-          description: 'See which rooms and beds are occupied or available, and keep allocations up to date as residents move.',
+          title: 'See occupancy and voids',
+          description: 'See which rooms and beds are let or empty, and keep allocations up to date as tenants move in and out.',
         },
         {
           icon: CreditCard,
-          title: 'Track payments more clearly',
+          title: 'Stay on top of rent and arrears',
           description: 'Review upcoming, paid and overdue rent, plus deposits and payment history, from one place.',
         },
         {
           icon: ClipboardList,
-          title: 'Keep property information organised',
+          title: 'Keep HMO records in order',
           description: 'Record maintenance, shared costs and property-level reports alongside the rest of your HMO operations.',
         },
       ]}
