@@ -25,6 +25,7 @@ export function SolutionPage({
   faqs,
   ctaHeading,
   ctaText,
+  relatedGuide,
 }: {
   path: string
   title: string
@@ -40,6 +41,8 @@ export function SolutionPage({
   faqs: { question: string; answer: string }[]
   ctaHeading: string
   ctaText: string
+  /** Optional related blog guide surfaced below the FAQ. */
+  relatedGuide?: { href: string; label: string }
 }) {
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -126,6 +129,14 @@ export function SolutionPage({
             Frequently asked questions
           </h2>
           <FaqList items={faqs} />
+          {relatedGuide ? (
+            <p className="mt-8 text-center text-base text-muted-foreground">
+              Related reading:{' '}
+              <a href={relatedGuide.href} className="font-medium text-primary hover:underline">
+                {relatedGuide.label}
+              </a>
+            </p>
+          ) : null}
         </div>
       </section>
 

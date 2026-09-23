@@ -292,7 +292,8 @@ export default function HmoBlogPost() {
             </li>
             <li>
               <strong>Student accommodation operators</strong> managing{' '}
-              <A href={routes.student}>halls or student houses</A> through the letting cycle.
+              <A href={routes.student}>halls or student houses</A> through the letting cycle. See our{' '}
+              <A href={postPath('student-accommodation-management')}>student accommodation management guide</A>.
             </li>
             <li>
               <strong>Small and mid-sized portfolios</strong> that have outgrown a spreadsheet but don’t need

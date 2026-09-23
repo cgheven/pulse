@@ -21,6 +21,7 @@ export const solutionLinks = [
 ] as const
 
 export const primaryNav = [
+  { href: routes.features, label: 'Platform' },
   { href: routes.pricing, label: 'Pricing' },
   { href: routes.about, label: 'About' },
   { href: routes.contact, label: 'Contact' },

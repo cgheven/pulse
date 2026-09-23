@@ -29,6 +29,12 @@ export const screenshots = {
     height: 1712,
     alt: 'PulseHub complaints screen showing maintenance requests and resolution statuses',
   },
+  website: {
+    src: '/screenshots/uk-website.png',
+    width: 1814,
+    height: 1692,
+    alt: 'A public PulseHub property website showing rooms with photos, monthly rent in pounds, available seats, amenities, a WhatsApp button and a join waitlist button',
+  },
 } as const
 
 /** Real product screenshots from the Pakistan market (rupee pricing, AC and kitchen billing). */
@@ -62,5 +68,11 @@ export const pakistanScreenshots = {
     width: 3024,
     height: 1652,
     alt: 'PulseHub All Branches view comparing occupancy, collections, pending dues, deposits, costs and net profit across hostels',
+  },
+  website: {
+    src: '/screenshots/pk-website.png',
+    width: 1818,
+    height: 1616,
+    alt: 'A public PulseHub hostel website showing rooms with photos, monthly rent in rupees, available seats, amenities, a WhatsApp button and a join waitlist button',
   },
 } as const

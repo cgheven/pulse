@@ -17,6 +17,7 @@ import { CtaBand } from '@/components/cta-band'
 import { FaqList } from '@/components/faq-list'
 import { ProductScreenshot } from '@/components/feature-showcase'
 import { PageHero } from '@/components/page-hero'
+import { PublicWebsiteSection } from '@/components/public-website-section'
 import PricingGrid from '@/components/pricing-grid'
 import SiteShell from '@/components/site-shell'
 import { StartTrialButton } from '@/components/tracked-cta'
@@ -51,6 +52,16 @@ const workflows = [
   'Staff access',
   'Complaints and maintenance',
   'Reporting',
+]
+
+// Real elements of the public hostel website (shown beside the website screenshot).
+const websiteFeatures = [
+  'Live room and bed availability',
+  'Monthly rent shown in rupees',
+  'Amenities like meals, laundry, WiFi and CCTV',
+  'Packages and mess menu',
+  'Join-waitlist enquiries in your dashboard',
+  'One-tap WhatsApp enquiries',
 ]
 
 // What a resident's member timeline captures (shown beside the timeline screenshot).
@@ -137,6 +148,11 @@ const faqs = [
     question: 'Can I keep resident records and CNIC details?',
     answer:
       'Yes. Each resident has a profile with documents, allocation, and billing and payment history, and you can store CNIC details on the record.',
+  },
+  {
+    question: 'Does PulseHub include a website for my hostel?',
+    answer:
+      'Yes. Every hostel gets a free public page showing rooms, beds, rent, amenities and available seats. Students and families can join the waitlist or message you on WhatsApp, and the page stays in sync with your live occupancy.',
   },
   {
     question: 'Can I try PulseHub before subscribing?',
@@ -382,6 +398,16 @@ export default function PakistanPage() {
           </div>
         </div>
       </section>
+
+      {/* Complimentary public website */}
+      <PublicWebsiteSection
+        eyebrow="Free hostel website"
+        heading="Every hostel gets its own public website, free"
+        lead="PulseHub gives each hostel a public page where students and families can browse rooms, beds, rent and amenities, then join the waitlist or message you on WhatsApp. It stays in sync with your rooms and occupancy, so seats shown online are always current."
+        features={websiteFeatures}
+        imageLabel="Your public hostel page"
+        screenshot={pakistanScreenshots.website}
+      />
 
       {/* Pakistan-specific summary */}
       <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">

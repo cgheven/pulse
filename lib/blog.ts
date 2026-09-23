@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'student-accommodation-management',
+    title: 'Student Accommodation Management: UK Guide',
+    heading: 'Student Accommodation Management: A Complete Guide for UK Operators',
+    description:
+      'A practical guide to student accommodation management for UK operators: rooms, residents, rent, occupancy and the software that keeps it all in one place.',
+    excerpt:
+      'How UK student accommodation is run day to day, what operators need to track across rooms and residents, and how to manage it without spreadsheet sprawl.',
+    category: 'Student accommodation',
+    primaryKeyword: 'student accommodation management',
+    datePublished: '2026-09-23',
+    dateModified: '2026-09-23',
+    readingMinutes: 10,
+    image: {
+      src: '/screenshots/residents.png',
+      width: 3024,
+      height: 1582,
+      alt: 'PulseHub resident management screen showing student applications, deposits, notices and check-outs across the letting cycle',
+      label: 'Residents · applications & check-outs',
+    },
+  },
+  {
     slug: 'manage-multiple-hmo-properties-without-spreadsheets',
     title: 'Manage Multiple HMOs Without Spreadsheets',
     heading: 'How to Manage Multiple HMO Properties Without Spreadsheets',

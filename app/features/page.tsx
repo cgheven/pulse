@@ -5,6 +5,7 @@ import { featureGroups } from '@/components/features'
 import { PageHero } from '@/components/page-hero'
 import { DashboardImage } from '@/components/product-visual'
 import { ProductVideo } from '@/components/product-video'
+import { PublicWebsiteSection } from '@/components/public-website-section'
 import SiteShell from '@/components/site-shell'
 import { jsonLdScript, pageMetadata } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
@@ -145,6 +146,20 @@ export default function FeaturesPage() {
           </section>
         )
       })}
+      <div className="border-t border-border">
+        <PublicWebsiteSection
+          lead="PulseHub gives each property a public page where people can browse rooms, beds, rent and amenities, then join the waitlist or message you directly. It stays in sync with your live occupancy, so what people see is always current."
+          features={[
+            'Live room and bed availability',
+            'Rent shown in your local currency',
+            'Amenities like WiFi, laundry, gym and security',
+            'Packages and menu',
+            'Join-waitlist enquiries in your dashboard',
+            'One-tap WhatsApp or direct enquiries',
+          ]}
+          screenshot={screenshots.website}
+        />
+      </div>
       <CtaBand
         heading="Use these tools with your properties"
         text="Start a 14-day free trial with no card required, or book a walkthrough of rooms, residents, rent and daily operations."

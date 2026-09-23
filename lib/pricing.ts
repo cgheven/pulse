@@ -98,11 +98,11 @@ export const regions: Region[] = [
     symbol: 'PKR ',
     model: 'branch-tiered',
     branchTiers: [
-      { upTo: 1, perBranchMonthly: 4500 },
-      { upTo: 4, perBranchMonthly: 4000 },
-      { upTo: 8, perBranchMonthly: 3500 },
-      { upTo: 15, perBranchMonthly: 3000 },
-      { upTo: 20, perBranchMonthly: 2500 },
+      { upTo: 1, perBranchMonthly: 6000 },
+      { upTo: 4, perBranchMonthly: 5500 },
+      { upTo: 8, perBranchMonthly: 5000 },
+      { upTo: 15, perBranchMonthly: 4500 },
+      { upTo: 20, perBranchMonthly: 4000 },
     ],
     enterpriseFrom: 20,
     addons: [

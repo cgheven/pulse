@@ -6,6 +6,7 @@ import { CtaBand } from '@/components/cta-band'
 import { FaqList } from '@/components/faq-list'
 import { ProductScreenshot } from '@/components/feature-showcase'
 import { PageHero } from '@/components/page-hero'
+import { PublicWebsiteSection } from '@/components/public-website-section'
 import PricingGrid from '@/components/pricing-grid'
 import { ProductVideo } from '@/components/product-video'
 import { DashboardImage } from '@/components/product-visual'
@@ -52,6 +53,11 @@ const faqs = [
     question: 'Does PulseHub handle HMO room and rent management?',
     answer:
       'Yes. Rooms, beds, resident records, rent schedules, part-payments, deposits and maintenance are all covered. See the HMO management page for detail.',
+  },
+  {
+    question: 'Does PulseHub include a website for my property?',
+    answer:
+      'Yes. Every property gets a free public page showing available rooms, beds, rent and amenities. People can join the waitlist or message you, and the page stays in sync with your live occupancy.',
   },
   {
     question: 'Can I try PulseHub before subscribing?',
@@ -195,10 +201,26 @@ export default function UkPage() {
             <A href="/blog/manage-multiple-hmo-properties-without-spreadsheets">
               manage multiple HMO properties without spreadsheets
             </A>
-            .
+            . Running student housing instead? See our guide to{' '}
+            <A href="/blog/student-accommodation-management">student accommodation management</A>.
           </p>
         </div>
       </section>
+
+      <PublicWebsiteSection
+        eyebrow="Free property website"
+        heading="List your rooms and take enquiries online"
+        lead="PulseHub gives every property a public page where students and professionals can see available rooms, beds, rent in GBP and amenities, then join the waitlist or message you. It stays in sync with your live occupancy, so listings are always current."
+        features={[
+          'Live room and bed availability',
+          'Rent shown in GBP',
+          'Amenities like WiFi, laundry, gym and security',
+          'Packages and menu',
+          'Join-waitlist enquiries in your dashboard',
+          'One-tap WhatsApp or direct enquiries',
+        ]}
+        screenshot={screenshots.website}
+      />
 
       <PricingGrid
         heading="UK pricing"

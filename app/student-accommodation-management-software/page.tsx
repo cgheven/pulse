@@ -94,6 +94,10 @@ export default function StudentPage() {
       ]}
       ctaHeading="Make student accommodation management easier."
       ctaText="Start a free trial, or book a demonstration to see how PulseHub organises rooms, residents and payments."
+      relatedGuide={{
+        href: '/blog/student-accommodation-management',
+        label: 'Student Accommodation Management: A Complete Guide for UK Operators',
+      }}
     />
   )
 }
