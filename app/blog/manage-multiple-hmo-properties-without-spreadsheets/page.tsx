@@ -245,7 +245,7 @@ export default function ManageMultipleHmoPost() {
           <P>Once a week, do a five-minute pass across the portfolio: which rooms are empty and from when, who is in arrears, what maintenance is still open. Small and current always beats a month-end scramble.</P>
 
           <H3>Record payments as they happen</H3>
-          <P>Log each payment, including part-payments and deposits, when it lands rather than in a monthly catch-up. Arrears then stay accurate instead of running a month behind reality.</P>
+          <P>Log each payment, including part-payments and deposits, when it lands rather than in a monthly catch-up. Arrears then stay accurate instead of running a month behind reality. For the detail on this, see our guide to <A href={postPath('hmo-rent-tracking')}>tracking HMO rent, payments and arrears</A>.</P>
 
           <H3>Scope access per property</H3>
           <P>Give each manager access to only the property they run. They see what they need, and you keep the whole picture without handing over everything.</P>

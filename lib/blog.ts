@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'hmo-rent-tracking',
+    title: 'HMO Rent Tracking: Payments and Arrears',
+    heading: 'How to Track HMO Rent, Payments and Arrears in the UK',
+    description:
+      'How to track HMO rent, payments and arrears across multiple properties and rooms: what to record, a simple system that scales, and how to keep balances accurate.',
+    excerpt:
+      'Why rent tracking gets hard across multiple HMOs, exactly what to record per room and tenant, a step-by-step system, and how to stay on top of arrears.',
+    category: 'HMO management',
+    primaryKeyword: 'HMO rent tracking',
+    datePublished: '2026-09-25',
+    dateModified: '2026-09-25',
+    readingMinutes: 10,
+    image: {
+      src: '/screenshots/payments.png',
+      width: 2998,
+      height: 1562,
+      alt: 'PulseHub payments screen showing HMO rent due, part-payments, deposits and overdue balances per room and tenant',
+      label: 'Payments · rent, part-payments & arrears',
+    },
+  },
+  {
     slug: 'student-accommodation-management',
     title: 'Student Accommodation Management: UK Guide',
     heading: 'Student Accommodation Management: A Complete Guide for UK Operators',

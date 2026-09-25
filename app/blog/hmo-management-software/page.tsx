@@ -363,7 +363,9 @@ export default function HmoBlogPost() {
             tenant, without you rebuilding it each month. That’s tenant rent tracking done properly: rent
             schedules, part-payments, deposits and a clear view of arrears. PulseHub keeps rent schedules,
             receipts, part-payments, deposits and overdue balances on a dedicated payments screen, separate
-            from the tenant’s history so the numbers stay clean.
+            from the tenant’s history so the numbers stay clean. For a deeper look at this one job, see our
+            guide to{' '}
+            <A href={postPath('hmo-rent-tracking')}>tracking HMO rent, payments and arrears</A>.
           </P>
 
           <H3>Occupancy management</H3>

@@ -197,7 +197,8 @@ export default function UkPage() {
           </Lead>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
             New to running HMOs on software? Read our guide to{' '}
-            <A href="/blog/hmo-management-software">HMO management software</A>, or see how to{' '}
+            <A href="/blog/hmo-management-software">HMO management software</A>, learn how to{' '}
+            <A href="/blog/hmo-rent-tracking">track HMO rent, payments and arrears</A>, or see how to{' '}
             <A href="/blog/manage-multiple-hmo-properties-without-spreadsheets">
               manage multiple HMO properties without spreadsheets
             </A>
