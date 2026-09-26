@@ -42,8 +42,8 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 10,
     image: {
       src: '/screenshots/payments.png',
-      width: 2998,
-      height: 1562,
+      width: 3024,
+      height: 1570,
       alt: 'PulseHub payments screen showing HMO rent due, part-payments, deposits and overdue balances per room and tenant',
       label: 'Payments · rent, part-payments & arrears',
     },

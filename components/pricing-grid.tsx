@@ -25,18 +25,26 @@ export default function PricingGrid({
   subtitle,
   initialRegionCode = DEFAULT_REGION_CODE,
   showSelector = true,
+  geoAware = false,
 }: {
   heading?: string
   subtitle: string
   initialRegionCode?: RegionCode
   showSelector?: boolean
+  /**
+   * Homepage-only: start with a "Choose your country" prompt instead of a hardcoded
+   * currency, then default the selector to the visitor's region from GEO-IP. It only
+   * changes which currency is shown; it never redirects.
+   */
+  geoAware?: boolean
 }) {
   const [cycle, setCycle] = useState<'monthly' | 'yearly'>('monthly')
-  const [regionCode, setRegionCode] = useState<RegionCode>(initialRegionCode)
+  const [regionCode, setRegionCode] = useState<RegionCode | ''>(geoAware ? '' : initialRegionCode)
   const isAnnual = cycle === 'yearly'
   const pathname = usePathname()
   const sectionRef = useRef<HTMLElement>(null)
 
+  const chosen = regionCode !== ''
   const region = getRegion(regionCode)
   const plans = regionPlans(region)
   const branchTiers = region.branchTiers ?? []
@@ -56,9 +64,30 @@ export default function PricingGrid({
     return () => observer.disconnect()
   }, [pathname])
 
-  function onRegionChange(code: RegionCode) {
+  useEffect(() => {
+    if (!geoAware) return
+    let cancelled = false
+    fetch('/api/geo')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: { country?: string | null } | null) => {
+        if (cancelled || !data?.country) return
+        const code = data.country.toLowerCase()
+        // Region codes are ISO country codes; only auto-select a market we actually price.
+        if (regions.some((item) => item.code === code)) {
+          setRegionCode((prev) => (prev === '' ? (code as RegionCode) : prev))
+        }
+      })
+      .catch(() => {
+        // Soft enhancement: if GEO-IP is unavailable, the visitor picks their country.
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [geoAware])
+
+  function onRegionChange(code: RegionCode | '') {
     setRegionCode(code)
-    trackCountrySelected(code)
+    if (code !== '') trackCountrySelected(code)
   }
 
   return (
@@ -77,10 +106,11 @@ export default function PricingGrid({
               <span>Country / region</span>
               <select
                 value={regionCode}
-                onChange={(event) => onRegionChange(event.target.value as RegionCode)}
+                onChange={(event) => onRegionChange(event.target.value as RegionCode | '')}
                 className="min-h-9 rounded-lg border border-border bg-card px-3 py-1.5 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 aria-label="Choose your country or region for pricing"
               >
+                {geoAware ? <option value="">Choose your country</option> : null}
                 {regions.map((item) => (
                   <option key={item.code} value={item.code}>
                     {item.label} ({item.currency})
@@ -90,32 +120,43 @@ export default function PricingGrid({
             </label>
           ) : null}
 
-          <div className="grid w-full max-w-md grid-cols-2 rounded-full border border-border bg-card p-1" role="group" aria-label="Billing cycle">
-            <button
-              type="button"
-              aria-pressed={cycle === 'monthly'}
-              onClick={() => setCycle('monthly')}
-              className={`min-h-11 rounded-full px-3 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${cycle === 'monthly' ? 'bg-primary text-primary-foreground' : 'text-foreground/65 hover:text-foreground'}`}
-            >
-              Monthly
-            </button>
-            <button
-              type="button"
-              aria-pressed={isAnnual}
-              onClick={() => setCycle('yearly')}
-              className={`min-h-11 rounded-full px-3 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isAnnual ? 'bg-primary text-primary-foreground' : 'text-foreground/65 hover:text-foreground'}`}
-            >
-              Annual
-            </button>
-          </div>
-          <p className="max-w-md text-center text-[15px] text-muted-foreground" aria-live="polite">
-            {isAnnual
-              ? `Pay for ${MONTHS_PAID_ANNUALLY} months, get ${MONTHS_INCLUDED_ANNUALLY}. Save ${ANNUAL_MONTHS_SAVED} months.`
-              : `Annual billing: pay ${MONTHS_PAID_ANNUALLY} months, get ${MONTHS_INCLUDED_ANNUALLY}.`}
-          </p>
+          {chosen ? (
+            <>
+              <div className="grid w-full max-w-md grid-cols-2 rounded-full border border-border bg-card p-1" role="group" aria-label="Billing cycle">
+                <button
+                  type="button"
+                  aria-pressed={cycle === 'monthly'}
+                  onClick={() => setCycle('monthly')}
+                  className={`min-h-11 rounded-full px-3 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${cycle === 'monthly' ? 'bg-primary text-primary-foreground' : 'text-foreground/65 hover:text-foreground'}`}
+                >
+                  Monthly
+                </button>
+                <button
+                  type="button"
+                  aria-pressed={isAnnual}
+                  onClick={() => setCycle('yearly')}
+                  className={`min-h-11 rounded-full px-3 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isAnnual ? 'bg-primary text-primary-foreground' : 'text-foreground/65 hover:text-foreground'}`}
+                >
+                  Annual
+                </button>
+              </div>
+              <p className="max-w-md text-center text-[15px] text-muted-foreground" aria-live="polite">
+                {isAnnual
+                  ? `Pay for ${MONTHS_PAID_ANNUALLY} months, get ${MONTHS_INCLUDED_ANNUALLY}. Save ${ANNUAL_MONTHS_SAVED} months.`
+                  : `Annual billing: pay ${MONTHS_PAID_ANNUALLY} months, get ${MONTHS_INCLUDED_ANNUALLY}.`}
+              </p>
+            </>
+          ) : null}
         </div>
 
-        {region.model === 'branch-tiered' ? (
+        {!chosen ? (
+          <div className="mx-auto max-w-xl rounded-2xl border border-dashed border-border bg-card/60 p-8 text-center sm:p-10">
+            <p className="font-display text-xl font-medium tracking-tight sm:text-2xl">Choose your country to see pricing</p>
+            <p className="mt-2 text-base text-muted-foreground">
+              PulseHub is priced in your local currency. Select your country above to see the plans available to you.
+            </p>
+          </div>
+        ) : region.model === 'branch-tiered' ? (
           <div className="mx-auto max-w-3xl">
             <div className="overflow-hidden rounded-2xl border-2 border-primary bg-card shadow-lg shadow-primary/15">
               <div className="border-b border-border bg-primary/5 px-5 py-4 sm:px-6">

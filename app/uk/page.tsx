@@ -33,6 +33,27 @@ const useCases = [
   { icon: BedDouble, title: 'Hostels & shared', description: 'Bed-level occupancy and payments for high-turnover sites.', href: routes.features },
 ]
 
+const billingSteps = [
+  {
+    number: '01',
+    title: 'Generate invoices',
+    description: 'Automatically generate monthly rent and electricity charges with a clear breakdown.',
+    shot: screenshots.invoice,
+  },
+  {
+    number: '02',
+    title: 'Record payments and issue receipts',
+    description: 'Record payments and instantly generate clear, professional receipts for residents.',
+    shot: screenshots.receipt,
+  },
+  {
+    number: '03',
+    title: 'Handle check-outs',
+    description: 'Calculate final utility charges, apply outstanding dues against the deposit, and see exactly what to collect or refund.',
+    shot: screenshots.checkout,
+  },
+]
+
 const faqs = [
   {
     question: 'What accommodation types does PulseHub support in the UK?',
@@ -157,6 +178,37 @@ export default function UkPage() {
               sizes="(max-width: 1023px) calc(100vw - 2rem), 40rem"
             />
           </div>
+        </div>
+      </section>
+
+      <section className="bg-muted/30 px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            heading="From monthly billing to final checkout"
+            subtitle="Manage rent, utility charges, payments, deposits and final settlements for every resident in one place."
+          />
+          <ol className="mt-10 grid gap-8 sm:gap-6 lg:grid-cols-3">
+            {billingSteps.map((step) => (
+              <li key={step.number} className="flex flex-col">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{step.number}</p>
+                <h3 className="mt-2 text-lg font-semibold tracking-tight sm:text-xl">{step.title}</h3>
+                <p className="mt-1.5 text-base leading-relaxed text-muted-foreground">{step.description}</p>
+                <div className="mt-5 rounded-xl border border-border bg-card p-3 shadow-sm">
+                  <div className="mx-auto w-full max-w-[17rem]">
+                    <ProductScreenshot
+                      src={step.shot.src}
+                      alt={step.shot.alt}
+                      width={step.shot.width}
+                      height={step.shot.height}
+                      frame={false}
+                      sizes="(max-width: 640px) calc(100vw - 3.5rem), (max-width: 1024px) calc(50vw - 3.5rem), 17rem"
+                      className="rounded-lg"
+                    />
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

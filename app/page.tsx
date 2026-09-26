@@ -86,6 +86,7 @@ export default function Page() {
       <PricingGrid
         heading="Pricing that grows with your portfolio"
         subtitle="Plans by property allowance: 1, 3 or 10 properties. 14-day free trial, no card. Annual billing saves 2 months."
+        geoAware
       />
       <HomeFaq />
       <Cta />
