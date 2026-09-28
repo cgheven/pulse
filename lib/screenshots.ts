@@ -23,6 +23,12 @@ export const screenshots = {
     height: 1582,
     alt: 'PulseHub resident management screen showing applications, deposits, notices, and check-outs',
   },
+  residentsWaiting: {
+    src: '/screenshots/residents-waiting.png',
+    width: 3010,
+    height: 1562,
+    alt: 'PulseHub Residents screen on the waiting list, showing incoming tenants with move-in dates, deposits received and an activate action',
+  },
   complaints: {
     src: '/screenshots/complaints.png',
     width: 3022,

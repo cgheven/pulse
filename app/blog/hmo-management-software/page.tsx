@@ -354,7 +354,8 @@ export default function HmoBlogPost() {
             instead of reconstructing it from email. In PulseHub, each tenant’s history sits on the{' '}
             <strong>member timeline</strong>: admissions, room changes, charges, payments, deposits and
             complaints in a single record. When a question comes up about a specific tenant, the answer is
-            already on one screen.
+            already on one screen. For the full picture, see our guide to{' '}
+            <A href={postPath('hmo-tenant-management')}>HMO tenant management from move-in to move-out</A>.
           </P>
 
           <H3>Rent collection and payment tracking</H3>

@@ -506,7 +506,9 @@ export default function HmoRentTrackingPost() {
             balance stays accurate for that room and rolls up across the portfolio rather than being re-added by
             hand. Every tenant also has a{' '}
             <strong>member timeline</strong> that keeps their rent charges, payments, deposits and room moves in
-            one record, so the full history for anyone is a single look.
+            one record, so the full history for anyone is a single look. Rent sits inside the wider tenancy, so it
+            is worth reading alongside our guide to{' '}
+            <A href={postPath('hmo-tenant-management')}>HMO tenant management from move-in to move-out</A>.
           </P>
           <P>
             When you run more than one house, a property switcher moves you between sites and an All Properties

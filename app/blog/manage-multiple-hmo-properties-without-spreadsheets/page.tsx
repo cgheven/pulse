@@ -230,6 +230,8 @@ export default function ManageMultipleHmoPost() {
           <P>
             The reason a spreadsheet struggles is that these are related: a tenant belongs to a bed, a bed to a
             property, a payment to a tenant. Software holds those relationships for you, which is most of the work.
+            For the tenant side of this in detail, see our guide to{' '}
+            <A href={postPath('hmo-tenant-management')}>managing HMO tenants from move-in to move-out</A>.
           </P>
 
           <H2 id="a-simple-system">A simple system for running several HMOs</H2>

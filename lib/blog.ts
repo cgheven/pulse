@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'hmo-tenant-management',
+    title: 'HMO Tenant Management: Move-In to Move-Out',
+    heading: 'HMO Tenant Management: From Move-In to Move-Out',
+    description:
+      'How to manage an HMO tenant from move-in to move-out: what to record at each stage, how to handle room changes and deposits, and how to close the record cleanly.',
+    excerpt:
+      'The HMO tenant lifecycle stage by stage: what to record at move-in, how to run an active tenancy and its changes, and how to handle move-out and final settlement.',
+    category: 'HMO management',
+    primaryKeyword: 'HMO tenant management',
+    datePublished: '2026-09-28',
+    dateModified: '2026-09-28',
+    readingMinutes: 10,
+    image: {
+      src: '/screenshots/residents.png',
+      width: 3024,
+      height: 1582,
+      alt: 'PulseHub Residents screen showing active tenants, deposits, notice periods and check-outs across an HMO',
+      label: 'Residents · deposits, notice & check-out',
+    },
+  },
+  {
     slug: 'hmo-rent-tracking',
     title: 'HMO Rent Tracking: Payments and Arrears',
     heading: 'How to Track HMO Rent, Payments and Arrears in the UK',
