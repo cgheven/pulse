@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'hmo-compliance',
+    title: 'HMO Compliance in England: Landlord Checklist',
+    heading: 'HMO Compliance in England: The Complete Landlord Compliance Checklist',
+    description:
+      'Understand HMO compliance in England, the records landlords need to track, local authority requirements and how software can simplify compliance management.',
+    excerpt:
+      'A practical, England-focused guide to HMO compliance: whether you need a licence, the records and certificates to track, local authority requirements, and how to stay organised.',
+    category: 'HMO management',
+    primaryKeyword: 'HMO compliance England',
+    datePublished: '2026-09-30',
+    dateModified: '2026-09-30',
+    readingMinutes: 13,
+    image: {
+      src: '/screenshots/complaints.png',
+      width: 3018,
+      height: 1716,
+      alt: 'PulseHub maintenance and complaints screen showing reported issues, their status and resolution history',
+      label: 'Maintenance & issues · status and history',
+    },
+  },
+  {
     slug: 'hmo-tenant-management',
     title: 'HMO Tenant Management: Move-In to Move-Out',
     heading: 'HMO Tenant Management: From Move-In to Move-Out',

@@ -1,5 +1,6 @@
 import { CtaBand } from '@/components/cta-band'
 import { CardGrid } from '@/components/card-grid'
+import { DemoSection } from '@/components/demo-section'
 import { FaqList } from '@/components/faq-list'
 import { PageHero } from '@/components/page-hero'
 import { SolutionPageView } from '@/components/solution-page-view'
@@ -82,7 +83,10 @@ export function SolutionPage({
         supporting={supporting}
         visual={heroVisual}
         split={Boolean(heroVisual)}
+        secondaryCta="watch"
       />
+
+      <DemoSection />
 
       <section className="px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
         <div className="mx-auto max-w-3xl border-l-2 border-primary pl-6 sm:pl-8">

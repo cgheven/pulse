@@ -274,7 +274,9 @@ export default function HmoBlogPost() {
             mandatory licence from the council, and many councils run additional licensing schemes that catch
             smaller properties too. Check the rules for your area on{' '}
             <A href="https://www.gov.uk/house-in-multiple-occupation-licence">GOV.UK</A> and with your local
-            council. Software helps you run the property; it doesn’t decide your licensing obligations.
+            council. Software helps you run the property; it doesn’t decide your licensing obligations. For the
+            records and dates that go with it, see our guide to{' '}
+            <A href={postPath('hmo-compliance')}>HMO compliance and what to track</A>.
           </P>
 
           <H2 id="who-benefits">Who can benefit from HMO management software?</H2>

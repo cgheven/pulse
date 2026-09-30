@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react'
-import { BookDemoButton, StartTrialButton } from '@/components/tracked-cta'
+import { BookDemoButton, StartTrialButton, WatchDemoButton } from '@/components/tracked-cta'
 import { cn } from '@/lib/utils'
 
-function HeroCtas({ align = 'center' }: { align?: 'center' | 'start' }) {
+type SecondaryCta = 'demo' | 'watch'
+
+function HeroCtas({ align = 'center', secondaryCta = 'demo' }: { align?: 'center' | 'start'; secondaryCta?: SecondaryCta }) {
   return (
     <div>
       <div
@@ -16,11 +18,18 @@ function HeroCtas({ align = 'center' }: { align?: 'center' | 'start' }) {
           size="lg"
           className="min-h-12 whitespace-normal bg-primary px-6 text-base hover:bg-primary/90"
         />
-        <BookDemoButton
-          location="hero"
-          size="lg"
-          className="min-h-12 whitespace-normal border-primary/40 px-6 text-base text-primary hover:bg-primary/10"
-        />
+        {secondaryCta === 'watch' ? (
+          <WatchDemoButton
+            size="lg"
+            className="min-h-12 whitespace-normal border-primary/40 px-6 text-base text-primary hover:bg-primary/10"
+          />
+        ) : (
+          <BookDemoButton
+            location="hero"
+            size="lg"
+            className="min-h-12 whitespace-normal border-primary/40 px-6 text-base text-primary hover:bg-primary/10"
+          />
+        )}
       </div>
       <p
         className={cn(
@@ -41,6 +50,7 @@ export function PageHero({
   supporting,
   visual,
   split = false,
+  secondaryCta = 'demo',
 }: {
   eyebrow?: string
   heading: string
@@ -49,6 +59,8 @@ export function PageHero({
   visual?: ReactNode
   /** Two-column layout: copy on the left, `visual` on the right (stacked on mobile). */
   split?: boolean
+  /** Secondary hero CTA: 'demo' (Book a Demo, default) or 'watch' (Watch Demo, scrolls to a demo section on the page). */
+  secondaryCta?: SecondaryCta
 }) {
   if (split && visual) {
     return (
@@ -63,7 +75,7 @@ export function PageHero({
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">{text}</p>
             {supporting ? <p className="mx-auto mt-3 max-w-xl text-base text-muted-foreground/80 lg:mx-0">{supporting}</p> : null}
-            <HeroCtas align="start" />
+            <HeroCtas align="start" secondaryCta={secondaryCta} />
           </div>
           <div className="min-w-0">{visual}</div>
         </div>
@@ -83,7 +95,7 @@ export function PageHero({
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">{text}</p>
           {supporting ? <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground/80">{supporting}</p> : null}
-          <HeroCtas />
+          <HeroCtas secondaryCta={secondaryCta} />
         </div>
         {visual ? <div className="mx-auto mt-10 w-full min-w-0 max-w-6xl">{visual}</div> : null}
       </div>

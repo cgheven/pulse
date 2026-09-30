@@ -31,8 +31,8 @@ export const screenshots = {
   },
   complaints: {
     src: '/screenshots/complaints.png',
-    width: 3022,
-    height: 1712,
+    width: 3018,
+    height: 1716,
     alt: 'PulseHub complaints screen showing maintenance requests and resolution statuses',
   },
   website: {

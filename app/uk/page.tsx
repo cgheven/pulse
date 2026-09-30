@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { BedDouble, Building2, GraduationCap, Home } from 'lucide-react'
 import { CardGrid, SectionHeading } from '@/components/card-grid'
 import { CtaBand } from '@/components/cta-band'
+import { DemoSection } from '@/components/demo-section'
 import { FaqList } from '@/components/faq-list'
 import { ProductScreenshot } from '@/components/feature-showcase'
 import { PageHero } from '@/components/page-hero'
@@ -139,7 +140,10 @@ export default function UkPage() {
         text="PulseHub is HMO management software for UK landlords and operators: manage rooms, tenants, rent, arrears, deposits and multiple HMOs from one platform. It also runs student accommodation, co-living and hostels."
         visual={<DashboardImage priority sizes="(max-width: 1023px) calc(100vw - 2rem), 42rem" />}
         split
+        secondaryCta="watch"
       />
+
+      <DemoSection />
 
       <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-7xl">
@@ -255,7 +259,8 @@ export default function UkPage() {
             <A href="/blog/manage-multiple-hmo-properties-without-spreadsheets">
               manage multiple HMO properties without spreadsheets
             </A>
-            . Running student housing instead? See our guide to{' '}
+            , or what to track for{' '}
+            <A href="/blog/hmo-compliance">HMO compliance</A>. Running student housing instead? See our guide to{' '}
             <A href="/blog/student-accommodation-management">student accommodation management</A>.
           </p>
         </div>
