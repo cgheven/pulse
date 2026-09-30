@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google'
 import './globals.css'
 import { GoogleAnalytics } from '@/components/google-analytics'
+import { GoogleTagManager, GoogleTagManagerNoScript } from '@/components/google-tag-manager'
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site'
 
 const display = Fraunces({
@@ -90,6 +91,8 @@ export default function RootLayout({
       className={`${sans.variable} ${display.variable} ${mono.variable} bg-background max-w-full overflow-x-clip`}
     >
       <body className="antialiased">
+        <GoogleTagManagerNoScript />
+        <GoogleTagManager />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
         <GoogleAnalytics />
