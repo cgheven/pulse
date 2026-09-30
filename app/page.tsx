@@ -1,4 +1,5 @@
 import Cta from '@/components/cta'
+import { DemoSection } from '@/components/demo-section'
 import Hero from '@/components/hero'
 import HomeFaq, { homeFaqs } from '@/components/home-faq'
 import MemberLedgerShowcase from '@/components/member-ledger-showcase'
@@ -80,6 +81,7 @@ export default function Page() {
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <Hero />
+      <DemoSection />
       <UseCases />
       <MemberLedgerShowcase />
       <Portfolio />

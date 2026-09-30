@@ -79,6 +79,45 @@ export function BookDemoButton({
   )
 }
 
+export function WatchDemoButton({
+  targetId = 'see-pulsehub-in-action-heading',
+  className,
+  size = 'default',
+  variant = 'outline',
+  children = 'Watch Demo',
+}: {
+  targetId?: string
+  className?: string
+  size?: ButtonSize
+  variant?: ButtonVariant
+  children?: ReactNode
+}) {
+  return (
+    <Button
+      size={size}
+      variant={variant}
+      className={className}
+      nativeButton={false}
+      render={
+        <a
+          href={`#${targetId}`}
+          onClick={(event) => {
+            const target = document.getElementById(targetId)
+            if (!target) return
+            event.preventDefault()
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            // Align the heading just under the sticky header (scroll-mt on the heading),
+            // so the heading and the video below it are both framed in view.
+            target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' })
+          }}
+        />
+      }
+    >
+      {children}
+    </Button>
+  )
+}
+
 export function SignInButton({
   location,
   className,

@@ -1,4 +1,4 @@
-import { BookDemoButton, StartTrialButton } from '@/components/tracked-cta'
+import { StartTrialButton, WatchDemoButton } from '@/components/tracked-cta'
 import { DashboardImage } from '@/components/product-visual'
 
 const tracks = ['Occupancy', 'Collections', 'Overdue', 'Deposits', 'Expenses']
@@ -24,8 +24,7 @@ export default function Hero() {
               size="lg"
               className="min-h-12 whitespace-normal bg-primary px-6 text-base hover:bg-primary/90"
             />
-            <BookDemoButton
-              location="hero"
+            <WatchDemoButton
               size="lg"
               className="min-h-12 whitespace-normal border-primary/40 px-6 text-base text-primary hover:bg-primary/10"
             />
