@@ -21,6 +21,7 @@ export const analyticsEvents = {
   pricingViewed: 'pricing_viewed',
   solutionPageViewed: 'solution_page_viewed',
   faqOpened: 'faq_opened',
+  upworkSetupClicked: 'upwork_setup_clicked',
   pageView: 'page_view',
 } as const
 
@@ -227,6 +228,11 @@ export function trackSolutionPageViewed(path: string) {
 
 export function trackFaqOpened() {
   trackEvent(analyticsEvents.faqOpened, contextParams())
+}
+
+/** Fires when the optional Upwork setup/migration link is clicked. No PII. */
+export function trackUpworkSetupClicked(ctaLocation: CtaLocation) {
+  trackEvent(analyticsEvents.upworkSetupClicked, contextParams({ cta_location: ctaLocation }))
 }
 
 export function resetAnalyticsStateForTests() {

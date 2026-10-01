@@ -17,6 +17,10 @@ export const TERMS_URL = `${APP_ORIGIN}/terms`
  */
 export const BOOK_DEMO_ENDPOINT = `${APP_ORIGIN}/api/book-demo`
 
+/** Optional done-for-you data migration / setup service, offered via Upwork. */
+export const UPWORK_SETUP_URL =
+  'https://www.upwork.com/services/product/admin-customer-support-i-will-set-up-your-hmo-or-accommodation-management-system-2105597103667895891'
+
 export const CONTACT_EMAIL = 'hello@yourpulse.io'
 
 export const DEMO_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Book a PulseHub demonstration')}&body=${encodeURIComponent(

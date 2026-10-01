@@ -34,18 +34,10 @@ export default function PricingPage() {
   return (
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
-      <div className="px-4 pb-0 pt-24 text-center sm:px-6 sm:pt-28 lg:px-8">
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-primary">Pricing</p>
-        <h1 className="font-display text-[clamp(2rem,5.4vw,3.5rem)] font-medium leading-[1.06] tracking-tight">
-          Pricing that grows with your portfolio
-        </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-          14-day free trial, no card. Annual billing saves 2 months.
-        </p>
-      </div>
-      <PricingGrid
-        subtitle="Choose your country to see local pricing. Every plan includes the full PulseHub platform, for 1, 3 or 10 properties."
-      />
+      {/* Visually hidden H1 keeps one semantic page heading for SEO/accessibility
+          without using any above-the-fold space. The pricing block below is the hero. */}
+      <h1 className="sr-only">Pricing</h1>
+      <PricingGrid topPadded />
       <CtaBand
         heading="Not sure which plan fits?"
         text="Start a free trial, or contact the team to talk through your number of properties, rooms and operators."

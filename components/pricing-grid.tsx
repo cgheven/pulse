@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Check } from 'lucide-react'
 import { StartTrialButton } from '@/components/tracked-cta'
-import { trackCountrySelected, trackPricingViewed } from '@/lib/analytics'
+import { trackCountrySelected, trackPricingViewed, trackUpworkSetupClicked } from '@/lib/analytics'
 import { routes } from '@/lib/navigation'
+import { UPWORK_SETUP_URL } from '@/lib/site'
 import {
   ANNUAL_MONTHS_SAVED,
   annualSaving,
@@ -26,11 +27,14 @@ export default function PricingGrid({
   initialRegionCode = DEFAULT_REGION_CODE,
   showSelector = true,
   geoAware = false,
+  topPadded = false,
 }: {
   heading?: string
-  subtitle: string
+  subtitle?: string
   initialRegionCode?: RegionCode
   showSelector?: boolean
+  /** When this grid is the first section on a page, add top padding to clear the fixed header. */
+  topPadded?: boolean
   /**
    * Homepage-only: start with a "Choose your country" prompt instead of a hardcoded
    * currency, then default the selector to the visitor's region from GEO-IP. It only
@@ -91,14 +95,22 @@ export default function PricingGrid({
   }
 
   return (
-    <section id="pricing" ref={sectionRef} className="scroll-mt-20 bg-muted/30 px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <section
+      id="pricing"
+      ref={sectionRef}
+      className={`scroll-mt-20 bg-muted/30 px-4 sm:px-6 lg:px-8 ${
+        topPadded ? 'pt-24 pb-8 sm:pt-28 sm:pb-12' : 'py-8 sm:py-12'
+      }`}
+    >
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto mb-6 max-w-3xl space-y-3 text-center sm:mb-8 sm:space-y-4">
-          {heading ? (
-            <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-medium leading-[1.1] tracking-tight">{heading}</h2>
-          ) : null}
-          <p className="text-base text-muted-foreground sm:text-lg">{subtitle}</p>
-        </div>
+        {heading || subtitle ? (
+          <div className="mx-auto mb-6 max-w-3xl space-y-3 text-center sm:mb-8 sm:space-y-4">
+            {heading ? (
+              <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-medium leading-[1.1] tracking-tight">{heading}</h2>
+            ) : null}
+            {subtitle ? <p className="text-base text-muted-foreground sm:text-lg">{subtitle}</p> : null}
+          </div>
+        ) : null}
 
         <div className="mb-6 flex w-full flex-col items-center gap-3 sm:mb-8">
           {showSelector ? (
@@ -261,6 +273,21 @@ export default function PricingGrid({
             })}
           </div>
         )}
+
+        <div className="mx-auto mt-6 max-w-2xl rounded-2xl border border-border bg-muted/30 px-5 py-4 sm:mt-8">
+          <div className="flex flex-col items-center gap-x-4 gap-y-1 text-center sm:flex-row sm:justify-center">
+            <p className="text-base font-medium text-foreground">Already have data to move?</p>
+            <a
+              href={UPWORK_SETUP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackUpworkSetupClicked('pricing')}
+              className="rounded-sm text-base font-medium text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              Get migration help through Upwork →
+            </a>
+          </div>
+        </div>
 
         <div className="mx-auto mt-8 max-w-3xl sm:mt-10">
           <h3 className="text-center text-base font-semibold sm:text-lg">Every plan includes</h3>
