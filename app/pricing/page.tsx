@@ -36,7 +36,8 @@ export default function PricingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       {/* Visually hidden H1 keeps one semantic page heading for SEO/accessibility
           without using any above-the-fold space. The pricing block below is the hero. */}
-      <h1 className="sr-only">Pricing</h1>
+      <h1 className="sr-only">PulseHub pricing</h1>
+      <h2 className="sr-only">Compare plans</h2>
       <PricingGrid topPadded />
       <CtaBand
         heading="Not sure which plan fits?"
