@@ -21,22 +21,17 @@ import {
   trackSignIn,
   trackSolutionPageViewed,
   trackStartTrial,
-  googleAnalyticsInlineScript,
-  crossDomainHosts,
 } from './analytics.ts'
 
-type GtagCall = unknown[]
+type DataLayerEvent = Record<string, unknown>
 
-function installGtagMock(pathname = '/') {
-  const calls: GtagCall[] = []
+function installDataLayerMock(pathname = '/') {
+  const dataLayer: DataLayerEvent[] = []
   const windowMock = {
-    dataLayer: [] as unknown[],
+    dataLayer,
     location: {
       origin: 'https://www.yourpulse.io',
       pathname,
-    },
-    gtag: (...args: unknown[]) => {
-      calls.push(args)
     },
   }
 
@@ -46,7 +41,7 @@ function installGtagMock(pathname = '/') {
     writable: true,
   })
 
-  return { calls, windowMock }
+  return { dataLayer, windowMock }
 }
 
 afterEach(() => {
@@ -55,19 +50,24 @@ afterEach(() => {
   Reflect.deleteProperty(globalThis, 'document')
 })
 
-test('keeps the existing GA4 measurement ID', () => {
+test('keeps the existing GA4 measurement ID (configured in GTM)', () => {
   assert.equal(GA_MEASUREMENT_ID, 'G-KTBY62T8PL')
 })
 
-test('configures gtag once with linker domains and no automatic pageview', () => {
-  const snippet = googleAnalyticsInlineScript()
-  assert.match(snippet, /G-KTBY62T8PL/)
-  assert.match(snippet, /send_page_view:\s*false/)
-  assert.match(snippet, /allow_google_signals:\s*false/)
-  for (const host of crossDomainHosts()) {
-    assert.match(snippet, new RegExp(host.replaceAll('.', '\\.')))
-  }
-  assert.doesNotMatch(snippet, /GTM-[A-Z0-9]+/)
+test('pushes events onto the GTM dataLayer as {event, ...params}, not via gtag', () => {
+  const { dataLayer } = installDataLayerMock('/')
+
+  trackStartTrial('hero')
+
+  assert.equal(dataLayer.length, 1)
+  assert.deepEqual(dataLayer[0], {
+    event: analyticsEvents.startTrialClicked,
+    page_type: 'homepage',
+    cta_location: 'hero',
+    destination: 'signup',
+  })
+  // No gtag is used by the application any more; the container/config lives in GTM.
+  assert.equal((globalThis.window as { gtag?: unknown }).gtag, undefined)
 })
 
 test('maps marketing routes to controlled page types and solutions', () => {
@@ -121,84 +121,79 @@ test('does not send events during SSR', () => {
 })
 
 test('start_trial_clicked and sign_in_clicked fire only when called, with controlled params', () => {
-  const { calls } = installGtagMock('/')
+  const { dataLayer } = installDataLayerMock('/')
 
   trackStartTrial('hero')
   trackSignIn('header')
 
-  assert.equal(calls.length, 2)
-  assert.deepEqual(calls[0], [
-    'event',
-    analyticsEvents.startTrialClicked,
-    {
-      page_type: 'homepage',
-      cta_location: 'hero',
-      destination: 'signup',
-    },
-  ])
-  assert.deepEqual(calls[1], [
-    'event',
-    analyticsEvents.signInClicked,
-    {
-      page_type: 'homepage',
-      cta_location: 'header',
-      destination: 'login',
-    },
-  ])
+  assert.equal(dataLayer.length, 2)
+  assert.deepEqual(dataLayer[0], {
+    event: analyticsEvents.startTrialClicked,
+    page_type: 'homepage',
+    cta_location: 'hero',
+    destination: 'signup',
+  })
+  assert.deepEqual(dataLayer[1], {
+    event: analyticsEvents.signInClicked,
+    page_type: 'homepage',
+    cta_location: 'header',
+    destination: 'login',
+  })
 })
 
 test('demo_requested fires with controlled params and no personal data', () => {
-  const { calls } = installGtagMock('/contact')
+  const { dataLayer } = installDataLayerMock('/contact')
 
   trackDemoRequested('final_cta')
 
-  assert.equal(calls.length, 1)
-  assert.deepEqual(calls[0], [
-    'event',
-    analyticsEvents.demoRequested,
-    {
-      page_type: 'contact',
-      cta_location: 'final_cta',
-      destination: 'contact',
-    },
-  ])
+  assert.equal(dataLayer.length, 1)
+  assert.deepEqual(dataLayer[0], {
+    event: analyticsEvents.demoRequested,
+    page_type: 'contact',
+    cta_location: 'final_cta',
+    destination: 'contact',
+  })
 })
 
 test('checkout_started fires without a transaction id or query string', () => {
-  const { calls } = installGtagMock('/checkout?_ptxn=secret123&return=https://app.yourpulse.io')
+  const { dataLayer } = installDataLayerMock('/checkout?_ptxn=secret123&return=https://app.yourpulse.io')
 
   trackCheckoutStarted()
 
-  assert.equal(calls.length, 1)
-  assert.equal(calls[0]?.[1], analyticsEvents.checkoutStarted)
+  assert.equal(dataLayer.length, 1)
+  assert.equal(dataLayer[0]?.event, analyticsEvents.checkoutStarted)
   // page_type resolves from the query-stripped path; no _ptxn / return leaks through.
-  assert.deepEqual(calls[0]?.[2], { page_type: 'other' })
+  assert.deepEqual(dataLayer[0], { event: analyticsEvents.checkoutStarted, page_type: 'other' })
 })
 
 test('demo_submitted fires on a successful demo booking', () => {
-  const { calls } = installGtagMock('/book-demo')
+  const { dataLayer } = installDataLayerMock('/book-demo')
 
   trackDemoSubmitted()
 
-  assert.equal(calls.length, 1)
-  assert.deepEqual(calls[0], ['event', analyticsEvents.demoSubmitted, { page_type: 'other', destination: 'contact' }])
+  assert.equal(dataLayer.length, 1)
+  assert.deepEqual(dataLayer[0], {
+    event: analyticsEvents.demoSubmitted,
+    page_type: 'other',
+    destination: 'contact',
+  })
 })
 
 test('country_selected fires with a valid region code and drops unknown regions', () => {
-  const { calls } = installGtagMock('/pricing')
+  const { dataLayer } = installDataLayerMock('/pricing')
 
   trackCountrySelected('pk')
   trackCountrySelected('not-a-country')
 
-  assert.equal(calls.length, 2)
-  assert.deepEqual(calls[0], ['event', analyticsEvents.countrySelected, { page_type: 'pricing', region: 'pk' }])
-  assert.deepEqual(calls[1]?.[2], { page_type: 'pricing' })
+  assert.equal(dataLayer.length, 2)
+  assert.deepEqual(dataLayer[0], { event: analyticsEvents.countrySelected, page_type: 'pricing', region: 'pk' })
+  assert.deepEqual(dataLayer[1], { event: analyticsEvents.countrySelected, page_type: 'pricing' })
 })
 
 test('analytics failures do not throw to the caller', () => {
-  installGtagMock()
-  window.gtag = () => {
-    throw new Error('gtag failed')
+  const { dataLayer } = installDataLayerMock()
+  dataLayer.push = () => {
+    throw new Error('dataLayer push failed')
   }
 
   assert.doesNotThrow(() => {
@@ -208,7 +203,7 @@ test('analytics failures do not throw to the caller', () => {
 })
 
 test('pageviews are not duplicated for the same path', () => {
-  const { calls } = installGtagMock('/')
+  const { dataLayer } = installDataLayerMock('/')
   Object.defineProperty(globalThis, 'document', {
     value: { title: 'PulseHub' },
     configurable: true,
@@ -219,15 +214,16 @@ test('pageviews are not duplicated for the same path', () => {
   sendPageView('/pricing')
   sendPageView('/pricing?utm_source=test')
 
-  const pageViews = calls.filter((call) => call[1] === analyticsEvents.pageView)
+  const pageViews = dataLayer.filter((entry) => entry.event === analyticsEvents.pageView)
   assert.equal(pageViews.length, 2)
-  assert.equal((pageViews[0]?.[2] as { page_path: string }).page_path, '/')
-  assert.equal((pageViews[1]?.[2] as { page_path: string }).page_path, '/pricing')
-  assert.equal((pageViews[1]?.[2] as { page_location: string }).page_location, 'https://www.yourpulse.io/pricing')
+  assert.equal((pageViews[0] as { page_path: string }).page_path, '/')
+  assert.equal((pageViews[1] as { page_path: string }).page_path, '/pricing')
+  assert.equal((pageViews[1] as { page_location: string }).page_location, 'https://www.yourpulse.io/pricing')
+  assert.equal((pageViews[1] as { page_title?: string }).page_title, 'PulseHub')
 })
 
 test('pricing_viewed and solution_page_viewed fire once per path', () => {
-  const { calls } = installGtagMock('/pricing')
+  const { dataLayer } = installDataLayerMock('/pricing')
   window.location.pathname = '/pricing'
 
   trackPricingViewed('/pricing')
@@ -236,24 +232,24 @@ test('pricing_viewed and solution_page_viewed fire once per path', () => {
   trackSolutionPageViewed('/uk-hmo-management-software')
   trackSolutionPageViewed('/features')
 
-  assert.equal(calls.length, 2)
-  assert.equal(calls[0]?.[1], analyticsEvents.pricingViewed)
-  assert.equal(calls[1]?.[1], analyticsEvents.solutionPageViewed)
-  assert.deepEqual(calls[1]?.[2], {
+  assert.equal(dataLayer.length, 2)
+  assert.equal(dataLayer[0]?.event, analyticsEvents.pricingViewed)
+  assert.deepEqual(dataLayer[1], {
+    event: analyticsEvents.solutionPageViewed,
     page_type: 'solution',
     solution: 'hmo',
   })
 })
 
 test('faq_opened does not include question text or other free-text', () => {
-  const { calls } = installGtagMock('/')
+  const { dataLayer } = installDataLayerMock('/')
   trackFaqOpened()
   trackOnce('faq-test', analyticsEvents.faqOpened, {
     question: 'What is my email person@example.com?',
     email: 'person@example.com',
   })
 
-  assert.equal(calls.length, 2)
-  assert.deepEqual(calls[0]?.[2], { page_type: 'homepage' })
-  assert.deepEqual(calls[1]?.[2], {})
+  assert.equal(dataLayer.length, 2)
+  assert.deepEqual(dataLayer[0], { event: analyticsEvents.faqOpened, page_type: 'homepage' })
+  assert.deepEqual(dataLayer[1], { event: analyticsEvents.faqOpened })
 })

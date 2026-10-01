@@ -1,7 +1,14 @@
 import { routes } from './navigation.ts'
 import { regionCodes } from './pricing.ts'
-import { APP_ORIGIN, SITE_URL } from './site.ts'
 
+/**
+ * GA4 is configured through Google Tag Manager (container GTM-T5N7T49H), not by
+ * loading gtag.js here. GTM owns the GA4 "Google Tag" for this Measurement ID with
+ * send_page_view=false, allow_google_signals=false, allow_ad_personalization_signals=false
+ * and the cross-domain settings for yourpulse.io / www.yourpulse.io / app.yourpulse.io.
+ * The application pushes events onto window.dataLayer and GTM turns them into GA4
+ * events. This constant records the property GTM feeds; it is not used to load any script.
+ */
 export const GA_MEASUREMENT_ID = 'G-KTBY62T8PL'
 
 export const analyticsEvents = {
@@ -55,27 +62,7 @@ const onceKeys = new Set<string>()
 declare global {
   interface Window {
     dataLayer?: unknown[]
-    gtag?: (...args: unknown[]) => void
   }
-}
-
-export function shouldLoadGoogleAnalytics() {
-  if (process.env.NEXT_PUBLIC_GA_DISABLED === 'true') return false
-  return process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_GA_DEBUG === 'true'
-}
-
-export function crossDomainHosts() {
-  const hosts = new Set<string>(['yourpulse.io', 'www.yourpulse.io'])
-
-  for (const origin of [SITE_URL, APP_ORIGIN]) {
-    try {
-      hosts.add(new URL(origin).hostname)
-    } catch {
-      // Ignore malformed public origins; the static hosts above still apply.
-    }
-  }
-
-  return [...hosts]
 }
 
 export function safePagePath(input: string) {
@@ -122,23 +109,6 @@ export function sanitizeEventParams(params: Record<string, unknown> = {}): Analy
   return sanitized
 }
 
-export function googleAnalyticsInlineScript() {
-  const debugMode = process.env.NEXT_PUBLIC_GA_DEBUG === 'true'
-  const hosts = JSON.stringify(crossDomainHosts())
-
-  return `
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function gtag(){ dataLayer.push(arguments); };
-    gtag('js', new Date());
-    gtag('config', '${GA_MEASUREMENT_ID}', {
-      send_page_view: false,
-      allow_google_signals: false,
-      allow_ad_personalization_signals: false,
-      linker: { domains: ${hosts} }${debugMode ? ',\n      debug_mode: true' : ''}
-    });
-  `
-}
-
 function currentPathname() {
   if (typeof window === 'undefined') return routes.home
   return safePagePath(window.location.pathname)
@@ -153,24 +123,20 @@ function contextParams(extra: AnalyticsParams = {}): AnalyticsParams {
   })
 }
 
-function getGtag() {
-  if (typeof window === 'undefined') return null
-
-  if (typeof window.gtag === 'function') return window.gtag
-
+/**
+ * Push an event onto the GTM dataLayer. GTM's Custom Event triggers match on the
+ * `event` name and route each one to a GA4 Event tag. Only sanitised, allowlisted
+ * parameters are ever included, so no personal data reaches the dataLayer.
+ */
+function pushToDataLayer(event: AnalyticsEvent, params: Record<string, unknown>) {
+  if (typeof window === 'undefined') return
   window.dataLayer = window.dataLayer || []
-  window.gtag = function gtag() {
-    window.dataLayer!.push(arguments as unknown as never)
-  }
-
-  return window.gtag
+  window.dataLayer.push({ event, ...params })
 }
 
 export function trackEvent(event: AnalyticsEvent, params: Record<string, unknown> = {}) {
   try {
-    const gtag = getGtag()
-    if (!gtag) return
-    gtag('event', event, sanitizeEventParams(params))
+    pushToDataLayer(event, sanitizeEventParams(params))
   } catch {
     // Analytics must never break navigation or rendering.
   }
@@ -184,9 +150,6 @@ export function sendPageView(path: string) {
   lastPageViewPath = pathname
 
   try {
-    const gtag = getGtag()
-    if (!gtag) return
-
     const payload: Record<string, unknown> = {
       page_path: pathname,
       page_location: `${window.location.origin}${pathname}`,
@@ -200,7 +163,7 @@ export function sendPageView(path: string) {
       payload.page_title = document.title
     }
 
-    gtag('event', analyticsEvents.pageView, payload)
+    pushToDataLayer(analyticsEvents.pageView, payload)
   } catch {
     lastPageViewPath = null
   }

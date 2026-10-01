@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google'
 import './globals.css'
-import { GoogleAnalytics } from '@/components/google-analytics'
+import { AnalyticsRouteListener } from '@/components/analytics-route-listener'
 import { GoogleTagManager, GoogleTagManagerNoScript } from '@/components/google-tag-manager'
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site'
 
@@ -95,7 +95,7 @@ export default function RootLayout({
         <GoogleTagManager />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
-        <GoogleAnalytics />
+        <AnalyticsRouteListener />
       </body>
     </html>
   )
