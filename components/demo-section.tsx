@@ -5,7 +5,12 @@ import { StartTrialButton } from '@/components/tracked-cta'
  * section (id below). Uses the privacy-enhanced YouTube embed, lazy-loaded, with
  * no autoplay, in a responsive 16:9 container.
  */
-export function DemoSection() {
+export function DemoSection({
+  subtitle = 'See how PulseHub brings properties, residents, rent, payments and operations together in one platform.',
+}: {
+  /** Override the one-line subtitle, e.g. to say "branches" instead of "properties". */
+  subtitle?: string
+} = {}) {
   return (
     <section
       id="see-pulsehub-in-action"
@@ -20,7 +25,7 @@ export function DemoSection() {
           See PulseHub in Action
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-          See how PulseHub brings properties, residents, rent, payments and operations together in one platform.
+          {subtitle}
         </p>
 
         <div className="mx-auto mt-8 w-full max-w-5xl overflow-hidden rounded-2xl border border-border shadow-lg shadow-primary/10 sm:mt-10">

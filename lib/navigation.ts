@@ -8,6 +8,7 @@ export const routes = {
   blog: '/blog',
   uk: '/uk',
   pakistan: '/pakistan',
+  philippines: '/philippines',
   cookies: '/cookie-policy',
   hmo: '/uk-hmo-management-software',
   student: '/student-accommodation-management-software',

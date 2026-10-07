@@ -21,6 +21,7 @@ const paths = [
   routes.blog,
   routes.uk,
   routes.pakistan,
+  routes.philippines,
   routes.hmo,
   routes.student,
   routes.coliving,

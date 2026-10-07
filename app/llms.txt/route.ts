@@ -35,6 +35,7 @@ const solutionPages = [
 const marketPages = [
   link('United Kingdom', routes.uk, 'PulseHub for UK accommodation operators, with GBP pricing.'),
   link('Pakistan', routes.pakistan, 'PulseHub for operators in Pakistan, with local pricing.'),
+  link('Philippines', routes.philippines, 'PulseHub for dormitory, boarding house and bedspace operators in the Philippines, with USD pricing.'),
 ]
 
 const guides = sortedBlogPosts().map((post) =>

@@ -21,6 +21,21 @@ import {
   type RegionCode,
 } from '@/lib/pricing'
 
+/**
+ * Relabels the "property / properties" noun in shared plan copy when a region calls
+ * its locations something else (e.g. "branch" in the Philippines). No-op unless a
+ * unitLabel is passed, so UK and other default markets are untouched. Case-preserving.
+ */
+function relabelUnit(text: string, unit?: { singular: string; plural: string }) {
+  if (!unit) return text
+  const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
+  return text
+    .replace(/Properties/g, cap(unit.plural))
+    .replace(/properties/g, unit.plural)
+    .replace(/Property/g, cap(unit.singular))
+    .replace(/property/g, unit.singular)
+}
+
 export default function PricingGrid({
   heading,
   subtitle,
@@ -28,6 +43,7 @@ export default function PricingGrid({
   showSelector = true,
   geoAware = false,
   topPadded = false,
+  unitLabel,
 }: {
   heading?: string
   subtitle?: string
@@ -41,6 +57,12 @@ export default function PricingGrid({
    * changes which currency is shown; it never redirects.
    */
   geoAware?: boolean
+  /**
+   * Overrides the "property/properties" noun in the shared plan copy for a region that
+   * names its locations differently (the Philippines uses "branch"). Omit to keep the
+   * default wording.
+   */
+  unitLabel?: { singular: string; plural: string }
 }) {
   const [cycle, setCycle] = useState<'monthly' | 'yearly'>('monthly')
   const [regionCode, setRegionCode] = useState<RegionCode | ''>(geoAware ? '' : initialRegionCode)
@@ -248,9 +270,9 @@ export default function PricingGrid({
                   <div className="flex flex-1 flex-col p-5 sm:p-8">
                     {plan.highlight ? <p className="mb-2 text-sm font-semibold text-primary">Most popular</p> : null}
                     <h3 className="text-xl font-bold sm:text-2xl">{plan.name}</h3>
-                    <p className="mt-1 text-base text-muted-foreground sm:mt-2">{plan.description}</p>
+                    <p className="mt-1 text-base text-muted-foreground sm:mt-2">{relabelUnit(plan.description, unitLabel)}</p>
                     <p className="mt-3 inline-flex w-fit rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
-                      {plan.propertyLabel}
+                      {relabelUnit(plan.propertyLabel, unitLabel)}
                     </p>
                     <div className="my-5 sm:my-6">
                       <div className="font-mono text-3xl font-semibold tabular-nums sm:text-4xl">{formatPrice(price, region)}</div>
@@ -295,7 +317,7 @@ export default function PricingGrid({
             {corePlanFeatures.map((feature) => (
               <li key={feature} className="flex items-start gap-2.5 text-base text-foreground/80">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                {feature}
+                {relabelUnit(feature, unitLabel)}
               </li>
             ))}
           </ul>
@@ -303,7 +325,7 @@ export default function PricingGrid({
             <p>
               {region.model === 'branch-tiered'
                 ? `Running ${region.enterpriseFrom ?? 20} or more branches?`
-                : 'Need more than 10 properties?'}{' '}
+                : relabelUnit('Need more than 10 properties?', unitLabel)}{' '}
               <a href={routes.contact} className="font-medium text-primary hover:underline">
                 Contact us
               </a>{' '}

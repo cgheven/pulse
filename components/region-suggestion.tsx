@@ -13,6 +13,7 @@ type Region = { lead: string; cta: string; href: string }
 const REGIONS: Record<string, Region> = {
   GB: { lead: 'Based in the UK?', cta: 'Explore PulseHub for the UK', href: routes.uk },
   PK: { lead: 'Based in Pakistan?', cta: 'Explore PulseHub for Pakistan', href: routes.pakistan },
+  PH: { lead: 'Based in the Philippines?', cta: 'Explore PulseHub for the Philippines', href: routes.philippines },
 }
 
 const DISMISS_KEY = 'pulse_region_suggestion_dismissed'
