@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'accommodation-management-system',
+    title: 'Accommodation Management System: Buyer’s Guide',
+    heading: 'Accommodation Management System: Features, Benefits and How to Choose',
+    description:
+      'What an accommodation management system is, the features that matter for HMO, student, hostel and co-living operators, and how to choose the right one.',
+    excerpt:
+      'A practical guide to accommodation management systems for operators who let by the room: what the software does, the features that matter, how it differs from a hotel PMS and spreadsheets, and how to choose one.',
+    category: 'Accommodation management',
+    primaryKeyword: 'accommodation management system',
+    datePublished: '2026-10-21',
+    dateModified: '2026-10-21',
+    readingMinutes: 12,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'PulseHub accommodation management dashboard showing occupancy, rent collected, outstanding balances and performance across properties',
+      label: 'Dashboard · occupancy, rent & performance',
+    },
+  },
+  {
     slug: 'hmo-compliance',
     title: 'HMO Compliance in England: Landlord Checklist',
     heading: 'HMO Compliance in England: The Complete Landlord Compliance Checklist',
