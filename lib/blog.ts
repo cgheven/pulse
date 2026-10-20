@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'hostel-management-software',
+    title: 'Hostel Management Software: Features & Guide',
+    heading: 'Hostel Management Software: Features and How to Choose',
+    description:
+      'What hostel management software does for long-stay residential hostels: managing beds, residents, rent, meals and occupancy, and how to choose one.',
+    excerpt:
+      'A practical guide to hostel management software for long-stay and residential hostels: what it does, how it differs from hostel booking systems and spreadsheets, and how to choose one.',
+    category: 'Hostel management',
+    primaryKeyword: 'hostel management software',
+    datePublished: '2026-10-21',
+    dateModified: '2026-10-21',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/residents.png',
+      width: 3024,
+      height: 1582,
+      alt: 'PulseHub hostel residents screen showing bed allocation, deposits, a waiting list and check-outs',
+      label: 'Residents · beds, deposits & check-outs',
+    },
+  },
+  {
     slug: 'accommodation-management-system',
     title: 'Accommodation Management System: Buyer’s Guide',
     heading: 'Accommodation Management System: Features, Benefits and How to Choose',

@@ -9,12 +9,12 @@ import { jsonLdScript, pageMetadata } from '@/lib/seo'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
 
 // Hostel management has no dedicated solution page yet, so it links to the
-// platform overview (features). The other three link to their solution pages.
+// hostel management software guide. The other three link to their solution pages.
 const useCaseLinks = [
   { href: routes.hmo, label: 'HMO Management' },
   { href: routes.student, label: 'Student Accommodation' },
   { href: routes.coliving, label: 'Co-Living Management' },
-  { href: routes.features, label: 'Hostel Management' },
+  { href: postPath('hostel-management-software'), label: 'Hostel Management' },
 ]
 
 export const metadata = pageMetadata({
