@@ -9,6 +9,7 @@ export const routes = {
   uk: '/uk',
   pakistan: '/pakistan',
   philippines: '/philippines',
+  india: '/india',
   cookies: '/cookie-policy',
   hmo: '/uk-hmo-management-software',
   student: '/student-accommodation-management-software',

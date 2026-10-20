@@ -3,14 +3,15 @@ import { routes } from '@/lib/navigation'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
 
 /**
- * Regional hreflang cluster. The global homepage is x-default; /uk, /pakistan and
- * /philippines are the region-targeted entry points. Applied to those pages so
- * search engines understand the regional relationship (no auto-redirects).
+ * Regional hreflang cluster. The global homepage is x-default; /uk, /pakistan,
+ * /philippines and /india are the region-targeted entry points. Applied to those
+ * pages so search engines understand the regional relationship (no auto-redirects).
  */
 export const marketHreflang: Record<string, string> = {
   'en-GB': `${SITE_URL}${routes.uk}`,
   'en-PK': `${SITE_URL}${routes.pakistan}`,
   'en-PH': `${SITE_URL}${routes.philippines}`,
+  'en-IN': `${SITE_URL}${routes.india}`,
   'x-default': `${SITE_URL}/`,
 }
 

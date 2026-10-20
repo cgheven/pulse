@@ -131,9 +131,11 @@ export function annualSaving(monthly: number) {
   return monthly * ANNUAL_MONTHS_SAVED
 }
 
-/** Format an amount using the region's own symbol, e.g. "£149", "₹7,999", "AED 599". */
+/** Format an amount using the region's own symbol, e.g. "£149", "₹1,49,990", "AED 599".
+ *  INR uses the Indian (lakh/crore) digit grouping to match how the app shows rupees. */
 export function formatPrice(amount: number, region: Region) {
-  return `${region.symbol}${amount.toLocaleString('en-US')}`
+  const locale = region.currency === 'INR' ? 'en-IN' : 'en-US'
+  return `${region.symbol}${amount.toLocaleString(locale)}`
 }
 
 export type RegionPlan = {

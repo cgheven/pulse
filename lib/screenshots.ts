@@ -176,3 +176,73 @@ export const philippinesScreenshots = {
     alt: 'The PulseHub check-out screen settling a resident deposit against any dues and showing the refund due in pesos',
   },
 } as const
+
+/** Real product screenshots from the India market (rupee pricing, metered electricity billing, multi-city branches). */
+export const indiaScreenshots = {
+  dashboard: {
+    src: '/screenshots/in-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub India PG and hostel dashboard showing net profit, rent collected, outstanding dues, electricity units, kitchen costs and staff salaries in rupees',
+  },
+  spaces: {
+    src: '/screenshots/in-spaces.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Spaces screen showing PG rooms with room type, capacity, monthly rent in rupees, AC and attached-washroom status',
+  },
+  residents: {
+    src: '/screenshots/in-residents.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Residents screen showing active residents, waiting list, deposits, notice periods and check-out, with phone and ID search',
+  },
+  payments: {
+    src: '/screenshots/in-payments.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Payments screen showing monthly rent collection in rupees, metered electricity billing, paid, pending and overdue status and WhatsApp receipts',
+  },
+  branches: {
+    src: '/screenshots/in-branches.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub all-branches overview comparing occupancy, collections, pending dues, deposits, costs and net profit across PGs in Bengaluru, Pune and Hyderabad',
+  },
+  reports: {
+    src: '/screenshots/in-reports.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Reports screen showing income, expenses, profit, payments collected and expense breakdown with PDF and Excel export, in rupees',
+  },
+  website: {
+    src: '/screenshots/in-website.png',
+    width: 2014,
+    height: 1340,
+    alt: 'A public PulseHub PG website showing rooms with photos, monthly rent in rupees, available seats, amenities like meals, WiFi and power backup, a WhatsApp button and a join waitlist button',
+  },
+  memberLedger: {
+    src: '/screenshots/in-member-ledger.png',
+    width: 1024,
+    height: 1396,
+    alt: 'A resident payment timeline in PulseHub showing rent, food and metered electricity charges, part-payments, a security deposit held, notices and check-out, in rupees',
+  },
+  invoice: {
+    src: '/screenshots/in-invoice.png',
+    width: 1104,
+    height: 1331,
+    alt: 'A PulseHub PG invoice in rupees showing monthly rent and metered electricity charges with the total amount due',
+  },
+  receipt: {
+    src: '/screenshots/in-payment-receipt.png',
+    width: 996,
+    height: 1336,
+    alt: 'A PulseHub payment receipt in rupees showing the receipt number, payment method, bank account, a rent and electricity breakdown, and the total paid',
+  },
+  checkout: {
+    src: '/screenshots/in-checkout.png',
+    width: 515,
+    height: 1331,
+    alt: 'The PulseHub check-out screen pro-rating a resident final month by nights stayed, settling outstanding dues against the deposit, and showing the refund due in rupees',
+  },
+} as const

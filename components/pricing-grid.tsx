@@ -23,8 +23,9 @@ import {
 
 /**
  * Relabels the "property / properties" noun in shared plan copy when a region calls
- * its locations something else (e.g. "branch" in the Philippines). No-op unless a
- * unitLabel is passed, so UK and other default markets are untouched. Case-preserving.
+ * its locations something else (e.g. "branch" in the Philippines and India). No-op
+ * unless a unitLabel is passed, so UK and other default markets are untouched.
+ * Case-preserving.
  */
 function relabelUnit(text: string, unit?: { singular: string; plural: string }) {
   if (!unit) return text
@@ -59,8 +60,8 @@ export default function PricingGrid({
   geoAware?: boolean
   /**
    * Overrides the "property/properties" noun in the shared plan copy for a region that
-   * names its locations differently (the Philippines uses "branch"). Omit to keep the
-   * default wording.
+   * names its locations differently (the Philippines and India use "branch"). Omit to
+   * keep the default wording.
    */
   unitLabel?: { singular: string; plural: string }
 }) {
