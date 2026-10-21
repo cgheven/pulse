@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'co-living-management-software-guide',
+    title: 'Co-Living Management Software Guide',
+    heading: 'Co-Living Management Software: Features and How to Choose',
+    description:
+      'What co-living management software does for operators: rooms, residents, all-inclusive billing, occupancy and multiple buildings, and how to choose one.',
+    excerpt:
+      'A practical guide to co-living management software: what it does, why the operations side is different from a community app, and how to choose a tool for rooms, all-inclusive rent and multiple buildings.',
+    category: 'Co-living',
+    primaryKeyword: 'co-living management software',
+    datePublished: '2026-10-21',
+    dateModified: '2026-10-21',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/all-properties.png',
+      width: 3024,
+      height: 1722,
+      alt: 'PulseHub co-living view comparing occupancy, revenue, costs and net profit across buildings',
+      label: 'All properties · occupancy, revenue & profit',
+    },
+  },
+  {
     slug: 'accommodation-management-system',
     title: 'Accommodation Management System: Buyer’s Guide',
     heading: 'Accommodation Management System: Features, Benefits and How to Choose',
