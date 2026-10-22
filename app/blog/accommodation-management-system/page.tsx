@@ -322,7 +322,8 @@ export default function AccommodationManagementSystemPost() {
             </li>
             <li>
               <strong>Hostels, boarding houses, dormitories and PG accommodation</strong> with longer-stay
-              residents rather than nightly tourists.
+              residents rather than nightly tourists. See our guide to{' '}
+              <A href={postPath('hostel-management-software')}>hostel management software</A>.
             </li>
             <li>
               <strong>Co-living operators</strong> running{' '}
