@@ -37,8 +37,8 @@ export const blogPosts: BlogPost[] = [
       'A practical guide to hostel management software for long-stay and residential hostels: what it does, how it differs from hostel booking systems and spreadsheets, and how to choose one.',
     category: 'Hostel management',
     primaryKeyword: 'hostel management software',
-    datePublished: '2026-10-21',
-    dateModified: '2026-10-21',
+    datePublished: '2026-10-22',
+    dateModified: '2026-10-22',
     readingMinutes: 9,
     image: {
       src: '/screenshots/residents.png',
