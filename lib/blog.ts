@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'pg-management-software',
+    title: 'PG Management Software in India: Features',
+    heading: 'PG Management Software in India: Features and How to Choose',
+    description:
+      'What PG management software does for paying guest accommodation in India: beds, residents, rent, meals, electricity and payments, and how to choose one.',
+    excerpt:
+      'A practical guide to PG management software for Indian paying guest operators: what it does, how it bills rent with meals and electricity, records UPI, bank-transfer and cash payments, and how to choose one.',
+    category: 'PG management',
+    primaryKeyword: 'PG management software',
+    datePublished: '2026-10-23',
+    dateModified: '2026-10-23',
+    readingMinutes: 7,
+    image: {
+      src: '/screenshots/in-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'PulseHub PG dashboard in rupees showing net profit, rent collected, outstanding dues, electricity and kitchen costs',
+      label: 'Dashboard · rent, dues & costs in ₹',
+    },
+  },
+  {
     slug: 'hostel-management-software',
     title: 'Hostel Management Software: Features & Guide',
     heading: 'Hostel Management Software: Features and How to Choose',
