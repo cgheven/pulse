@@ -246,3 +246,25 @@ export const indiaScreenshots = {
     alt: 'The PulseHub check-out screen pro-rating a resident final month by nights stayed, settling outstanding dues against the deposit, and showing the refund due in rupees',
   },
 } as const
+
+/** Real product screenshots of Hotel Eye guest registration (Pakistan: files hostel check-ins to provincial police portals). */
+export const hotelEyeScreenshots = {
+  status: {
+    src: '/screenshots/hoteleye-status.png',
+    width: 752,
+    height: 1330,
+    alt: 'PulseHub Hotel Eye screen for a Pakistan hostel showing guests filed and pending, each with CNIC and room, filed dates, a Pending and Synced tab and a Sync to Hotel Eye button',
+  },
+  portal: {
+    src: '/screenshots/hoteleye-portal.png',
+    width: 752,
+    height: 1330,
+    alt: 'PulseHub Hotel Eye portal login storing a hostel official provincial portal address and username, with the password encrypted at rest and used only to log in on the operator behalf',
+  },
+  sync: {
+    src: '/screenshots/hoteleye-sync.png',
+    width: 752,
+    height: 1330,
+    alt: 'PulseHub Sync to Hotel Eye step where the operator reads and types the portal CAPTCHA so PulseHub files the selected guest in the background on that session',
+  },
+} as const
