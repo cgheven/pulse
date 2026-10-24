@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-run-a-boarding-house',
+    title: 'How to Run a Boarding House in the Philippines',
+    heading: 'How to Run a Boarding House in the Philippines: An Operator’s Guide',
+    description:
+      'How to run a boarding house in the Philippines: set room-and-board rates, fill rooms, collect rent, feed boarders profitably, keep the peace and scale.',
+    excerpt:
+      'A practical, step-by-step guide to running a boarding house in the Philippines: pricing room and board, filling rooms, collecting rent, feeding boarders profitably, and growing to a second house.',
+    category: 'Boarding houses',
+    primaryKeyword: 'how to run a boarding house',
+    datePublished: '2026-10-24',
+    dateModified: '2026-10-24',
+    readingMinutes: 10,
+    image: {
+      src: '/screenshots/ph-residents.png',
+      width: 3024,
+      height: 1714,
+      alt: 'PulseHub Residents screen for a Philippine boarding house showing active boarders, the waiting list, deposits, notices and check-out',
+      label: 'Boarders · waiting list, deposits & check-out',
+    },
+  },
+  {
     slug: 'co-living-management-software-guide',
     title: 'Co-Living Management Software Guide',
     heading: 'Co-Living Management Software: Features and How to Choose',
