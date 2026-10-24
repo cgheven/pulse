@@ -27,6 +27,7 @@ export function SolutionPage({
   ctaHeading,
   ctaText,
   relatedGuide,
+  sections,
 }: {
   path: string
   title: string
@@ -44,6 +45,8 @@ export function SolutionPage({
   ctaText: string
   /** Optional related blog guide surfaced below the FAQ. */
   relatedGuide?: { href: string; label: string }
+  /** Optional extra content rendered between the outcomes and the FAQ. */
+  sections?: ReactNode
 }) {
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -107,6 +110,8 @@ export function SolutionPage({
           <CardGrid items={outcomes} columns="two" size="comfortable" />
         </div>
       </section>
+
+      {sections}
 
       <section className="px-4 py-6 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center font-mono text-sm text-muted-foreground">
