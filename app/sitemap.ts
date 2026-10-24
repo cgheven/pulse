@@ -9,6 +9,7 @@ const highPriority = new Set<string>([
   routes.hmo,
   routes.student,
   routes.coliving,
+  routes.hotelEye,
 ])
 
 const paths = [
@@ -26,6 +27,7 @@ const paths = [
   routes.hmo,
   routes.student,
   routes.coliving,
+  routes.hotelEye,
   routes.cookies,
 ]
 

@@ -22,7 +22,7 @@ import PricingGrid from '@/components/pricing-grid'
 import SiteShell from '@/components/site-shell'
 import { StartTrialButton } from '@/components/tracked-cta'
 import { routes } from '@/lib/navigation'
-import { pakistanScreenshots } from '@/lib/screenshots'
+import { hotelEyeScreenshots, pakistanScreenshots } from '@/lib/screenshots'
 import { jsonLdScript, marketHreflang, pageMetadata } from '@/lib/seo'
 import { SITE_URL } from '@/lib/site'
 
@@ -51,6 +51,7 @@ const workflows = [
   'Multiple branches',
   'Staff access',
   'Complaints and maintenance',
+  'Hotel Eye guest registration',
   'Reporting',
 ]
 
@@ -359,6 +360,39 @@ export default function PakistanPage() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Hotel Eye guest registration */}
+      <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-14">
+          <div className="min-w-0">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Hotel Eye · Pakistan</p>
+            <h2 className="mt-4 font-display text-[clamp(1.6rem,3.6vw,2.5rem)] font-medium leading-tight tracking-tight">
+              File guests to Hotel Eye from the same place
+            </h2>
+            <Lead>
+              PulseHub files your hostel guests to the official provincial Hotel Eye police portal using your own
+              portal access. You read the login CAPTCHA once, and PulseHub files the pending guests from the CNIC
+              details already on each resident record. It tracks who is filed and who is still pending, and flags
+              anyone missing a CNIC, province or district.
+            </Lead>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+              Read more about{' '}
+              <A href={routes.hotelEye}>Hotel Eye guest registration in PulseHub</A>.
+            </p>
+          </div>
+          <figure className="mx-auto w-full max-w-[280px] rounded-2xl border border-border bg-card p-3 shadow-sm lg:mx-0">
+            <ProductScreenshot
+              src={hotelEyeScreenshots.status.src}
+              alt={hotelEyeScreenshots.status.alt}
+              width={hotelEyeScreenshots.status.width}
+              height={hotelEyeScreenshots.status.height}
+              frame={false}
+              sizes="(max-width: 640px) calc(100vw - 3.5rem), 280px"
+              className="rounded-lg"
+            />
+          </figure>
         </div>
       </section>
 

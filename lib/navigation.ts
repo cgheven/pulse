@@ -14,6 +14,7 @@ export const routes = {
   hmo: '/uk-hmo-management-software',
   student: '/student-accommodation-management-software',
   coliving: '/co-living-management-software',
+  hotelEye: '/hotel-eye-guest-registration',
 } as const
 
 export const solutionLinks = [
