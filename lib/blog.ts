@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'boarding-house-management-software',
+    title: 'Boarding House Management Software (Philippines)',
+    heading: 'Boarding House Management Software: A Guide for Philippine Operators',
+    description:
+      'What boarding house management software does for Philippine operators: rooms, beds, rent billed with board and electricity, deposits and several houses.',
+    excerpt:
+      'A practical guide to boarding house management software for Philippine operators: what it does, why board and meals change the billing, and how to choose a tool for rooms, rent and several houses.',
+    category: 'Boarding houses',
+    primaryKeyword: 'boarding house management software',
+    datePublished: '2026-10-24',
+    dateModified: '2026-10-24',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/ph-dashboard.png',
+      width: 3024,
+      height: 1600,
+      alt: 'PulseHub boarding house dashboard in pesos showing net profit, rent collected, outstanding dues, electricity and kitchen costs',
+      label: 'Dashboard · profit, rent & kitchen costs in ₱',
+    },
+  },
+  {
     slug: 'co-living-management-software-guide',
     title: 'Co-Living Management Software Guide',
     heading: 'Co-Living Management Software: Features and How to Choose',

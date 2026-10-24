@@ -266,7 +266,9 @@ export default function PhilippinesPage() {
               manage multiple branches without spreadsheets
             </A>
             , or read our guide to{' '}
-            <A href="/blog/student-accommodation-management">student accommodation management</A>.
+            <A href="/blog/student-accommodation-management">student accommodation management</A>. For a
+            Philippines-specific walkthrough, see{' '}
+            <A href="/blog/boarding-house-management-software">boarding house management software</A>.
           </p>
         </div>
       </section>
