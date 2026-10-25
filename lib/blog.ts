@@ -37,8 +37,8 @@ export const blogPosts: BlogPost[] = [
       'A practical guide for Philippine dormitory and bedspace operators: what the software does, why letting by the bed is different, and how to choose a tool for rent, meals, deposits and several branches in pesos.',
     category: 'Dormitory & bedspace',
     primaryKeyword: 'dormitory and bedspace management software',
-    datePublished: '2026-10-21',
-    dateModified: '2026-10-21',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
     readingMinutes: 8,
     image: {
       src: '/screenshots/ph-branches.png',
@@ -46,6 +46,69 @@ export const blogPosts: BlogPost[] = [
       height: 1726,
       alt: 'PulseHub All Branches view comparing occupancy, collections, pending dues, deposits, costs and net profit across dormitory branches in Makati, Quezon City and Cebu',
       label: 'All branches · Makati, Quezon City & Cebu',
+    },
+  },
+  {
+    slug: 'co-living-management-software-guide',
+    title: 'Co-Living Management Software Guide',
+    heading: 'Co-Living Management Software: Features and How to Choose',
+    description:
+      'What co-living management software does for operators: rooms, residents, all-inclusive billing, occupancy and multiple buildings, and how to choose one.',
+    excerpt:
+      'A practical guide to co-living management software: what it does, why the operations side is different from a community app, and how to choose a tool for rooms, all-inclusive rent and multiple buildings.',
+    category: 'Co-living',
+    primaryKeyword: 'co-living management software',
+    datePublished: '2026-10-24',
+    dateModified: '2026-10-24',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/all-properties.png',
+      width: 3024,
+      height: 1722,
+      alt: 'PulseHub co-living view comparing occupancy, revenue, costs and net profit across buildings',
+      label: 'All properties · occupancy, revenue & profit',
+    },
+  },
+  {
+    slug: 'pg-management-software',
+    title: 'PG Management Software in India: Features',
+    heading: 'PG Management Software in India: Features and How to Choose',
+    description:
+      'What PG management software does for paying guest accommodation in India: beds, residents, rent, meals, electricity and payments, and how to choose one.',
+    excerpt:
+      'A practical guide to PG management software for Indian paying guest operators: what it does, how it bills rent with meals and electricity, records UPI, bank-transfer and cash payments, and how to choose one.',
+    category: 'PG management',
+    primaryKeyword: 'PG management software',
+    datePublished: '2026-10-23',
+    dateModified: '2026-10-23',
+    readingMinutes: 7,
+    image: {
+      src: '/screenshots/in-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'PulseHub PG dashboard in rupees showing net profit, rent collected, outstanding dues, electricity and kitchen costs',
+      label: 'Dashboard · rent, dues & costs in ₹',
+    },
+  },
+  {
+    slug: 'hostel-management-software',
+    title: 'Hostel Management Software: Features & Guide',
+    heading: 'Hostel Management Software: Features and How to Choose',
+    description:
+      'What hostel management software does for long-stay residential hostels: managing beds, residents, rent, meals and occupancy, and how to choose one.',
+    excerpt:
+      'A practical guide to hostel management software for long-stay and residential hostels: what it does, how it differs from hostel booking systems and spreadsheets, and how to choose one.',
+    category: 'Hostel management',
+    primaryKeyword: 'hostel management software',
+    datePublished: '2026-10-22',
+    dateModified: '2026-10-22',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/residents.png',
+      width: 3024,
+      height: 1582,
+      alt: 'PulseHub hostel residents screen showing bed allocation, deposits, a waiting list and check-outs',
+      label: 'Residents · beds, deposits & check-outs',
     },
   },
   {

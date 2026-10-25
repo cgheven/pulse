@@ -61,7 +61,7 @@ export function BookDemoForm() {
       setError(typeof result?.error === 'string' ? result.error : 'Something went wrong. Please try again.')
       setStatus('error')
     } catch {
-      setError('Something went wrong. Please try again, or email hello@yourpulse.io.')
+      setError('Something went wrong. Please try again, or email musab.khan@yourpulse.io.')
       setStatus('error')
     }
   }

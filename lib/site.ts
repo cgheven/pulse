@@ -21,7 +21,7 @@ export const BOOK_DEMO_ENDPOINT = `${APP_ORIGIN}/api/book-demo`
 export const UPWORK_SETUP_URL =
   'https://www.upwork.com/services/product/admin-customer-support-i-will-set-up-your-hmo-or-accommodation-management-system-2105597103667895891'
 
-export const CONTACT_EMAIL = 'hello@yourpulse.io'
+export const CONTACT_EMAIL = 'musab.khan@yourpulse.io'
 
 export const DEMO_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Book a PulseHub demonstration')}&body=${encodeURIComponent(
   'Hello PulseHub team,\n\nI would like to book a demonstration of PulseHub for my accommodation operations.\n\nProperty type:\nNumber of properties:\nNumber of rooms or beds:\n\nThank you.',
