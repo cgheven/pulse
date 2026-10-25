@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'dormitory-bedspace-management-software',
+    title: 'Dormitory & Bedspace Management: Operator Guide',
+    heading: 'A Philippine Operator’s Guide to Dormitory and Bedspace Management Software',
+    description:
+      'What dormitory and bedspace management software does for Philippine operators: beds, residents, rent with meals and electricity, deposits and branches.',
+    excerpt:
+      'A practical guide for Philippine dormitory and bedspace operators: what the software does, why letting by the bed is different, and how to choose a tool for rent, meals, deposits and several branches in pesos.',
+    category: 'Dormitory & bedspace',
+    primaryKeyword: 'dormitory and bedspace management software',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/ph-branches.png',
+      width: 3024,
+      height: 1726,
+      alt: 'PulseHub All Branches view comparing occupancy, collections, pending dues, deposits, costs and net profit across dormitory branches in Makati, Quezon City and Cebu',
+      label: 'All branches · Makati, Quezon City & Cebu',
+    },
+  },
+  {
     slug: 'co-living-management-software-guide',
     title: 'Co-Living Management Software Guide',
     heading: 'Co-Living Management Software: Features and How to Choose',

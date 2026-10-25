@@ -301,7 +301,9 @@ export default function AccommodationManagementSystemPost() {
             Terminology varies by country and by property type. Some operators say residents, others say
             tenants or boarders; some charge rent, others call it accommodation fees. The property itself has
             different names: a house in multiple occupation (HMO) in the UK, a paying guest (PG) accommodation
-            or hostel in India, a dormitory or bedspace in the Philippines, a rooming house or shared housing in the
+            or hostel in India, a{' '}
+            <A href={postPath('dormitory-bedspace-management-software')}>dormitory or bedspace</A> in the
+            Philippines, a rooming house or shared housing in the
             United States, and a boarding house in many other
             markets. Some of these carry local licensing rules, the UK HMO among them, but the underlying
             operations are the same wherever you are, which is why one system can serve all of them.
