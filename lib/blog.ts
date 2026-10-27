@@ -37,8 +37,8 @@ export const blogPosts: BlogPost[] = [
       'A practical guide to boarding house management software for Philippine operators: what it does, why board and meals change the billing, and how to choose a tool for rooms, rent and several houses.',
     category: 'Boarding houses',
     primaryKeyword: 'boarding house management software',
-    datePublished: '2026-10-24',
-    dateModified: '2026-10-24',
+    datePublished: '2026-10-27',
+    dateModified: '2026-10-27',
     readingMinutes: 8,
     image: {
       src: '/screenshots/ph-dashboard.png',
@@ -46,6 +46,27 @@ export const blogPosts: BlogPost[] = [
       height: 1600,
       alt: 'PulseHub boarding house dashboard in pesos showing net profit, rent collected, outstanding dues, electricity and kitchen costs',
       label: 'Dashboard · profit, rent & kitchen costs in ₱',
+    },
+  },
+  {
+    slug: 'dormitory-bedspace-management-software',
+    title: 'Dormitory & Bedspace Management: Operator Guide',
+    heading: 'A Philippine Operator’s Guide to Dormitory and Bedspace Management Software',
+    description:
+      'What dormitory and bedspace management software does for Philippine operators: beds, residents, rent with meals and electricity, deposits and branches.',
+    excerpt:
+      'A practical guide for Philippine dormitory and bedspace operators: what the software does, why letting by the bed is different, and how to choose a tool for rent, meals, deposits and several branches in pesos.',
+    category: 'Dormitory & bedspace',
+    primaryKeyword: 'dormitory and bedspace management software',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/ph-branches.png',
+      width: 3024,
+      height: 1726,
+      alt: 'PulseHub All Branches view comparing occupancy, collections, pending dues, deposits, costs and net profit across dormitory branches in Makati, Quezon City and Cebu',
+      label: 'All branches · Makati, Quezon City & Cebu',
     },
   },
   {
