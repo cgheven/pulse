@@ -37,8 +37,8 @@ export const blogPosts: BlogPost[] = [
       'A practical, step-by-step guide to running a boarding house in the Philippines: pricing room and board, filling rooms, collecting rent, feeding boarders profitably, and growing to a second house.',
     category: 'Boarding houses',
     primaryKeyword: 'how to run a boarding house',
-    datePublished: '2026-10-24',
-    dateModified: '2026-10-24',
+    datePublished: '2026-10-28',
+    dateModified: '2026-10-28',
     readingMinutes: 10,
     image: {
       src: '/screenshots/ph-residents.png',
@@ -46,6 +46,48 @@ export const blogPosts: BlogPost[] = [
       height: 1714,
       alt: 'PulseHub Residents screen for a Philippine boarding house showing active boarders, the waiting list, deposits, notices and check-out',
       label: 'Boarders · waiting list, deposits & check-out',
+    },
+  },
+  {
+    slug: 'boarding-house-management-software',
+    title: 'Boarding House Management Software (Philippines)',
+    heading: 'Boarding House Management Software: A Guide for Philippine Operators',
+    description:
+      'What boarding house management software does for Philippine operators: rooms, beds, rent billed with board and electricity, deposits and several houses.',
+    excerpt:
+      'A practical guide to boarding house management software for Philippine operators: what it does, why board and meals change the billing, and how to choose a tool for rooms, rent and several houses.',
+    category: 'Boarding houses',
+    primaryKeyword: 'boarding house management software',
+    datePublished: '2026-10-27',
+    dateModified: '2026-10-27',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/ph-dashboard.png',
+      width: 3024,
+      height: 1600,
+      alt: 'PulseHub boarding house dashboard in pesos showing net profit, rent collected, outstanding dues, electricity and kitchen costs',
+      label: 'Dashboard · profit, rent & kitchen costs in ₱',
+    },
+  },
+  {
+    slug: 'dormitory-bedspace-management-software',
+    title: 'Dormitory & Bedspace Management: Operator Guide',
+    heading: 'A Philippine Operator’s Guide to Dormitory and Bedspace Management Software',
+    description:
+      'What dormitory and bedspace management software does for Philippine operators: beds, residents, rent with meals and electricity, deposits and branches.',
+    excerpt:
+      'A practical guide for Philippine dormitory and bedspace operators: what the software does, why letting by the bed is different, and how to choose a tool for rent, meals, deposits and several branches in pesos.',
+    category: 'Dormitory & bedspace',
+    primaryKeyword: 'dormitory and bedspace management software',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/ph-branches.png',
+      width: 3024,
+      height: 1726,
+      alt: 'PulseHub All Branches view comparing occupancy, collections, pending dues, deposits, costs and net profit across dormitory branches in Makati, Quezon City and Cebu',
+      label: 'All branches · Makati, Quezon City & Cebu',
     },
   },
   {
