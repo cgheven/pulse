@@ -489,8 +489,8 @@ export default function StudentPage() {
         <div className="mx-auto max-w-5xl">
           <H2>Move beyond spreadsheets and manual registers</H2>
           <Lead>
-            PulseHub is sized for independent and mid-market operators, not the thousands-of-beds enterprise PBSA
-            platforms, and not the manual work of spreadsheets.
+            PulseHub gives independent and mid-market operators one system in place of spreadsheets and paper
+            registers, with the numbers kept current as you go.
           </Lead>
           <div className="mt-8 overflow-x-auto">
             <table className="w-full min-w-[560px] border-collapse text-left text-base">
