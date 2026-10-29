@@ -426,23 +426,6 @@ export default function StudentPage() {
         </div>
       </section>
 
-      {/* Mid-page CTA */}
-      <section className="px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-          <h2 className="font-display text-[clamp(1.5rem,3vw,2.25rem)] font-medium tracking-tight">
-            See PulseHub with your own rooms and residents
-          </h2>
-          <StartTrialButton
-            location="other"
-            size="lg"
-            className="min-h-12 whitespace-normal bg-primary px-6 text-base hover:bg-primary/90"
-          />
-          <p className="font-mono text-xs uppercase tracking-wide text-muted-foreground">
-            14-day free trial · no card required
-          </p>
-        </div>
-      </section>
-
       {/* Multiple properties video */}
       <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
