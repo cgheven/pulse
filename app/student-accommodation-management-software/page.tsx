@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { Check, X } from 'lucide-react'
+import { Check } from 'lucide-react'
 import { CtaBand } from '@/components/cta-band'
 import { DemoSection } from '@/components/demo-section'
 import { FaqList } from '@/components/faq-list'
@@ -21,7 +21,7 @@ const PATH = routes.student
 export const metadata = pageMetadata({
   title: 'Student Accommodation Management Software',
   description:
-    'Student accommodation management software for independent operators, not a university or PBSA system. Track rooms, rent and occupancy. Free 14-day trial.',
+    'Student accommodation management software for independent operators: track rooms, beds, rent, deposits and occupancy across every property. Free 14-day trial.',
   path: PATH,
 })
 
@@ -74,25 +74,6 @@ const billingSteps = [
   },
 ]
 
-const isList = [
-  'Rooms and beds let by the month',
-  'Resident records from application to check-out',
-  'Rent, part-payments, deposits and receipts',
-  'Utility and electricity billing',
-  'Occupancy kept true at the bed level',
-  'Maintenance, complaints and reports',
-  'Multiple properties in one portfolio',
-]
-
-const isNotList = [
-  'A card payment gateway',
-  'A university or student-information system',
-  'Guarantor management',
-  'Termly or term-based rent schedules',
-  'A hotel PMS for nightly stays',
-  'An enterprise platform for 500+ bed PBSA',
-]
-
 const comparisonRows = [
   { aspect: 'Records', manual: 'Separate sheets and paper registers', pulsehub: 'One system for every property' },
   { aspect: 'Rent and part-payments', manual: 'Manual sums, part-payments easy to lose', pulsehub: 'Installments and a running balance per resident' },
@@ -117,9 +98,9 @@ const faqs = [
       'PulseHub is priced by the number of properties, not per bed: Basic (1 property), Standard (up to 3) and Business (up to 10). There is a 14-day free trial with no card required. See the pricing page for current figures in your currency.',
   },
   {
-    question: 'Is PulseHub for universities or for independent operators?',
+    question: 'Who is PulseHub built for?',
     answer:
-      'For independent and mid-market operators, roughly 50 to 500 beds across 1 to 10 properties. It is operational software for the building itself, not a university student-information, admissions or student-finance system.',
+      'Independent and mid-market operators, roughly 50 to 500 beds across 1 to 10 properties. It is operational software for running the building day to day: rooms, residents, rent, occupancy, maintenance and reporting.',
   },
   {
     question: 'Can I manage student accommodation by the bed?',
@@ -129,7 +110,7 @@ const faqs = [
   {
     question: 'Is this the same as student housing management software?',
     answer:
-      'Yes. "Student housing" is the term used more in the US and "student accommodation" more in the UK; PulseHub serves independent operators who let by the room or bed under either name.',
+      'Yes. Student housing and student accommodation are two names for the same thing. PulseHub serves independent operators who let by the room or the bed under either name.',
   },
   {
     question: 'How does rent and overdue tracking work?',
@@ -137,9 +118,9 @@ const faqs = [
       'Each resident gets one monthly bill. You can record part-payments as separate installments, carry an unpaid balance forward as a single running total, hold a deposit to settle at move-out, and issue numbered receipts and invoices. You see upcoming, paid and overdue amounts per resident and across the property.',
   },
   {
-    question: 'Does PulseHub handle termly or term-based rent?',
+    question: 'How does rent billing work: monthly or by term?',
     answer:
-      'PulseHub bills on a monthly cycle rather than by academic term. You can pro-rate a mid-month move-in, record part-payments, carry a balance forward and hold a deposit on each resident, but it does not generate term-based rent schedules or manage guarantors.',
+      'PulseHub bills on a clear monthly cycle. You can pro-rate a mid-month move-in, record part-payments as installments, carry a balance forward and hold a deposit on each resident, so the amount owed is always accurate.',
   },
   {
     question: 'Can it bill shared electricity or utilities?',
@@ -147,9 +128,9 @@ const faqs = [
       'Yes. You record a meter reading per room, price it against the property tariff, and split it between residents by their join dates rather than a flat share. The charge appears on the same monthly bill as rent.',
   },
   {
-    question: 'Can residents pay by card through PulseHub?',
+    question: 'How are resident payments recorded?',
     answer:
-      'PulseHub records payments and issues numbered receipts and invoices, but it is not a card-payment gateway. You record payments taken by your usual methods, and each resident keeps one running balance.',
+      'You record the payments you take, in cash, by bank transfer or your usual methods, and PulseHub issues numbered receipts and invoices and keeps one running balance per resident, including part-payments.',
   },
   {
     question: 'Can I move my data over from spreadsheets?',
@@ -261,8 +242,8 @@ export default function StudentPage() {
       <PageHero
         eyebrow="Student accommodation software"
         heading="Student Accommodation Management Software for Independent Operators"
-        text="PulseHub is student accommodation management software, called student housing software in the US, for independent operators who let by the room or the bed. Manage rooms, residents, rent and occupancy across every property from one platform."
-        supporting="Built for teams running roughly 50 to 500 beds across 1 to 10 properties, not universities or enterprise PBSA."
+        text="PulseHub is student accommodation and student housing management software for independent operators who let by the room or the bed. Manage rooms, residents, rent and occupancy across every property, from one platform."
+        supporting="Built for independent and mid-market operators running roughly 50 to 500 beds across 1 to 10 properties."
         visual={
           <ProductScreenshot
             src={screenshots.dashboard.src}
@@ -332,8 +313,8 @@ export default function StudentPage() {
               by their join dates and lands on the same bill as rent.
             </Lead>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              PulseHub records payments and issues numbered receipts and invoices. It is not a card-payment
-              gateway.
+              PulseHub records the payments you take and issues numbered receipts and invoices, so each resident
+              keeps one clear running balance.
             </p>
           </div>
           <div className="min-w-0">
@@ -416,8 +397,11 @@ export default function StudentPage() {
       </section>
 
       {/* Mid-page CTA */}
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-5xl flex-col items-start gap-3">
+      <section className="px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+          <h2 className="font-display text-[clamp(1.5rem,3vw,2.25rem)] font-medium tracking-tight">
+            See PulseHub with your own rooms and residents
+          </h2>
           <StartTrialButton
             location="other"
             size="lg"
@@ -461,29 +445,16 @@ export default function StudentPage() {
 
       {/* Maintenance */}
       <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
-          <div className="min-w-0">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Maintenance & complaints</p>
-            <h2 className="mt-4 font-display text-[clamp(1.6rem,3.6vw,2.5rem)] font-medium leading-tight tracking-tight">
-              Residents report issues without needing an account
-            </h2>
-            <Lead>
-              Students scan a QR code on the wall or use a short public code to raise a complaint, which lands in
-              your list with a status you can track to resolution. There is no resident app or login to manage, and
-              the record sits next to the room and resident it relates to.
-            </Lead>
-          </div>
-          <div className="min-w-0">
-            <ProductScreenshot
-              src={screenshots.complaints.src}
-              alt={screenshots.complaints.alt}
-              width={screenshots.complaints.width}
-              height={screenshots.complaints.height}
-              label="Maintenance & complaints · status and history"
-              sizes="(max-width: 1023px) calc(100vw - 2rem), 38rem"
-            />
-          </div>
+        <div className="mx-auto max-w-5xl">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Maintenance & complaints</p>
+          <H2>Residents report issues without needing an account</H2>
+          <Lead>
+            Students scan a QR code on the wall or use a short public code to raise a complaint, which lands in your
+            list with a status you can track to resolution. There is no resident app or login to manage, and the
+            record sits next to the room and resident it relates to.
+          </Lead>
         </div>
+        <BigShot shot={screenshots.complaints} label="Maintenance & complaints · status and history" />
       </section>
 
       {/* Public listing page */}
@@ -510,41 +481,6 @@ export default function StudentPage() {
             This is a tracker to help you stay organised, not legal advice, and it is specific to England. For the
             detail, read our guide to <A href="/blog/hmo-compliance">HMO compliance in England</A>.
           </p>
-        </div>
-      </section>
-
-      {/* What it is, and is not */}
-      <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <H2>How PulseHub differs from a hotel PMS or university system</H2>
-          <Lead>
-            A hotel PMS is built for nightly stays and a university system for enrolment and student finance.
-            PulseHub is built for the accommodation itself.
-          </Lead>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-card p-6">
-              <p className="font-semibold">What PulseHub is</p>
-              <ul className="mt-4 space-y-3 text-base text-foreground/85">
-                {isList.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5">
-                    <Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-6">
-              <p className="font-semibold">What it is not</p>
-              <ul className="mt-4 space-y-3 text-base text-muted-foreground">
-                {isNotList.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5">
-                    <X className="mt-1 h-4 w-4 shrink-0 text-muted-foreground/70" aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 
