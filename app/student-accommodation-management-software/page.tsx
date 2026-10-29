@@ -5,12 +5,11 @@ import { CtaBand } from '@/components/cta-band'
 import { DemoSection } from '@/components/demo-section'
 import { FaqList } from '@/components/faq-list'
 import { ProductScreenshot } from '@/components/feature-showcase'
-import { PageHero } from '@/components/page-hero'
 import PricingGrid from '@/components/pricing-grid'
 import { ProductVideo } from '@/components/product-video'
 import { PublicWebsiteSection } from '@/components/public-website-section'
 import SiteShell from '@/components/site-shell'
-import { StartTrialButton } from '@/components/tracked-cta'
+import { StartTrialButton, WatchDemoButton } from '@/components/tracked-cta'
 import { routes } from '@/lib/navigation'
 import { screenshots } from '@/lib/screenshots'
 import { jsonLdScript, pageMetadata } from '@/lib/seo'
@@ -239,25 +238,56 @@ export default function StudentPage() {
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
 
-      <PageHero
-        eyebrow="Student accommodation software"
-        heading="Student Accommodation Management Software for Independent Operators"
-        text="PulseHub is student accommodation and student housing management software for independent operators who let by the room or the bed. Manage rooms, residents, rent and occupancy across every property, from one platform."
-        supporting="Built for independent and mid-market operators running roughly 50 to 500 beds across 1 to 10 properties."
-        visual={
-          <ProductScreenshot
-            src={screenshots.dashboard.src}
-            alt={screenshots.dashboard.alt}
-            width={screenshots.dashboard.width}
-            height={screenshots.dashboard.height}
-            priority
-            label="Dashboard · occupancy, rent & performance"
-            sizes="(max-width: 1023px) calc(100vw - 2rem), 42rem"
-          />
-        }
-        split
-        secondaryCta="watch"
-      />
+      <section className="px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8">
+        <div className="mx-auto grid w-full min-w-0 max-w-7xl items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
+          <div className="min-w-0 text-center lg:text-left">
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-primary">Student accommodation software</p>
+            <h1 className="text-balance font-display text-[clamp(2rem,4.4vw,3rem)] font-medium leading-[1.05] tracking-tight text-foreground">
+              Student Accommodation Management Software for Independent Operators
+            </h1>
+            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
+              PulseHub is student accommodation and student housing management software for independent operators
+              who let by the room or the bed. Manage rooms, residents, rent and occupancy across every property,
+              from one platform.
+            </p>
+            <div className="mt-5 flex flex-wrap justify-center gap-2 lg:justify-start">
+              {['50 to 500 beds', '1 to 10 properties', 'Independent & mid-market'].map((pill) => (
+                <span
+                  key={pill}
+                  className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-muted-foreground"
+                >
+                  {pill}
+                </span>
+              ))}
+            </div>
+            <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+              <StartTrialButton
+                location="hero"
+                size="lg"
+                className="min-h-12 whitespace-normal bg-primary px-6 text-base hover:bg-primary/90"
+              />
+              <WatchDemoButton
+                size="lg"
+                className="min-h-12 whitespace-normal border-primary/40 px-6 text-base text-primary hover:bg-primary/10"
+              />
+            </div>
+            <p className="mt-4 text-center font-mono text-xs uppercase tracking-wide text-muted-foreground lg:text-left">
+              14-day free trial · no card required
+            </p>
+          </div>
+          <div className="min-w-0">
+            <ProductScreenshot
+              src={screenshots.dashboard.src}
+              alt={screenshots.dashboard.alt}
+              width={screenshots.dashboard.width}
+              height={screenshots.dashboard.height}
+              priority
+              label="Dashboard · occupancy, rent & performance"
+              sizes="(max-width: 1023px) calc(100vw - 2rem), 46rem"
+            />
+          </div>
+        </div>
+      </section>
 
       <DemoSection subtitle="See how PulseHub brings properties, students, rooms, rent and daily operations together in one platform." />
 
