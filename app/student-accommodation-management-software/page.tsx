@@ -314,7 +314,6 @@ export default function StudentPage() {
         <BigShot
           shot={screenshots.residentsWaiting}
           label="Residents · waiting list & move-ins"
-          priority
         />
       </section>
 
