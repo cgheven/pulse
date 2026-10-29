@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'bills-included-hmo-fair-usage',
+    title: 'Bills-Included HMO: Set a Fair-Usage Cap',
+    heading: 'Bills-Included HMO: How to Set a Fair-Usage Cap and Bill the Excess',
+    description:
+      'Run a bills-included HMO fairly: set a fair-usage cap, measure it, bill the excess at cost (not profit, per Ofgem), and handle a tenant who leaves mid-period.',
+    excerpt:
+      'A practical guide for UK HMO landlords on fair-usage caps: how to set the allowance, measure usage, bill the excess at cost within Ofgem rules, write the clause, and handle mid-period leavers.',
+    category: 'HMO management',
+    primaryKeyword: 'bills included HMO fair usage',
+    datePublished: '2026-10-30',
+    dateModified: '2026-10-30',
+    readingMinutes: 12,
+    image: {
+      src: '/screenshots/payments.png',
+      width: 3024,
+      height: 1570,
+      alt: 'PulseHub payments screen showing HMO rent and metered utility charges per resident with paid and overdue balances in pounds',
+      label: 'Payments · rent, utilities & balances',
+    },
+  },
+  {
     slug: 'how-to-run-a-boarding-house',
     title: 'How to Run a Boarding House in the Philippines',
     heading: 'How to Run a Boarding House in the Philippines: An Operator’s Guide',
