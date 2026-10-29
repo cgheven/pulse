@@ -14,6 +14,7 @@ export const routes = {
   hmo: '/uk-hmo-management-software',
   student: '/student-accommodation-management-software',
   coliving: '/co-living-management-software',
+  hmoTracker: '/free-hmo-rent-tracker',
 } as const
 
 export const solutionLinks = [
