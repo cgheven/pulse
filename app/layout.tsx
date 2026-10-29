@@ -4,6 +4,8 @@ import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google'
 import './globals.css'
 import { AnalyticsRouteListener } from '@/components/analytics-route-listener'
 import { GoogleTagManager, GoogleTagManagerNoScript } from '@/components/google-tag-manager'
+import { MetaPixel, MetaPixelNoScript } from '@/components/meta-pixel'
+import { MetaPixelRouteListener } from '@/components/meta-pixel-route-listener'
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site'
 
 const display = Fraunces({
@@ -93,9 +95,12 @@ export default function RootLayout({
       <body className="antialiased">
         <GoogleTagManagerNoScript />
         <GoogleTagManager />
+        <MetaPixelNoScript />
+        <MetaPixel />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
         <AnalyticsRouteListener />
+        <MetaPixelRouteListener />
       </body>
     </html>
   )
