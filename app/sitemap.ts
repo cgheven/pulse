@@ -24,6 +24,7 @@ const paths = [
   routes.philippines,
   routes.india,
   routes.hmo,
+  routes.hmoTracker,
   routes.student,
   routes.coliving,
   routes.cookies,
