@@ -20,7 +20,7 @@ const PATH = routes.student
 export const metadata = pageMetadata({
   title: 'Student Accommodation Management Software',
   description:
-    'Student accommodation management software for independent operators: track rooms, beds, rent, deposits and occupancy across every property. Free 14-day trial.',
+    'Student accommodation management software that scales from one property to a large portfolio: rooms, beds, rent, deposits and occupancy. Free 14-day trial.',
   path: PATH,
 })
 
@@ -94,12 +94,12 @@ const faqs = [
   {
     question: 'How much does student accommodation management software cost?',
     answer:
-      'PulseHub is priced by the number of properties, not per bed: Basic (1 property), Standard (up to 3) and Business (up to 10). There is a 14-day free trial with no card required. See the pricing page for current figures in your currency.',
+      'PulseHub is priced by the number of properties, not per bed: Basic (1 property), Standard (up to 3) and Business (up to 10), with custom plans for larger portfolios. There is a 14-day free trial with no card required. See the pricing page for current figures in your currency.',
   },
   {
     question: 'Who is PulseHub built for?',
     answer:
-      'Independent and mid-market operators, roughly 50 to 500 beds across 1 to 10 properties. It is operational software for running the building day to day: rooms, residents, rent, occupancy, maintenance and reporting.',
+      'Operators of any size, from a single property to a large portfolio. It is operational software for running the building day to day: rooms, residents, rent, occupancy, maintenance and reporting. For larger or bespoke requirements, talk to the team and we will tailor it to you.',
   },
   {
     question: 'Can I manage student accommodation by the bed?',
@@ -109,7 +109,7 @@ const faqs = [
   {
     question: 'Is this the same as student housing management software?',
     answer:
-      'Yes. Student housing and student accommodation are two names for the same thing. PulseHub serves independent operators who let by the room or the bed under either name.',
+      'Yes. Student housing and student accommodation are two names for the same thing. PulseHub serves operators who let by the room or the bed under either name.',
   },
   {
     question: 'How does rent and overdue tracking work?',
@@ -170,7 +170,7 @@ const jsonLd = {
       operatingSystem: 'Web',
       url: `${SITE_URL}${PATH}`,
       description:
-        'Student accommodation management software for independent operators: rooms and beds, residents, rent, deposits, utilities, occupancy, maintenance and multiple properties.',
+        'Student accommodation management software for operators of any size: rooms and beds, residents, rent, deposits, utilities, occupancy, maintenance and multiple properties.',
       publisher: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` },
     },
     {
@@ -243,15 +243,15 @@ export default function StudentPage() {
           <div className="min-w-0 text-center lg:text-left">
             <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-primary">Student accommodation software</p>
             <h1 className="text-balance font-display text-[clamp(2rem,4.4vw,3rem)] font-medium leading-[1.05] tracking-tight text-foreground">
-              Student Accommodation Management Software for Independent Operators
+              Student Accommodation Management Software for Operators of Any Size
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
-              PulseHub is student accommodation and student housing management software for independent operators
-              who let by the room or the bed. Manage rooms, residents, rent and occupancy across every property,
-              from one platform.
+              PulseHub is student accommodation and student housing management software for operators who let by
+              the room or the bed. It scales from a single property to a large portfolio, so you manage rooms,
+              residents, rent and occupancy across every site from one platform.
             </p>
-            <div className="mt-5 flex flex-wrap justify-center gap-2 lg:justify-start">
-              {['50 to 500 beds', '1 to 10 properties', 'Independent & mid-market'].map((pill) => (
+            <div className="mt-6 flex flex-wrap justify-center gap-2 lg:justify-start">
+              {['One property to a full portfolio', 'Thousands of rooms and residents', 'No per-bed fees'].map((pill) => (
                 <span
                   key={pill}
                   className="rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-muted-foreground"
@@ -519,8 +519,8 @@ export default function StudentPage() {
         <div className="mx-auto max-w-5xl">
           <H2>Move beyond spreadsheets and manual registers</H2>
           <Lead>
-            PulseHub gives independent and mid-market operators one system in place of spreadsheets and paper
-            registers, with the numbers kept current as you go.
+            PulseHub gives operators of any size one system in place of spreadsheets and paper registers, with the
+            numbers kept current as you go.
           </Lead>
           <div className="mt-8 overflow-x-auto">
             <table className="w-full min-w-[560px] border-collapse text-left text-base">
@@ -549,9 +549,16 @@ export default function StudentPage() {
       {/* Pricing */}
       <PricingGrid
         heading="Plans and pricing"
-        subtitle="Property-based plans: 1, 3 or 10 properties. 14-day free trial, no card required. Annual billing saves two months."
+        subtitle="Property-based plans for 1, 3 or 10 properties, with custom plans for larger portfolios. 14-day free trial, no card required. Annual billing saves two months."
         geoAware
       />
+
+      <section className="px-4 pb-6 sm:px-6 lg:px-8">
+        <p className="mx-auto max-w-5xl text-base leading-relaxed text-muted-foreground">
+          Running a larger portfolio, or need something specific? <A href={routes.contact}>Talk to the team</A>{' '}
+          about a custom plan built around how you operate.
+        </p>
+      </section>
 
       {/* Related + FAQ */}
       <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
@@ -579,7 +586,7 @@ export default function StudentPage() {
         text="Start a 14-day free trial with no card required, or book a demonstration to see PulseHub organise rooms, residents, rent and occupancy."
         secondaryHref={routes.contact}
         secondaryLabel="Book a Demo"
-        note="Student accommodation management software for independent and mid-market operators."
+        note="Student accommodation management software for operators of every size."
       />
     </SiteShell>
   )
