@@ -196,12 +196,12 @@ export default function HmoUtilityBillingPage() {
         supporting="For landlords and operators running one HMO or a whole portfolio."
         visual={
           <ProductScreenshot
-            src={screenshots.payments.src}
-            alt="PulseHub payments screen showing HMO rent and metered utility charges per resident with paid and overdue balances in pounds"
-            width={screenshots.payments.width}
-            height={screenshots.payments.height}
+            src={screenshots.properties.src}
+            alt="PulseHub multi-property dashboard showing occupancy, rent collected, costs and net profit across a portfolio of HMOs in pounds"
+            width={screenshots.properties.width}
+            height={screenshots.properties.height}
             priority
-            label="Payments · rent, utilities & balances"
+            label="All properties · occupancy, rent & costs"
             sizes="(max-width: 1023px) calc(100vw - 2rem), 42rem"
           />
         }
@@ -241,8 +241,11 @@ export default function HmoUtilityBillingPage() {
           </Lead>
         </div>
         <BigShot
-          shot={screenshots.dashboard}
-          label="Dashboard · occupancy, rent & electricity units"
+          shot={{
+            ...screenshots.payments,
+            alt: 'PulseHub payments screen with a row per resident showing rent and metered electricity charged separately, so each resident pays for their own usage',
+          }}
+          label="Payments · each resident's rent & metered electricity"
         />
       </section>
 
