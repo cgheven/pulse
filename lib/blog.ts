@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'what-is-a-property-management-system',
+    title: 'What Is a Property Management System (PMS)?',
+    heading: 'What Is a Property Management System (PMS)?',
+    description:
+      'A property management system (PMS) is software that runs a property’s daily operations. What a PMS does, the three main kinds, and how to choose one.',
+    excerpt:
+      'A plain-English guide to property management systems: what a PMS is, what it does, the three kinds you will come across (hotel, real-estate and room-level), and how to pick one for your operation.',
+    category: 'Property management',
+    primaryKeyword: 'property management system',
+    datePublished: '2026-11-02',
+    dateModified: '2026-11-02',
+    readingMinutes: 11,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A property management system dashboard showing occupancy, rent collected, outstanding dues and profit for the month',
+      label: 'Dashboard · occupancy, rent & profit',
+    },
+  },
+  {
     slug: 'bills-included-hmo-fair-usage',
     title: 'Bills-Included HMO: Set a Fair-Usage Cap',
     heading: 'Bills-Included HMO: How to Set a Fair-Usage Cap and Bill the Excess',
