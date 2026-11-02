@@ -321,4 +321,10 @@ export const usScreenshots = {
     height: 2632,
     alt: 'A resident payment timeline in PulseHub showing rent and electricity charges, part-payments, a deposit held, notices and check-out, in US dollars',
   },
+  website: {
+    src: '/screenshots/us-website.png',
+    width: 1920,
+    height: 2040,
+    alt: 'A public PulseHub property listing page showing rooms with photos, monthly rent, available beds, amenities, a message button and a join-waitlist button',
+  },
 } as const

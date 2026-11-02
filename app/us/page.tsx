@@ -8,6 +8,7 @@ import { FaqList } from '@/components/faq-list'
 import { ProductScreenshot } from '@/components/feature-showcase'
 import { PageHero } from '@/components/page-hero'
 import PricingGrid from '@/components/pricing-grid'
+import { PublicWebsiteSection } from '@/components/public-website-section'
 import SiteShell from '@/components/site-shell'
 import { routes } from '@/lib/navigation'
 import { usScreenshots as screenshots } from '@/lib/screenshots'
@@ -76,12 +77,12 @@ const faqs = [
   {
     question: 'Can it bill utilities, not just rent?',
     answer:
-      'Yes. Alongside rent you can meter electricity and split it between residents by their move-in dates, and add recurring charges such as water, gas and internet, so each resident gets one bill covering their whole share.',
+      'Yes. Alongside rent you can meter electricity and split it between residents by their move-in dates, and add recurring charges such as water and gas, so each resident gets one bill covering their whole share.',
   },
   {
     question: 'Does PulseHub do RUBS (ratio utility billing)?',
     answer:
-      'PulseHub bills actual metered electricity per room and allocates it to the residents who lived there, split by their move-in dates, rather than estimating shares of a master bill by a ratio the way a RUBS (Ratio Utility Billing System) does. Metered allocation is more transparent and easier to defend than a RUBS estimate. For flat utilities such as water or internet, you can add a recurring charge per resident.',
+      'PulseHub bills actual metered electricity per room and allocates it to the residents who lived there, split by their move-in dates, rather than estimating shares of a master bill by a ratio the way a RUBS (Ratio Utility Billing System) does. Metered allocation is more transparent and easier to defend than a RUBS estimate. For flat utilities such as water or gas, you can add a recurring charge per resident.',
   },
   {
     question: 'Does each property get a public listing page?',
@@ -215,7 +216,7 @@ export default function UsPage() {
             Each resident gets one monthly bill covering their rent and their share of utilities, with part-payments
             tracked as installments and a true running balance so arrears never build up unnoticed. Instead of a flat
             split or a RUBS-style estimate, PulseHub meters each room and allocates the actual usage to the residents
-            who lived there, by their move-in dates. Water, internet and other recurring charges can ride on the same
+            who lived there, by their move-in dates. Water, gas and other recurring charges can ride on the same
             bill.
           </Lead>
         </div>
@@ -364,6 +365,22 @@ export default function UsPage() {
           </div>
         </div>
       </section>
+
+      <PublicWebsiteSection
+        eyebrow="Free listing page"
+        heading="List your rooms and take enquiries online"
+        lead="Every property gets a public page showing its available rooms, beds, prices and amenities, that stays in sync with your live occupancy. Prospects can see what is free, then join the waitlist or message you."
+        features={[
+          'Live room and bed availability',
+          'Photos, amenities and prices',
+          'Built-in application form and waitlist',
+          'Message or enquire in one tap',
+          'Structured data for search and AI',
+          'A web address for every property',
+        ]}
+        screenshot={screenshots.website}
+        imageLabel="Your public listing page · live availability"
+      />
 
       <PricingGrid
         heading="United States pricing"
