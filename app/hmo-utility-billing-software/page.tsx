@@ -337,7 +337,9 @@ export default function HmoUtilityBillingPage() {
         <div className="mx-auto max-w-5xl">
           <p className="text-base leading-relaxed text-muted-foreground">
             Utility billing is one part of PulseHub. See{' '}
-            <A href={routes.hmo}>HMO management software</A> for the whole platform, read how to{' '}
+            <A href={routes.hmo}>HMO management software</A> or{' '}
+            <A href={routes.sharedHousing}>property management software for shared housing</A> for the whole
+            platform, read how to{' '}
             <A href="/blog/bills-included-hmo-fair-usage">set a fair-usage cap and bill the excess</A>, or how to{' '}
             <A href="/blog/hmo-rent-tracking">track HMO rent, payments and arrears</A>.
           </p>

@@ -306,7 +306,9 @@ export default function AccommodationManagementSystemPost() {
             Philippines, a rooming house or shared housing in the
             United States, and a boarding house in many other
             markets. Some of these carry local licensing rules, the UK HMO among them, but the underlying
-            operations are the same wherever you are, which is why one system can serve all of them.
+            operations are the same wherever you are, which is why one system can serve all of them. For the wider
+            category this sits in, see <A href="/blog/what-is-a-property-management-system">what a property management
+            system is</A> and the three kinds you will come across.
           </P>
 
           <H2 id="who-needs">Who needs an accommodation management system?</H2>
@@ -315,7 +317,8 @@ export default function AccommodationManagementSystemPost() {
             <li>
               <strong>HMO and shared-housing operators</strong> renting rooms individually in houses that share
               facilities. See our guide to{' '}
-              <A href={postPath('hmo-management-software')}>HMO management software</A>.
+              <A href={postPath('hmo-management-software')}>HMO management software</A>, or{' '}
+              <A href={routes.sharedHousing}>property management software for shared housing</A>.
             </li>
             <li>
               <strong>Student accommodation operators</strong>, known as student housing operators in the US,

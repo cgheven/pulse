@@ -548,7 +548,8 @@ export default function StudentPage() {
         <div className="mx-auto max-w-5xl">
           <p className="text-base leading-relaxed text-muted-foreground">
             Related: <A href={routes.uk}>PulseHub for UK operators</A>, <A href={routes.hmo}>HMO management software</A>,{' '}
-            <A href={routes.coliving}>co-living management software</A>, or explore{' '}
+            <A href={routes.coliving}>co-living management software</A>, the broader{' '}
+            <A href={routes.sharedHousing}>property management software for shared housing</A>, or explore{' '}
             <A href={routes.features}>the full platform</A>. New to running accommodation on software? Read our guide to{' '}
             <A href="/blog/student-accommodation-management">student accommodation management</A>.
           </p>

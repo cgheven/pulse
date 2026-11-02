@@ -7,6 +7,11 @@ export const routes = {
   bookDemo: '/book-demo',
   blog: '/blog',
   uk: '/uk',
+  us: '/us',
+  australia: '/australia',
+  canada: '/canada',
+  newZealand: '/new-zealand',
+  singapore: '/singapore',
   pakistan: '/pakistan',
   philippines: '/philippines',
   india: '/india',
@@ -15,9 +20,11 @@ export const routes = {
   student: '/student-accommodation-management-software',
   coliving: '/co-living-management-software',
   hmoBilling: '/hmo-utility-billing-software',
+  sharedHousing: '/property-management-software-for-shared-housing',
 } as const
 
 export const solutionLinks = [
+  { href: routes.sharedHousing, label: 'Shared Housing', menuLabel: 'Shared & Co-Living Housing' },
   { href: routes.hmo, label: 'HMO Management', menuLabel: 'For HMO Operators' },
   { href: routes.student, label: 'Student Accommodation', menuLabel: 'For Student Accommodation Operators' },
   { href: routes.coliving, label: 'Co-Living Management', menuLabel: 'For Co-living Operators' },

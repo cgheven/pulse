@@ -55,9 +55,11 @@ export default function Footer() {
               <li><Link href={routes.blog} className="inline-flex min-h-10 items-center hover:text-primary">Blog</Link></li>
               <li><Link href={routes.contact} className="inline-flex min-h-10 items-center hover:text-primary">Contact</Link></li>
               <li>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex min-h-10 items-center gap-2 hover:text-primary">
-                  <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  <span className="break-all">{CONTACT_EMAIL}</span>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex min-h-10 items-start gap-2 hover:text-primary">
+                  <Mail className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span className="min-w-0 break-words">
+                    {CONTACT_EMAIL.split('@')[0]}@<wbr />{CONTACT_EMAIL.split('@')[1] ?? ''}
+                  </span>
                 </a>
               </li>
             </ul>
@@ -66,7 +68,12 @@ export default function Footer() {
           <div>
             <p className="mb-3 text-sm font-semibold">Markets</p>
             <ul className="space-y-1 text-[15px] text-muted-foreground">
+              <li><Link href={routes.us} className="inline-flex min-h-10 items-center hover:text-primary">United States</Link></li>
               <li><Link href={routes.uk} className="inline-flex min-h-10 items-center hover:text-primary">United Kingdom</Link></li>
+              <li><Link href={routes.australia} className="inline-flex min-h-10 items-center hover:text-primary">Australia</Link></li>
+              <li><Link href={routes.canada} className="inline-flex min-h-10 items-center hover:text-primary">Canada</Link></li>
+              <li><Link href={routes.newZealand} className="inline-flex min-h-10 items-center hover:text-primary">New Zealand</Link></li>
+              <li><Link href={routes.singapore} className="inline-flex min-h-10 items-center hover:text-primary">Singapore</Link></li>
               <li><Link href={routes.pakistan} className="inline-flex min-h-10 items-center hover:text-primary">Pakistan</Link></li>
               <li><Link href={routes.philippines} className="inline-flex min-h-10 items-center hover:text-primary">Philippines</Link></li>
               <li><Link href={routes.india} className="inline-flex min-h-10 items-center hover:text-primary">India</Link></li>
