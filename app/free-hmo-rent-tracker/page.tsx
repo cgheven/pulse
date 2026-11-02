@@ -15,27 +15,29 @@ const FILE = '/downloads/hmo-rent-tracker.xlsx'
 export const metadata = pageMetadata({
   title: 'Free HMO Rent Tracker Spreadsheet',
   description:
-    'A free HMO rent tracker spreadsheet for UK landlords: log rent per room, see arrears and your rent roll, no email required. Works in Excel and Google Sheets.',
+    'A free multi-property HMO rent tracker spreadsheet for UK landlords: rent, bills, arrears, room occupancy and HMO licence checks, by room. Works in Excel and Sheets.',
   path: PATH,
 })
 
 const inside = [
-  { title: 'Setup', body: 'One row per room: property, room, tenant, monthly rent and deposit. Everything else reads from here.' },
-  { title: 'Rent Tracker', body: 'Log what each tenant pays each month. Totals, part-payments and arrears work themselves out with built-in formulas.' },
-  { title: 'Summary', body: 'Your rent roll, what you have collected, what is outstanding, your collection rate and deposits held, at a glance.' },
+  { title: 'Properties', body: 'Every property with its HMO licence number, expiry and permitted occupants. The sheet flags over-occupancy and a licence running out.' },
+  { title: 'Rooms', body: 'A row per room: capacity, beds let, rent and the electricity/bills charge. Total charge and void status fill in automatically.' },
+  { title: 'Rent Tracker', body: 'Log what each room pays each month. Totals, part-payments and real arrears calculate themselves, per room.' },
+  { title: 'Summary', body: 'Rent roll, bills, collection rate, arrears, occupancy and void loss, for the whole portfolio and property by property.' },
 ]
 
 const steps = [
-  'Download the file and open it in Excel, Google Sheets or Numbers.',
-  'On the Setup tab, replace the example rooms with your own.',
-  'Each month, enter what each tenant paid on the Rent Tracker tab.',
-  'Check the Summary tab for arrears and your rent roll.',
+  'On the Properties tab, list each property with its HMO licence and permitted occupants.',
+  'On the Rooms tab, add each room with its capacity, rent and electricity/bills charge.',
+  'Each month, enter what each room paid on the Rent Tracker tab.',
+  'Read the Summary for arrears, collection rate, occupancy and void loss across the portfolio.',
 ]
 
 const preview = [
-  { property: '14 Mill Road', room: 'Room 1', tenant: 'A. Okafor', rent: '£650', paid: '£650', status: 'Up to date', tone: 'ok' },
-  { property: '14 Mill Road', room: 'Room 2', tenant: 'B. Kaur', rent: '£620', paid: '£310', status: '£310 part-paid', tone: 'warn' },
-  { property: '28 Bridge Street', room: 'Room 2', tenant: 'E. Reyes', rent: '£680', paid: '£0', status: '£680 overdue', tone: 'bad' },
+  { property: '14 Mill Road', room: 'Room 1', beds: '1', rent: '£650', bills: '£45', status: 'Up to date', tone: 'ok' },
+  { property: '14 Mill Road', room: 'Room 2', beds: '2', rent: '£780', bills: '£60', status: 'Up to date', tone: 'ok' },
+  { property: '28 Bridge Street', room: 'Room 2', beds: '1', rent: '£680', bills: '£50', status: '£330 arrears', tone: 'bad' },
+  { property: '14 Mill Road', room: 'Room 4', beds: '1', rent: '£640', bills: '£45', status: 'Void', tone: 'void' },
 ]
 
 const faqs = [
@@ -52,7 +54,17 @@ const faqs = [
   {
     question: 'What is inside the spreadsheet?',
     answer:
-      'Three working tabs plus a start page: Setup for your properties, rooms and tenants; Rent Tracker to log monthly payments with automatic totals and arrears; and Summary for your rent roll, collection rate, outstanding balances and deposits held.',
+      'Four working tabs plus a start page: Properties, with each HMO licence and its permitted occupants; Rooms, with capacity, rent and the electricity/bills charge, where the total charge and void status fill in for you; Rent Tracker, to log monthly payments with automatic arrears; and Summary, for your rent roll, bills, collection rate, arrears, occupancy and void loss, per property and across the whole portfolio.',
+  },
+  {
+    question: 'Does it track utility bills and electricity, not just rent?',
+    answer:
+      'Yes. Each room has an electricity/bills charge alongside its rent, and the two are added into one total charge per room. The Summary totals your monthly bills across every property, so you can see rent and bills side by side.',
+  },
+  {
+    question: 'Does it check my HMO licence occupancy?',
+    answer:
+      'Yes. List each property with the maximum occupants its HMO licence allows, and the sheet counts how many beds are let and flags any property that is over its permitted occupancy. It also highlights a licence that has expired or is expiring within 60 days.',
   },
   {
     question: 'Do you store my data if I use the tracker?',
@@ -62,7 +74,7 @@ const faqs = [
   {
     question: 'How many rooms and properties does it handle?',
     answer:
-      'It comes set up for a handful of rooms across two properties, and you can add rows for more. Once you are running several properties and chasing part-payments and arrears by hand, a spreadsheet starts to creak, which is where dedicated software helps.',
+      'It is built for a portfolio: it comes set up with two example properties and is ready for up to twenty properties and fifty rooms, with occupancy tracked per property and checked against each HMO licence. When chasing part-payments and arrears by hand across several properties gets heavy, dedicated software helps.',
   },
 ]
 
@@ -133,6 +145,7 @@ const toneClass: Record<string, string> = {
   ok: 'bg-green-500/15 text-green-700 dark:text-green-400',
   warn: 'bg-amber-500/15 text-amber-700 dark:text-amber-400',
   bad: 'bg-red-500/15 text-red-700 dark:text-red-400',
+  void: 'bg-foreground/10 text-muted-foreground',
 }
 
 export default function FreeHmoRentTrackerPage() {
@@ -147,8 +160,9 @@ export default function FreeHmoRentTrackerPage() {
             Free HMO Rent Tracker Spreadsheet
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Track rent, part-payments and arrears across your HMO rooms in one tidy spreadsheet template. Log what
-            each tenant pays, and see your rent roll, collection rate and who is behind, all worked out for you.
+            Track rent and the bills charge for every room, across every property, in one spreadsheet. Room capacity,
+            part-payments, arrears, occupancy, deposits and HMO licence occupancy are all worked out for you with real
+            formulas.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3">
             <DownloadButton />
@@ -167,7 +181,7 @@ export default function FreeHmoRentTrackerPage() {
             <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" aria-hidden="true" />
             <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" aria-hidden="true" />
             <span className="ml-2 truncate font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
-              HMO Rent Tracker · this month
+              HMO Rent Tracker · rooms, bills &amp; status
             </span>
           </div>
           <div className="overflow-x-auto p-4 sm:p-6">
@@ -176,9 +190,9 @@ export default function FreeHmoRentTrackerPage() {
                 <tr className="border-b border-border text-muted-foreground">
                   <th className="py-2 pr-4 font-medium">Property</th>
                   <th className="px-4 py-2 font-medium">Room</th>
-                  <th className="px-4 py-2 font-medium">Tenant</th>
+                  <th className="px-4 py-2 text-right font-medium">Beds</th>
                   <th className="px-4 py-2 text-right font-medium">Rent</th>
-                  <th className="px-4 py-2 text-right font-medium">Paid</th>
+                  <th className="px-4 py-2 text-right font-medium">Bills</th>
                   <th className="py-2 pl-4 font-medium">Status</th>
                 </tr>
               </thead>
@@ -187,9 +201,9 @@ export default function FreeHmoRentTrackerPage() {
                   <tr key={row.property + row.room} className="border-b border-border/60">
                     <td className="py-3 pr-4 text-foreground/85">{row.property}</td>
                     <td className="px-4 py-3 text-foreground/85">{row.room}</td>
-                    <td className="px-4 py-3 text-foreground/85">{row.tenant}</td>
+                    <td className="px-4 py-3 text-right tabular-nums text-foreground/85">{row.beds}</td>
                     <td className="px-4 py-3 text-right tabular-nums text-foreground/85">{row.rent}</td>
-                    <td className="px-4 py-3 text-right tabular-nums text-foreground/85">{row.paid}</td>
+                    <td className="px-4 py-3 text-right tabular-nums text-foreground/85">{row.bills}</td>
                     <td className="py-3 pl-4">
                       <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${toneClass[row.tone]}`}>
                         {row.status}
@@ -202,7 +216,7 @@ export default function FreeHmoRentTrackerPage() {
           </div>
         </div>
         <p className="mx-auto mt-3 max-w-4xl text-center font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
-          A preview. The file tracks every month and totals it for you.
+          A preview of the Rooms tab. The file tracks every month, every property, and totals it for you.
         </p>
       </section>
 
@@ -210,8 +224,8 @@ export default function FreeHmoRentTrackerPage() {
       <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <H2>What is inside</H2>
-          <Lead>Three working tabs, already set up with example rooms you can overwrite.</Lead>
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <Lead>Four working tabs plus a start page, already set up with two example properties you can overwrite.</Lead>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {inside.map((item) => (
               <div key={item.title} className="rounded-2xl border border-border bg-card p-6">
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{item.title}</p>
@@ -245,9 +259,9 @@ export default function FreeHmoRentTrackerPage() {
         <div className="mx-auto max-w-5xl">
           <H2>When the spreadsheet starts to creak</H2>
           <Lead>
-            A tracker like this is perfect for a room or two. As you add properties, part-payments, utilities and
-            the monthly job of chasing arrears, the copying between tabs and the manual sums start to cost you time
-            and the odd mistake.
+            This tracker will carry you a long way, across several properties. What it cannot do is the work: it will
+            not chase a late payer, reconcile a bank payment, split a metered bill, or stop two people overwriting the
+            same file. Every figure still waits on someone remembering to type it in.
           </Lead>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
             PulseHub does everything this spreadsheet does, automatically: rooms and residents, rent and
