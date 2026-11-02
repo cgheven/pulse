@@ -19,6 +19,7 @@ export const routes = {
 } as const
 
 export const solutionLinks = [
+  { href: routes.sharedHousing, label: 'Shared Housing', menuLabel: 'Shared & Co-Living Housing' },
   { href: routes.hmo, label: 'HMO Management', menuLabel: 'For HMO Operators' },
   { href: routes.student, label: 'Student Accommodation', menuLabel: 'For Student Accommodation Operators' },
   { href: routes.coliving, label: 'Co-Living Management', menuLabel: 'For Co-living Operators' },
