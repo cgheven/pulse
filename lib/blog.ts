@@ -36,7 +36,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       'A plain-English guide to property management systems: what a PMS is, what it does, the three kinds you will come across (hotel, real-estate and room-level), and how to pick one for your operation.',
     category: 'Property management',
-    primaryKeyword: 'property management system',
+    primaryKeyword: 'what is a property management system',
     datePublished: '2026-11-02',
     dateModified: '2026-11-02',
     readingMinutes: 11,

@@ -18,7 +18,7 @@ const PATH = routes.sharedHousing
 export const metadata = pageMetadata({
   title: 'Property Management Software for Shared & Co-Living Housing',
   description:
-    'Property management software built for shared and co-living housing: rent by the room and bed, split monthly payments, electricity and deposits, across every property.',
+    'Property management software for shared and co-living housing: rooms and beds, a monthly bill per resident, shared bills and deposits, across your portfolio.',
   path: PATH,
 })
 
@@ -48,7 +48,7 @@ const faqs = [
   {
     question: 'Does it work for co-living, student housing, hostels and HMOs?',
     answer:
-      'Yes. The same system runs co-living spaces, student accommodation, hostels, shared houses, HMOs and PGs. The words on screen and the local rails adjust to your market, but the core, renting beds and billing residents monthly, is the same everywhere.',
+      'Yes. The same system runs co-living spaces, student accommodation, hostels, shared houses, HMOs and PGs. The wording on screen and the local billing and compliance details adjust to your market, but the core, renting beds and billing residents monthly, is the same everywhere.',
   },
   {
     question: 'Can it bill electricity and other shared costs, not just rent?',
@@ -277,8 +277,8 @@ export default function SharedHousingPmsPage() {
             </h2>
             <Lead>
               Every property gets a public page showing its rooms, photos, prices and real-time availability, with a
-              built-in application form and a waiting list. The page carries structured data, so search engines and AI
-              assistants can read and answer from it, which helps your own rooms get found.
+              built-in application form and a waiting list. The page carries structured data, so search engines (and AI
+              assistants) can read it, which helps your own rooms get found.
             </Lead>
           </div>
           <DocCard

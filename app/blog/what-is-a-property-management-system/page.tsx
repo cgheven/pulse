@@ -42,6 +42,11 @@ const faqs = [
       'A property management system (PMS) is software that runs the day-to-day operations of a property in one place: who is staying, what they owe, what has been paid, what needs fixing, and how the property is performing. It replaces the spread of spreadsheets, paper and separate apps that most operators start with.',
   },
   {
+    question: 'What does a property management system do?',
+    answer:
+      'A PMS handles the core jobs of running a property from one system: taking bookings or admissions, keeping occupancy accurate, raising bills and recording payments (including part-payments), holding deposits, logging maintenance, communicating with residents or guests, and reporting on occupancy, income and costs across one property or a whole portfolio.',
+  },
+  {
     question: 'What is the difference between a PMS and property management software?',
     answer:
       'In practice the terms are used interchangeably. "Property management system" tends to be used in hospitality and "property management software" in real estate, but both describe the same thing: one system that centralises bookings or admissions, billing, occupancy, maintenance and reporting for a property.',
@@ -50,6 +55,11 @@ const faqs = [
     question: 'What are the three main kinds of property management system?',
     answer:
       'Hotel PMS, built around nightly stays, a front desk and distribution to booking channels; real-estate or rental PMS, built around whole-unit leases with one tenant and one rent; and room-level or shared-living PMS, built for properties where people rent a bed and pay monthly, such as co-living, student housing, hostels and HMOs.',
+  },
+  {
+    question: 'What are some examples of property management systems?',
+    answer:
+      'They differ by category. In hotels you will see Oracle Opera, Cloudbeds and Mews. For whole-unit real estate there are AppFolio, Buildium, Yardi and DoorLoop. For room-level shared living, where people rent a bed and pay monthly, PulseHub is built for co-living, student accommodation, hostels, HMOs and PGs.',
   },
   {
     question: 'Is a property management system cloud-based?',
@@ -191,11 +201,14 @@ export default function WhatIsAPmsPost() {
 
         <div className="mx-auto mt-10 max-w-[50rem]">
           <P>
-            A property management system, or PMS, is the software a property runs on. In one place it holds who is
-            staying, what they owe, what they have paid, what needs fixing and how the place is performing, so an
-            operator is not stitching that picture together from spreadsheets, a notebook and three separate apps. If
-            you have searched the term and found results about hotels next to results about rental flats, that is not
-            a mistake: the same three letters are used by industries that work very differently.
+            <strong>
+              A property management system (PMS) is software that runs a property&rsquo;s day-to-day operations in one
+              place: who is staying, what they owe, what has been paid, what needs fixing, and how the property is
+              performing.
+            </strong>{' '}
+            It replaces the spread of spreadsheets, paper and separate apps most operators start with. If you have
+            searched the term and found results about hotels next to results about rental flats, that is not a
+            mistake: the same three letters are used by industries that work very differently.
           </P>
           <P>
             This guide explains, in plain English, what a PMS actually does, the three kinds you will come across and
@@ -273,8 +286,39 @@ export default function WhatIsAPmsPost() {
             often in parts. It has to model a room as having several beds, keep occupancy true at bed level, bill each
             resident individually, split shared costs such as electricity, and often handle deposits, meals and a
             waiting list. This is the model behind co-living, student accommodation, hostels, shared houses, HMOs and
-            PGs, and it is the gap a hotel PMS or a single-let tool leaves open.
+            PGs, and it is the gap a hotel PMS or a single-let tool leaves open. This room-level category is sometimes
+            called an <A href="/blog/accommodation-management-system">accommodation management system</A>.
           </P>
+
+          <div className="mt-8 overflow-x-auto">
+            <table className="w-full min-w-[640px] border-collapse text-left text-[0.95rem]">
+              <caption className="sr-only">Comparison of the three kinds of property management system</caption>
+              <thead>
+                <tr className="border-b border-border">
+                  <th scope="col" className="py-3 pr-4 font-medium text-muted-foreground" />
+                  <th scope="col" className="px-4 py-3 font-semibold">Hotel PMS</th>
+                  <th scope="col" className="px-4 py-3 font-semibold">Real-estate PMS</th>
+                  <th scope="col" className="px-4 py-3 font-semibold">Room-level PMS</th>
+                </tr>
+              </thead>
+              <tbody className="text-foreground/85">
+                {[
+                  ['What is rented', 'A room for the night', 'A whole unit on a lease', 'A room or a bed'],
+                  ['How rent is paid', 'Per night or stay', 'Monthly, one rent', 'Monthly, often in parts'],
+                  ['Built around', 'Front desk and channel distribution', 'Leasing and accounting', 'Beds, occupancy and per-resident billing'],
+                  ['Example tools', 'Opera, Cloudbeds, Mews', 'AppFolio, Buildium, Yardi', 'PulseHub'],
+                  ['Best for', 'Hotels and short stays', 'Single-let flats and houses', 'Co-living, student, hostels, HMOs, PGs'],
+                ].map(([label, hotel, realEstate, roomLevel]) => (
+                  <tr key={label} className="border-b border-border/60 align-top">
+                    <th scope="row" className="py-3 pr-4 font-medium text-muted-foreground">{label}</th>
+                    <td className="px-4 py-3">{hotel}</td>
+                    <td className="px-4 py-3">{realEstate}</td>
+                    <td className="px-4 py-3 font-medium text-foreground">{roomLevel}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           <Box title="Which kind do you need?">
             <P>
@@ -298,7 +342,7 @@ export default function WhatIsAPmsPost() {
             <li><strong>Deposit handling</strong> that settles against final dues at move-out.</li>
             <li><strong>Maintenance and complaints</strong> logged and tracked to resolution.</li>
             <li><strong>Multi-property reporting,</strong> so a portfolio reads as clearly as a single site.</li>
-            <li><strong>A way to fill rooms,</strong> whether that is distribution to channels or a public listing page with live availability.</li>
+            <li><strong>A way to fill rooms:</strong> channel distribution for hotels, or a public listing page with live availability for everyone else.</li>
             <li><strong>Roles and permissions,</strong> so a manager sees only their property.</li>
           </UL>
 
