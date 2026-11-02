@@ -282,12 +282,14 @@ export default function WhatIsAPmsPost() {
           <H3>3. Room-level or shared-living PMS</H3>
           <P>
             Built for renting by the room and the bed. This kind runs properties where many people live under one
-            roof, each renting a bed rather than a whole unit, each on their own agreement, each paying monthly and
-            often in parts. It has to model a room as having several beds, keep occupancy true at bed level, bill each
-            resident individually, split shared costs such as electricity, and often handle deposits, meals and a
-            waiting list. This is the model behind co-living, student accommodation, hostels, shared houses, HMOs and
-            PGs, and it is the gap a hotel PMS or a single-let tool leaves open. This room-level category is sometimes
-            called an <A href="/blog/accommodation-management-system">accommodation management system</A>.
+            roof, each renting a bed rather than a whole unit, each on their own agreement, each paying for their own
+            stay, by the month (often in parts) and, in hostels and flexible spaces, by the night. It has to model a
+            room as having several beds, keep occupancy true at bed level, bill each resident individually, split
+            shared costs such as electricity, and often handle deposits, meals and a waiting list. This is the model
+            behind co-living, student accommodation, hostels, shared houses, HMOs and PGs, and it is the gap a hotel
+            PMS or a single-let tool leaves open. This room-level category is sometimes called an{' '}
+            <A href="/blog/accommodation-management-system">accommodation management system</A>;{' '}
+            <A href={routes.sharedHousing}>PulseHub</A> is built for it, and bills a stay by the night or by the month.
           </P>
 
           <div className="mt-8 overflow-x-auto">
@@ -304,7 +306,7 @@ export default function WhatIsAPmsPost() {
               <tbody className="text-foreground/85">
                 {[
                   ['What is rented', 'A room for the night', 'A whole unit on a lease', 'A room or a bed'],
-                  ['How rent is paid', 'Per night or stay', 'Monthly, one rent', 'Monthly, often in parts'],
+                  ['How rent is paid', 'Per night or stay', 'Monthly, one rent', 'Per night or per month'],
                   ['Built around', 'Front desk and channel distribution', 'Leasing and accounting', 'Beds, occupancy and per-resident billing'],
                   ['Example tools', 'Opera, Cloudbeds, Mews', 'AppFolio, Buildium, Yardi', 'PulseHub'],
                   ['Best for', 'Hotels and short stays', 'Single-let flats and houses', 'Co-living, student, hostels, HMOs, PGs'],
@@ -383,9 +385,10 @@ export default function WhatIsAPmsPost() {
           <P>
             If you rent by the room and the bed, the third category is the one that fits, and it is the one most
             generic tools miss. PulseHub is a property management system built for that model: it treats a property as
-            floors, rooms and beds, keeps occupancy true at bed level, gives each resident one monthly bill that
-            gathers rent and shared costs, records part-payments as installments, splits metered electricity between
-            residents by their move-in dates, and shows every property together in one portfolio view.
+            floors, rooms and beds, keeps occupancy true at bed level, bills each resident for their stay whether they
+            pay by the night or by the month, gathers rent and shared costs onto one bill, records part-payments as
+            installments, splits metered electricity between residents by their move-in dates, and shows every property
+            together in one portfolio view.
           </P>
           <P>
             If that sounds like your operation, read more about{' '}

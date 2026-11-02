@@ -7,6 +7,7 @@ import { FaqList } from '@/components/faq-list'
 import { ProductScreenshot } from '@/components/feature-showcase'
 import { PageHero } from '@/components/page-hero'
 import PricingGrid from '@/components/pricing-grid'
+import { PublicWebsiteSection } from '@/components/public-website-section'
 import SiteShell from '@/components/site-shell'
 import { routes } from '@/lib/navigation'
 import { screenshots } from '@/lib/screenshots'
@@ -18,13 +19,13 @@ const PATH = routes.sharedHousing
 export const metadata = pageMetadata({
   title: 'Property Management Software for Shared & Co-Living Housing',
   description:
-    'Property management software for shared and co-living housing: rooms and beds, a monthly bill per resident, shared bills and deposits, across your portfolio.',
+    'Property management software for shared and co-living housing: rent by the room and bed, billed nightly or monthly, with shared bills, deposits and portfolio reporting.',
   path: PATH,
 })
 
 const capabilities = [
   'Rooms and beds, not whole units',
-  'One monthly bill per resident',
+  'Nightly or monthly billing, one bill per resident',
   'Partial payments tracked as installments',
   'Electricity and shared bills, split fairly',
   'Deposits held and settled at move-out',
@@ -38,17 +39,22 @@ const faqs = [
   {
     question: 'What is property management software for shared housing?',
     answer:
-      'It is software that runs a shared-living property where people rent a room or a bed rather than a whole flat. It handles admissions, room and bed occupancy, a monthly bill per resident for rent and shared costs, partial payments, deposits and reporting, across one property or a whole portfolio.',
+      'It is software that runs a shared-living property where people rent a room or a bed rather than a whole flat. It handles admissions, room and bed occupancy, one bill per resident (by the night or by the month) for rent and shared costs, partial payments, deposits and reporting, across one property or a whole portfolio.',
   },
   {
     question: 'How is it different from a hotel PMS or a real-estate property management system?',
     answer:
-      'A hotel PMS is built around nightly stays, a front desk and channel distribution. A real-estate property management system is built around whole-unit leases, one tenant and one rent. Shared housing sits between the two: many people under one roof, each renting a bed, each paying monthly and often in parts. PulseHub is built for that model, down to the bed.',
+      'A hotel PMS is built around a front desk and distribution to booking channels. A real-estate property management system is built around whole-unit leases, one tenant and one rent. Shared housing sits between the two: many people under one roof, each renting a bed, each paying for their stay by the night or by the month. PulseHub is built for that model, down to the bed.',
   },
   {
     question: 'Does it work for co-living, student housing, hostels and HMOs?',
     answer:
-      'Yes. The same system runs co-living spaces, student accommodation, hostels, shared houses, HMOs and PGs. The wording on screen and the local billing and compliance details adjust to your market, but the core, renting beds and billing residents monthly, is the same everywhere.',
+      'Yes. The same system runs co-living spaces, student accommodation, hostels, shared houses, HMOs and PGs. The wording on screen and the local billing and compliance details adjust to your market, but the core, renting beds and billing each resident for their stay, is the same everywhere.',
+  },
+  {
+    question: 'Can it handle both nightly stays and monthly residents?',
+    answer:
+      'Yes. PulseHub bills a stay by the night or by the month, so a hostel taking nightly guests and a co-living house with monthly residents can run on the same system, even within the same property. Occupancy and billing stay correct whichever way a bed is let.',
   },
   {
     question: 'Can it bill electricity and other shared costs, not just rent?',
@@ -84,7 +90,7 @@ const jsonLd = {
       operatingSystem: 'Web',
       url: `${SITE_URL}${PATH}`,
       description:
-        'Property management software for shared and co-living housing: rooms and beds, a monthly bill per resident, electricity and deposits, across every property.',
+        'Property management software for shared and co-living housing: rooms and beds, billed by the night or the month, electricity and deposits, across every property.',
       publisher: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` },
     },
     {
@@ -174,7 +180,7 @@ export default function SharedHousingPmsPage() {
       <PageHero
         eyebrow="Property management system"
         heading="Property Management Software for Shared and Co-Living Housing"
-        text="A property management system for operators who rent by the room and the bed, where the rent arrives monthly and often in pieces. Admissions, billing, electricity, deposits and occupancy for every resident, across every property, in one place."
+        text="A property management system for operators who rent by the room and the bed, for stays of a single night or many months, where the rent often arrives in pieces. Admissions, billing, electricity, deposits and occupancy for every resident, across every property, in one place."
         supporting="For co-living, student accommodation, hostels, shared houses, HMOs and PGs."
         visual={
           <ProductScreenshot
@@ -201,7 +207,7 @@ export default function SharedHousingPmsPage() {
           <Lead>
             Most property management software assumes one tenant signs for one whole unit and pays one rent. Shared
             housing does not work like that. A four-bed room with three residents is three-quarters full, each resident
-            has their own agreement, and the money comes in monthly, often in parts. PulseHub models your property as
+            has their own agreement, and the money comes in by the night or the month, often in parts. PulseHub models your property as
             floors, rooms and beds, keeps occupancy true so a room can never be over-filled, and prices each room from
             the rate you set per bed.
           </Lead>
@@ -221,7 +227,7 @@ export default function SharedHousingPmsPage() {
               One bill per resident, even when rent arrives in pieces
             </h2>
             <Lead>
-              Each resident gets one monthly bill that gathers their rent and any shared costs, electricity, meals,
+              Each resident gets one bill, for a night or a month, that gathers their rent and any shared costs, electricity, meals,
               recurring charges, into a single balance. A part-payment is recorded as an installment with its own date
               and receipt, the real balance carries forward with no double-counting, and a numbered receipt is issued
               when it is paid.
@@ -267,36 +273,47 @@ export default function SharedHousingPmsPage() {
         </div>
       </section>
 
-      {/* Fill rooms + resident channels */}
-      <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="min-w-0">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Fill rooms</p>
-            <h2 className="mt-4 font-display text-[clamp(1.5rem,3.2vw,2.1rem)] font-medium leading-tight tracking-tight">
-              A website per property, with live availability
-            </h2>
-            <Lead>
-              Every property gets a public page showing its rooms, photos, prices and real-time availability, with a
-              built-in application form and a waiting list. The page carries structured data, so search engines (and AI
-              assistants) can read it, which helps your own rooms get found.
-            </Lead>
-          </div>
-          <DocCard
-            shot={screenshots.website}
-            alt="A public PulseHub property website showing rooms with photos, monthly prices, available beds, amenities and a join-waitlist button"
-            caption="A public listing with live availability"
-          />
-        </div>
-      </section>
+      {/* Fill rooms from your own website */}
+      <PublicWebsiteSection
+        eyebrow="Fill rooms"
+        heading="A website per property, with live availability"
+        lead={
+          <>
+            Every property gets a public page showing its rooms, photos, prices and real-time availability, with a
+            built-in application form and a waiting list. The page carries structured data, so search engines (and AI
+            assistants) can read it, which helps your own rooms get found.
+          </>
+        }
+        features={[
+          'Live room and bed availability',
+          'Photos, amenities and prices',
+          'Built-in application form',
+          'Join-waitlist and direct enquiries',
+          'Structured data for search and AI',
+          'A web address for every branch',
+        ]}
+        screenshot={{
+          src: screenshots.website.src,
+          alt: 'A public PulseHub property website showing rooms with photos, prices, available beds, amenities, a message button and a join-waitlist button',
+          width: screenshots.website.width,
+          height: screenshots.website.height,
+        }}
+        imageLabel="Your public listing page · live availability"
+      />
 
       {/* Resident channels */}
       <section className="bg-muted/30 px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-2 lg:gap-16">
-          <DocCard
-            shot={screenshots.complaints}
-            alt="The PulseHub complaints screen showing resident maintenance requests with their status and history"
-            caption="Complaints and maintenance, tracked"
-          />
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div className="min-w-0">
+            <ProductScreenshot
+              src={screenshots.complaints.src}
+              alt="The PulseHub complaints screen showing resident maintenance requests with their status and history"
+              width={screenshots.complaints.width}
+              height={screenshots.complaints.height}
+              label="Complaints · status and history"
+              sizes="(max-width: 1023px) calc(100vw - 2rem), 40rem"
+            />
+          </div>
           <div className="min-w-0">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Residents, without an app</p>
             <h2 className="mt-4 font-display text-[clamp(1.5rem,3.2vw,2.1rem)] font-medium leading-tight tracking-tight">
@@ -358,7 +375,7 @@ export default function SharedHousingPmsPage() {
 
       <CtaBand
         heading="Run your shared housing on one system."
-        text="Rooms and beds, a monthly bill per resident, shared bills and every property in one view. Start a 14-day free trial with no card required."
+        text="Rooms and beds, billed by the night or the month, shared bills and every property in one view. Start a 14-day free trial with no card required."
         secondaryHref={routes.coliving}
         secondaryLabel="Co-living management software"
       />

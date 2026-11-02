@@ -55,9 +55,11 @@ export default function Footer() {
               <li><Link href={routes.blog} className="inline-flex min-h-10 items-center hover:text-primary">Blog</Link></li>
               <li><Link href={routes.contact} className="inline-flex min-h-10 items-center hover:text-primary">Contact</Link></li>
               <li>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex min-h-10 items-center gap-2 hover:text-primary">
-                  <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  <span className="break-all">{CONTACT_EMAIL}</span>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex min-h-10 items-start gap-2 hover:text-primary">
+                  <Mail className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span className="min-w-0 break-words">
+                    {CONTACT_EMAIL.split('@')[0]}@<wbr />{CONTACT_EMAIL.split('@')[1] ?? ''}
+                  </span>
                 </a>
               </li>
             </ul>
