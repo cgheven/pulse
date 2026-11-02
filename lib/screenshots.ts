@@ -246,3 +246,79 @@ export const indiaScreenshots = {
     alt: 'The PulseHub check-out screen pro-rating a resident final month by nights stayed, settling outstanding dues against the deposit, and showing the refund due in rupees',
   },
 } as const
+
+/** Real product screenshots from the US market (dollar pricing). Reusable across the dollar cluster. */
+export const usScreenshots = {
+  dashboard: {
+    src: '/screenshots/us-dashboard.png',
+    width: 3024,
+    height: 1700,
+    alt: 'PulseHub US dashboard showing net profit, rent collected, outstanding dues and electricity units for the month in US dollars',
+  },
+  payments: {
+    src: '/screenshots/us-payments.png',
+    width: 3024,
+    height: 1700,
+    alt: 'PulseHub Payments screen showing monthly rent collection in US dollars, with rent and metered electricity charged per resident and paid, unpaid and partial status',
+  },
+  allProperties: {
+    src: '/screenshots/us-all-properties.png',
+    width: 3024,
+    height: 1700,
+    alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several US properties in dollars',
+  },
+  tenants: {
+    src: '/screenshots/us-tenants.png',
+    width: 3024,
+    height: 1700,
+    alt: 'PulseHub Residents screen showing active residents, the waiting list, deposits, notice periods and check-out, with name and phone search',
+  },
+  complaints: {
+    src: '/screenshots/us-complaints.png',
+    width: 3024,
+    height: 1700,
+    alt: 'PulseHub Complaints screen showing resident maintenance requests with their status and history',
+  },
+  feedback: {
+    src: '/screenshots/us-feedback.png',
+    width: 3024,
+    height: 1700,
+    alt: 'PulseHub Feedback screen showing private resident ratings for room, cleanliness, staff and facilities',
+  },
+  advanceBooking: {
+    src: '/screenshots/us-advance-booking.png',
+    width: 3024,
+    height: 1700,
+    alt: 'PulseHub advance booking and waiting list screen showing incoming residents with move-in dates and deposits received',
+  },
+  reconciliation: {
+    src: '/screenshots/us-reconciliation.png',
+    width: 3024,
+    height: 1700,
+    alt: 'PulseHub reconciliation screen matching recorded payments against bank deposits in US dollars',
+  },
+  invoice: {
+    src: '/screenshots/us-invoice.png',
+    width: 1837,
+    height: 2280,
+    alt: 'A PulseHub resident invoice in US dollars showing monthly rent and a metered electricity charge with the total amount due',
+  },
+  receipt: {
+    src: '/screenshots/us-payment-receipt.png',
+    width: 1648,
+    height: 2299,
+    alt: 'A PulseHub payment receipt in US dollars showing the receipt number, payment method, a rent and electricity breakdown, and the total paid',
+  },
+  checkout: {
+    src: '/screenshots/us-checkout.png',
+    width: 960,
+    height: 2176,
+    alt: 'The PulseHub check-out screen calculating a resident final electricity charge, settling outstanding dues against the deposit, and showing the amount to collect or refund in US dollars',
+  },
+  memberLedger: {
+    src: '/screenshots/us-member-ledger.png',
+    width: 1024,
+    height: 2632,
+    alt: 'A resident payment timeline in PulseHub showing rent and electricity charges, part-payments, a deposit held, notices and check-out, in US dollars',
+  },
+} as const

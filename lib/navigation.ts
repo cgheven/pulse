@@ -7,6 +7,7 @@ export const routes = {
   bookDemo: '/book-demo',
   blog: '/blog',
   uk: '/uk',
+  us: '/us',
   pakistan: '/pakistan',
   philippines: '/philippines',
   india: '/india',

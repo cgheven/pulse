@@ -8,6 +8,7 @@ import { SITE_NAME, SITE_URL } from '@/lib/site'
  * pages so search engines understand the regional relationship (no auto-redirects).
  */
 export const marketHreflang: Record<string, string> = {
+  'en-US': `${SITE_URL}${routes.us}`,
   'en-GB': `${SITE_URL}${routes.uk}`,
   'en-PK': `${SITE_URL}${routes.pakistan}`,
   'en-PH': `${SITE_URL}${routes.philippines}`,
