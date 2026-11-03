@@ -6,7 +6,7 @@ import Script from 'next/script'
  * components/google-tag-manager.tsx. The init script fires the first PageView;
  * client-side (App Router) navigations are tracked by MetaPixelRouteListener.
  */
-export const META_PIXEL_ID = '2327537684317579'
+export const META_PIXEL_ID = '2527164811111689'
 
 function metaPixelEnabled() {
   return process.env.NODE_ENV === 'production'
