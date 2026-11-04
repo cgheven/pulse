@@ -14,6 +14,21 @@ export const COOKIE_SETTINGS_EVENT = 'ph:open-cookie-settings'
 
 type Consent = 'granted' | 'denied'
 
+/**
+ * Countries where opt-in consent is legally required before loading non-essential
+ * tracking (GDPR / UK-GDPR / ePrivacy: EU + EEA + UK + Switzerland). New visitors
+ * from these regions see the opt-in banner and nothing loads until they Accept.
+ * Visitors elsewhere (e.g. Pakistan, the US) get tracking on arrival so ad
+ * measurement is not starved; they can still withdraw via "Manage cookies".
+ */
+const CONSENT_REQUIRED_COUNTRIES = new Set<string>([
+  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT',
+  'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', // EU 27
+  'IS', 'LI', 'NO', // EEA
+  'GB', // UK
+  'CH', // Switzerland
+])
+
 function readStoredConsent(): Consent | null {
   try {
     const value = localStorage.getItem(STORAGE_KEY)
@@ -31,10 +46,12 @@ export function openCookieSettings() {
 }
 
 /**
- * Consent gate for non-essential tracking. Google Tag Manager (GA4) and the Meta
- * Pixel only load once the visitor accepts; until then nothing non-essential runs.
- * The choice persists in localStorage. Vercel Analytics is cookieless and stays
- * mounted in the layout, so it is not gated here.
+ * Region-aware consent gate for non-essential tracking (Google Tag Manager / GA4
+ * and the Meta Pixel). New visitors from consent-required regions (EU/EEA/UK/CH,
+ * see CONSENT_REQUIRED_COUNTRIES) get an opt-in banner and nothing loads until they
+ * Accept. Everywhere else tracking loads on arrival. The choice persists in
+ * localStorage. Vercel Analytics is cookieless and stays mounted in the layout, so
+ * it is not gated here.
  */
 export function CookieConsent() {
   const [mounted, setMounted] = useState(false)
@@ -43,13 +60,51 @@ export function CookieConsent() {
 
   useEffect(() => {
     setMounted(true)
+
     const stored = readStoredConsent()
-    setConsent(stored)
-    setOpen(stored === null)
+    if (stored) {
+      // Returning visitor who already chose: respect it, no banner, no geo lookup.
+      setConsent(stored)
+    }
 
     const reopen = () => setOpen(true)
     window.addEventListener(COOKIE_SETTINGS_EVENT, reopen)
-    return () => window.removeEventListener(COOKIE_SETTINGS_EVENT, reopen)
+
+    let active = true
+    if (!stored) {
+      // New visitor: consent-required regions get the opt-in banner (nothing loads
+      // until Accept); everywhere else, and on any geo lookup failure, tracking
+      // loads on arrival so ad measurement is not starved.
+      fetch('/api/geo')
+        .then((r) => r.json())
+        .then(({ country }: { country: string | null }) => {
+          if (!active) return
+          if (country && CONSENT_REQUIRED_COUNTRIES.has(country)) {
+            setOpen(true)
+          } else {
+            try {
+              localStorage.setItem(STORAGE_KEY, 'granted')
+            } catch {
+              // Ignore storage failures; consent still applies for this session.
+            }
+            setConsent('granted')
+          }
+        })
+        .catch(() => {
+          if (!active) return
+          try {
+            localStorage.setItem(STORAGE_KEY, 'granted')
+          } catch {
+            // Ignore storage failures; consent still applies for this session.
+          }
+          setConsent('granted')
+        })
+    }
+
+    return () => {
+      active = false
+      window.removeEventListener(COOKIE_SETTINGS_EVENT, reopen)
+    }
   }, [])
 
   const choose = useCallback(
