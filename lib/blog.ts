@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-start-a-co-living-business',
+    title: 'How to Start a Co-Living Business',
+    heading: 'How to Start a Co-Living Business: An Operator’s Guide',
+    description:
+      'How to start a co-living business: lease vs own, the occupancy and margins that decide it, how to fill rooms, and the day-to-day operations most guides skip.',
+    excerpt:
+      'A practical, operations-first guide to starting a co-living business: the two models (lease vs own), the numbers that actually decide profit, how to fill rooms, and the day-to-day running most guides gloss over.',
+    category: 'Co-living',
+    primaryKeyword: 'how to start a co-living business',
+    datePublished: '2026-11-04',
+    dateModified: '2026-11-04',
+    readingMinutes: 11,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A co-living dashboard showing occupancy, rent collected, outstanding dues and profit for the month',
+      label: 'Dashboard · occupancy, rent & profit',
+    },
+  },
+  {
     slug: 'worker-accommodation-management-software',
     title: 'Worker & Staff Accommodation Management Software',
     heading: 'Worker and Staff Accommodation Management Software',
