@@ -8,13 +8,19 @@ import {
 } from '@/lib/site'
 import { routes, solutionLinks } from '@/lib/navigation'
 
+/** Shorter labels for the two longest solution names, so the footer column stays one line each. */
+const FOOTER_SOLUTION_LABELS: Record<string, string> = {
+  [routes.student]: 'Student Housing',
+  [routes.coliving]: 'Co-Living',
+}
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
     <footer className="border-t border-border bg-muted/50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 py-10 sm:grid-cols-2 lg:grid-cols-6 lg:gap-10 lg:py-16">
+        <div className="grid grid-cols-2 gap-8 py-10 sm:grid-cols-2 lg:grid-cols-7 lg:gap-x-6 lg:gap-y-10 lg:py-16">
           <div className="col-span-2">
             <Link href="/" className="mb-3 flex items-center gap-3">
               <Image src="/logo.png" alt="" width={44} height={44} className="h-10 w-10 rounded-xl sm:h-11 sm:w-11" />
@@ -27,6 +33,10 @@ export default function Footer() {
             <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground/70">
               HMO · Student · Co-living · Hostels
             </p>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="mt-4 inline-flex min-h-10 items-center gap-2 text-[15px] text-muted-foreground hover:text-primary">
+              <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span className="whitespace-nowrap">{CONTACT_EMAIL}</span>
+            </a>
           </div>
 
           <div>
@@ -42,7 +52,7 @@ export default function Footer() {
             <ul className="space-y-1 text-[15px] text-muted-foreground">
               {solutionLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="inline-flex min-h-10 items-center hover:text-primary">{item.label}</Link>
+                  <Link href={item.href} className="inline-flex min-h-10 items-center hover:text-primary">{FOOTER_SOLUTION_LABELS[item.href] ?? item.label}</Link>
                 </li>
               ))}
             </ul>
@@ -54,20 +64,12 @@ export default function Footer() {
               <li><Link href={routes.about} className="inline-flex min-h-10 items-center hover:text-primary">About</Link></li>
               <li><Link href={routes.blog} className="inline-flex min-h-10 items-center hover:text-primary">Blog</Link></li>
               <li><Link href={routes.contact} className="inline-flex min-h-10 items-center hover:text-primary">Contact</Link></li>
-              <li>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex min-h-10 items-start gap-2 hover:text-primary">
-                  <Mail className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-                  <span className="min-w-0 break-words">
-                    {CONTACT_EMAIL.split('@')[0]}@<wbr />{CONTACT_EMAIL.split('@')[1] ?? ''}
-                  </span>
-                </a>
-              </li>
             </ul>
           </div>
 
-          <div>
+          <div className="col-span-2 sm:col-span-1 lg:col-span-2">
             <p className="mb-3 text-sm font-semibold">Markets</p>
-            <ul className="space-y-1 text-[15px] text-muted-foreground">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-1 text-[15px] text-muted-foreground">
               <li><Link href={routes.us} className="inline-flex min-h-10 items-center hover:text-primary">United States</Link></li>
               <li><Link href={routes.uk} className="inline-flex min-h-10 items-center hover:text-primary">United Kingdom</Link></li>
               <li><Link href={routes.australia} className="inline-flex min-h-10 items-center hover:text-primary">Australia</Link></li>
