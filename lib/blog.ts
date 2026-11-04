@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'worker-accommodation-management-software',
+    title: 'Worker & Staff Accommodation Management Software',
+    heading: 'Worker and Staff Accommodation Management Software',
+    description:
+      'Worker and staff accommodation software: run camps, hostels and worker housing by the bed, with rent, utilities, deposits and occupancy across every site.',
+    excerpt:
+      'A practical guide to worker and staff accommodation management software: what it does, why generic hotel or rental tools miss, the features that matter for bed-level housing, and how to choose one.',
+    category: 'Staff accommodation',
+    primaryKeyword: 'worker accommodation management software',
+    datePublished: '2026-11-04',
+    dateModified: '2026-11-04',
+    readingMinutes: 10,
+    image: {
+      src: '/screenshots/all-properties.png',
+      width: 3024,
+      height: 1722,
+      alt: 'A worker accommodation portfolio dashboard comparing occupancy, costs and net profit across several sites',
+      label: 'Every site · occupancy, costs & profit',
+    },
+  },
+  {
     slug: 'what-is-a-property-management-system',
     title: 'What Is a Property Management System (PMS)?',
     heading: 'What Is a Property Management System (PMS)?',
