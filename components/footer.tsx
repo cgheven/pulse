@@ -77,6 +77,7 @@ export default function Footer() {
               <li><Link href={routes.newZealand} className="inline-flex min-h-10 items-center hover:text-primary">New Zealand</Link></li>
               <li><Link href={routes.singapore} className="inline-flex min-h-10 items-center hover:text-primary">Singapore</Link></li>
               <li><Link href={routes.malaysia} className="inline-flex min-h-10 items-center hover:text-primary">Malaysia</Link></li>
+              <li><Link href={routes.uae} className="inline-flex min-h-10 items-center hover:text-primary">UAE</Link></li>
               <li><Link href={routes.pakistan} className="inline-flex min-h-10 items-center hover:text-primary">Pakistan</Link></li>
               <li><Link href={routes.philippines} className="inline-flex min-h-10 items-center hover:text-primary">Philippines</Link></li>
               <li><Link href={routes.india} className="inline-flex min-h-10 items-center hover:text-primary">India</Link></li>
