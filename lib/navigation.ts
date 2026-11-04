@@ -12,6 +12,7 @@ export const routes = {
   canada: '/canada',
   newZealand: '/new-zealand',
   singapore: '/singapore',
+  malaysia: '/malaysia',
   pakistan: '/pakistan',
   philippines: '/philippines',
   india: '/india',
