@@ -45,7 +45,7 @@ const faqs = [
   {
     question: 'Is PulseHub a good COHO alternative?',
     answer:
-      'If you run HMOs or co-living and want more than the UK, bill shared utilities and meals on one per-resident bill, let by the bed or the night, or run hostels, PG and worker housing alongside HMOs, PulseHub fits well. It also tracks England HMO compliance, so you do not lose that by switching. If you are a UK-only landlord who mainly wants COHO’s tenant marketplace and housemate-matching, COHO may suit you better.',
+      'If you run HMOs or co-living and want more than the UK, bill shared utilities and meals on one per-resident bill, let by the bed or the night, or run hostels, PG and worker housing alongside HMOs, PulseHub fits well. It also tracks England HMO compliance, so you do not lose that by switching. COHO stays UK-only and room-level, so the further your needs reach beyond that, the stronger the case for PulseHub.',
   },
   {
     question: 'Does PulseHub handle UK HMO compliance like COHO?',
@@ -265,20 +265,18 @@ export default function CohoAlternativePost() {
         <div className="mx-auto mt-10 max-w-[50rem]">
           <P>
             <strong>
-              COHO is a UK-focused platform for shared housing, strong on tenant experience, a room marketplace and UK
-              compliance. PulseHub is a multi-market COHO alternative that runs HMOs and co-living by the room, the bed
-              or the night, puts rent, metered utilities and meals on one bill per resident, and still tracks England
-              HMO compliance.
+              COHO is a UK-focused platform for shared housing: HMOs, co-living and student lets, with a room
+              marketplace and UK compliance tracking. PulseHub is a multi-market COHO alternative that runs HMOs and
+              co-living by the room, the bed or the night, puts rent, metered utilities and meals on one bill per
+              resident, and tracks England HMO compliance too.
             </strong>{' '}
-            Pick COHO for a UK-only, tenant-first portfolio; pick PulseHub if you want more markets, shared-cost
-            billing, a wider range of property types, or your own listing site.
+            If your operation reaches beyond the UK, or beyond plain room rent, PulseHub is built for the wider job.
           </P>
           <P>
-            If you run HMOs or co-living and are weighing up COHO, this is an honest comparison rather than a takedown.
-            COHO is a real, well-regarded product, and for some operators it is the right call. The aim here is to show
-            what each tool is built for and who each one suits, so you can tell quickly which side of the line you are
-            on. We make PulseHub, so treat this as our considered case, not a neutral review, and check both products
-            against your own portfolio.
+            If you run HMOs or co-living and are weighing up COHO, this is a straight comparison rather than a takedown:
+            COHO is a real product and the facts about it below are accurate. The aim is to show what each tool is built
+            for, so you can tell quickly which one fits how you operate. We make PulseHub, so treat this as our
+            considered case rather than a neutral review, and check both against your own portfolio.
           </P>
 
           <aside className="mt-10 rounded-2xl border border-border bg-muted/40 p-6 sm:p-8">
@@ -296,13 +294,12 @@ export default function CohoAlternativePost() {
           <P>
             COHO is a UK proptech platform for shared housing, launched in 2019 and pitched as tenant-focused. It is
             aimed at HMO landlords, co-living operators, management companies, letting agents and rent-to-rent
-            operators, and it covers HMOs, co-living, student and mixed portfolios. Its strengths are clear and worth
-            stating plainly:
+            operators, and it covers HMOs, co-living, student and mixed portfolios. In outline, it does four things:
           </P>
           <UL>
             <li><strong>UK compliance tracking</strong> for certificates and licences such as gas safety, EICR and HMO licences, with reminders before they expire.</li>
-            <li><strong>A tenant marketplace,</strong> &ldquo;Find a Home&rdquo;, that advertises your available rooms and feeds partner portals, with housemate matching to help fill rooms with compatible people.</li>
-            <li><strong>A tenant message centre</strong> and a &ldquo;vibe check&rdquo; feedback feature, reflecting its focus on tenant experience and community.</li>
+            <li><strong>A tenant marketplace,</strong> &ldquo;Find a Home&rdquo;, that advertises your available rooms and feeds partner portals, with housemate matching.</li>
+            <li><strong>A tenant message centre</strong> and a &ldquo;vibe check&rdquo; feedback feature.</li>
             <li><strong>Room-level rent tracking</strong> across mixed portfolios of HMOs, single lets and student lets.</li>
           </UL>
           <P>
@@ -383,26 +380,11 @@ export default function CohoAlternativePost() {
             organised, not legal advice.
           </P>
 
-          <H2 id="where-coho-suits">Where COHO may suit you better</H2>
+          <H2 id="how-to-judge">How to judge a COHO alternative</H2>
           <P>
-            It would not be an honest comparison without this section. COHO is the better fit when:
-          </P>
-          <UL>
-            <li><strong>You are UK-only and intend to stay that way.</strong> COHO&rsquo;s whole design assumes the UK, which is a strength if that is your entire world.</li>
-            <li><strong>You want a ready-made tenant marketplace.</strong> COHO&rsquo;s &ldquo;Find a Home&rdquo; brings its own stream of room-seekers and housemate matching, a genuine demand network a new operator can tap into. PulseHub gives you your own site to fill instead, which you drive.</li>
-            <li><strong>Tenant experience and community are your main focus,</strong> and features like the vibe check and a polished tenant message centre are what you are buying the software for.</li>
-          </UL>
-          <P>
-            If those describe you, COHO is a reasonable choice and you should trial it. PulseHub earns its place when the
-            billing, the breadth of property types, or more than one market start to matter.
-          </P>
-
-          <H2 id="other-alternatives">Other COHO alternatives worth knowing</H2>
-          <P>
-            PulseHub is not the only option, and a fair comparison should say so. The UK shared-housing market also
-            includes tools such as Arthur, Crib and Togetha, along with broader landlord platforms that bolt on HMO
-            features. Review directories like Capterra and GetApp list more. When you shortlist, judge each one on the
-            same handful of questions rather than the length of its feature list:
+            PulseHub will not be the only tool you look at, and you should shortlist a few before you decide. However
+            you compare them, judge each one on the same handful of questions rather than the length of its feature
+            list:
           </P>
           <UL>
             <li>Does it bill a <strong>room and a bed</strong>, and can it split a shared utility bill, or only track whole-unit rent?</li>
@@ -414,11 +396,11 @@ export default function CohoAlternativePost() {
 
           <H2 id="who-should-pick-which">Who should pick which</H2>
           <P>
-            The short version: <strong>choose COHO</strong> if you are a UK-only HMO or co-living operator whose main
-            needs are a tenant marketplace, housemate matching and a tenant-experience focus.{' '}
-            <strong>Choose PulseHub</strong> if you want to bill rent, metered utilities and meals on one per-resident
-            bill, run across more than one market, let by the bed or the night, or manage hostels, PG and worker housing
-            alongside HMOs, while still tracking England HMO compliance.
+            The short version: <strong>PulseHub</strong> is the one to pick if you want to bill rent, metered utilities
+            and meals on one per-resident bill, run across more than one market, let by the bed or the night, or manage
+            hostels, PG and worker housing alongside HMOs, while still tracking England HMO compliance. COHO is narrower
+            by design, built for UK-only, room-level lettings, so the further your operation goes beyond that, the more
+            PulseHub gives you.
           </P>
           <P>
             If you are leaning PulseHub, the quickest way to be sure is to see it on your own property type:{' '}
@@ -430,10 +412,11 @@ export default function CohoAlternativePost() {
 
           <Box title="In short">
             <P>
-              COHO and PulseHub both run shared housing well; they are built for different operators. COHO is a
-              UK-first, tenant-marketplace platform. PulseHub is a multi-market, bill-everything-per-resident platform
-              that still covers England HMO compliance. Match the tool to where you operate, how you bill, and the kind
-              of property you run, then trial the one that fits.
+              COHO is a UK-first, tenant-marketplace platform for room-level lettings. PulseHub covers more ground:
+              multiple markets, letting by the room, bed or night, one bill per resident for rent, metered utilities
+              and meals, a wider range of property types, and England HMO compliance alongside. If your operation
+              reaches beyond a single UK market or beyond plain room rent, PulseHub is built for it. Start a free trial
+              and see it on your own portfolio.
             </P>
           </Box>
         </div>
