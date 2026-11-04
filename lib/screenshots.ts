@@ -368,3 +368,43 @@ export const malaysiaScreenshots = {
     alt: 'A public PulseHub property listing page showing rooms with photos, monthly rent, available beds, amenities, a message button and a join-waitlist button',
   },
 } as const
+
+/** Real product screenshots from the UAE market (dirham pricing). */
+export const uaeScreenshots = {
+  dashboard: {
+    src: '/screenshots/ae-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub UAE dashboard showing net profit, rent collected, outstanding dues and electricity units for the month in dirhams',
+  },
+  tenants: {
+    src: '/screenshots/ae-tenants.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Residents screen showing active residents, the waiting list, deposits, notice periods and check-out, with name and phone search',
+  },
+  payments: {
+    src: '/screenshots/ae-payments.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Payments screen showing monthly rent collection in dirhams, with rent and metered electricity charged per resident and paid, unpaid and partial status',
+  },
+  allProperties: {
+    src: '/screenshots/ae-all-properties.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several UAE properties in dirhams',
+  },
+  complaints: {
+    src: '/screenshots/ae-complaints.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Complaints screen showing resident maintenance requests with their status and history',
+  },
+  website: {
+    src: '/screenshots/ae-website.png',
+    width: 2048,
+    height: 2676,
+    alt: 'A public PulseHub property listing page showing rooms with photos, monthly rent, available beds, amenities, a message button and a join-waitlist button',
+  },
+} as const

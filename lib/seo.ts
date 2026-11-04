@@ -15,6 +15,7 @@ export const marketHreflang: Record<string, string> = {
   'en-NZ': `${SITE_URL}${routes.newZealand}`,
   'en-SG': `${SITE_URL}${routes.singapore}`,
   'en-MY': `${SITE_URL}${routes.malaysia}`,
+  'en-AE': `${SITE_URL}${routes.uae}`,
   'en-PK': `${SITE_URL}${routes.pakistan}`,
   'en-PH': `${SITE_URL}${routes.philippines}`,
   'en-IN': `${SITE_URL}${routes.india}`,
