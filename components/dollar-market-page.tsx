@@ -10,8 +10,19 @@ import { PageHero } from '@/components/page-hero'
 import PricingGrid from '@/components/pricing-grid'
 import { PublicWebsiteSection } from '@/components/public-website-section'
 import { routes } from '@/lib/navigation'
-import { usScreenshots as screenshots } from '@/lib/screenshots'
+import { usScreenshots } from '@/lib/screenshots'
 import { SITE_URL } from '@/lib/site'
+
+type Shot = { src: string; width: number; height: number; alt: string }
+/** Screenshots a market page needs. website is optional; when absent the listing section is skipped. */
+export type MarketScreenshots = {
+  dashboard: Shot
+  tenants: Shot
+  payments: Shot
+  allProperties: Shot
+  complaints: Shot
+  website?: Shot
+}
 
 type UseCase = { icon: LucideIcon; title: string; description: string; href: string }
 export type Faq = { question: string; answer: string }
@@ -29,6 +40,8 @@ export type DollarMarketContent = {
   pricingHeading: string
   ctaHeading: string
   ctaText: string
+  /** Market screenshot set; defaults to the US dollar set. */
+  screenshots?: MarketScreenshots
 }
 
 /** Builds the WebPage + Breadcrumb + FAQ JSON-LD graph for a dollar-market page. */
@@ -78,6 +91,7 @@ function A({ href, children }: { href: string; children: ReactNode }) {
 
 export function DollarMarketPage({ content }: { content: DollarMarketContent }) {
   const { country } = content
+  const screenshots = content.screenshots ?? usScreenshots
   return (
     <>
       <PageHero
@@ -231,21 +245,23 @@ export function DollarMarketPage({ content }: { content: DollarMarketContent }) 
         </div>
       </section>
 
-      <PublicWebsiteSection
-        eyebrow="Free listing page"
-        heading="List your rooms and take enquiries online"
-        lead="Every property gets a public page showing its available rooms, beds, prices and amenities, that stays in sync with your live occupancy. Prospects can see what is free, then join the waitlist or message you."
-        features={[
-          'Live room and bed availability',
-          'Photos, amenities and prices',
-          'Built-in application form and waitlist',
-          'Message or enquire in one tap',
-          'Structured data for search and AI',
-          'A web address for every property',
-        ]}
-        screenshot={screenshots.website}
-        imageLabel="Your public listing page · live availability"
-      />
+      {screenshots.website ? (
+        <PublicWebsiteSection
+          eyebrow="Free listing page"
+          heading="List your rooms and take enquiries online"
+          lead="Every property gets a public page showing its available rooms, beds, prices and amenities, that stays in sync with your live occupancy. Prospects can see what is free, then join the waitlist or message you."
+          features={[
+            'Live room and bed availability',
+            'Photos, amenities and prices',
+            'Built-in application form and waitlist',
+            'Message or enquire in one tap',
+            'Structured data for search and AI',
+            'A web address for every property',
+          ]}
+          screenshot={screenshots.website}
+          imageLabel="Your public listing page · live availability"
+        />
+      ) : null}
 
       <PricingGrid
         heading={content.pricingHeading}

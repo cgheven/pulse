@@ -328,3 +328,43 @@ export const usScreenshots = {
     alt: 'A public PulseHub property listing page showing rooms with photos, monthly rent, available beds, amenities, a message button and a join-waitlist button',
   },
 } as const
+
+/** Real product screenshots from the Malaysia market (ringgit pricing). */
+export const malaysiaScreenshots = {
+  dashboard: {
+    src: '/screenshots/my-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Malaysia dashboard showing net profit, rent collected, outstanding dues and electricity units for the month in ringgit',
+  },
+  tenants: {
+    src: '/screenshots/my-tenants.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Residents screen showing active residents, the waiting list, deposits, notice periods and check-out, with name and phone search',
+  },
+  payments: {
+    src: '/screenshots/my-payments.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Payments screen showing monthly rent collection in ringgit, with rent and metered electricity charged per resident and paid, unpaid and partial status',
+  },
+  allProperties: {
+    src: '/screenshots/my-all-properties.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several Malaysian properties in ringgit',
+  },
+  complaints: {
+    src: '/screenshots/my-complaints.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Complaints screen showing resident maintenance requests with their status and history',
+  },
+  website: {
+    src: '/screenshots/my-website.png',
+    width: 2048,
+    height: 2676,
+    alt: 'A public PulseHub property listing page showing rooms with photos, monthly rent, available beds, amenities, a message button and a join-waitlist button',
+  },
+} as const

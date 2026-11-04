@@ -27,6 +27,7 @@ const paths = [
   routes.canada,
   routes.newZealand,
   routes.singapore,
+  routes.malaysia,
   routes.pakistan,
   routes.philippines,
   routes.india,
