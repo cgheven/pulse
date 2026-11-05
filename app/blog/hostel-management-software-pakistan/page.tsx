@@ -288,8 +288,9 @@ export default function HostelPakistanPost() {
           <P>
             Deposits are settled against final dues at check-out, every branch rolls up into one view, and a warden can
             be given access to just their own branch. Each hostel also gets a public listing page with live room
-            availability and a WhatsApp button, so you can fill empty beds from your own page. For the market page, see{' '}
-            <A href={routes.pakistan}>PulseHub for Pakistan</A>; for the product in general, see{' '}
+            availability and a WhatsApp button, so you can fill empty beds from your own page. You can see a{' '}
+            <A href="https://najam.hostels.yourpulse.io/">live example hostel website</A> built on PulseHub. For the
+            market page, see <A href={routes.pakistan}>PulseHub for Pakistan</A>; for the product in general, see{' '}
             <A href={routes.hostel}>hostel management software</A>.
           </P>
 
