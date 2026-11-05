@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'student-housing-management-software-canada',
+    title: 'Student Housing Management Software in Canada',
+    heading: 'Student Housing Management Software in Canada',
+    description:
+      'Student housing software for Canada: run off-campus rooms and beds, one bill per resident in Canadian dollars, deposits and arrears, your own page to fill rooms, every property in one view.',
+    excerpt:
+      'A practical guide to student housing management software for Canada: what it does, why a regular rental tool does not fit off-campus student houses, the features that matter, and how to choose.',
+    category: 'Student accommodation',
+    primaryKeyword: 'student housing management software Canada',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A shared-living dashboard showing occupancy, rent collected, outstanding dues and profit for the month',
+      label: 'Dashboard · occupancy, rent & profit',
+    },
+  },
+  {
     slug: 'hostel-management-software-pakistan',
     title: 'Hostel Management Software in Pakistan',
     heading: 'Hostel Management Software in Pakistan: A Practical Guide',
