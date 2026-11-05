@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'hostel-management-software-pakistan',
+    title: 'Hostel Management Software in Pakistan',
+    heading: 'Hostel Management Software in Pakistan: A Practical Guide',
+    description:
+      'Hostel management software for Pakistan: run beds, residents, rent, mess and AC billing in rupees, with WhatsApp reminders and guest registration, across every hostel.',
+    excerpt:
+      'A practical guide to hostel management software for Pakistan: what it does, why a school ERP or hotel tool does not fit, the features that matter for a Pakistani hostel, from rupee billing to WhatsApp reminders and guest registration, and how to choose.',
+    category: 'Hostel management',
+    primaryKeyword: 'hostel management software Pakistan',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/pk-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A Pakistan hostel dashboard showing net profit, rent collected, outstanding dues, AC units, kitchen costs and staff salaries in rupees',
+      label: 'Dashboard · occupancy, rent, mess & AC, in rupees',
+    },
+  },
+  {
     slug: 'rentok-alternative',
     title: 'RentOk Alternative: PulseHub vs RentOk',
     heading: 'RentOk Alternative: How PulseHub Compares for PG and Hostel Operators',
