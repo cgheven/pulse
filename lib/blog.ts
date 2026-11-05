@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-choose-student-accommodation-management-software',
+    title: 'How to Choose Student Accommodation Management Software',
+    heading: 'How to Choose Student Accommodation Management Software: A Buyer’s Guide',
+    description:
+      'How to choose student accommodation management software: match it to your rent cycles, insist on room and bed-level occupancy, check UK compliance, and weigh pricing.',
+    excerpt:
+      'A practical buyer’s guide to choosing student accommodation management software: start from how you operate, the features that actually matter, the questions to ask on a demo, and how to match the tool to your size.',
+    category: 'Student accommodation',
+    primaryKeyword: 'how to choose student accommodation management software',
+    datePublished: '2026-11-05',
+    dateModified: '2026-11-05',
+    readingMinutes: 10,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A student accommodation dashboard showing occupancy, rent collected, outstanding dues and profit for the month',
+      label: 'Dashboard · occupancy, rent & profit',
+    },
+  },
+  {
     slug: 'how-to-start-a-co-living-business',
     title: 'How to Start a Co-Living Business',
     heading: 'How to Start a Co-Living Business: An Operator’s Guide',

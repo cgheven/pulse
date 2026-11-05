@@ -319,7 +319,8 @@ export default function StudentPage() {
             Model each property as floors, rooms and beds, so a four-bed room with three residents shows as
             three-quarters full, not simply occupied. Availability stays true automatically: you cannot over-fill a
             room or delete one that still has a resident in it. Move a resident to another room, or transfer them to
-            another property, and their record moves with them.
+            another property, and their record moves with them. From shared houses and HMOs to studio clusters and
+            purpose-built student accommodation (PBSA), the same room-and-bed model handles every property type you run.
           </Lead>
         </div>
         <BigShot
