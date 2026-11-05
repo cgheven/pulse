@@ -291,6 +291,17 @@ export default function HostelPakistanPost() {
             <A href={routes.hostel}>hostel management software</A>.
           </P>
 
+          <div className="mt-8">
+            <ProductScreenshot
+              src={shots.website.src}
+              alt={shots.website.alt}
+              width={shots.website.width}
+              height={shots.website.height}
+              label="Your free hostel website · live beds & WhatsApp"
+              sizes="(max-width: 820px) calc(100vw - 2rem), 50rem"
+            />
+          </div>
+
           <Box title="In short">
             <P>
               If you run a hostel in Pakistan, by the bed, with a shared mess and meter, and often more than one branch,
