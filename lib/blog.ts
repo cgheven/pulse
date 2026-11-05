@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'labour-accommodation-software-saudi-arabia',
+    title: 'Labour Accommodation Software in Saudi Arabia',
+    heading: 'Labour Accommodation Software in Saudi Arabia',
+    description:
+      'Labour accommodation software for Saudi Arabia: run worker camps by the bed, bill the worker or employer in riyals, with deposits, maintenance and every site in one view.',
+    excerpt:
+      'A practical guide to labour and staff accommodation software for Saudi Arabia: what it does, why a hotel or rental tool does not fit worker camps, the features that matter, how billing the employer works, and how to choose.',
+    category: 'Staff accommodation',
+    primaryKeyword: 'labour accommodation software Saudi Arabia',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A shared-living dashboard showing occupancy, rent collected, outstanding dues and profit for the month',
+      label: 'Dashboard · occupancy, costs & profit',
+    },
+  },
+  {
     slug: 'hostel-management-software-pakistan',
     title: 'Hostel Management Software in Pakistan',
     heading: 'Hostel Management Software in Pakistan: A Practical Guide',
