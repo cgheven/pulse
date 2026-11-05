@@ -22,6 +22,7 @@ export const routes = {
   student: '/student-accommodation-management-software',
   coliving: '/co-living-management-software',
   hostel: '/hostel-management-software',
+  pg: '/pg-management-software',
   hmoBilling: '/hmo-utility-billing-software',
   sharedHousing: '/property-management-software-for-shared-housing',
 } as const

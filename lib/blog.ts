@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rentok-alternative',
+    title: 'RentOk Alternative: PulseHub vs RentOk',
+    heading: 'RentOk Alternative: How PulseHub Compares for PG and Hostel Operators',
+    description:
+      'Looking for a RentOk alternative for your PG or hostel? An honest PulseHub vs RentOk comparison: payments, bed-level billing, food and electricity, markets and pricing.',
+    excerpt:
+      'An honest look at RentOk and how PulseHub compares as an alternative for PG and hostel operators: markets, the mobile-app vs web split, payments and KYC, food and metered electricity billing, and who each one suits.',
+    category: 'Comparisons',
+    primaryKeyword: 'RentOk alternative',
+    datePublished: '2026-11-05',
+    dateModified: '2026-11-05',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/in-payments.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A PG payments screen in rupees showing each resident’s rent and a metered share of electricity, with paid, pending and overdue status',
+      label: 'One bill per resident · rent + metered electricity',
+    },
+  },
+  {
     slug: 'how-to-choose-student-accommodation-management-software',
     title: 'How to Choose Student Accommodation Management Software',
     heading: 'How to Choose Student Accommodation Management Software: A Buyer’s Guide',
