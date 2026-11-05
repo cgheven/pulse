@@ -19,7 +19,7 @@ const PATH = routes.pg
 export const metadata = pageMetadata({
   title: 'PG Management Software',
   description:
-    'PG management software for paying-guest operators in India and Pakistan: rooms and beds, one bill per resident for rent, food and metered electricity, across every PG.',
+    'PG management software for paying-guest operators in India: rooms and beds, one bill per resident for rent, food and metered electricity, kitchen costs and every PG in one view.',
   path: PATH,
 })
 
@@ -58,9 +58,9 @@ const faqs = [
       'Being straight with you: PulseHub records payments and issues receipts, it is not a payment gateway, so it does not auto-debit rent through UPI AutoPay, and it keeps each resident’s ID type, number and document on file rather than running automated Aadhaar e-KYC. Residents pay the way you already collect (cash, bank transfer or wallet), you record it, and automatic WhatsApp reminders chase what is due. If native UPI auto-debit is essential, an India-specific app may suit you better.',
   },
   {
-    question: 'Does it work for PGs in both India and Pakistan?',
+    question: 'Can I move my existing PG data into PulseHub?',
     answer:
-      'Yes. PulseHub adjusts currency, wording and local payment methods to your market, and the resident portal shows your local currency. It runs PGs, hostels and shared housing across India, Pakistan and other markets, which is useful if you operate in more than one.',
+      'Yes. PulseHub has bulk import for residents and rooms, so you can bring an existing PG across rather than typing it in, and export to PDF and spreadsheet whenever you want. Start a free trial to try it with your own data first.',
   },
   {
     question: 'Can I run more than one PG?',
@@ -91,7 +91,7 @@ const jsonLd = {
       operatingSystem: 'Web',
       url: `${SITE_URL}${PATH}`,
       description:
-        'PG management software: rooms and beds, one bill per resident for rent, food and metered electricity, deposits, WhatsApp reminders and portfolio reporting, across India, Pakistan and beyond.',
+        'PG management software: rooms and beds, one bill per resident for rent, food and metered electricity, deposits, WhatsApp reminders and portfolio reporting, for PGs and hostels in India and beyond.',
       publisher: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` },
     },
     {
@@ -182,7 +182,7 @@ export default function PgManagementSoftwarePage() {
         eyebrow="PG Management Software"
         heading="PG Management Software, Built Around the Bed"
         text="Run your paying-guest accommodation from one place: rooms and beds, one monthly bill per resident for rent, food and a metered share of electricity, deposits, WhatsApp reminders and every PG in one view."
-        supporting="For PG and hostel operators in India, Pakistan and beyond."
+        supporting="For PG and hostel operators in India and beyond."
         visual={
           <ProductScreenshot
             src={shots.branches.src}
@@ -329,7 +329,7 @@ export default function PgManagementSoftwarePage() {
             rent, food and metered electricity, kitchen costs, deposits and a view across every PG. It records payments
             and issues receipts; it is not a payment gateway, so it does not auto-debit rent through UPI AutoPay, and it
             keeps each resident’s ID and document rather than running automated Aadhaar e-KYC. It is web-based and
-            works across India, Pakistan and more. If a native app with built-in UPI auto-debit is your main need, an
+            works across India and other markets. If a native app with built-in UPI auto-debit is your main need, an
             India-specific app may suit you better; if deep operations across one or many PGs are, this is built for it.
           </Lead>
         </div>
@@ -364,8 +364,8 @@ export default function PgManagementSoftwarePage() {
             Want the detail first? Read our guide to{' '}
             <A href="/blog/pg-management-software">PG management software in India</A>. For related accommodation, see{' '}
             <A href={routes.hostel}>hostel management software</A> or the wider{' '}
-            <A href={routes.sharedHousing}>shared-housing platform</A>. Operating in a specific market?{' '}
-            <A href={routes.india}>India</A> and <A href={routes.pakistan}>Pakistan</A> have their own pages.
+            <A href={routes.sharedHousing}>shared-housing platform</A>. Operating in India?{' '}
+            <A href={routes.india}>PulseHub for India</A> has a page of its own.
           </p>
         </div>
       </section>

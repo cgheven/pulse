@@ -45,7 +45,7 @@ const faqs = [
   {
     question: 'Is PulseHub a good RentOk alternative?',
     answer:
-      'If you want deeper operations, true bed-level occupancy, one bill per resident for rent, food and a metered share of electricity, kitchen costs, deposits and a view across several PGs, PulseHub fits well, and it runs across India, Pakistan and more. If the one thing you need is native UPI auto-debit on a phone app, an India-specific tool like RentOk may suit you better.',
+      'If you want deeper operations, true bed-level occupancy, one bill per resident for rent, food and a metered share of electricity, kitchen costs, deposits and a view across several PGs, PulseHub fits well, and it is not locked to India alone. If the one thing you need is native UPI auto-debit on a phone app, an India-specific tool like RentOk may suit you better.',
   },
   {
     question: 'Does PulseHub do UPI AutoPay and Aadhaar e-KYC like RentOk?',
@@ -63,9 +63,9 @@ const faqs = [
       'They price differently. RentOk publishes per-tenant pricing (for example a monthly charge per tenant on AutoPay), so your bill scales with tenant count. PulseHub uses per-property plans instead. Which is cheaper depends on how full your PGs are, so compare both against your own numbers, and check each provider’s current pricing.',
   },
   {
-    question: 'Does it work in Pakistan as well as India?',
+    question: 'Can I switch from RentOk to PulseHub without re-entering everything?',
     answer:
-      'Yes. PulseHub adjusts currency, wording and local payment methods to your market, so it runs PGs and hostels in Pakistan (with local wallets) as well as India. India-specific tools built around UPI and Aadhaar do not carry over to Pakistan, which is worth weighing if you operate across both.',
+      'Yes. PulseHub has bulk import for residents and rooms, so you can bring a PG across rather than typing it in, and export to PDF and spreadsheet whenever you want. Start a 14-day free trial to test it with your own data before you commit.',
   },
 ]
 
@@ -156,7 +156,7 @@ const comparisonRows: { dimension: string; rentok: string; pulsehub: string }[] 
   {
     dimension: 'Primary market',
     rentok: 'India, built around Indian PG and rental operators',
-    pulsehub: 'India, Pakistan and more, with currency, wording and payment methods per market',
+    pulsehub: 'India and beyond, adapting currency, wording and payment methods per market',
   },
   {
     dimension: 'Platform',
@@ -268,7 +268,7 @@ export default function RentOkAlternativePost() {
               RentOk is an India-native, mobile-first app for PG, hostel and flat owners, strong on UPI AutoPay and
               Aadhaar e-KYC. PulseHub is a web-based RentOk alternative with deeper operations: true bed-level occupancy,
               one bill per resident for rent, food and a metered share of electricity, kitchen costs and a view across
-              every PG, running in India, Pakistan and more.
+              every PG, running in India and other markets.
             </strong>{' '}
             If native UPI auto-debit on a phone is your one must-have, an India-specific app fits that; if deep
             operations, or more than one market, matter, PulseHub is built for it.
@@ -286,7 +286,7 @@ export default function RentOkAlternativePost() {
               <li>RentOk is India-native and mobile-first, with UPI AutoPay auto-debit and Aadhaar e-KYC built in.</li>
               <li>PulseHub is web-based and goes deeper on operations: bed-level occupancy, rent, food and metered electricity on one bill.</li>
               <li>PulseHub records payments and sends WhatsApp reminders; it does not auto-debit via UPI AutoPay.</li>
-              <li>PulseHub runs across India, Pakistan and more; India-native UPI and Aadhaar features do not carry to Pakistan.</li>
+              <li>PulseHub is not built for India alone; it adapts currency, wording and local payment methods to your market.</li>
               <li>Pricing differs: RentOk per tenant, PulseHub per property, so the cheaper option depends on your occupancy.</li>
             </ul>
           </aside>
@@ -317,8 +317,8 @@ export default function RentOkAlternativePost() {
             package, and a metered share of electricity, with part-payments recorded as installments against a running
             balance. The kitchen’s own costs are tracked so you can see the real cost per resident, deposits are held and
             settled at check-out, and every PG rolls up into one portfolio view. It records payments and chases dues with
-            automatic WhatsApp reminders, with numbered receipts to share; it is web-based and runs across India,
-            Pakistan and other markets.
+            automatic WhatsApp reminders, with numbered receipts to share; it is web-based and runs across India and
+            other markets.
           </P>
 
           <div className="mt-8">
@@ -358,9 +358,9 @@ export default function RentOkAlternativePost() {
               whether the mess pays for itself.
             </li>
             <li>
-              <strong>More than one market.</strong> PulseHub runs PGs and hostels across <A href={routes.india}>India</A>,{' '}
-              <A href={routes.pakistan}>Pakistan</A> and beyond, adapting currency and local payment methods. India-native
-              UPI and Aadhaar features do not carry across borders; PulseHub does.
+              <strong>Not built for India alone.</strong> PulseHub runs PGs and hostels in{' '}
+              <A href={routes.india}>India</A> and other markets, adapting currency and local payment methods, so if you
+              ever operate beyond India, one system comes with you.
             </li>
             <li>
               <strong>Your own listing page.</strong> Rather than only feeding a lead marketplace, each PG gets its own
@@ -377,8 +377,8 @@ export default function RentOkAlternativePost() {
           <H2 id="who-should-pick-which">Who should pick which</H2>
           <P>
             The short version: <strong>PulseHub</strong> is the one to pick if you want bed-level occupancy with rent,
-            food and metered electricity on one bill, kitchen costs tracked, your own listing page, and one system across
-            India, Pakistan or more. RentOk is narrower by design: an India-only, phone-first tool centred on UPI
+            food and metered electricity on one bill, kitchen costs tracked, your own listing page, and one system that
+            is not locked to India alone. RentOk is narrower by design: an India-only, phone-first tool centred on UPI
             auto-debit and Aadhaar, so the more your needs go beyond collecting rent on a phone in India, the more
             PulseHub gives you.
           </P>
@@ -393,9 +393,9 @@ export default function RentOkAlternativePost() {
             <P>
               RentOk and PulseHub both run PGs, but they are built for different operators. RentOk is an India-first,
               phone-first tool centred on UPI auto-debit and Aadhaar. PulseHub is an operations-first, web-based platform
-              that bills rent, food and metered electricity per resident, tracks kitchen costs, and runs across India,
-              Pakistan and more. Match the tool to how you collect rent, how deep your operations go, and the markets you
-              run in, then trial the one that fits.
+              that bills rent, food and metered electricity per resident, tracks kitchen costs, and is not locked to
+              India alone. Match the tool to how you collect rent, how deep your operations go, and the markets you run
+              in, then trial the one that fits.
             </P>
           </Box>
         </div>
