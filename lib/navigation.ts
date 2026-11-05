@@ -21,6 +21,7 @@ export const routes = {
   hmo: '/uk-hmo-management-software',
   student: '/student-accommodation-management-software',
   coliving: '/co-living-management-software',
+  hostel: '/hostel-management-software',
   hmoBilling: '/hmo-utility-billing-software',
   sharedHousing: '/property-management-software-for-shared-housing',
 } as const
@@ -30,6 +31,7 @@ export const solutionLinks = [
   { href: routes.hmo, label: 'HMO Management', menuLabel: 'For HMO Operators' },
   { href: routes.student, label: 'Student Accommodation', menuLabel: 'For Student Accommodation Operators' },
   { href: routes.coliving, label: 'Co-Living Management', menuLabel: 'For Co-living Operators' },
+  { href: routes.hostel, label: 'Hostel Management', menuLabel: 'For Hostel Operators' },
 ] as const
 
 export const primaryNav = [

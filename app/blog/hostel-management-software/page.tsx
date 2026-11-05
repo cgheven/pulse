@@ -548,9 +548,10 @@ export default function HostelManagementSoftwarePost() {
           <H2 id="start">Run your hostel on PulseHub</H2>
           <P>
             Letting beds by the month across more than one hostel outgrows a spreadsheet quickly: occupancy
-            drifts, part-payments get lost, and meal and electricity charges never quite reconcile. PulseHub
-            pulls beds, residents, rent, meals, utilities, occupancy and maintenance into one account, with a
-            view across every hostel. Browse the <A href={routes.features}>platform features</A>, compare plans
+            drifts, part-payments get lost, and meal and electricity charges never quite reconcile.{' '}
+            <A href={routes.hostel}>PulseHub hostel management software</A> pulls beds, residents, rent, meals,
+            utilities, occupancy and maintenance into one account, with a view across every hostel. Browse the{' '}
+            <A href={routes.features}>platform features</A>, compare plans
             on the <A href={routes.pricing}>pricing page</A>, or start a free trial and set up your first hostel
             in minutes.
           </P>
@@ -567,6 +568,8 @@ export default function HostelManagementSoftwarePost() {
       <CtaBand
         heading="Run every hostel from one place."
         text="Start a 14-day free trial with no card, or book a demo to see PulseHub set up around how your hostel actually works."
+        secondaryHref={routes.hostel}
+        secondaryLabel="Hostel management software"
       />
     </SiteShell>
   )
