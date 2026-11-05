@@ -258,7 +258,8 @@ export default function HostelPakistanPost() {
           <P>
             <A href={routes.pakistan}>PulseHub</A> is built for renting by the room and the bed, which is exactly the
             hostel model. It organises each hostel into floors, rooms and beds and keeps occupancy true, and every
-            resident is one record with their CNIC, documents, deposit and history. Each resident gets one monthly bill
+            resident is one record with their CNIC, documents and deposit, plus a full ledger, every charge, payment,
+            deposit and notice from check-in to check-out, in one timeline. Each resident gets one monthly bill
             in rupees that gathers rent, mess where you provide it, and a share of AC electricity worked out
             automatically from the meter reading, plus a geyser charge that applies only through the winter. Part-payments
             are recorded as instalments against a running balance.
