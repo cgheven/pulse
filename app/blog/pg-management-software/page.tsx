@@ -488,9 +488,9 @@ export default function PgManagementSoftwarePost() {
             A single PG on a register is manageable. Add food bills, meter readings, deposits to refund and a
             second or third PG across town, and the arithmetic stops fitting in a notebook. PulseHub holds the
             beds, residents, monthly bills, payments and deposits for every PG in one rupee account, with a
-            single view that compares them. See <A href={routes.india}>PulseHub for India</A>, compare plans on
-            the <A href={routes.pricing}>pricing page</A>, or start a free trial and set up your first PG in
-            minutes.
+            single view that compares them. See the <A href={routes.pg}>PG management software</A> page for the full
+            feature set, <A href={routes.india}>PulseHub for India</A>, compare plans on the{' '}
+            <A href={routes.pricing}>pricing page</A>, or start a free trial and set up your first PG in minutes.
           </P>
           <div className="mt-6">
             <StartTrialButton
@@ -505,6 +505,8 @@ export default function PgManagementSoftwarePost() {
       <CtaBand
         heading="Run your PG from one place."
         text="Start a 14-day free trial with no card, or book a demo to see PulseHub set up for your PG in rupees."
+        secondaryHref={routes.pg}
+        secondaryLabel="PG management software"
       />
     </SiteShell>
   )
