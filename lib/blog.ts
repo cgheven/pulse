@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'student-accommodation-management-software-south-africa',
+    title: 'Student Accommodation Management Software in South Africa',
+    heading: 'Student Accommodation Management Software in South Africa',
+    description:
+      'Student accommodation software for South Africa: run rooms and beds, one bill per resident in rand, NSFAS and other payments recorded, deposits and every residence in one view.',
+    excerpt:
+      'A practical guide to student accommodation management software for South Africa: what it does, why a generic rental tool does not fit private residences, the features that matter (including how NSFAS payments are handled), and how to choose.',
+    category: 'Student accommodation',
+    primaryKeyword: 'student accommodation management software South Africa',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A shared-living dashboard showing occupancy, rent collected, outstanding dues and profit for the month',
+      label: 'Dashboard · occupancy, rent & profit',
+    },
+  },
+  {
     slug: 'hostel-management-software-pakistan',
     title: 'Hostel Management Software in Pakistan',
     heading: 'Hostel Management Software in Pakistan: A Practical Guide',
