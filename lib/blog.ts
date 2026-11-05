@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'hostel-management-software-nepal',
+    title: 'Hostel Management Software in Nepal',
+    heading: 'Hostel Management Software in Nepal',
+    description:
+      'Hostel management software for Nepal: run beds and students, one bill per resident in rupees for rent and meals, mess costs tracked, with every hostel in one view.',
+    excerpt:
+      'A practical guide to hostel management software for Nepal: what it does, why a generic rental tool does not fit a bed-and-mess hostel, the features that matter, and how to choose.',
+    category: 'Hostel management',
+    primaryKeyword: 'hostel management software Nepal',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A shared-living dashboard showing occupancy, rent collected, outstanding dues and profit for the month',
+      label: 'Dashboard · occupancy, rent & profit',
+    },
+  },
+  {
     slug: 'hostel-management-software-pakistan',
     title: 'Hostel Management Software in Pakistan',
     heading: 'Hostel Management Software in Pakistan: A Practical Guide',
