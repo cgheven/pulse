@@ -45,7 +45,7 @@ const faqs = [
   {
     question: 'Does it bill mess and electricity, not just rent?',
     answer:
-      'Yes. Alongside rent you can charge for mess or meals, and meter electricity by AC units and split it between the residents who shared a room, so each resident gets one monthly bill in rupees covering their whole share. The kitchen’s own costs are tracked so you can see the real cost per resident.',
+      'Yes. Alongside rent you can charge for mess or meals, and meter electricity by AC units and split it between the residents who shared a room, so each resident gets one monthly bill in rupees covering their whole share. A geyser charge can be set to apply in winter only, scheduled automatically, and the kitchen’s own costs are tracked so you can see the real cost per resident.',
   },
   {
     question: 'Can residents pay with JazzCash, Easypaisa or SadaPay?',
@@ -55,7 +55,7 @@ const faqs = [
   {
     question: 'Does it help with police guest registration?',
     answer:
-      'Yes, in the provinces it covers. PulseHub can file resident check-ins to the provincial police portal in Punjab, Islamabad and Sindh and re-file nightly, so registration is not a manual job. It is a tool to help you stay registered, not legal advice, and you remain responsible for meeting the rules that apply to your hostel.',
+      'Yes, in the provinces it covers. PulseHub syncs resident check-ins to the Hotel Eye police portal in Punjab, Islamabad and Sindh in one click, and re-files nightly, so registration is not a manual job. It is a tool to help you stay registered, not legal advice, and you remain responsible for meeting the rules that apply to your hostel.',
   },
   {
     question: 'Can I run more than one hostel branch?',
@@ -241,13 +241,16 @@ export default function HostelPakistanPost() {
           <P>Use this as a checklist when you compare tools:</P>
           <UL>
             <li><strong>Bed-level occupancy</strong> that cannot be over-filled, so a four-seater room with three residents reads as three-quarters full.</li>
-            <li><strong>One bill per resident in rupees,</strong> gathering rent, mess and a metered share of AC electricity, with part-payments tracked as instalments.</li>
+            <li><strong>One bill per resident in rupees,</strong> gathering rent, mess and electricity, with part-payments tracked as instalments.</li>
+            <li><strong>AC electricity billed on usage:</strong> enter the meter reading and the charge is worked out and split automatically between the residents who shared the room.</li>
+            <li><strong>Geyser billed for winter only,</strong> scheduled to switch on and off automatically with the season, so no one is charged for it through the summer.</li>
             <li><strong>Local payments recorded,</strong> whether cash, bank transfer or a wallet such as JazzCash, Easypaisa or SadaPay, with a numbered receipt to share on WhatsApp.</li>
             <li><strong>Automatic WhatsApp reminders,</strong> so overdue rent is chased without you doing it by hand.</li>
-            <li><strong>Guest registration</strong> that can file resident check-ins to the provincial police portal, rather than a manual register.</li>
+            <li><strong>One-click Hotel Eye sync</strong> that files resident check-ins straight to the provincial police portal (Punjab, Islamabad and Sindh), with a nightly re-file, rather than a manual register.</li>
             <li><strong>CNIC and documents</strong> held against each resident, with their deposit and full history.</li>
             <li><strong>Mess and kitchen costs</strong> tracked, so you can see the real cost per resident rather than guessing.</li>
             <li><strong>Deposits</strong> held and settled against final dues at check-out.</li>
+            <li><strong>A free website, connected to the software,</strong> that shows your rooms and updates available beds automatically as residents move in and out.</li>
             <li><strong>Every branch in one view,</strong> with occupancy, collections and costs per branch, and warden access scoped to one branch.</li>
           </UL>
 
@@ -256,8 +259,9 @@ export default function HostelPakistanPost() {
             <A href={routes.pakistan}>PulseHub</A> is built for renting by the room and the bed, which is exactly the
             hostel model. It organises each hostel into floors, rooms and beds and keeps occupancy true, and every
             resident is one record with their CNIC, documents, deposit and history. Each resident gets one monthly bill
-            in rupees that gathers rent, mess where you provide it, and a metered share of AC electricity, with
-            part-payments recorded as instalments against a running balance.
+            in rupees that gathers rent, mess where you provide it, and a share of AC electricity worked out
+            automatically from the meter reading, plus a geyser charge that applies only through the winter. Part-payments
+            are recorded as instalments against a running balance.
           </P>
 
           <div className="mt-8">
@@ -274,9 +278,9 @@ export default function HostelPakistanPost() {
           <P>
             On payments, PulseHub records what comes in rather than auto-debiting it: you log a payment however the
             resident sent it, including a wallet like JazzCash, Easypaisa or SadaPay, and a numbered receipt goes out,
-            ready to share on WhatsApp, while automatic reminders chase what is due. On registration, it can file
-            resident check-ins to the provincial police portal in Punjab, Islamabad and Sindh and re-file nightly, so
-            it is handled rather than left to a paper register. That is a tool to help you stay registered, not legal
+            ready to share on WhatsApp, while automatic reminders chase what is due. On registration, a one-click Hotel
+            Eye sync files resident check-ins straight to the provincial police portal in Punjab, Islamabad and Sindh and
+            re-files nightly, so it is handled rather than left to a paper register. That is a tool to help you stay registered, not legal
             advice, and you remain responsible for the rules that apply to your hostel.
           </P>
           <P>
