@@ -5,6 +5,7 @@ import { CtaBand } from '@/components/cta-band'
 import { FaqList } from '@/components/faq-list'
 import { ProductScreenshot } from '@/components/feature-showcase'
 import SiteShell from '@/components/site-shell'
+import { StartTrialButton } from '@/components/tracked-cta'
 import { BLOG_BASE, formatBlogDate, getBlogPost, postPath } from '@/lib/blog'
 import { routes } from '@/lib/navigation'
 import { pakistanScreenshots as shots } from '@/lib/screenshots'
@@ -330,6 +331,14 @@ export default function HostelPakistanPost() {
               with WhatsApp reminders, guest registration, and a single view across every branch.
             </P>
           </Box>
+
+          <div className="mt-8">
+            <StartTrialButton
+              location="other"
+              size="lg"
+              className="min-h-12 whitespace-normal bg-primary px-6 text-base hover:bg-primary/90"
+            />
+          </div>
         </div>
       </article>
 
