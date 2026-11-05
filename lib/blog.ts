@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rooming-house-management-software-australia',
+    title: 'Rooming House Management Software in Australia',
+    heading: 'Rooming House Management Software in Australia',
+    description:
+      'Rooming house software for Australia: run houses room by room, one bill per resident in Australian dollars, bonds, maintenance and every house in one view.',
+    excerpt:
+      'A practical guide to rooming house management software for Australia: what it does, why a standard rental tool does not fit room-by-room letting, the features that matter, and how to choose.',
+    category: 'Shared housing',
+    primaryKeyword: 'rooming house management software Australia',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A shared-living dashboard showing occupancy, rent collected, outstanding dues and profit for the month',
+      label: 'Dashboard · occupancy, rent & profit',
+    },
+  },
+  {
     slug: 'hostel-management-software-pakistan',
     title: 'Hostel Management Software in Pakistan',
     heading: 'Hostel Management Software in Pakistan: A Practical Guide',
