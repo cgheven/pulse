@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'kos-management-software-indonesia',
+    title: 'Kos Management Software in Indonesia',
+    heading: 'Kos Management Software in Indonesia',
+    description:
+      'Kos management software for Indonesia: run a boarding house room by room, one monthly bill in rupiah for rent and electricity, WhatsApp receipts, every kos in one view.',
+    excerpt:
+      'A practical guide to kos management software for Indonesia: what it does, why a generic rental tool does not fit a kos-kosan, the features that matter, from rupiah billing to WhatsApp receipts, and how to choose.',
+    category: 'Hostel management',
+    primaryKeyword: 'kos management software Indonesia',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A shared-living dashboard showing occupancy, rent collected, outstanding dues and profit for the month',
+      label: 'Dashboard · occupancy, rent & profit',
+    },
+  },
+  {
     slug: 'hostel-management-software-pakistan',
     title: 'Hostel Management Software in Pakistan',
     heading: 'Hostel Management Software in Pakistan: A Practical Guide',
