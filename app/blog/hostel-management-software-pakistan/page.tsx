@@ -303,6 +303,25 @@ export default function HostelPakistanPost() {
             />
           </div>
 
+          <P>Setting it up takes a few minutes. This short walkthrough shows how the free website works:</P>
+
+          <figure className="mt-6">
+            <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src="https://www.youtube-nocookie.com/embed/T9O1sI2uXNk"
+                title="How to set up your free hostel website in PulseHub"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+            <figcaption className="mt-3 text-center font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
+              Watch: setting up your free hostel website in Pulse
+            </figcaption>
+          </figure>
+
           <Box title="In short">
             <P>
               If you run a hostel in Pakistan, by the bed, with a shared mess and meter, and often more than one branch,
