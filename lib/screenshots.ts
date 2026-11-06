@@ -408,3 +408,115 @@ export const uaeScreenshots = {
     alt: 'A public PulseHub property listing page showing rooms with photos, monthly rent, available beds, amenities, a message button and a join-waitlist button',
   },
 } as const
+
+/** Real product screenshots from the Nigeria market (naira pricing). */
+export const nigeriaScreenshots = {
+  dashboard: {
+    src: '/screenshots/ng-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Nigeria hostel dashboard showing net profit, rent collected, outstanding dues, electricity units, kitchen costs and staff salaries in naira',
+  },
+  payments: {
+    src: '/screenshots/ng-payments.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Payments screen showing monthly rent collection in naira, with rent and metered electricity charged per resident and paid, unpaid and partial status',
+  },
+  tenants: {
+    src: '/screenshots/ng-tenants.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Residents screen for a Nigerian hostel showing active residents, the waiting list, deposits, notice periods and check-out, with name and phone search',
+  },
+  allProperties: {
+    src: '/screenshots/ng-all-properties.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several Nigerian hostels in naira',
+  },
+} as const
+
+/** Real product screenshots from the Kenya market (shilling pricing). */
+export const kenyaScreenshots = {
+  dashboard: {
+    src: '/screenshots/ke-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Kenya hostel dashboard showing net profit, rent collected, outstanding dues, electricity units, kitchen costs and staff salaries in shillings',
+  },
+  payments: {
+    src: '/screenshots/ke-payments.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Payments screen showing monthly rent collection in Kenyan shillings, with rent and metered electricity charged per resident and paid, unpaid and partial status',
+  },
+  tenants: {
+    src: '/screenshots/ke-tenants.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Residents screen for a Kenyan hostel showing active residents, the waiting list, deposits, notice periods and check-out, with name and phone search',
+  },
+  allProperties: {
+    src: '/screenshots/ke-all-properties.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several Kenyan hostels in shillings',
+  },
+} as const
+
+/** Real product screenshots from the South Africa market (rand pricing). */
+export const southAfricaScreenshots = {
+  dashboard: {
+    src: '/screenshots/za-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub South Africa student accommodation dashboard showing net profit, rent collected, outstanding dues, electricity units, costs and staff salaries in rand',
+  },
+  payments: {
+    src: '/screenshots/za-payments.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Payments screen showing monthly rent collection in rand, with rent and metered electricity charged per resident and paid, unpaid and partial status',
+  },
+  tenants: {
+    src: '/screenshots/za-tenants.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Residents screen for South African student accommodation showing active residents, the waiting list, deposits, notice periods and check-out, with name and phone search',
+  },
+  allProperties: {
+    src: '/screenshots/za-all-properties.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several South African properties in rand',
+  },
+} as const
+
+/** Real product screenshots from the Ireland market (euro pricing). */
+export const irelandScreenshots = {
+  dashboard: {
+    src: '/screenshots/ie-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Ireland student accommodation dashboard showing net profit, rent collected, outstanding dues, electricity units, costs and staff salaries in euro',
+  },
+  payments: {
+    src: '/screenshots/ie-payments.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Payments screen showing monthly rent collection in euro, with rent and metered electricity charged per resident and paid, unpaid and partial status',
+  },
+  tenants: {
+    src: '/screenshots/ie-tenants.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Residents screen for Irish student accommodation showing active residents, the waiting list, deposits, notice periods and check-out, with name and phone search',
+  },
+  allProperties: {
+    src: '/screenshots/ie-all-properties.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several Irish properties in euro',
+  },
+} as const

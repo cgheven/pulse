@@ -28,6 +28,132 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'rooming-house-management-software-australia',
+    title: 'Rooming House Management Software in Australia',
+    heading: 'Rooming House Management Software in Australia',
+    description:
+      'Rooming house software for Australia: run houses room by room, one bill per resident in Australian dollars, bonds, maintenance and every house in one view.',
+    excerpt:
+      'A practical guide to rooming house management software for Australia: what it does, why a standard rental tool does not fit room-by-room letting, the features that matter, and how to choose.',
+    category: 'Shared housing',
+    primaryKeyword: 'rooming house management software Australia',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/us-dashboard.png',
+      width: 3024,
+      height: 1700,
+      alt: 'A rooming house dashboard showing occupancy, rent collected in dollars, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in dollars, occupancy & profit',
+    },
+  },
+  {
+    slug: 'student-accommodation-management-software-south-africa',
+    title: 'Student Accommodation Management Software in South Africa',
+    heading: 'Student Accommodation Management Software in South Africa',
+    description:
+      'Student accommodation software for South Africa: run rooms and beds, one bill per resident in rand, NSFAS and other payments recorded, deposits and every residence in one view.',
+    excerpt:
+      'A practical guide to student accommodation management software for South Africa: what it does, why a generic rental tool does not fit private residences, the features that matter (including how NSFAS payments are handled), and how to choose.',
+    category: 'Student accommodation',
+    primaryKeyword: 'student accommodation management software South Africa',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/za-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A South African student accommodation dashboard showing occupancy, rent collected in rand, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in rand, occupancy & profit',
+    },
+  },
+  {
+    slug: 'student-accommodation-management-software-ireland',
+    title: 'Student Accommodation Management Software in Ireland',
+    heading: 'Student Accommodation Management Software in Ireland',
+    description:
+      'Student accommodation software for Ireland: run rooms and beds, one bill per resident in euro, deposits and arrears, your own page to fill rooms, with no per-bed fees.',
+    excerpt:
+      'A practical guide to student accommodation management software for Ireland: what it does, why a generic rental tool does not fit digs and shared houses, the features that matter for smaller operators, and how to choose.',
+    category: 'Student accommodation',
+    primaryKeyword: 'student accommodation management software Ireland',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/ie-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'An Irish student accommodation dashboard showing occupancy, rent collected in euro, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in euro, occupancy & profit',
+    },
+  },
+  {
+    slug: 'student-housing-management-software-canada',
+    title: 'Student Housing Management Software in Canada',
+    heading: 'Student Housing Management Software in Canada',
+    description:
+      'Student housing software for Canada: run off-campus rooms and beds, one bill per resident in Canadian dollars, deposits and arrears, your own page to fill rooms, every property in one view.',
+    excerpt:
+      'A practical guide to student housing management software for Canada: what it does, why a regular rental tool does not fit off-campus student houses, the features that matter, and how to choose.',
+    category: 'Student accommodation',
+    primaryKeyword: 'student housing management software Canada',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/us-dashboard.png',
+      width: 3024,
+      height: 1700,
+      alt: 'A student housing dashboard showing occupancy, rent collected in dollars, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in dollars, occupancy & profit',
+    },
+  },
+  {
+    slug: 'hostel-management-software-nigeria',
+    title: 'Hostel Management Software in Nigeria',
+    heading: 'Hostel Management Software in Nigeria: A Practical Guide',
+    description:
+      'Hostel management software for Nigeria: run beds, students and rent in naira, with instant receipts, your own page to fill rooms, and every hostel in one view.',
+    excerpt:
+      'A practical guide to hostel management software for Nigeria: what it does, why a generic rental tool does not fit, the features that matter for a Nigerian student hostel, and how to choose one that fills rooms and keeps the money straight.',
+    category: 'Hostel management',
+    primaryKeyword: 'hostel management software Nigeria',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/ng-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A Nigerian hostel dashboard showing occupancy, rent collected in naira, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in naira, occupancy & profit',
+    },
+  },
+  {
+    slug: 'hostel-management-software-kenya',
+    title: 'Hostel Management Software in Kenya',
+    heading: 'Hostel Management Software in Kenya: A Practical Guide',
+    description:
+      'Hostel management software for Kenya: run beds, students and rent in shillings, with instant receipts, mobile-money payments recorded, and every hostel in one view.',
+    excerpt:
+      'A practical guide to hostel management software for Kenya: what it does, why a generic rental tool does not fit, the features that matter for a Kenyan student hostel or bedsitter, and how to choose one that keeps the money straight.',
+    category: 'Hostel management',
+    primaryKeyword: 'hostel management software Kenya',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/ke-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A Kenyan hostel dashboard showing occupancy, rent collected in shillings, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in shillings, occupancy & profit',
+    },
+  },
+  {
     slug: 'hostel-management-software-pakistan',
     title: 'Hostel Management Software in Pakistan',
     heading: 'Hostel Management Software in Pakistan: A Practical Guide',
