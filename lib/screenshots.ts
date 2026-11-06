@@ -520,3 +520,115 @@ export const irelandScreenshots = {
     alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several Irish properties in euro',
   },
 } as const
+
+/** Real product screenshots from the Saudi Arabia market (riyal pricing). */
+export const saudiScreenshots = {
+  dashboard: {
+    src: '/screenshots/sa-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Saudi Arabia labour accommodation dashboard showing net profit, rent collected, outstanding dues, electricity units, costs and staff salaries in riyal',
+  },
+  payments: {
+    src: '/screenshots/sa-payments.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Payments screen showing monthly rent collection in Saudi riyal, with rent and metered electricity charged per resident and paid, unpaid and partial status',
+  },
+  tenants: {
+    src: '/screenshots/sa-tenants.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Residents screen for Saudi labour accommodation showing active residents, the waiting list, deposits, notice periods and check-out, with name and phone search',
+  },
+  allProperties: {
+    src: '/screenshots/sa-all-properties.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several Saudi properties in riyal',
+  },
+} as const
+
+/** Real product screenshots from the Indonesia market (rupiah pricing). */
+export const indonesiaScreenshots = {
+  dashboard: {
+    src: '/screenshots/id-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Indonesia kos dashboard showing net profit, rent collected, outstanding dues, electricity units, kitchen costs and staff salaries in rupiah',
+  },
+  payments: {
+    src: '/screenshots/id-payments.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Payments screen showing monthly rent collection in rupiah, with rent and metered electricity charged per resident and paid, unpaid and partial status',
+  },
+  tenants: {
+    src: '/screenshots/id-tenants.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Residents screen for an Indonesian kos showing active residents, the waiting list, deposits, notice periods and check-out, with name and phone search',
+  },
+  allProperties: {
+    src: '/screenshots/id-all-properties.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several Indonesian kos in rupiah',
+  },
+} as const
+
+/** Real product screenshots from the Nepal market (rupee pricing). */
+export const nepalScreenshots = {
+  dashboard: {
+    src: '/screenshots/np-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Nepal hostel dashboard showing net profit, rent collected, outstanding dues, electricity units, kitchen costs and staff salaries in rupees',
+  },
+  payments: {
+    src: '/screenshots/np-payments.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Payments screen showing monthly rent collection in Nepalese rupees, with rent and metered electricity charged per resident and paid, unpaid and partial status',
+  },
+  tenants: {
+    src: '/screenshots/np-tenants.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Residents screen for a Nepali hostel showing active residents, the waiting list, deposits, notice periods and check-out, with name and phone search',
+  },
+  allProperties: {
+    src: '/screenshots/np-all-properties.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several Nepali hostels in rupees',
+  },
+} as const
+
+/** Real product screenshots from the Ghana market (cedi pricing). */
+export const ghanaScreenshots = {
+  dashboard: {
+    src: '/screenshots/gh-dashboard.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Ghana hostel dashboard showing net profit, rent collected, outstanding dues, electricity units, kitchen costs and staff salaries in cedis',
+  },
+  payments: {
+    src: '/screenshots/gh-payments.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Payments screen showing monthly rent collection in Ghana cedis, with rent and metered electricity charged per resident and paid, unpaid and partial status',
+  },
+  tenants: {
+    src: '/screenshots/gh-tenants.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub Residents screen for a Ghanaian hostel showing active residents, the waiting list, deposits, notice periods and check-out, with name and phone search',
+  },
+  allProperties: {
+    src: '/screenshots/gh-all-properties.png',
+    width: 3024,
+    height: 1650,
+    alt: 'PulseHub All Properties view comparing occupancy, collections, pending dues, deposits, costs and net profit across several Ghanaian hostels in cedis',
+  },
+} as const

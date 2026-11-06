@@ -28,6 +28,90 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'labour-accommodation-software-saudi-arabia',
+    title: 'Labour Accommodation Software in Saudi Arabia',
+    heading: 'Labour Accommodation Software in Saudi Arabia',
+    description:
+      'Labour accommodation software for Saudi Arabia: run worker camps by the bed, bill the worker or employer in riyals, with deposits, maintenance and every site in one view.',
+    excerpt:
+      'A practical guide to labour and staff accommodation software for Saudi Arabia: what it does, why a hotel or rental tool does not fit worker camps, the features that matter, how billing the employer works, and how to choose.',
+    category: 'Staff accommodation',
+    primaryKeyword: 'labour accommodation software Saudi Arabia',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/sa-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A Saudi labour accommodation dashboard showing occupancy, rent collected in riyal, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in riyal, occupancy & profit',
+    },
+  },
+  {
+    slug: 'kos-management-software-indonesia',
+    title: 'Kos Management Software in Indonesia',
+    heading: 'Kos Management Software in Indonesia',
+    description:
+      'Kos management software for Indonesia: run a boarding house room by room, one monthly bill in rupiah for rent and electricity, WhatsApp receipts, every kos in one view.',
+    excerpt:
+      'A practical guide to kos management software for Indonesia: what it does, why a generic rental tool does not fit a kos-kosan, the features that matter, from rupiah billing to WhatsApp receipts, and how to choose.',
+    category: 'Hostel management',
+    primaryKeyword: 'kos management software Indonesia',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/id-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'An Indonesian kos dashboard showing occupancy, rent collected in rupiah, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in rupiah, occupancy & profit',
+    },
+  },
+  {
+    slug: 'hostel-management-software-nepal',
+    title: 'Hostel Management Software in Nepal',
+    heading: 'Hostel Management Software in Nepal',
+    description:
+      'Hostel management software for Nepal: run beds and students, one bill per resident in rupees for rent and meals, mess costs tracked, with every hostel in one view.',
+    excerpt:
+      'A practical guide to hostel management software for Nepal: what it does, why a generic rental tool does not fit a bed-and-mess hostel, the features that matter, and how to choose.',
+    category: 'Hostel management',
+    primaryKeyword: 'hostel management software Nepal',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/np-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A Nepali hostel dashboard showing occupancy, rent collected in rupees, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in rupees, occupancy & profit',
+    },
+  },
+  {
+    slug: 'hostel-management-software-ghana',
+    title: 'Hostel Management Software in Ghana',
+    heading: 'Hostel Management Software in Ghana: A Practical Guide',
+    description:
+      'Hostel management software for Ghana: run beds, students and rent in cedis, with instant receipts, mobile-money payments recorded, and every hostel in one view.',
+    excerpt:
+      'A practical guide to hostel management software for Ghana: what it does, why a generic rental tool does not fit, the features that matter for a Ghanaian student hostel, and how to choose one that fills rooms and keeps the money straight.',
+    category: 'Hostel management',
+    primaryKeyword: 'hostel management software Ghana',
+    datePublished: '2026-11-06',
+    dateModified: '2026-11-06',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/gh-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A Ghanaian hostel dashboard showing occupancy, rent collected in cedis, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in cedis, occupancy & profit',
+    },
+  },
+  {
     slug: 'rooming-house-management-software-australia',
     title: 'Rooming House Management Software in Australia',
     heading: 'Rooming House Management Software in Australia',
