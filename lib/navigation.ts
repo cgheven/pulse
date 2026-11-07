@@ -6,6 +6,7 @@ export const routes = {
   contact: '/contact',
   bookDemo: '/book-demo',
   blog: '/blog',
+  guide: '/guide',
   uk: '/uk',
   us: '/us',
   australia: '/australia',
