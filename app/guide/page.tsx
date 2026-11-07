@@ -255,7 +255,7 @@ export default function GuidePage() {
               alt="The Quick Setup screen shown after first sign-in"
               label="Quick Setup"
               w={1219}
-              h={1440}
+              h={748}
               caption="Quick Setup walks you through the same steps in place. This guide is the longer version of it."
             />
             <Note>
@@ -282,7 +282,7 @@ export default function GuidePage() {
               alt="The Quick Setup screen listing all thirteen setup steps"
               label="Quick Setup"
               w={1219}
-              h={1440}
+              h={748}
               caption="Quick Setup. The last three steps hand you off to Spaces, Residents and Payments, the next three sections of this guide."
             />
 
