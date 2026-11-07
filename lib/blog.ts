@@ -28,6 +28,69 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-run-a-hostel',
+    title: 'How to Run a Hostel: An Operator’s Guide',
+    heading: 'How to Run a Hostel: A Practical Operator’s Guide',
+    description:
+      'How to run a hostel: set up beds, fill them from your own page, bill each resident with part-payments and receipts, and keep every hostel’s money straight in one system.',
+    excerpt:
+      'A practical guide to running a hostel day to day: setting up beds, pricing, filling rooms, admissions, billing and collections, costs, and where management software earns its place (and how it differs from a booking site).',
+    category: 'Hostel management',
+    primaryKeyword: 'how to run a hostel',
+    datePublished: '2026-11-07',
+    dateModified: '2026-11-07',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A hostel dashboard showing occupancy, rent collected, outstanding dues and profit for the month',
+      label: 'Dashboard · occupancy, rent & profit',
+    },
+  },
+  {
+    slug: 'student-accommodation-management-software-australia',
+    title: 'Student Accommodation Management Software in Australia',
+    heading: 'Student Accommodation Management Software in Australia: A Practical Guide',
+    description:
+      'Student accommodation management software for Australia: run rooms, students and rent in dollars, with bonds recorded, your own page to fill rooms, and every property in one view.',
+    excerpt:
+      'A practical guide to student accommodation management software for Australia: what it does, why a generic rental tool does not fit, the features that matter for share houses and student digs, and how to choose.',
+    category: 'Student accommodation',
+    primaryKeyword: 'student accommodation management software Australia',
+    datePublished: '2026-11-07',
+    dateModified: '2026-11-07',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/us-dashboard.png',
+      width: 3024,
+      height: 1700,
+      alt: 'An Australian student accommodation dashboard showing occupancy, rent collected in dollars, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in dollars, occupancy & profit',
+    },
+  },
+  {
+    slug: 'student-housing-management-software',
+    title: 'Student Housing Management Software (US)',
+    heading: 'Student Housing Management Software for Off-Campus Operators',
+    description:
+      'Student housing management software for US off-campus operators: by-the-bed leasing, one bill per resident in dollars, cosigner records, deposits, arrears and every property in one view.',
+    excerpt:
+      'A guide to student housing management software for off-campus operators in the US: by-the-bed leasing, one dollar bill per resident, cosigner records, and how it differs from generic landlord tools and enterprise leasing suites.',
+    category: 'Student accommodation',
+    primaryKeyword: 'student housing management software',
+    datePublished: '2026-11-07',
+    dateModified: '2026-11-07',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/us-dashboard.png',
+      width: 3024,
+      height: 1700,
+      alt: 'A student housing dashboard showing occupancy, rent collected in dollars, outstanding dues and profit for the month',
+      label: 'Dashboard · rent in dollars, occupancy & profit',
+    },
+  },
+  {
     slug: 'labour-accommodation-software-saudi-arabia',
     title: 'Labour Accommodation Software in Saudi Arabia',
     heading: 'Labour Accommodation Software in Saudi Arabia',
@@ -353,7 +416,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Property management',
     primaryKeyword: 'what is a property management system',
     datePublished: '2026-11-02',
-    dateModified: '2026-11-02',
+    dateModified: '2026-11-07',
     readingMinutes: 11,
     image: {
       src: '/screenshots/dashboard.png',
