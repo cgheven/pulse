@@ -171,70 +171,65 @@ export default function GuidePage() {
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
 
-      <div className="mx-auto w-full max-w-6xl px-4 pb-4 pt-24 sm:px-6 sm:pt-28 lg:px-8">
-        <nav aria-label="Breadcrumb" className="font-mono text-xs uppercase tracking-wide text-muted-foreground">
-          <Link href={routes.home} className="hover:text-foreground">
-            {SITE_NAME}
-          </Link>
-          <span className="px-1.5 text-muted-foreground/50">/</span>
-          <span className="text-foreground/80">Setup Guide</span>
-        </nav>
-      </div>
-
-      <div className="mx-auto w-full max-w-6xl px-4 pb-6 sm:px-6 lg:px-8">
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-primary">Getting started</p>
-        <h1 className="max-w-[20ch] text-balance font-display text-[clamp(2rem,5vw,3.25rem)] font-medium leading-[1.06] tracking-tight text-foreground">
-          Setting up your property on PulseHub
-        </h1>
-        <p className="mt-5 max-w-[64ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Follow these ten steps in order the first time you sign in. It takes about an hour for a property of thirty
-          rooms, and most of that is typing in your residents. After setup, jump to whichever section you need.
-        </p>
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <StartTrialButton
-            location="hero"
-            size="lg"
-            className="min-h-12 whitespace-normal bg-primary px-6 text-base hover:bg-primary/90"
-          />
-          <a
-            href={SIGN_IN_URL}
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Already have an account? <span className="text-primary">Sign in</span>
-          </a>
-        </div>
-        <p className="mt-4 font-mono text-xs uppercase tracking-wide text-muted-foreground">
-          14-day free trial · no card required
-        </p>
-      </div>
-
-      <div className="mx-auto w-full max-w-6xl items-start gap-12 px-4 pb-8 sm:px-6 lg:grid lg:grid-cols-[220px_1fr] lg:px-8">
-        <nav className="sticky top-24 hidden flex-col gap-0.5 text-sm lg:flex" aria-label="On this page">
-          <p className="mb-2.5 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">On this page</p>
-          {TOC.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-2.5 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <nav className="-mx-1 mb-6 flex gap-1.5 overflow-x-auto px-1 pb-2 lg:hidden" aria-label="On this page">
-          {TOC.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="shrink-0 whitespace-nowrap rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+      <div className="mx-auto w-full max-w-6xl items-start gap-12 px-4 pb-8 pt-24 sm:px-6 sm:pt-28 lg:grid lg:grid-cols-[220px_1fr] lg:px-8">
+        <aside className="hidden lg:sticky lg:top-24 lg:block lg:self-start" aria-label="On this page">
+          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">On this page</p>
+          <nav className="flex flex-col gap-0.5 border-l border-border text-sm">
+            {TOC.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="-ml-px border-l border-transparent px-3 py-1.5 text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </aside>
 
         <div className="min-w-0">
+          <nav aria-label="Breadcrumb" className="mb-4 font-mono text-xs uppercase tracking-wide text-muted-foreground">
+            <Link href={routes.home} className="hover:text-foreground">
+              {SITE_NAME}
+            </Link>
+            <span className="px-1.5 text-muted-foreground/50">/</span>
+            <span className="text-foreground/80">Setup Guide</span>
+          </nav>
+
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-primary">Getting started</p>
+          <h1 className="max-w-[18ch] text-balance font-display text-[clamp(2rem,4.6vw,3.25rem)] font-medium leading-[1.06] tracking-tight text-foreground">
+            Setting up your property on PulseHub
+          </h1>
+          <p className="mt-5 max-w-[60ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Follow these ten steps in order the first time you sign in. It takes about an hour for a property of thirty
+            rooms, and most of that is typing in your residents. After setup, jump to whichever section you need.
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <StartTrialButton
+              location="hero"
+              size="lg"
+              className="min-h-12 whitespace-normal bg-primary px-6 text-base hover:bg-primary/90"
+            />
+            <a href={SIGN_IN_URL} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+              Already have an account? <span className="text-primary">Sign in</span>
+            </a>
+          </div>
+          <p className="mt-4 font-mono text-xs uppercase tracking-wide text-muted-foreground">
+            14-day free trial · no card required
+          </p>
+
+          <nav className="-mx-1 mt-8 flex gap-1.5 overflow-x-auto px-1 pb-2 lg:hidden" aria-label="On this page">
+            {TOC.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="shrink-0 whitespace-nowrap rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
           <Section
             id="start"
             eyebrow="Before you start"
