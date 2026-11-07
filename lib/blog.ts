@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'coho-alternative',
+    title: 'COHO Alternative: PulseHub vs COHO',
+    heading: 'COHO Alternative: How PulseHub Compares for HMO and Co-Living',
+    description:
+      'Looking for a COHO alternative for HMO and co-living? An honest PulseHub vs COHO comparison: markets, bed-level billing, utilities, compliance and pricing.',
+    excerpt:
+      'An honest look at COHO and how PulseHub compares as an alternative for HMO and co-living operators: markets covered, room and bed-level billing, utilities, compliance and pricing, plus who each one suits.',
+    category: 'Comparisons',
+    primaryKeyword: 'COHO alternative',
+    datePublished: '2026-11-04',
+    dateModified: '2026-11-04',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/payments.png',
+      width: 3024,
+      height: 1570,
+      alt: 'A per-resident bill showing room rent plus a metered share of the electricity bill for the month',
+      label: 'One bill per resident · rent + metered utilities',
+    },
+  },
+  {
     slug: 'best-dormitory-bedspace-software-philippines',
     title: 'Best Dormitory & Bedspace Management Software in the Philippines',
     heading: 'Best Dormitory and Bedspace Management Software in the Philippines (2026)',
