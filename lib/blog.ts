@@ -70,6 +70,48 @@ export const blogPosts: BlogPost[] = [
     },
   },
   {
+    slug: 'room-rental-management-software',
+    title: 'Room Rental Management Software',
+    heading: 'Room Rental Management Software for Letting by the Room',
+    description:
+      'Room rental management software lets a property by the room, not the whole unit: one bill per resident, room and bed occupancy, deposits, arrears and a public page to fill rooms. PulseHub records payments, it is not a payment gateway.',
+    excerpt:
+      'Letting by the room breaks ordinary landlord software, which assumes one tenant, one unit, one rent. What room rental software does, the features that matter, and the honest line on what it does with the money.',
+    category: 'Shared housing',
+    primaryKeyword: 'room rental management software',
+    datePublished: '2026-11-07',
+    dateModified: '2026-11-07',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A room rental dashboard showing occupancy by room and bed, rent collected and outstanding balances across a portfolio',
+      label: 'Dashboard · occupancy, rent & arrears',
+    },
+  },
+  {
+    slug: 'split-utility-bills-shared-house',
+    title: 'How to Split Utility Bills in a Shared House',
+    heading: 'How to Split Utility Bills in a Shared House',
+    description:
+      'How to split utility bills fairly in a shared house: metered electricity by reading and by each resident’s dates, fixed costs like broadband split evenly, and how software puts each share on one clear bill.',
+    excerpt:
+      'Split metered electricity by a reading and by each resident’s dates, split fixed costs evenly, and make every share traceable. How to handle mid-period move-ins and the honest line on what the software does with the money.',
+    category: 'Shared housing',
+    primaryKeyword: 'how to split utility bills shared house',
+    datePublished: '2026-11-07',
+    dateModified: '2026-11-07',
+    readingMinutes: 7,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A shared-house dashboard showing rent and split utility charges per resident across the property',
+      label: 'Dashboard · rent & split utilities',
+    },
+  },
+  {
     slug: 'how-to-run-a-hostel',
     title: 'How to Run a Hostel: An Operator’s Guide',
     heading: 'How to Run a Hostel: A Practical Operator’s Guide',
