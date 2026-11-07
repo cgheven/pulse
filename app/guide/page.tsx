@@ -3,10 +3,9 @@ import Link from 'next/link'
 import SiteShell from '@/components/site-shell'
 import { CtaBand } from '@/components/cta-band'
 import { ProductScreenshot } from '@/components/feature-showcase'
-import { StartTrialButton } from '@/components/tracked-cta'
 import { jsonLdScript, pageMetadata } from '@/lib/seo'
 import { routes } from '@/lib/navigation'
-import { SITE_NAME, SITE_URL, SIGN_IN_URL, SIGN_UP_URL } from '@/lib/site'
+import { SITE_NAME, SITE_URL, SIGN_UP_URL } from '@/lib/site'
 
 export const metadata = pageMetadata({
   title: 'PulseHub Setup Guide: Get Your Property Running in About an Hour',
@@ -203,19 +202,6 @@ export default function GuidePage() {
           <p className="mt-5 max-w-[60ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
             Follow these ten steps in order the first time you sign in. It takes about an hour for a property of thirty
             rooms, and most of that is typing in your residents. After setup, jump to whichever section you need.
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <StartTrialButton
-              location="hero"
-              size="lg"
-              className="min-h-12 whitespace-normal bg-primary px-6 text-base hover:bg-primary/90"
-            />
-            <a href={SIGN_IN_URL} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-              Already have an account? <span className="text-primary">Sign in</span>
-            </a>
-          </div>
-          <p className="mt-4 font-mono text-xs uppercase tracking-wide text-muted-foreground">
-            14-day free trial · no card required
           </p>
 
           <nav className="-mx-1 mt-8 flex gap-1.5 overflow-x-auto px-1 pb-2 lg:hidden" aria-label="On this page">
