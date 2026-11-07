@@ -263,10 +263,10 @@ export default function GuidePage() {
               </p>
             </Step>
             <Shot
-              src="/guide/01-signup.png"
-              alt="The PulseHub sign-up page"
-              label="Sign up"
-              caption="Signing up. Pick the country the property is in: it decides your currency and labels."
+              src="/guide/01-dashboard.png"
+              alt="The PulseHub dashboard you land on after signing in, with the trial banner and a Quick Setup link in the sidebar"
+              label="Dashboard"
+              caption="After you sign in you land on the Dashboard. Quick Setup sits at the top of the sidebar, and the banner across the top counts down your free trial."
               priority
             />
             <Shot
