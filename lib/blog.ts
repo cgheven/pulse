@@ -28,6 +28,48 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'student-accommodation-rent-collection',
+    title: 'Student Accommodation Rent Collection Software',
+    heading: 'Rent Collection and Arrears for Student Accommodation',
+    description:
+      'How rent collection works in student accommodation: one bill per resident, part-payments and receipts, arrears visible per bed, and reminders sent automatically. PulseHub records and chases rent, it is not a payment gateway.',
+    excerpt:
+      'Student rent is collected by the bed, not by the flat: a bill per resident, paid in parts and at different times. How by-the-bed collection, arrears chasing and guarantor records should work, and the honest line on what the software does with the money.',
+    category: 'Student accommodation',
+    primaryKeyword: 'student accommodation rent collection',
+    datePublished: '2026-11-07',
+    dateModified: '2026-11-07',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A student accommodation dashboard showing rent collected, outstanding balances and arrears across the portfolio in pounds',
+      label: 'Dashboard · rent collected & arrears',
+    },
+  },
+  {
+    slug: 'pbsa-management-software',
+    title: 'PBSA Management Software for Independent Operators',
+    heading: 'PBSA Management Software for Independent and Mid-Sized Operators',
+    description:
+      'PBSA management software for independent and mid-sized operators: room and bed occupancy, one bill per resident, deposits, guarantor records, maintenance and portfolio reporting, without the per-bed cost of enterprise platforms.',
+    excerpt:
+      'The enterprise PBSA platforms are built, and priced, for large towers with their own booking engines. A guide for the independent operator who wants that control without the weight, and an honest account of where PulseHub fits.',
+    category: 'Student accommodation',
+    primaryKeyword: 'PBSA management software',
+    datePublished: '2026-11-07',
+    dateModified: '2026-11-07',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A purpose-built student accommodation dashboard showing occupancy, rent collected and net position across a scheme in pounds',
+      label: 'Dashboard · occupancy, rent & performance',
+    },
+  },
+  {
     slug: 'how-to-run-a-hostel',
     title: 'How to Run a Hostel: An Operator’s Guide',
     heading: 'How to Run a Hostel: A Practical Operator’s Guide',

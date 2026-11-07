@@ -546,13 +546,24 @@ export default function StudentPage() {
 
       {/* Related + FAQ */}
       <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-5xl space-y-5">
           <p className="text-base leading-relaxed text-muted-foreground">
             Related: <A href={routes.uk}>PulseHub for UK operators</A>, <A href={routes.hmo}>HMO management software</A>,{' '}
             <A href={routes.coliving}>co-living management software</A>, the broader{' '}
             <A href={routes.sharedHousing}>property management software for shared housing</A>, or explore{' '}
-            <A href={routes.features}>the full platform</A>. New to running accommodation on software? Read our guide to{' '}
-            <A href="/blog/student-accommodation-management">student accommodation management</A>.
+            <A href={routes.features}>the full platform</A>.
+          </p>
+          <p className="text-base leading-relaxed text-muted-foreground">
+            By region: <A href="/blog/student-accommodation-management-software-australia">Australia</A>,{' '}
+            <A href="/blog/student-housing-management-software">the United States</A>,{' '}
+            <A href="/blog/student-housing-management-software-canada">Canada</A>,{' '}
+            <A href="/blog/student-accommodation-management-software-ireland">Ireland</A>, and{' '}
+            <A href="/blog/student-accommodation-management-software-south-africa">South Africa</A>.
+          </p>
+          <p className="text-base leading-relaxed text-muted-foreground">
+            New to running accommodation on software? Read our guide to{' '}
+            <A href="/blog/student-accommodation-management">student accommodation management</A>, or compare your
+            options with <A href="/blog/how-to-choose-student-accommodation-management-software">how to choose student accommodation management software</A>.
           </p>
         </div>
       </section>
