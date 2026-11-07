@@ -52,6 +52,11 @@ const faqs = [
       'In practice the terms are used interchangeably. "Property management system" tends to be used in hospitality and "property management software" in real estate, but both describe the same thing: one system that centralises bookings or admissions, billing, occupancy, maintenance and reporting for a property.',
   },
   {
+    question: 'Does "PMS system" mean the same as a property management system?',
+    answer:
+      'Yes. "PMS system" simply repeats the word "system", since PMS already stands for property management system. People search it both ways, but they mean the same thing: one system that centralises occupancy, billing, payments, maintenance and reporting for a property, whether that is a hotel, a block of flats or a shared-living house.',
+  },
+  {
     question: 'What are the three main kinds of property management system?',
     answer:
       'Hotel PMS, built around nightly stays, a front desk and distribution to booking channels; real-estate or rental PMS, built around whole-unit leases with one tenant and one rent; and room-level or shared-living PMS, built for properties where people rent a bed and pay monthly, such as co-living, student housing, hostels and HMOs.',
