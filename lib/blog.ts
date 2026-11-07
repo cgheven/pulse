@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'best-dormitory-bedspace-software-philippines',
+    title: 'Best Dormitory & Bedspace Management Software in the Philippines',
+    heading: 'Best Dormitory and Bedspace Management Software in the Philippines (2026)',
+    description:
+      'An honest comparison of dormitory and bedspace management software in the Philippines: PulseHub, Collo, Smapey, Cloudbeds, eZee, Mangobeds and BedBooking, grouped by monthly bed-level vs nightly OTA, with prices where public.',
+    excerpt:
+      'The market splits in two: monthly bed-level tools (PulseHub, Collo, Smapey) and nightly OTA hotel systems (Cloudbeds, eZee, Mangobeds, BedBooking). An honest, evidence-based comparison with prices, and where PulseHub fits.',
+    category: 'Comparisons',
+    primaryKeyword: 'dormitory management software philippines',
+    datePublished: '2026-11-07',
+    dateModified: '2026-11-07',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/ph-dashboard.png',
+      width: 3024,
+      height: 1600,
+      alt: 'A Philippine dormitory and bedspace management dashboard showing occupancy, rent collected and outstanding dues in pesos',
+      label: 'PulseHub · dormitory dashboard in pesos',
+    },
+  },
+  {
     slug: 'how-to-run-a-hostel',
     title: 'How to Run a Hostel: An Operator’s Guide',
     heading: 'How to Run a Hostel: A Practical Operator’s Guide',
