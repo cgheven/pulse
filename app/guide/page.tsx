@@ -540,7 +540,7 @@ export default function GuidePage() {
             dek="Only if you bill electricity by meter. Skip this section entirely if your rent is all-inclusive."
           >
             <Shot
-              src="/guide/12-electricity.png"
+              src="/guide/12-electricity-v2.png"
               alt="The Electricity Billing tab with meter readings per room"
               label="Electricity billing"
             />
@@ -664,13 +664,19 @@ export default function GuidePage() {
           </Section>
 
           <Section id="reports" eyebrow="9. Overview" title="Reports" dek="Where the month adds up.">
-            <Shot src="/guide/16-reports.png" alt="The Reports page" label="Reports" />
+            <Shot src="/guide/16-reports-v2.png" alt="The Reports page" label="Reports" />
             <Card title="Reports">
               <p>
                 Income against expenses, what is still outstanding, and the reconciliation that ties collected rent back
                 to the account each payment landed in. Exportable to Excel and PDF.
               </p>
             </Card>
+            <Shot
+              src="/guide/19-reconciliation.png"
+              alt="The Reports reconciliation tab, with payment totals per account and a transaction list"
+              label="Reconciliation"
+              caption="Reconciliation groups every payment by the account it landed in and lists each transaction with its receipt number, so your totals tie back to each bank statement."
+            />
             <Card title="All Properties">
               <p>
                 Every site side by side, with occupancy, collection and profit, when you run more than one. The switcher
