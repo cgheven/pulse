@@ -28,6 +28,90 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'bedspace-management-software-dubai',
+    title: 'Bedspace Management Software for Dubai & the UAE',
+    heading: 'Bedspace and Partition Room Management Software for Dubai and the UAE',
+    description:
+      'Software for bedspace and partition-room operators in Dubai and the UAE: track beds and occupancy, record rent and deposits in dirhams, send WhatsApp receipts and reminders, and fill rooms from your own listing page.',
+    excerpt:
+      'Run bedspace and partition rooms in Dubai and the UAE from one place: bed-level occupancy, rent and deposits in dirhams, WhatsApp receipts and reminders, split utility bills and a public listing page to fill empty beds.',
+    category: 'Accommodation management',
+    primaryKeyword: 'bedspace management software dubai',
+    datePublished: '2026-11-08',
+    dateModified: '2026-11-08',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/ae-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A PulseHub UAE dashboard showing occupancy, rent collected and outstanding dues in dirhams for a bedspace operation',
+      label: 'PulseHub · UAE dashboard in dirhams',
+    },
+  },
+  {
+    slug: 'hostel-mess-management-software-bangladesh',
+    title: 'Hostel & Mess Management Software in Bangladesh',
+    heading: 'Hostel and Mess Management Software for Bangladesh',
+    description:
+      'Manage hostels, messes and student accommodation in Bangladesh: track beds and occupancy, collect monthly rent and mess bills, split shared costs fairly, send WhatsApp reminders and keep one clear balance per resident.',
+    excerpt:
+      'Run hostels and messes in Bangladesh from one place: bed-level occupancy, monthly rent and mess billing, a fair split of shared costs, WhatsApp receipts and reminders, and one running balance per resident.',
+    category: 'Hostel management',
+    primaryKeyword: 'hostel management software bangladesh',
+    datePublished: '2026-11-08',
+    dateModified: '2026-11-08',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub hostel and mess dashboard showing occupancy, rent collected, outstanding dues and kitchen costs for the month',
+      label: 'PulseHub · hostel and mess dashboard',
+    },
+  },
+  {
+    slug: 'spacebasic-alternative',
+    title: 'SpaceBasic Alternative: PulseHub vs SpaceBasic',
+    heading: 'SpaceBasic Alternative: PulseHub for PG, Hostel and Co-Living Operators',
+    description:
+      'Looking for a SpaceBasic alternative? An honest PulseHub vs SpaceBasic comparison for commercial PG, hostel and co-living operators: billing, occupancy, metered utilities, markets and pricing.',
+    excerpt:
+      'SpaceBasic is built for university and college hostels. PulseHub is built for commercial PG, hostel and co-living operators. An honest comparison of what each is for: billing, occupancy, utilities, markets and pricing.',
+    category: 'Comparisons',
+    primaryKeyword: 'SpaceBasic alternative',
+    datePublished: '2026-11-08',
+    dateModified: '2026-11-08',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/in-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A PulseHub PG and hostel dashboard showing net profit, rent collected and outstanding dues in rupees',
+      label: 'PulseHub · PG & hostel dashboard in rupees',
+    },
+  },
+  {
+    slug: 'august-hmo-software-alternative',
+    title: 'August Alternative: PulseHub vs August for HMOs',
+    heading: 'August Alternative: How PulseHub Compares for HMO and Shared Housing',
+    description:
+      'Looking for an August alternative for HMOs? An honest PulseHub vs August comparison: bed-level billing, shared utilities, England compliance, markets and where each one fits.',
+    excerpt:
+      'August is a UK HMO and landlord app built around bank-feed rent and Making Tax Digital. PulseHub is a multi-market operator platform built around one bill per resident. An honest look at where each one fits.',
+    category: 'Comparisons',
+    primaryKeyword: 'August alternative',
+    datePublished: '2026-11-08',
+    dateModified: '2026-11-08',
+    readingMinutes: 9,
+    image: {
+      src: '/screenshots/payments.png',
+      width: 3024,
+      height: 1570,
+      alt: 'A PulseHub per-resident bill showing room rent plus a metered share of electricity for the month',
+      label: 'One bill per resident · rent + metered electricity',
+    },
+  },
+  {
     slug: 'coho-alternative',
     title: 'COHO Alternative: PulseHub vs COHO',
     heading: 'COHO Alternative: How PulseHub Compares for HMO and Co-Living',
