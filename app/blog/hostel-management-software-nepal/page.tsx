@@ -140,18 +140,21 @@ export default function HostelNepalPost() {
         <div className="mx-auto mt-10 max-w-[50rem]">
           <P>
             <strong>
-              Hostel management software for Nepal runs a hostel from one place: a record for every student, true
-              occupancy down to the bed, one bill per resident in rupees for rent and meals, the payments against it, your
-              own public page to fill rooms, and every hostel in one view.
+              Hostel management software for Nepal runs a hostel where rent and a shared mess sit on one bill: it records
+              each payment, cash, bank or a wallet like eSewa or Khalti, against the right bed in rupees, tracks the mess
+              so you see the real cost per resident, and sends an instant receipt.
             </strong>{' '}
-            It is built for how Nepali hostels actually run, by the bed with a shared mess, not the whole-flat model a
+            Around that it covers bed-level occupancy, deposits, a public page to fill rooms and every hostel in one
+            view, built for how Nepali hostels actually run, by the bed with a shared mess, not the whole-flat model a
             generic rental tool assumes.
           </P>
           <P>
-            If you run a student or working hostel in Kathmandu, Lalitpur, Pokhara or Bharatpur, a register and a rent
-            book stop coping once you pass a few rooms. Rent comes in parts, the mess has to be accounted for, and at the
-            start of a session everyone needs a bed at once. This guide covers what the software does, why a generic tool
-            does not fit, the features that matter here, and how to choose.
+            Whether you run a student or working hostel in Kathmandu, Lalitpur, Pokhara or Bharatpur, the session starts
+            with everyone needing a bed at once, the mess has to be accounted for every month, and rent arrives in parts.
+            A register and a rent book stop coping past a few rooms. PulseHub records the eSewa, Khalti, bank or cash
+            payment and issues the receipt; it is not a gateway, so the money still moves through your own account. This
+            guide covers what the software does, why a generic rental tool does not fit a Nepali hostel, and how to
+            choose.
           </P>
 
           <aside className="mt-10 rounded-2xl border border-border bg-muted/40 p-6 sm:p-8">

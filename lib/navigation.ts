@@ -34,6 +34,8 @@ export const solutionLinks = [
   { href: routes.student, label: 'Student Accommodation', menuLabel: 'For Student Accommodation Operators' },
   { href: routes.coliving, label: 'Co-Living Management', menuLabel: 'For Co-living Operators' },
   { href: routes.hostel, label: 'Hostel Management', menuLabel: 'For Hostel Operators' },
+  { href: routes.pg, label: 'PG Management', menuLabel: 'For PG & Paying-Guest Operators' },
+  { href: routes.hmoBilling, label: 'Utility Billing', menuLabel: 'HMO Bills & Utility Splitting' },
 ] as const
 
 export const primaryNav = [

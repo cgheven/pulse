@@ -140,18 +140,21 @@ export default function HostelKenyaPost() {
         <div className="mx-auto mt-10 max-w-[50rem]">
           <P>
             <strong>
-              Hostel management software for Kenya runs a student hostel from one place: a record for every student,
-              true occupancy down to the bed, one bill per resident in shillings, the payments and deposits against it,
-              your own public page to fill rooms, and every hostel in one view.
+              Hostel management software for Kenya keeps a hostel straight when rent lands as a dozen M-Pesa messages a
+              day: it records every payment against the right bed in shillings, sends the student an instant receipt, and
+              shows you at a glance who still owes this month.
             </strong>{' '}
-            It is built for how private hostels and bedsitters near Kenyan campuses actually run, by the bed, not the
-            whole-unit model a generic rental tool assumes.
+            Around that it runs the whole operation, bed-level occupancy, deposits, a public page to fill rooms and every
+            hostel in one view, built for how bedsitters and private hostels near Kenyan campuses actually let space, by
+            the bed, not the whole unit a generic rental tool assumes.
           </P>
           <P>
-            If you run a hostel near a university or college, in Nairobi, Juja, Eldoret, Nakuru or elsewhere, a register
-            and a rent book stop coping once you pass a few rooms. Rent trickles in by mobile money in parts, students
-            want receipts, and at the start of a semester everyone needs a bed at once. This guide covers what the
-            software does, why a generic tool does not fit, the features that matter here, and how to choose.
+            Near Juja, Nairobi, Eldoret or Nakuru, a hostel fills the week lectures start and empties at the end of the
+            semester, so an empty bed is months of lost rent. Payments trickle in by M-Pesa in parts, each one needs a
+            receipt, and a register and a rent book stop coping past a few rooms. PulseHub records the M-Pesa or bank
+            payment and issues the receipt; it is not a gateway, so the money still moves through your own till. This
+            guide covers what the software does, why a generic rental tool does not fit a Kenyan hostel, and how to
+            choose.
           </P>
 
           <aside className="mt-10 rounded-2xl border border-border bg-muted/40 p-6 sm:p-8">

@@ -140,12 +140,14 @@ export default function HostelNigeriaPost() {
         <div className="mx-auto mt-10 max-w-[50rem]">
           <P>
             <strong>
-              Hostel management software for Nigeria runs a student hostel from one place: a record for every student,
-              true occupancy down to the bed, one bill per resident in naira, the payments and deposits against it, your
-              own public page to fill rooms, and every hostel in one view.
+              Hostel management software for Nigeria runs a student hostel without the agent in the middle: it gives each
+              hostel its own public page so students find you directly, records every rent payment, bank transfer, POS or
+              cash, against the right bed in naira, and sends an instant receipt, so there is a clear trail and fewer rent
+              scams.
             </strong>{' '}
-            It is built for how private hostels near Nigerian campuses actually run, by the bed, not the whole-flat model
-            a generic rental tool assumes.
+            Around that it covers bed-level occupancy, deposits and every hostel in one view, built for how private
+            hostels near Nigerian campuses actually let space, by the bed, not the whole-flat model a generic rental tool
+            assumes.
           </P>
           <P>
             If you run a hostel near a university or polytechnic, in Lagos, Abuja, Ibadan, Nsukka or anywhere else, a

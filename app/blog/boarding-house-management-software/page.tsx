@@ -519,6 +519,8 @@ export default function BoardingHouseManagementSoftwarePost() {
       <CtaBand
         heading="Run every boarding house, and its kitchen, from one place."
         text="Start a 14-day free trial with no card required, or book a demo to see PulseHub set up for a boarding house that includes board."
+        secondaryHref={routes.sharedHousing}
+        secondaryLabel="Shared housing software"
       />
     </SiteShell>
   )

@@ -283,7 +283,8 @@ export default function BestDormitoryBedspacePhPost() {
             cost or complexity of a hotel PMS. It is a fraction of the price of the quote-based nightly systems, competitive
             with the local tools, and it works across markets. It will not collect GCash or Maya for you, and it is not a
             booking channel; what it does is run the monthly operation and keep the money straight. Start with{' '}
-            <A href={routes.philippines}>PulseHub for the Philippines</A>, or read the{' '}
+            <A href={routes.philippines}>PulseHub for the Philippines</A> or{' '}
+            <A href={routes.hostel}>hostel management software</A>, or read the{' '}
             <A href="/blog/dormitory-bedspace-management-software">dormitory and bedspace operator guide</A> and{' '}
             <A href="/blog/what-is-a-property-management-system">what a property management system is</A>.
           </P>

@@ -511,6 +511,8 @@ export default function DormitoryBedspaceManagementSoftwarePost() {
       <CtaBand
         heading="Run your dormitory branches from one platform."
         text="Start a 14-day free trial with no card required, or book a demo to see PulseHub set up for your dormitory or bedspace operation."
+        secondaryHref={routes.hostel}
+        secondaryLabel="Hostel management software"
       />
     </SiteShell>
   )

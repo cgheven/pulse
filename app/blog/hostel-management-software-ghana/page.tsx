@@ -140,18 +140,20 @@ export default function HostelGhanaPost() {
         <div className="mx-auto mt-10 max-w-[50rem]">
           <P>
             <strong>
-              Hostel management software for Ghana runs a student hostel from one place: a record for every student,
-              true occupancy down to the bed, one bill per resident in cedis, the payments and deposits against it, your
-              own public page to fill rooms, and every hostel in one view.
+              Hostel management software for Ghana runs a hostel when rent arrives in bits by MTN MoMo and the hall fills
+              the week before lectures: it records each mobile-money payment against the right bed in cedis, sends an
+              instant receipt, and keeps one running balance per student so nothing slips.
             </strong>{' '}
-            It is built for how private hostels near Ghanaian campuses actually run, by the bed, not the whole-unit model
-            a generic rental tool assumes.
+            Around that it covers the whole operation, bed-level occupancy, deposits, a public page to fill rooms and
+            every hostel in one view, built for how private hostels near Ghanaian campuses actually let space, by the
+            bed, not the whole unit a generic rental tool assumes.
           </P>
           <P>
-            If you run a hostel near a university, in Accra, Kumasi, Legon, Cape Coast or Tamale, a register and a rent
-            book stop coping once you pass a few rooms. Rent comes in parts by mobile money, students want receipts, and
-            at the start of a semester everyone needs a bed at once. This guide covers what the software does, why a
-            generic tool does not fit, the features that matter here, and how to choose.
+            Near Legon, KNUST in Kumasi, Cape Coast or Tamale, demand spikes at the start of each semester and a bed left
+            empty is lost income for months. Rent comes in parts by MTN MoMo or a bank transfer, students want a receipt
+            for each, and a register cannot keep up past a few rooms. PulseHub records the mobile-money or bank payment
+            and issues the receipt; it is not a gateway, so the money moves through your own MoMo or bank account. This
+            guide covers what the software does, why a generic tool does not fit, and how to choose.
           </P>
 
           <aside className="mt-10 rounded-2xl border border-border bg-muted/40 p-6 sm:p-8">
