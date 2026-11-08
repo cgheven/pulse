@@ -270,12 +270,12 @@ export default function GuidePage() {
               you go, so you can stop halfway and come back.
             </p>
             <Shot
-              src="/guide/02-quick-setup.png"
-              alt="The Quick Setup screen listing all thirteen setup steps"
+              src="/guide/02-setup-steps.png"
+              alt="The Quick Setup screen with its three required steps: property details, pricing and payment methods"
               label="Quick Setup"
               w={1219}
-              h={748}
-              caption="Quick Setup. The last three steps hand you off to Spaces, Residents and Payments, the next three sections of this guide."
+              h={590}
+              caption="The three required steps sit at the top: property details, pricing and payment methods. Everything below them is optional."
             />
 
             <Card title="Step 1 — Property details (required)">
