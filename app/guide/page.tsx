@@ -250,14 +250,6 @@ export default function GuidePage() {
               caption="After you sign in you land on the Dashboard. Quick Setup sits at the top of the sidebar, and the banner across the top counts down your free trial."
               priority
             />
-            <Shot
-              src="/guide/02-quick-setup.png"
-              alt="The Quick Setup screen shown after first sign-in"
-              label="Quick Setup"
-              w={1219}
-              h={748}
-              caption="Quick Setup walks you through the same steps in place. This guide is the longer version of it."
-            />
             <Note>
               <strong>Your trial:</strong> 14 days with everything switched on. The banner across the top counts down.
               Nothing is charged until you choose a plan, and nothing is deleted when the trial ends. The account turns
