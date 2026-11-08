@@ -415,9 +415,11 @@ export default function GuidePage() {
             dek="Quick Setup step 12. The tabs across the middle are Active, Waiting, Checked Out, Applications and Vehicles."
           >
             <Shot
-              src="/guide/08-residents.png"
+              src="/guide/08-tenants.png"
               alt="The Residents page with its tabs and filters"
               label="Residents"
+              w={3024}
+              h={1582}
               caption="Residents. The tab counts tell you how many are in each state."
             />
             <Card title="Three ways to get people in">
