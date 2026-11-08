@@ -333,15 +333,36 @@ export default function GuidePage() {
             </Note>
 
             <Card title="The optional steps">
-              <p>
-                <strong>Billing date</strong> bills everyone on one fixed day of the month, with mid-month joiners
-                prorated, instead of each person paying on their own join date. <strong>Terms &amp; conditions</strong>{' '}
-                are your house rules; every applicant must accept them before they can apply. <strong>WiFi password</strong>,{' '}
-                <strong>meal timings</strong> and your <strong>7-day menu</strong> all go out in the welcome email a new
-                resident gets automatically. <strong>Referral rewards</strong> pay residents who bring a friend.{' '}
-                <strong>Your web address</strong> claims a free public page for the property with live availability.
-              </p>
-              <p>
+              <dl className="divide-y divide-border">
+                {[
+                  {
+                    term: 'Billing date',
+                    desc: 'Bill everyone on one fixed day each month, with mid-month joiners prorated, instead of each person paying on their own join date.',
+                  },
+                  {
+                    term: 'Terms & conditions',
+                    desc: 'Your house rules. Every applicant must accept them before they can apply.',
+                  },
+                  {
+                    term: 'Welcome email',
+                    desc: 'Your WiFi password, meal timings and 7-day menu, sent automatically to every new resident.',
+                  },
+                  { term: 'Referral rewards', desc: 'Reward residents who bring a friend.' },
+                  {
+                    term: 'Your web address',
+                    desc: 'A free public page for the property, with live availability.',
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.term}
+                    className="grid gap-1 py-3 first:pt-0 last:pb-0 sm:grid-cols-[168px_1fr] sm:gap-5"
+                  >
+                    <dt className="font-medium text-foreground">{item.term}</dt>
+                    <dd>{item.desc}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="pt-1">
                 Skip all of them on day one if you like. Nothing downstream depends on them, and the progress bar is a
                 checklist, not a gate.
               </p>
