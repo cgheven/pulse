@@ -452,7 +452,13 @@ export default function GuidePage() {
                 ]}
               />
             </Card>
-            <Shot src="/guide/09-add-resident.png" alt="The Add Resident dialog" label="Add resident" />
+            <Shot
+              src="/guide/09-add-resident-v2.png"
+              alt="The Add Resident dialog"
+              label="Add resident"
+              w={1440}
+              h={835}
+            />
 
             <Card title="Joining mid-month">
               <p>
