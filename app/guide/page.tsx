@@ -337,11 +337,11 @@ export default function GuidePage() {
                 {[
                   {
                     term: 'Billing date',
-                    desc: 'Bill everyone on one fixed day each month, with mid-month joiners prorated, instead of each person paying on their own join date.',
+                    desc: 'Leave it off and each resident bills monthly from their own join date (join the 25th, next bill the 25th). Set a fixed day and everyone bills on that day instead, with mid-month joiners prorated up to it.',
                   },
                   {
                     term: 'Terms & conditions',
-                    desc: 'Your house rules. Every applicant must accept them before they can apply.',
+                    desc: 'Add your own house rules, or use the defaults. Applicants accept them before they can apply.',
                   },
                   {
                     term: 'Welcome email',
