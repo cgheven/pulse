@@ -23,6 +23,7 @@ const paths = [
   routes.contact,
   routes.bookDemo,
   routes.blog,
+  routes.guide,
   routes.us,
   routes.uk,
   routes.australia,
