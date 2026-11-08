@@ -7,7 +7,7 @@ import { ProductScreenshot } from '@/components/feature-showcase'
 import SiteShell from '@/components/site-shell'
 import { BLOG_BASE, formatBlogDate, getBlogPost, postPath } from '@/lib/blog'
 import { routes } from '@/lib/navigation'
-import { screenshots } from '@/lib/screenshots'
+import { bangladeshScreenshots } from '@/lib/screenshots'
 import { jsonLdScript, pageMetadata } from '@/lib/seo'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
 
@@ -241,11 +241,11 @@ export default function HostelMessBangladeshPost() {
 
           <div className="mt-8">
             <ProductScreenshot
-              src={screenshots.payments.src}
-              alt="PulseHub Payments screen showing each resident's rent and a metered share of electricity on one monthly bill, with paid and pending status"
-              width={screenshots.payments.width}
-              height={screenshots.payments.height}
-              label="One bill per resident · rent + metered electricity"
+              src={bangladeshScreenshots.payments.src}
+              alt="PulseHub Payments screen for a Bangladesh hostel showing each resident's monthly rent in taka, with paid and pending status and WhatsApp receipts"
+              width={bangladeshScreenshots.payments.width}
+              height={bangladeshScreenshots.payments.height}
+              label="Monthly rent collection in taka · WhatsApp receipts"
               sizes="(max-width: 820px) calc(100vw - 2rem), 50rem"
             />
           </div>
@@ -283,11 +283,11 @@ export default function HostelMessBangladeshPost() {
 
           <div className="mt-8">
             <ProductScreenshot
-              src={screenshots.residents.src}
-              alt="PulseHub Residents screen showing active residents, the waiting list, deposits held and notice periods, with name and phone search"
-              width={screenshots.residents.width}
-              height={screenshots.residents.height}
-              label="Residents, waiting list and deposits in one place"
+              src={bangladeshScreenshots.residents.src}
+              alt="PulseHub Residents screen for a Bangladesh hostel showing active residents, the waiting list, available beds and deposits in taka, with name and phone search"
+              width={bangladeshScreenshots.residents.width}
+              height={bangladeshScreenshots.residents.height}
+              label="Residents, waiting list and available beds"
               sizes="(max-width: 820px) calc(100vw - 2rem), 50rem"
             />
           </div>

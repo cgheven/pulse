@@ -62,11 +62,11 @@ export const blogPosts: BlogPost[] = [
     dateModified: '2026-11-08',
     readingMinutes: 8,
     image: {
-      src: '/screenshots/dashboard.png',
-      width: 3020,
-      height: 1612,
-      alt: 'A PulseHub hostel and mess dashboard showing occupancy, rent collected, outstanding dues and kitchen costs for the month',
-      label: 'PulseHub · hostel and mess dashboard',
+      src: '/screenshots/bd-dashboard.png',
+      width: 2880,
+      height: 1800,
+      alt: 'A PulseHub hostel dashboard for a Bangladesh property showing occupancy, rent collected and outstanding dues in taka',
+      label: 'PulseHub · hostel dashboard in taka',
     },
   },
   {
