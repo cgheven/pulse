@@ -28,6 +28,48 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'bedspace-management-software-dubai',
+    title: 'Bedspace Management Software for Dubai & the UAE',
+    heading: 'Bedspace and Partition Room Management Software for Dubai and the UAE',
+    description:
+      'Software for bedspace and partition-room operators in Dubai and the UAE: track beds and occupancy, record rent and deposits in dirhams, send WhatsApp receipts and reminders, and fill rooms from your own listing page.',
+    excerpt:
+      'Run bedspace and partition rooms in Dubai and the UAE from one place: bed-level occupancy, rent and deposits in dirhams, WhatsApp receipts and reminders, split utility bills and a public listing page to fill empty beds.',
+    category: 'Accommodation management',
+    primaryKeyword: 'bedspace management software dubai',
+    datePublished: '2026-11-08',
+    dateModified: '2026-11-08',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/ae-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A PulseHub UAE dashboard showing occupancy, rent collected and outstanding dues in dirhams for a bedspace operation',
+      label: 'PulseHub · UAE dashboard in dirhams',
+    },
+  },
+  {
+    slug: 'hostel-mess-management-software-bangladesh',
+    title: 'Hostel & Mess Management Software in Bangladesh',
+    heading: 'Hostel and Mess Management Software for Bangladesh',
+    description:
+      'Manage hostels, messes and student accommodation in Bangladesh: track beds and occupancy, collect monthly rent and mess bills, split shared costs fairly, send WhatsApp reminders and keep one clear balance per resident.',
+    excerpt:
+      'Run hostels and messes in Bangladesh from one place: bed-level occupancy, monthly rent and mess billing, a fair split of shared costs, WhatsApp receipts and reminders, and one running balance per resident.',
+    category: 'Hostel management',
+    primaryKeyword: 'hostel management software bangladesh',
+    datePublished: '2026-11-08',
+    dateModified: '2026-11-08',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/bd-dashboard.png',
+      width: 2880,
+      height: 1800,
+      alt: 'A PulseHub hostel dashboard for a Bangladesh property showing occupancy, rent collected and outstanding dues in taka',
+      label: 'PulseHub · hostel dashboard in taka',
+    },
+  },
+  {
     slug: 'coho-alternative',
     title: 'COHO Alternative: PulseHub vs COHO',
     heading: 'COHO Alternative: How PulseHub Compares for HMO and Co-Living',

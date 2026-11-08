@@ -409,6 +409,28 @@ export const uaeScreenshots = {
   },
 } as const
 
+/** Real product screenshots from the Bangladesh market (taka pricing). */
+export const bangladeshScreenshots = {
+  dashboard: {
+    src: '/screenshots/bd-dashboard.png',
+    width: 2880,
+    height: 1800,
+    alt: 'PulseHub hostel dashboard for a Bangladesh property showing net profit, rent collected, outstanding dues and kitchen costs in taka',
+  },
+  payments: {
+    src: '/screenshots/bd-payments.png',
+    width: 2880,
+    height: 1800,
+    alt: 'PulseHub Payments screen showing monthly rent collection in taka, with rent per resident and paid, pending and electricity status, plus WhatsApp receipts',
+  },
+  residents: {
+    src: '/screenshots/bd-residents.png',
+    width: 2880,
+    height: 1800,
+    alt: 'PulseHub Residents screen showing active residents, the waiting list, available beds, deposits in taka and notice periods, with name and phone search',
+  },
+} as const
+
 /** Real product screenshots from the Nigeria market (naira pricing). */
 export const nigeriaScreenshots = {
   dashboard: {
