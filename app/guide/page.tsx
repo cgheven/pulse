@@ -165,6 +165,19 @@ function Note({ children }: { children: ReactNode }) {
   )
 }
 
+function DefList({ items }: { items: { id: string; term: ReactNode; desc: ReactNode }[] }) {
+  return (
+    <dl className="divide-y divide-border">
+      {items.map((item) => (
+        <div key={item.id} className="grid gap-1 py-3 first:pt-0 last:pb-0 sm:grid-cols-[168px_1fr] sm:gap-5">
+          <dt className="font-medium text-foreground">{item.term}</dt>
+          <dd>{item.desc}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
+
 export default function GuidePage() {
   return (
     <SiteShell>
@@ -333,35 +346,31 @@ export default function GuidePage() {
             </Note>
 
             <Card title="The optional steps">
-              <dl className="divide-y divide-border">
-                {[
+              <DefList
+                items={[
                   {
+                    id: 'billing-date',
                     term: 'Billing date',
                     desc: 'Leave it off and each resident bills monthly from their own join date (join the 25th, next bill the 25th). Set a fixed day and everyone bills on that day instead, with mid-month joiners prorated up to it.',
                   },
                   {
+                    id: 'terms',
                     term: 'Terms & conditions',
                     desc: 'Add your own house rules, or use the defaults. Applicants accept them before they can apply.',
                   },
                   {
+                    id: 'welcome-email',
                     term: 'Welcome email',
                     desc: 'Your WiFi password, meal timings and 7-day menu, sent automatically to every new resident.',
                   },
-                  { term: 'Referral rewards', desc: 'Reward residents who bring a friend.' },
+                  { id: 'referral', term: 'Referral rewards', desc: 'Reward residents who bring a friend.' },
                   {
+                    id: 'web-address',
                     term: 'Your web address',
                     desc: 'A free public page for the property, with live availability.',
                   },
-                ].map((item) => (
-                  <div
-                    key={item.term}
-                    className="grid gap-1 py-3 first:pt-0 last:pb-0 sm:grid-cols-[168px_1fr] sm:gap-5"
-                  >
-                    <dt className="font-medium text-foreground">{item.term}</dt>
-                    <dd>{item.desc}</dd>
-                  </div>
-                ))}
-              </dl>
+                ]}
+              />
               <p className="pt-1">
                 Skip all of them on day one if you like. Nothing downstream depends on them, and the progress bar is a
                 checklist, not a gate.
@@ -423,17 +432,25 @@ export default function GuidePage() {
               caption="Residents. The tab counts tell you how many are in each state."
             />
             <Card title="Three ways to get people in">
-              <p>
-                <strong>Add Resident</strong> types somebody in directly. Name, contact, room, package and join date;
-                rent and deposit fill themselves in from your pricing.
-              </p>
-              <p>
-                <strong>Share Application Form</strong> sends your public link. People apply themselves and land in the
-                Applications tab for you to approve.
-              </p>
-              <p>
-                <strong>Import Excel</strong> is the fastest route when you are moving an existing property onto PulseHub.
-              </p>
+              <DefList
+                items={[
+                  {
+                    id: 'add-resident',
+                    term: 'Add Resident',
+                    desc: 'Type somebody in directly: name, contact, room, package and join date. Rent and deposit fill in from your pricing.',
+                  },
+                  {
+                    id: 'share-form',
+                    term: 'Share Application Form',
+                    desc: 'Send your public link. People apply themselves and land in the Applications tab for you to approve.',
+                  },
+                  {
+                    id: 'import-excel',
+                    term: 'Import Excel',
+                    desc: 'The fastest route when you are moving an existing property onto PulseHub.',
+                  },
+                ]}
+              />
             </Card>
             <Shot src="/guide/09-add-resident.png" alt="The Add Resident dialog" label="Add resident" />
 
@@ -446,11 +463,20 @@ export default function GuidePage() {
             </Card>
 
             <Card title="When someone is leaving">
-              <p>
-                <Kbd>Give Notice</Kbd> records the date they intend to go, and PulseHub holds them to the notice period
-                from your settings. <Kbd>Check Out</Kbd> is the actual move-out: take the final meter reading, settle the
-                balance, go through the room condition checklist, and the room frees up.
-              </p>
+              <DefList
+                items={[
+                  {
+                    id: 'give-notice',
+                    term: <Kbd>Give Notice</Kbd>,
+                    desc: 'Records the date they intend to go; PulseHub holds them to the notice period from your settings.',
+                  },
+                  {
+                    id: 'check-out',
+                    term: <Kbd>Check Out</Kbd>,
+                    desc: 'The actual move-out: take the final meter reading, settle the balance, go through the room condition checklist, and the room frees up.',
+                  },
+                ]}
+              />
             </Card>
           </Section>
 
@@ -467,11 +493,18 @@ export default function GuidePage() {
               caption="Payments. The arrows beside the month move you between months; the tiles above are that month's totals."
             />
             <Card title="The four tabs">
-              <p>
-                <strong>Monthly View</strong> is this month&apos;s rows. <strong>Due Today</strong> is who is due right
-                now. <strong>All History</strong> is every payment ever taken. <strong>Electricity Billing</strong> is
-                meter readings, covered in the next section.
-              </p>
+              <DefList
+                items={[
+                  { id: 'monthly-view', term: 'Monthly View', desc: "This month's rows." },
+                  { id: 'due-today', term: 'Due Today', desc: 'Who is due right now.' },
+                  { id: 'all-history', term: 'All History', desc: 'Every payment ever taken.' },
+                  {
+                    id: 'electricity-billing',
+                    term: 'Electricity Billing',
+                    desc: 'Meter readings, covered in the next section.',
+                  },
+                ]}
+              />
             </Card>
             <Card title="Taking a payment">
               <p>
@@ -587,12 +620,19 @@ export default function GuidePage() {
             <Shot src="/guide/15-leave-qr.png" alt="The resident leave QR dialog" label="Leave QR" />
 
             <Card title="Money out">
-              <p>
-                <strong>Expenses</strong> are one-off costs like repairs and cleaning. <strong>Bills</strong> are
-                recurring utilities with due dates, which can repeat monthly on their own. <strong>Kitchen</strong> is
-                grocery spending. <strong>Food List</strong> is the menu you are serving. All four feed the profit figure
-                in your reports.
-              </p>
+              <DefList
+                items={[
+                  { id: 'expenses', term: 'Expenses', desc: 'One-off costs like repairs and cleaning.' },
+                  {
+                    id: 'bills',
+                    term: 'Bills',
+                    desc: 'Recurring utilities with due dates, which can repeat monthly on their own.',
+                  },
+                  { id: 'kitchen', term: 'Kitchen', desc: 'Grocery spending.' },
+                  { id: 'food-list', term: 'Food List', desc: 'The menu you are serving.' },
+                ]}
+              />
+              <p className="pt-1">All four feed the profit figure in your reports.</p>
             </Card>
             <Card title="Announcements">
               <p>Your notice board. Post something once and every resident sees it.</p>
