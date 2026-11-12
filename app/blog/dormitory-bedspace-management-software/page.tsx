@@ -269,6 +269,9 @@ export default function DormitoryBedspaceManagementSoftwarePost() {
                 <A href={postPath(hostelPost.slug)}>hostel management software</A> guide looks at it from there.{' '}
               </>
             ) : null}
+            In the Gulf, letting by the bed is how most workers are housed; our{' '}
+            <A href={postPath('bedspace-management-software-dubai')}>bedspace management software in Dubai</A>{' '}
+            guide looks at that market.
           </P>
 
           <H2 id="two-calendars">Two calendars under one roof</H2>

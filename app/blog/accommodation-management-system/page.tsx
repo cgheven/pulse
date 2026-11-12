@@ -303,8 +303,8 @@ export default function AccommodationManagementSystemPost() {
             different names: a house in multiple occupation (HMO) in the UK, a paying guest (PG) accommodation
             or hostel in India, a{' '}
             <A href={postPath('dormitory-bedspace-management-software')}>dormitory or bedspace</A> in the
-            Philippines, a rooming house or shared housing in the
-            United States, and a boarding house in many other
+            Philippines or <A href={postPath('bedspace-management-software-dubai')}>Dubai</A>, a rooming house
+            or shared housing in the United States, and a boarding house in many other
             markets. Some of these carry local licensing rules, the UK HMO among them, but the underlying
             operations are the same wherever you are, which is why one system can serve all of them. For the wider
             category this sits in, see <A href="/blog/what-is-a-property-management-system">what a property management
@@ -328,7 +328,9 @@ export default function AccommodationManagementSystemPost() {
             <li>
               <strong>Hostels, boarding houses, dormitories and PG accommodation</strong> with longer-stay
               residents rather than nightly tourists. See our guide to{' '}
-              <A href={postPath('hostel-management-software')}>hostel management software</A>.
+              <A href={postPath('hostel-management-software')}>hostel management software</A>, or{' '}
+              <A href={postPath('hostel-mess-management-software-bangladesh')}>hostel mess management software</A>{' '}
+              where meals are included.
             </li>
             <li>
               <strong>Co-living operators</strong> running{' '}

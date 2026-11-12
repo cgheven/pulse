@@ -362,7 +362,9 @@ export default function HostelManagementSoftwarePost() {
             The product follows the local market. PulseHub has regional versions, for example for{' '}
             <A href={routes.india}>India</A>, the <A href={routes.philippines}>Philippines</A>,{' '}
             <A href={routes.pakistan}>Pakistan</A> and the <A href={routes.uk}>UK</A>, each with pricing in the
-            local currency and the payment methods operators there actually use.
+            local currency and the payment methods operators there actually use. Where the hostel runs a mess,
+            our <A href={postPath('hostel-mess-management-software-bangladesh')}>hostel mess management software in
+            Bangladesh</A> guide shows how meal charges sit on the monthly rent.
           </P>
 
           <H2 id="features">Essential features of hostel management software</H2>
