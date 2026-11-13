@@ -77,17 +77,17 @@ function tiered(code: RegionCode, label: string, currency: string, symbol: strin
  * Annual is always monthly x 10 (two months free), so only the monthly figure is stored.
  */
 export const regions: Region[] = [
-  tiered('gb', 'United Kingdom', 'GBP', '£', 79, 149, 249),
-  tiered('ie', 'Ireland', 'EUR', '€', 79, 149, 249),
-  tiered('au', 'Australia', 'AUD', 'A$', 99, 179, 299),
-  tiered('ca', 'Canada', 'CAD', 'C$', 79, 149, 249),
-  tiered('nz', 'New Zealand', 'NZD', 'NZ$', 99, 189, 299),
-  tiered('sg', 'Singapore', 'SGD', 'S$', 99, 199, 329),
-  tiered('my', 'Malaysia', 'MYR', 'RM', 149, 299, 499),
-  tiered('ae', 'United Arab Emirates', 'AED', 'AED ', 299, 599, 999),
-  tiered('sa', 'Saudi Arabia', 'SAR', 'SAR ', 399, 799, 1499),
+  tiered('gb', 'United Kingdom', 'GBP', '£', 25, 49, 79),
+  tiered('ie', 'Ireland', 'EUR', '€', 29, 55, 89),
+  tiered('au', 'Australia', 'AUD', 'A$', 49, 95, 159),
+  tiered('ca', 'Canada', 'CAD', 'C$', 45, 85, 139),
+  tiered('nz', 'New Zealand', 'NZD', 'NZ$', 55, 99, 169),
+  tiered('sg', 'Singapore', 'SGD', 'S$', 45, 85, 139),
+  tiered('my', 'Malaysia', 'MYR', 'RM', 129, 249, 419),
+  tiered('ae', 'United Arab Emirates', 'AED', 'AED ', 119, 229, 379),
+  tiered('sa', 'Saudi Arabia', 'SAR', 'SAR ', 119, 229, 379),
   tiered('in', 'India', 'INR', '₹', 3999, 7999, 14999),
-  tiered('za', 'South Africa', 'ZAR', 'R', 799, 1499, 2499),
+  tiered('za', 'South Africa', 'ZAR', 'R', 549, 999, 1699),
   tiered('bd', 'Bangladesh', 'USD', '$', 29, 49, 79),
   tiered('np', 'Nepal', 'USD', '$', 29, 49, 79),
   tiered('ph', 'Philippines', 'USD', '$', 29, 49, 79),
@@ -113,7 +113,7 @@ export const regions: Region[] = [
       },
     ],
   },
-  tiered('default', 'Other countries', 'USD', '$', 79, 149, 249),
+  tiered('default', 'Other countries', 'USD', '$', 35, 65, 109),
 ]
 
 export const DEFAULT_REGION_CODE: RegionCode = 'gb'
