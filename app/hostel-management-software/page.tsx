@@ -17,9 +17,9 @@ import { SITE_NAME, SITE_URL } from '@/lib/site'
 const PATH = routes.hostel
 
 export const metadata = pageMetadata({
-  title: 'Hostel Management Software',
+  title: 'Hostel Management Software for Dorm Beds & Rooms',
   description:
-    'Hostel management software to run dorm beds and private rooms by the night or the month: one bill per guest, direct bookings, housekeeping and every hostel in one view.',
+    'Hostel management software for dorm beds and private rooms, let by the night or the month: one bill per guest, direct bookings and every hostel in one view.',
   path: PATH,
 })
 
@@ -66,6 +66,16 @@ const faqs = [
     question: 'Does it handle more than one hostel?',
     answer:
       'Yes. Switch between hostels on one login, move a guest or a bed between them, and see every hostel together in a portfolio view with occupancy, revenue and costs side by side. A manager can be given access to just their own hostel.',
+  },
+  {
+    question: 'What features should hostel management software have?',
+    answer:
+      'Look for the things a hostel actually needs: bed-level occupancy for dorms and private rooms rather than whole units, billing by the night or the month, one bill per guest for the stay and extras, deposits held and settled at check-out, direct bookings from your own page, housekeeping and maintenance tracking, and a portfolio view across hostels. PulseHub covers all of these. The one thing it is not is an OTA channel manager, so it takes direct bookings rather than syncing inventory to Hostelworld or Booking.com.',
+  },
+  {
+    question: 'How much does hostel management software cost?',
+    answer:
+      'PulseHub uses property-based plans rather than per-bed pricing, so your cost depends on how many hostels you run rather than how many beds you have. Every feature on this page is included on every plan, and there is a 14-day free trial with no card required. See the plans above for current pricing in your local currency.',
   },
   {
     question: 'Is there a free trial?',
