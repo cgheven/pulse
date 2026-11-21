@@ -16,6 +16,8 @@ const nextConfig = {
       { source: '/privacy', destination: `${APP_ORIGIN}/privacy`, permanent: true },
       { source: '/privacy.html', destination: `${APP_ORIGIN}/privacy`, permanent: true },
       { source: '/terms', destination: `${APP_ORIGIN}/terms`, permanent: true },
+      { source: '/refund', destination: `${APP_ORIGIN}/refund`, permanent: true },
+      { source: '/refund.html', destination: `${APP_ORIGIN}/refund`, permanent: true },
       // Old static home + pricing URLs now consolidated on the current pages.
       { source: '/index.html', destination: '/', permanent: true },
       { source: '/pro', destination: '/pricing', permanent: true },
