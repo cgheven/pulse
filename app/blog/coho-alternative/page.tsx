@@ -380,11 +380,10 @@ export default function CohoAlternativePost() {
             organised, not legal advice.
           </P>
 
-          <H2 id="how-to-judge">How to judge a COHO alternative</H2>
+          <H2 id="what-to-check">What to check in a COHO alternative</H2>
           <P>
-            PulseHub will not be the only tool you look at, and you should shortlist a few before you decide. However
-            you compare them, judge each one on the same handful of questions rather than the length of its feature
-            list:
+            The decision usually comes down to the same handful of questions rather than the length of a feature list.
+            These are the ones that tend to matter, and where PulseHub is built to say yes:
           </P>
           <UL>
             <li>Does it bill a <strong>room and a bed</strong>, and can it split a shared utility bill, or only track whole-unit rent?</li>
@@ -394,17 +393,21 @@ export default function CohoAlternativePost() {
             <li>Does the <strong>pricing model</strong> suit your room counts, not just the headline number?</li>
           </UL>
 
-          <H2 id="who-should-pick-which">Who should pick which</H2>
+          <H2 id="why-operators-switch">Why operators switch to PulseHub</H2>
           <P>
-            The short version: <strong>PulseHub</strong> is the one to pick if you want to bill rent, metered utilities
-            and meals on one per-resident bill, run across more than one market, let by the bed or the night, or manage
-            hostels, PG and worker housing alongside HMOs, while still tracking England HMO compliance. COHO is narrower
-            by design, built for UK-only, room-level lettings, so the further your operation goes beyond that, the more
-            PulseHub gives you.
+            Operators move to PulseHub when a room-rent tracker stops keeping up with how they actually run the
+            building. The usual tipping points:
           </P>
+          <UL>
+            <li><strong>Shared bills are eating your evenings.</strong> You are splitting an electricity bill between residents by hand. PulseHub meters it and puts each resident&rsquo;s share on their own monthly bill automatically.</li>
+            <li><strong>You have grown past plain room rent.</strong> Beds, meals, deposits, part-payments and recurring charges all belong on one running balance per resident, not scattered across tools and spreadsheets.</li>
+            <li><strong>Your portfolio crosses a border, or might.</strong> You want one system that works in more than one market, with local currency and terminology, instead of a UK-only tool.</li>
+            <li><strong>You run more than classic HMOs.</strong> Hostels, PG, student halls and worker housing are all modelled the same way, by the room, bed or night, in one account.</li>
+          </UL>
           <P>
-            If you are leaning PulseHub, the quickest way to be sure is to see it on your own property type:{' '}
-            <A href={routes.hmo}>HMO management</A>, <A href={routes.coliving}>co-living management</A>,{' '}
+            You keep what matters on the way over: England HMO compliance tracking, bulk import so you are not re-keying
+            a portfolio, and export whenever you want. The quickest way to be sure is to see it on your own property
+            type: <A href={routes.hmo}>HMO management</A>, <A href={routes.coliving}>co-living management</A>,{' '}
             <A href={routes.student}>student accommodation</A>, or the wider{' '}
             <A href={routes.sharedHousing}>shared-housing</A> overview. New to the category? Start with{' '}
             <A href="/blog/what-is-a-property-management-system">what a property management system is</A>.

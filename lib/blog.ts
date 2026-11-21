@@ -80,7 +80,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Comparisons',
     primaryKeyword: 'COHO alternative',
     datePublished: '2026-11-04',
-    dateModified: '2026-11-04',
+    dateModified: '2026-11-21',
     readingMinutes: 9,
     image: {
       src: '/screenshots/payments.png',
