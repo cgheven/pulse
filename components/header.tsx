@@ -6,14 +6,17 @@ import { useState } from 'react'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import { SignInButton, StartTrialButton } from '@/components/tracked-cta'
 import { primaryNav, solutionLinks } from '@/lib/navigation'
+import { OTHER_PRODUCTS } from '@/lib/site'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [solutionsOpen, setSolutionsOpen] = useState(false)
+  const [productsOpen, setProductsOpen] = useState(false)
 
   function close() {
     setIsOpen(false)
     setSolutionsOpen(false)
+    setProductsOpen(false)
   }
 
   return (
@@ -84,6 +87,45 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
+            <div className="relative">
+              <button
+                type="button"
+                className="inline-flex items-center gap-1 rounded-sm text-sm font-medium text-foreground/70 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                aria-expanded={productsOpen}
+                aria-controls="products-menu"
+                onClick={() => setProductsOpen((open) => !open)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.parentElement?.contains(event.relatedTarget as Node)) {
+                    setProductsOpen(false)
+                  }
+                }}
+              >
+                More Products
+                <ChevronDown className={`h-4 w-4 transition-transform ${productsOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
+              </button>
+              {productsOpen && (
+                <div
+                  id="products-menu"
+                  className="absolute right-0 top-full z-50 mt-2 w-72 rounded-xl border border-border bg-card p-2 shadow-lg"
+                >
+                  <p className="px-3 pb-2 pt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                    More from Pulse
+                  </p>
+                  {OTHER_PRODUCTS.map((product) => (
+                    <a
+                      key={product.url}
+                      href={product.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block rounded-lg px-3 py-2 text-sm font-medium text-foreground hover:bg-muted focus-visible:bg-muted focus-visible:outline-none"
+                      onClick={close}
+                    >
+                      {product.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
@@ -135,6 +177,12 @@ export default function Header() {
               <Link key={item.href} href={item.href} onClick={close} className="block min-h-11 py-2 text-sm font-medium text-foreground/80">
                 {item.label}
               </Link>
+            ))}
+            <p className="pt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">More from Pulse</p>
+            {OTHER_PRODUCTS.map((product) => (
+              <a key={product.url} href={product.url} target="_blank" rel="noopener noreferrer" onClick={close} className="block min-h-11 py-2 text-[15px] font-medium text-foreground/80">
+                {product.name}
+              </a>
             ))}
             <div className="flex flex-col gap-2 pt-3">
               <SignInButton

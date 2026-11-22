@@ -29,6 +29,15 @@ export const YOUTUBE_URL = 'https://www.youtube.com/@PulsehubSoftwares'
 export const FACEBOOK_URL = 'https://www.facebook.com/getpulsehub'
 export const SOCIAL_LINKS = [LINKEDIN_URL, YOUTUBE_URL, FACEBOOK_URL]
 
+/** Sibling products in the Pulse suite (separate subdomains). Surfaced in the footer. */
+export const OTHER_PRODUCTS: { name: string; url: string }[] = [
+  { name: 'Building Management System', url: 'https://building.yourpulse.io/' },
+  { name: 'Gym Management System', url: 'https://gym.yourpulse.io/' },
+  { name: 'Poultry Management System', url: 'https://poultry.yourpulse.io/' },
+  { name: 'Inventory Management System', url: 'https://inventory.yourpulse.io/' },
+  { name: 'Clinic Management System', url: 'https://clinic.yourpulse.io/' },
+]
+
 export const DEMO_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Book a PulseHub demonstration')}&body=${encodeURIComponent(
   'Hello PulseHub team,\n\nI would like to book a demonstration of PulseHub for my accommodation operations.\n\nProperty type:\nNumber of properties:\nNumber of rooms or beds:\n\nThank you.',
 )}`
