@@ -301,7 +301,7 @@ export default function HmoCompliancePost() {
           <ol className="mt-6 grid gap-3 sm:grid-cols-4">
             {licenceSteps.map((step, index) => (
               <li key={step} className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 sm:flex-col sm:items-start sm:gap-2">
-                <span className="font-mono text-xs text-primary">{String(index + 1).padStart(2, '0')}</span>
+                <span aria-hidden="true" className="font-mono text-xs text-primary">{String(index + 1).padStart(2, '0')}</span>
                 <span className="text-[15px] font-medium leading-snug text-foreground/90">{step}</span>
               </li>
             ))}

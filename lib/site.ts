@@ -23,6 +23,12 @@ export const UPWORK_SETUP_URL =
 
 export const CONTACT_EMAIL = 'musab.khan@yourpulse.io'
 
+/** Official brand profiles. Used for Organization sameAs (entity disambiguation) and the footer. */
+export const LINKEDIN_URL = 'https://www.linkedin.com/company/yourpulse-io'
+export const YOUTUBE_URL = 'https://www.youtube.com/@PulsehubSoftwares'
+export const FACEBOOK_URL = 'https://www.facebook.com/getpulsehub'
+export const SOCIAL_LINKS = [LINKEDIN_URL, YOUTUBE_URL, FACEBOOK_URL]
+
 export const DEMO_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Book a PulseHub demonstration')}&body=${encodeURIComponent(
   'Hello PulseHub team,\n\nI would like to book a demonstration of PulseHub for my accommodation operations.\n\nProperty type:\nNumber of properties:\nNumber of rooms or beds:\n\nThank you.',
 )}`

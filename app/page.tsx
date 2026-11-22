@@ -10,7 +10,7 @@ import SiteShell from '@/components/site-shell'
 import UseCases from '@/components/use-cases'
 import { getRegion, regionPlans } from '@/lib/pricing'
 import { jsonLdScript, marketHreflang, pageMetadata } from '@/lib/seo'
-import { APP_ORIGIN, CONTACT_EMAIL, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site'
+import { APP_ORIGIN, CONTACT_EMAIL, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL, SOCIAL_LINKS } from '@/lib/site'
 
 export const metadata = pageMetadata({
   title: SITE_TITLE,
@@ -30,6 +30,12 @@ const jsonLd = {
       url: `${SITE_URL}/`,
       email: CONTACT_EMAIL,
       logo: `${SITE_URL}/logo.png`,
+      sameAs: SOCIAL_LINKS,
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: CONTACT_EMAIL,
+        contactType: 'customer support',
+      },
     },
     {
       '@type': 'WebSite',

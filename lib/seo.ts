@@ -53,11 +53,13 @@ export function pageMetadata({
       siteName: SITE_NAME,
       locale: 'en_GB',
       type: 'website',
+      images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: SITE_NAME }],
     },
     twitter: {
       card: 'summary_large_image',
       title: fullTitle,
       description,
+      images: [`${SITE_URL}/opengraph-image.png`],
     },
   }
 }

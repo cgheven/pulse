@@ -28,6 +28,20 @@ const nextConfig = {
       { source: '/twitter-image', destination: '/twitter-image.png', permanent: true },
     ]
   },
+  // Baseline security headers (safe set; CSP intentionally omitted until tested).
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+        ],
+      },
+    ]
+  },
 }
 
 export default nextConfig

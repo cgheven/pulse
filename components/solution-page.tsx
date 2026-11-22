@@ -58,6 +58,16 @@ export function SolutionPage({
         isPartOf: { '@id': `${SITE_URL}/#website` },
       },
       {
+        '@type': 'SoftwareApplication',
+        '@id': `${SITE_URL}${path}#software`,
+        name: SITE_NAME,
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        url: `${SITE_URL}${path}`,
+        description: text,
+        publisher: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` },
+      },
+      {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },

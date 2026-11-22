@@ -49,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = paths.map((path) => ({
     // Match the canonical URLs in lib/seo.ts, where the homepage keeps its trailing slash.
     url: path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`,
-    lastModified: new Date(),
+    // No lastModified on static pages: a per-deploy timestamp is false freshness.
     changeFrequency: 'weekly' as const,
     priority: path === '/' ? 1 : highPriority.has(path) ? 0.8 : 0.6,
   }))

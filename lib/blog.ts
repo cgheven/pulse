@@ -28,11 +28,32 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-manage-a-pg',
+    title: 'How to Manage a PG: A Practical Guide for Owners',
+    heading: 'How to Manage a PG: A Practical Guide for Owners and Managers',
+    description:
+      'How to manage a PG, step by step: beds and admissions, one monthly bill for rent, mess and electricity, deposits, WhatsApp reminders and reports.',
+    excerpt:
+      'A practical guide to running a PG without the paperwork: admissions and resident records, bed allocation, one monthly bill for rent, mess and electricity, deposits, WhatsApp reminders and reports, all in one place.',
+    category: 'Accommodation management',
+    primaryKeyword: 'how to manage a pg',
+    datePublished: '2026-11-22',
+    dateModified: '2026-11-22',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/in-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A PulseHub PG dashboard in rupees showing occupancy, rent collected and outstanding dues',
+      label: 'PulseHub · PG dashboard in rupees',
+    },
+  },
+  {
     slug: 'occupancy-management-software',
     title: 'Occupancy Management Software for Accommodation Operators',
     heading: 'Occupancy Management Software: Fill Beds and Cut Void Periods',
     description:
-      'Occupancy management software to track beds and rooms in real time, cut void periods, run waiting lists and see occupancy across every property. Built around the bed, not the whole unit.',
+      'Occupancy management software to track beds and rooms in real time, cut void periods, run waiting lists and see occupancy across every property.',
     excerpt:
       'Track occupancy down to the bed, catch voids before they cost you, run a waiting list and compare occupancy across a portfolio. Occupancy management software built for room and bed-level accommodation.',
     category: 'Accommodation management',
@@ -53,7 +74,7 @@ export const blogPosts: BlogPost[] = [
     title: 'HMO Compliance Checklist for Landlords (England)',
     heading: 'HMO Compliance Checklist: What to Track and Keep',
     description:
-      'A practical HMO compliance checklist for England: licence, gas safety, EICR, fire safety, EPC and room standards, with the record to keep for each and the renewal dates to track. Not legal advice.',
+      'A practical HMO compliance checklist for England: licence, gas, EICR, fire, EPC and room standards, the record to keep for each, and renewal dates to track.',
     excerpt:
       'A practical HMO compliance checklist for landlords and managers in England: the licence, gas, EICR, fire safety, EPC and amenity standards, what record to keep for each, and how to track renewal dates before they lapse.',
     category: 'HMO management',
@@ -722,14 +743,14 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'co-living-management-software-guide',
-    title: 'Co-Living Management Software Guide',
+    title: 'What Co-Living Management Software Does: A Guide',
     heading: 'Co-Living Management Software: Features and How to Choose',
     description:
       'What co-living management software does for operators: rooms, residents, all-inclusive billing, occupancy and multiple buildings, and how to choose one.',
     excerpt:
       'A practical guide to co-living management software: what it does, why the operations side is different from a community app, and how to choose a tool for rooms, all-inclusive rent and multiple buildings.',
     category: 'Co-living',
-    primaryKeyword: 'co-living management software',
+    primaryKeyword: 'co-living management software guide',
     datePublished: '2026-10-24',
     dateModified: '2026-10-24',
     readingMinutes: 8,
@@ -750,7 +771,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       'A practical guide to PG management software for Indian paying guest operators: what it does, how it bills rent with meals and electricity, records UPI, bank-transfer and cash payments, and how to choose one.',
     category: 'PG management',
-    primaryKeyword: 'PG management software',
+    primaryKeyword: 'PG management software in India',
     datePublished: '2026-10-23',
     dateModified: '2026-10-23',
     readingMinutes: 7,
@@ -764,14 +785,14 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'hostel-management-software',
-    title: 'Hostel Management Software: Features & Guide',
+    title: 'Hostel Management Software Features & How to Choose',
     heading: 'Hostel Management Software: Features and How to Choose',
     description:
       'What hostel management software does for long-stay residential hostels: managing beds, residents, rent, meals and occupancy, and how to choose one.',
     excerpt:
       'A practical guide to hostel management software for long-stay and residential hostels: what it does, how it differs from hostel booking systems and spreadsheets, and how to choose one.',
     category: 'Hostel management',
-    primaryKeyword: 'hostel management software',
+    primaryKeyword: 'hostel management software features',
     datePublished: '2026-10-22',
     dateModified: '2026-10-22',
     readingMinutes: 9,
@@ -806,8 +827,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'hmo-compliance',
-    title: 'HMO Compliance in England: Landlord Checklist',
-    heading: 'HMO Compliance in England: The Complete Landlord Compliance Checklist',
+    title: 'HMO Compliance in England: Rules & Records',
+    heading: 'HMO Compliance in England: Rules, Records and Responsibilities',
     description:
       'Understand HMO compliance in England, the records landlords need to track, local authority requirements and how software can simplify compliance management.',
     excerpt:
@@ -911,14 +932,14 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'hmo-management-software',
-    title: 'HMO Management Software for UK Landlords',
+    title: 'HMO Management Software: Features & How to Choose',
     heading: 'HMO Management Software: How to Manage Multiple Properties, Tenants and Rent',
     description:
       'A practical guide to HMO management software for UK landlords: how it handles rooms, tenants, rent, occupancy and multiple properties, and what to look for.',
     excerpt:
       'What HMO management software actually does, how it helps you run rooms, tenants, rent and occupancy across several properties, and how to choose the right system.',
     category: 'HMO management',
-    primaryKeyword: 'HMO management software',
+    primaryKeyword: 'HMO management software features',
     datePublished: '2026-09-16',
     dateModified: '2026-09-17',
     readingMinutes: 9,

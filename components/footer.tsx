@@ -3,8 +3,11 @@ import Image from 'next/image'
 import { Mail } from 'lucide-react'
 import {
   CONTACT_EMAIL,
+  FACEBOOK_URL,
+  LINKEDIN_URL,
   PRIVACY_URL,
   TERMS_URL,
+  YOUTUBE_URL,
 } from '@/lib/site'
 import { routes, solutionLinks } from '@/lib/navigation'
 
@@ -87,10 +90,17 @@ export default function Footer() {
 
         <div className="flex flex-col items-start justify-between gap-3 border-t border-border py-6 text-[15px] text-muted-foreground sm:flex-row sm:items-center sm:py-8">
           <p>© {currentYear} PulseHub. All rights reserved.</p>
-          <div className="flex flex-wrap gap-x-5 gap-y-2">
-            <a href={PRIVACY_URL} className="inline-flex min-h-10 items-center hover:text-primary">Privacy Policy</a>
-            <a href={TERMS_URL} className="inline-flex min-h-10 items-center hover:text-primary">Terms of Service</a>
-            <Link href={routes.cookies} className="inline-flex min-h-10 items-center hover:text-primary">Cookie Policy</Link>
+          <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center hover:text-primary">LinkedIn</a>
+              <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center hover:text-primary">YouTube</a>
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center hover:text-primary">Facebook</a>
+            </div>
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
+              <a href={PRIVACY_URL} className="inline-flex min-h-10 items-center hover:text-primary">Privacy Policy</a>
+              <a href={TERMS_URL} className="inline-flex min-h-10 items-center hover:text-primary">Terms of Service</a>
+              <Link href={routes.cookies} className="inline-flex min-h-10 items-center hover:text-primary">Cookie Policy</Link>
+            </div>
           </div>
         </div>
       </div>
