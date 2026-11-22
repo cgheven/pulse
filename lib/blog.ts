@@ -28,6 +28,48 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'occupancy-management-software',
+    title: 'Occupancy Management Software for Accommodation Operators',
+    heading: 'Occupancy Management Software: Fill Beds and Cut Void Periods',
+    description:
+      'Occupancy management software to track beds and rooms in real time, cut void periods, run waiting lists and see occupancy across every property. Built around the bed, not the whole unit.',
+    excerpt:
+      'Track occupancy down to the bed, catch voids before they cost you, run a waiting list and compare occupancy across a portfolio. Occupancy management software built for room and bed-level accommodation.',
+    category: 'Accommodation management',
+    primaryKeyword: 'occupancy management software',
+    datePublished: '2026-11-22',
+    dateModified: '2026-11-22',
+    readingMinutes: 7,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard showing bed-level occupancy, voids and revenue across an accommodation portfolio',
+      label: 'PulseHub · occupancy at a glance',
+    },
+  },
+  {
+    slug: 'hmo-compliance-checklist',
+    title: 'HMO Compliance Checklist for Landlords (England)',
+    heading: 'HMO Compliance Checklist: What to Track and Keep',
+    description:
+      'A practical HMO compliance checklist for England: licence, gas safety, EICR, fire safety, EPC and room standards, with the record to keep for each and the renewal dates to track. Not legal advice.',
+    excerpt:
+      'A practical HMO compliance checklist for landlords and managers in England: the licence, gas, EICR, fire safety, EPC and amenity standards, what record to keep for each, and how to track renewal dates before they lapse.',
+    category: 'HMO management',
+    primaryKeyword: 'hmo compliance checklist',
+    datePublished: '2026-11-22',
+    dateModified: '2026-11-22',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard for an HMO portfolio in pounds, where certificate and licence renewal dates are tracked',
+      label: 'PulseHub · HMO portfolio',
+    },
+  },
+  {
     slug: 'bedspace-management-software-dubai',
     title: 'Bedspace Management Software for Dubai & the UAE',
     heading: 'Bedspace and Partition Room Management Software for Dubai and the UAE',
