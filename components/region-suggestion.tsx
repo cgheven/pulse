@@ -11,6 +11,7 @@ type Region = { lead: string; cta: string; href: string }
 // Only countries that have a dedicated regional page are suggested. This is a soft,
 // dismissible hint shown ONLY on the global homepage; it never redirects.
 const REGIONS: Record<string, Region> = {
+  US: { lead: 'Based in the US?', cta: 'Explore PulseHub for the US', href: routes.us },
   GB: { lead: 'Based in the UK?', cta: 'Explore PulseHub for the UK', href: routes.uk },
   PK: { lead: 'Based in Pakistan?', cta: 'Explore PulseHub for Pakistan', href: routes.pakistan },
   PH: { lead: 'Based in the Philippines?', cta: 'Explore PulseHub for the Philippines', href: routes.philippines },

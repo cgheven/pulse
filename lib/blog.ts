@@ -28,6 +28,48 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-manage-a-rooming-house',
+    title: 'How to Manage a Rooming House (US Guide)',
+    heading: 'How to Manage a Rooming House: Rooms, Rent and Utilities',
+    description:
+      'How to manage a rooming house in the US: set up rooms and beds, screen residents, collect per-room rent, split utilities, hold deposits and stay organized.',
+    excerpt:
+      'A practical US guide to running a rooming house: setting up rooms and beds, screening residents, collecting per-room rent, splitting utilities, holding deposits and keeping the place organized.',
+    category: 'Accommodation management',
+    primaryKeyword: 'how to manage a rooming house',
+    datePublished: '2026-11-22',
+    dateModified: '2026-11-22',
+    readingMinutes: 8,
+    image: {
+      src: '/screenshots/us-dashboard.png',
+      width: 3024,
+      height: 1700,
+      alt: 'A PulseHub dashboard in US dollars showing rooms, residents, rent collected and occupancy for a rooming house',
+      label: 'PulseHub · US dashboard',
+    },
+  },
+  {
+    slug: 'sro-management-software',
+    title: 'SRO Management Software for US Operators',
+    heading: 'SRO (Single Room Occupancy) Management Software',
+    description:
+      'SRO management software for single room occupancy operators in the US: rent by the room, one bill per resident, split utilities, deposits and occupancy, in USD.',
+    excerpt:
+      'What single room occupancy (SRO) operators need from management software, and how PulseHub handles rent by the room, one bill per resident, split utilities, deposits and bed-level occupancy in the US.',
+    category: 'Accommodation management',
+    primaryKeyword: 'SRO management software',
+    datePublished: '2026-11-22',
+    dateModified: '2026-11-22',
+    readingMinutes: 7,
+    image: {
+      src: '/screenshots/us-tenants.png',
+      width: 3024,
+      height: 1700,
+      alt: 'A PulseHub residents screen in US dollars showing single room occupancy tenants, their rooms and rent status',
+      label: 'PulseHub · US residents',
+    },
+  },
+  {
     slug: 'how-to-manage-a-pg',
     title: 'How to Manage a PG: A Practical Guide for Owners',
     heading: 'How to Manage a PG: A Practical Guide for Owners and Managers',

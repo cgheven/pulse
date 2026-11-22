@@ -18,10 +18,10 @@ import { SITE_URL } from '@/lib/site'
 const PATH = routes.us
 
 export const metadata = pageMetadata({
-  title: 'Co-Living & Rooming House Management Software (USA)',
+  title: 'Rent by the Room Software for US Operators',
   languages: marketHreflang,
   description:
-    'Property management software for US co-living, rooming houses and shared housing: rent by the room and bed, billed per resident in USD, across every property.',
+    'Rent by the room software for US co-living, rooming houses, SROs and shared housing: one bill per resident, split utilities, bed-level occupancy, billed in USD.',
   path: PATH,
 })
 
@@ -54,6 +54,11 @@ const billingSteps = [
 ]
 
 const faqs = [
+  {
+    question: 'What is rent-by-the-room software?',
+    answer:
+      'It is software built for operators who let individual rooms or beds rather than a whole unit, so each resident has their own agreement, rent and bill. PulseHub tracks occupancy down to the bed, raises one bill per resident for rent and a metered share of utilities split between tenants by room, and keeps deposits and payment history per person. It suits US co-living, rooming houses, SROs, off-campus student rooms and shared houses.',
+  },
   {
     question: 'What kinds of US accommodation does PulseHub support?',
     answer:
@@ -143,9 +148,9 @@ export default function UsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
 
       <PageHero
-        eyebrow="Co-living & shared housing · USA"
-        heading="Co-Living and Rooming House Management Software for the US"
-        text="PulseHub is property management software for US operators who rent by the room and the bed: co-living, rooming houses, student housing and shared homes. Manage residents, rent, deposits, utilities and every property from one platform, billed in US dollars."
+        eyebrow="Rent by the room · USA"
+        heading="Rent by the Room Software for Co-Living, Rooming Houses & SROs"
+        text="PulseHub is rent-by-the-room software for US operators who let by the room or the bed: co-living, rooming houses, SROs, off-campus student housing and shared homes. Manage residents, rent, deposits, split utilities and every property from one platform, billed in US dollars."
         visual={
           <ProductScreenshot
             src={screenshots.dashboard.src}
@@ -328,12 +333,10 @@ export default function UsPage() {
               only the properties they run.
             </Lead>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              New to running shared housing on software? Learn how to{' '}
-              <A href="/blog/hmo-rent-tracking">track rent, payments and arrears</A> and how to{' '}
-              <A href="/blog/manage-multiple-hmo-properties-without-spreadsheets">
-                manage multiple properties without spreadsheets
-              </A>
-              .
+              New to running rooms on software? See how to{' '}
+              <A href="/blog/how-to-manage-a-rooming-house">manage a rooming house</A>, our guide to{' '}
+              <A href="/blog/sro-management-software">SRO management software</A>, or{' '}
+              <A href={routes.coliving}>co-living management</A>.
             </p>
           </div>
         </div>
