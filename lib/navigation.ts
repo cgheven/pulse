@@ -40,8 +40,9 @@ export const solutionLinks = [
 ] as const
 
 // About and Contact live in the footer to keep the top nav breathable.
-export const primaryNav = [
-  { href: routes.askPulse, label: 'Ask Pulse' },
+// `highlight` items get a sparkle + "New" badge in the header to draw attention.
+export const primaryNav: { href: string; label: string; highlight?: boolean }[] = [
+  { href: routes.askPulse, label: 'Ask Pulse AI', highlight: true },
   { href: routes.features, label: 'Platform' },
   { href: routes.pricing, label: 'Pricing' },
-] as const
+]

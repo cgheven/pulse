@@ -13,9 +13,9 @@ const PATH = routes.askPulse
 const REEL_URL = 'https://www.youtube.com/shorts/_uVKf7RpLhw'
 
 export const metadata = pageMetadata({
-  title: 'Ask Pulse: Run Your Rentals from WhatsApp',
+  title: 'Ask Pulse: AI Assistant for Rentals on WhatsApp',
   description:
-    "Ask Pulse lets owners run their rentals from WhatsApp: check who's paid, unpaid, deposits, available beds, profit and expenses, and send reminders.",
+    "Ask Pulse is an AI assistant that runs your rentals from WhatsApp: ask who's paid, unpaid, deposits, available beds, profit and expenses, and send reminders.",
   path: PATH,
 })
 
@@ -24,6 +24,11 @@ const faqs = [
     question: 'What is Ask Pulse?',
     answer:
       'Ask Pulse is a way to run your accommodation business from WhatsApp. Instead of opening a dashboard, you message PulseHub in plain language and get a straight answer about your own data: who has paid, who still owes, deposits, how many beds are free, and this month’s profit and expenses. You can also ask it to mark a payment as received or send a reminder.',
+  },
+  {
+    question: 'Is Ask Pulse AI?',
+    answer:
+      'Yes. Ask Pulse uses AI to understand your questions in plain language, so there are no commands or menus to learn, you just ask. It then reads the live data in your own PulseHub account to answer. The AI reads and reports on your numbers and can mark a payment as paid or send a reminder; it does not move money or take decisions on its own.',
   },
   {
     question: 'What can I ask it?',
@@ -43,7 +48,7 @@ const faqs = [
   {
     question: 'Who is Ask Pulse for?',
     answer:
-      'Owners and managers who want answers without sitting at a desk: HMO, hostel, co-living, PG, student and shared-housing operators running one property or many. It is included with PulseHub, so there is nothing extra to buy.',
+      'Owners and managers who want answers without sitting at a desk: HMO, hostel, co-living, PG, student and shared-housing operators running one property or many. Ask Pulse is available as an optional add-on to your PulseHub plan.',
   },
 ]
 
@@ -97,14 +102,15 @@ export default function AskPulsePage() {
       <section className="px-4 pt-24 sm:px-6 sm:pt-28 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="min-w-0">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Ask Pulse</p>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Ask Pulse · AI assistant</p>
             <h1 className="mt-4 font-display text-[clamp(2rem,5vw,3.25rem)] font-medium leading-[1.08] tracking-tight">
               Run your accommodation business from WhatsApp
             </h1>
             <Lead>
-              No dashboard, no app to open. Message PulseHub on WhatsApp and get a straight answer about your business in
-              seconds: who has paid, who still owes, deposits, available beds, and this month&rsquo;s profit and expenses.
-              Ask it to mark a payment as received or send a reminder, right from the chat.
+              Ask Pulse is an AI assistant built into WhatsApp. No dashboard, no app to open: message PulseHub and get a
+              straight answer about your business in seconds, who has paid, who still owes, deposits, available beds, and
+              this month&rsquo;s profit and expenses. Ask it to mark a payment as received or send a reminder, right from
+              the chat.
             </Lead>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <StartTrialButton location="hero" className="min-h-11 bg-primary px-5 hover:bg-primary/90" />
@@ -143,8 +149,9 @@ export default function AskPulsePage() {
             Your own data, answered in plain language
           </h2>
           <Lead>
-            Ask Pulse connects to your PulseHub account and answers questions about your own business, in your own
-            WhatsApp chat. Ask in everyday language and it reads the live numbers behind your dashboard to reply.
+            Ask Pulse is an AI assistant: it understands your question in plain, everyday language, then reads the live
+            numbers behind your own PulseHub dashboard and replies in your WhatsApp chat. No commands to learn, no
+            reports to run.
           </Lead>
           <Lead>
             Being clear about what it does and does not do: when you ask it to collect a payment, it marks the payment as
@@ -166,7 +173,7 @@ export default function AskPulsePage() {
 
       <CtaBand
         heading="Run your rentals from your pocket"
-        text="Ask Pulse is included with PulseHub. Start a 14-day free trial with no card required, and ask your business anything in WhatsApp."
+        text="Ask Pulse is an optional add-on to your PulseHub plan. Start a 14-day free trial of PulseHub with no card required, then add Ask Pulse to run your business from WhatsApp."
         secondaryHref={routes.features}
         secondaryLabel="Explore the platform"
       />

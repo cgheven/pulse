@@ -28,6 +28,27 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'ask-pulse-whatsapp-ai-assistant',
+    title: 'Meet Ask Pulse: Your AI Assistant on WhatsApp',
+    heading: 'Meet Ask Pulse: Run Your Accommodation Business from WhatsApp',
+    description:
+      "Ask Pulse is an AI assistant that runs your rentals from WhatsApp: ask who's paid, deposits, available beds and profit, mark payments and send reminders.",
+    excerpt:
+      'Introducing Ask Pulse, the AI assistant built into WhatsApp. Ask who has paid, who owes, deposits, available beds and this month’s profit, mark payments and send reminders, without opening a dashboard.',
+    category: 'Product',
+    primaryKeyword: 'AI property management assistant',
+    datePublished: '2026-11-26',
+    dateModified: '2026-11-26',
+    readingMinutes: 5,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard, the live data that Ask Pulse reads to answer questions in WhatsApp',
+      label: 'PulseHub · the data behind Ask Pulse',
+    },
+  },
+  {
     slug: 'how-to-manage-a-rooming-house',
     title: 'How to Manage a Rooming House (US Guide)',
     heading: 'How to Manage a Rooming House: Rooms, Rent and Utilities',

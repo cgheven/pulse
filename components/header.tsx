@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import { ChevronDown, Menu, X } from 'lucide-react'
+import { ChevronDown, Menu, Sparkles, X } from 'lucide-react'
 import { SignInButton, StartTrialButton } from '@/components/tracked-cta'
 import { primaryNav, solutionLinks } from '@/lib/navigation'
 import { OTHER_PRODUCTS } from '@/lib/site'
@@ -78,15 +78,27 @@ export default function Header() {
                 </div>
               )}
             </div>
-            {primaryNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-sm text-sm font-medium text-foreground/70 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {primaryNav.map((item) =>
+              item.highlight ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="inline-flex items-center gap-1.5 rounded-sm text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+                  {item.label}
+                  <span className="rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">New</span>
+                </Link>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-sm text-sm font-medium text-foreground/70 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
             <div className="relative">
               <button
                 type="button"
@@ -174,8 +186,15 @@ export default function Header() {
               </Link>
             ))}
             {primaryNav.map((item) => (
-              <Link key={item.href} href={item.href} onClick={close} className="block min-h-11 py-2 text-sm font-medium text-foreground/80">
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={close}
+                className={item.highlight ? 'flex min-h-11 items-center gap-1.5 py-2 text-[15px] font-semibold text-primary' : 'block min-h-11 py-2 text-sm font-medium text-foreground/80'}
+              >
+                {item.highlight ? <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> : null}
                 {item.label}
+                {item.highlight ? <span className="rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">New</span> : null}
               </Link>
             ))}
             <p className="pt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">More from Pulse</p>

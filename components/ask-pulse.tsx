@@ -51,7 +51,7 @@ export function AskPulseSection() {
     <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
       <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div className="min-w-0">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Ask Pulse</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Ask Pulse · AI assistant</p>
           <h2 className="mt-4 font-display text-[clamp(1.75rem,3.6vw,2.6rem)] font-medium leading-[1.1] tracking-tight">
             Ask your business anything, right in WhatsApp
           </h2>
@@ -65,8 +65,8 @@ export function AskPulseSection() {
             ))}
           </ul>
           <p className="mt-6 text-sm text-muted-foreground">
-            Ask Pulse reads your own PulseHub data and answers in plain language. It records payments and sends
-            reminders; it is not a payment gateway, so it never moves money.
+            Ask Pulse is an AI assistant that reads your own PulseHub data and answers in plain language. It records
+            payments and sends reminders; it is not a payment gateway, so it never moves money.
           </p>
           <Link
             href={routes.askPulse}
