@@ -1,6 +1,7 @@
 export const routes = {
   home: '/',
   features: '/features',
+  askPulse: '/ask-pulse',
   pricing: '/pricing',
   about: '/about',
   contact: '/contact',
@@ -38,9 +39,9 @@ export const solutionLinks = [
   { href: routes.hmoBilling, label: 'Utility Billing', menuLabel: 'HMO Bills & Utility Splitting' },
 ] as const
 
+// About and Contact live in the footer to keep the top nav breathable.
 export const primaryNav = [
+  { href: routes.askPulse, label: 'Ask Pulse' },
   { href: routes.features, label: 'Platform' },
   { href: routes.pricing, label: 'Pricing' },
-  { href: routes.about, label: 'About' },
-  { href: routes.contact, label: 'Contact' },
 ] as const

@@ -1,3 +1,4 @@
+import { AskPulseSection } from '@/components/ask-pulse'
 import Cta from '@/components/cta'
 import { DemoSection } from '@/components/demo-section'
 import Hero from '@/components/hero'
@@ -90,6 +91,7 @@ export default function Page() {
       <DemoSection />
       <UseCases />
       <MemberLedgerShowcase />
+      <AskPulseSection />
       <Portfolio />
       <PricingGrid
         heading="Pricing that grows with your portfolio"
