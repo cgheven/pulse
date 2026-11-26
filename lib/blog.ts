@@ -28,6 +28,69 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'best-student-accommodation-management-software',
+    title: 'Best Student Accommodation Software, Compared',
+    heading: 'The Best Student Accommodation Management Software, Compared',
+    description:
+      'A practical guide to the best student accommodation management software: enterprise PBSA systems, landlord tools, and room-by-room operator platforms.',
+    excerpt:
+      'There is no single best student accommodation software; it depends on what you run. A segment-by-segment guide to PBSA systems, landlord tools and room-by-room platforms.',
+    category: 'Buyer guide',
+    primaryKeyword: 'best student accommodation software',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 5,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard for an operator renting student rooms by the room, showing occupancy and rent',
+      label: 'PulseHub · student rooms, by the room',
+    },
+  },
+  {
+    slug: 'best-hostel-management-software',
+    title: 'Best Hostel Management Software, Compared',
+    heading: 'The Best Hostel Management Software: Nightly vs Long-Stay',
+    description:
+      'A guide to the best hostel management software, split by stay length: nightly backpacker hostels with OTA channels, or long-stay beds billed by the month.',
+    excerpt:
+      'The best hostel software depends on how long guests stay. A clear split between nightly backpacker hostels and long-stay residential hostels, and the tools each needs.',
+    category: 'Buyer guide',
+    primaryKeyword: 'best hostel management software',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 4,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard for a long-stay hostel, showing beds, residents and monthly rent',
+      label: 'PulseHub · beds by the night or month',
+    },
+  },
+  {
+    slug: 'best-co-living-management-software',
+    title: 'Best Co-Living Management Software, Compared',
+    heading: 'The Best Co-Living Management Software: What to Look For',
+    description:
+      'A guide to the best co-living management software: generic property tools versus purpose-built room-level platforms with split rent and metered utilities.',
+    excerpt:
+      'Most "best co-living software" lists are really general property tools. The real split is whole-unit systems versus room-level platforms that bill each resident.',
+    category: 'Buyer guide',
+    primaryKeyword: 'best co-living management software',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 4,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard for a co-living operator, showing room-level occupancy and per-resident rent',
+      label: 'PulseHub · co-living, room by room',
+    },
+  },
+  {
     slug: 'whatsapp-property-management',
     title: 'WhatsApp Property Management for Landlords',
     heading: 'WhatsApp Property Management: Run Your Rentals from Chat',
