@@ -20,7 +20,10 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed top-0 z-50 w-full max-w-full overflow-x-clip border-b border-border bg-background/95 backdrop-blur-sm">
+    <header
+      className="fixed z-50 w-full max-w-full overflow-x-clip border-b border-border bg-background/95 backdrop-blur-sm"
+      style={{ top: 'var(--promo-h)' }}
+    >
       <nav className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Primary">
         <div className="flex h-14 items-center justify-between gap-3 sm:h-16 sm:gap-4">
           <Link href="/" className="flex min-w-0 items-center gap-2 sm:gap-3" onClick={close}>

@@ -249,3 +249,13 @@
     transform: none !important;
   }
 }
+
+/* Lifetime-deal announcement bar.
+   --promo-h shifts the fixed header (its `top`) and the in-flow <main> (its padding-top)
+   down together, so removing .promo-open (on dismiss) restores the exact original
+   header clearance with no layout shift. Default is open; a no-flash inline script in
+   the root layout removes .promo-open before paint for visitors who dismissed it. */
+:root { --promo-h: 0px; }
+html.promo-open { --promo-h: 2.5rem; }
+.promo-bar { display: none; }
+html.promo-open .promo-bar { display: flex; }

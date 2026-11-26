@@ -87,9 +87,17 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
-      className={`${sans.variable} ${display.variable} ${mono.variable} bg-background max-w-full overflow-x-clip`}
+      className={`${sans.variable} ${display.variable} ${mono.variable} promo-open bg-background max-w-full overflow-x-clip`}
     >
       <body className="antialiased">
+        {/* No-flash: hide the announcement bar before paint for visitors who dismissed it,
+            so its height (--promo-h) never flickers in and out. Mirrors a theme no-flash script. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('ph-promo-dismissed'))document.documentElement.classList.remove('promo-open')}catch(e){}",
+          }}
+        />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
         <CookieConsent />

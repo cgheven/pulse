@@ -6,6 +6,7 @@ import { SITE_URL } from '@/lib/site'
 // Commercial-intent pages get a higher priority than supporting/legal pages.
 const highPriority = new Set<string>([
   routes.pricing,
+  routes.lifetime,
   routes.hmo,
   routes.student,
   routes.coliving,
@@ -19,6 +20,7 @@ const paths = [
   routes.home,
   routes.features,
   routes.pricing,
+  routes.lifetime,
   routes.about,
   routes.contact,
   routes.bookDemo,

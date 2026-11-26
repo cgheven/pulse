@@ -61,6 +61,8 @@ export type Region = {
    */
   model: 'tiered' | 'branch-tiered'
   monthly?: Record<TierId, number>
+  /** One-time founder lifetime-deal price per tier, in the region's currency. Present only on markets in the LTD. */
+  lifetime?: Record<TierId, number>
   branchTiers?: BranchTier[]
   /** Branch count at or above which pricing becomes a custom Enterprise quote. */
   enterpriseFrom?: number
@@ -68,8 +70,26 @@ export type Region = {
   addons?: PricingAddon[]
 }
 
-function tiered(code: RegionCode, label: string, currency: string, symbol: string, basic: number, standard: number, business: number): Region {
-  return { code, label, currency, symbol, model: 'tiered', monthly: { basic, standard, business } }
+function tiered(
+  code: RegionCode,
+  label: string,
+  currency: string,
+  symbol: string,
+  basic: number,
+  standard: number,
+  business: number,
+  /** Optional one-time lifetime-deal prices [basic, standard, business] for this market. */
+  lifetime?: [number, number, number],
+): Region {
+  return {
+    code,
+    label,
+    currency,
+    symbol,
+    model: 'tiered',
+    monthly: { basic, standard, business },
+    ...(lifetime ? { lifetime: { basic: lifetime[0], standard: lifetime[1], business: lifetime[2] } } : {}),
+  }
 }
 
 /**
@@ -77,20 +97,20 @@ function tiered(code: RegionCode, label: string, currency: string, symbol: strin
  * Annual is always monthly x 10 (two months free), so only the monthly figure is stored.
  */
 export const regions: Region[] = [
-  tiered('gb', 'United Kingdom', 'GBP', '£', 25, 49, 79),
-  tiered('ie', 'Ireland', 'EUR', '€', 29, 55, 89),
-  tiered('au', 'Australia', 'AUD', 'A$', 49, 95, 159),
-  tiered('ca', 'Canada', 'CAD', 'C$', 45, 85, 139),
-  tiered('nz', 'New Zealand', 'NZD', 'NZ$', 55, 99, 169),
-  tiered('sg', 'Singapore', 'SGD', 'S$', 45, 85, 139),
-  tiered('my', 'Malaysia', 'MYR', 'RM', 129, 249, 419),
-  tiered('ae', 'United Arab Emirates', 'AED', 'AED ', 119, 229, 379),
-  tiered('sa', 'Saudi Arabia', 'SAR', 'SAR ', 119, 229, 379),
-  tiered('in', 'India', 'INR', '₹', 3999, 7999, 14999),
-  tiered('za', 'South Africa', 'ZAR', 'R', 549, 999, 1699),
-  tiered('bd', 'Bangladesh', 'USD', '$', 29, 49, 79),
-  tiered('np', 'Nepal', 'USD', '$', 29, 49, 79),
-  tiered('ph', 'Philippines', 'USD', '$', 29, 49, 79),
+  tiered('gb', 'United Kingdom', 'GBP', '£', 25, 49, 79, [499, 899, 1499]),
+  tiered('ie', 'Ireland', 'EUR', '€', 29, 55, 89, [549, 999, 1699]),
+  tiered('au', 'Australia', 'AUD', 'A$', 49, 95, 159, [899, 1799, 2999]),
+  tiered('ca', 'Canada', 'CAD', 'C$', 45, 85, 139, [899, 1699, 2799]),
+  tiered('nz', 'New Zealand', 'NZD', 'NZ$', 55, 99, 169, [999, 1899, 3299]),
+  tiered('sg', 'Singapore', 'SGD', 'S$', 45, 85, 139, [899, 1699, 2799]),
+  tiered('my', 'Malaysia', 'MYR', 'RM', 129, 249, 419, [2499, 4799, 7999]),
+  tiered('ae', 'United Arab Emirates', 'AED', 'AED ', 119, 229, 379, [2299, 4499, 7499]),
+  tiered('sa', 'Saudi Arabia', 'SAR', 'SAR ', 119, 229, 379, [2299, 4499, 7499]),
+  tiered('in', 'India', 'INR', '₹', 3999, 7999, 14999, [79999, 149999, 279999]),
+  tiered('za', 'South Africa', 'ZAR', 'R', 549, 999, 1699, [9999, 18999, 32999]),
+  tiered('bd', 'Bangladesh', 'USD', '$', 29, 49, 79, [549, 899, 1499]),
+  tiered('np', 'Nepal', 'USD', '$', 29, 49, 79, [549, 899, 1499]),
+  tiered('ph', 'Philippines', 'USD', '$', 29, 49, 79, [549, 899, 1499]),
   {
     code: 'pk',
     label: 'Pakistan',
@@ -113,7 +133,7 @@ export const regions: Region[] = [
       },
     ],
   },
-  tiered('default', 'Other countries', 'USD', '$', 35, 65, 109),
+  tiered('default', 'Other countries', 'USD', '$', 35, 65, 109, [649, 1199, 1999]),
 ]
 
 export const DEFAULT_REGION_CODE: RegionCode = 'gb'
@@ -162,4 +182,46 @@ export function regionPlans(region: Region): RegionPlan[] {
     monthly: region.monthly![tier.id],
     annual: annualFor(region.monthly![tier.id]),
   }))
+}
+
+/**
+ * Founder lifetime deal: a fixed cap of spots with no time limit. The displayed count is
+ * rendered straight from these constants (server-side), so the number is present on first
+ * paint with no loading state or flicker. Update LIFETIME_SPOTS_REMAINING by hand as spots
+ * sell (there is no live fetch, to keep the count glitch-free).
+ */
+export const LIFETIME_SPOTS_TOTAL = 20
+export const LIFETIME_SPOTS_REMAINING = 20
+
+export type LifetimePlan = {
+  id: TierId
+  name: string
+  description: string
+  propertyLabel: string
+  properties: number
+  highlight: boolean
+  /** One-time lifetime price in the region's currency. */
+  lifetime: number
+  /** Equivalent annual price, kept so the page can show an honest "vs paying yearly" anchor. */
+  annual: number
+}
+
+/** The three lifetime tiers priced for a region in the LTD. Empty for markets with no lifetime deal. */
+export function regionLifetimePlans(region: Region): LifetimePlan[] {
+  if (region.model !== 'tiered' || !region.lifetime || !region.monthly) return []
+  return tiers.map((tier) => ({
+    id: tier.id,
+    name: tier.name,
+    description: tier.description,
+    propertyLabel: tier.propertyLabel,
+    properties: tier.properties,
+    highlight: tier.highlight,
+    lifetime: region.lifetime![tier.id],
+    annual: annualFor(region.monthly![tier.id]),
+  }))
+}
+
+/** Markets that are part of the lifetime deal (every tiered market; excludes branch-tiered Pakistan). */
+export function lifetimeRegions(): Region[] {
+  return regions.filter((region) => region.lifetime)
 }

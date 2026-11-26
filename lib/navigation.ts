@@ -3,6 +3,7 @@ export const routes = {
   features: '/features',
   askPulse: '/ask-pulse',
   pricing: '/pricing',
+  lifetime: '/lifetime',
   about: '/about',
   contact: '/contact',
   bookDemo: '/book-demo',
