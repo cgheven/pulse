@@ -28,6 +28,111 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'whatsapp-property-management',
+    title: 'WhatsApp Property Management for Landlords',
+    heading: 'WhatsApp Property Management: Run Your Rentals from Chat',
+    description:
+      'How landlords and operators use WhatsApp to run rentals: payment reminders, receipts, resident messaging, and asking your business questions with Ask Pulse.',
+    excerpt:
+      'WhatsApp is where your residents already are. See how operators use it to run rentals: reminders, receipts, resident messaging, and, with Ask Pulse, asking your business questions right in chat.',
+    category: 'Accommodation management',
+    primaryKeyword: 'whatsapp property management',
+    datePublished: '2026-11-26',
+    dateModified: '2026-11-26',
+    readingMinutes: 6,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard showing the rent and occupancy data that powers WhatsApp reminders and Ask Pulse',
+      label: 'PulseHub · the data behind WhatsApp',
+    },
+  },
+  {
+    slug: 'ai-for-landlords',
+    title: 'AI Property Management for Landlords',
+    heading: 'AI for Landlords: What AI Property Management Actually Does',
+    description:
+      'What AI property management actually does for landlords: answer questions, send reminders, cut busywork. An honest look at where AI helps and where it does not.',
+    excerpt:
+      'AI for landlords is more than a buzzword, and less than the hype. An honest look at what AI property management actually does today, where it helps, and where a human still decides.',
+    category: 'Accommodation management',
+    primaryKeyword: 'AI property management',
+    datePublished: '2026-11-26',
+    dateModified: '2026-11-26',
+    readingMinutes: 6,
+    image: {
+      src: '/screenshots/payments.png',
+      width: 3024,
+      height: 1570,
+      alt: 'A PulseHub payments screen, the kind of live data an AI assistant reads to answer a landlord’s questions',
+      label: 'PulseHub · the data AI reads',
+    },
+  },
+  {
+    slug: 'appfolio-alternative',
+    title: 'AppFolio Alternative for Renting by the Room',
+    heading: 'An AppFolio Alternative for Renting by the Room',
+    description:
+      'Looking for an AppFolio alternative for renting by the room? PulseHub runs co-living, rooming houses and SROs by the room and bed, with one bill per resident.',
+    excerpt:
+      'AppFolio is built around whole-unit leases. If you rent by the room, here is an honest look at PulseHub as an alternative for co-living, rooming houses and SROs.',
+    category: 'Comparisons',
+    primaryKeyword: 'appfolio alternative',
+    datePublished: '2026-11-26',
+    dateModified: '2026-11-26',
+    readingMinutes: 7,
+    image: {
+      src: '/screenshots/us-dashboard.png',
+      width: 3024,
+      height: 1700,
+      alt: 'A PulseHub dashboard in US dollars showing rooms, residents and rent for a room-by-room rental operation',
+      label: 'PulseHub · room-level dashboard',
+    },
+  },
+  {
+    slug: 'tenant-deposit-management',
+    title: 'Tenant Deposit Management: Hold and Settle',
+    heading: 'Tenant Deposit Management: How to Track, Hold and Settle Deposits',
+    description:
+      'How to manage tenant deposits: record what you hold, settle against the final bill at move-out, and see the refund due. PulseHub tracks deposits per resident.',
+    excerpt:
+      'A practical guide to managing tenant deposits room by room: recording what you hold, settling against the final bill at move-out, and showing exactly what to refund.',
+    category: 'Accommodation management',
+    primaryKeyword: 'tenant deposit management',
+    datePublished: '2026-11-26',
+    dateModified: '2026-11-26',
+    readingMinutes: 6,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard showing residents, their deposits and balances across a portfolio',
+      label: 'PulseHub · deposits per resident',
+    },
+  },
+  {
+    slug: 'reduce-void-periods',
+    title: 'How to Reduce Void Periods in Shared Housing',
+    heading: 'How to Reduce Void Periods in Shared Housing',
+    description:
+      'How to reduce void periods in a rooming house, HMO or co-living: spot empty beds early, run a waiting list, fill rooms faster, and track occupancy.',
+    excerpt:
+      'Every empty bed is lost income. A practical guide to reducing void periods in shared housing: catching voids early, running a waiting list, and filling rooms from your own page.',
+    category: 'Accommodation management',
+    primaryKeyword: 'reduce void periods',
+    datePublished: '2026-11-26',
+    dateModified: '2026-11-26',
+    readingMinutes: 6,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard showing occupancy and empty beds across a shared-housing portfolio',
+      label: 'PulseHub · occupancy at a glance',
+    },
+  },
+  {
     slug: 'ask-pulse-whatsapp-ai-assistant',
     title: 'Meet Ask Pulse: Your AI Assistant on WhatsApp',
     heading: 'Meet Ask Pulse: Run Your Accommodation Business from WhatsApp',
