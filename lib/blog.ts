@@ -28,6 +28,216 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'innago-alternative',
+    title: 'Innago Alternative for Renting by the Room',
+    heading: 'An Innago Alternative for Renting by the Room',
+    description:
+      'An Innago alternative for operators who let by the room. Innago is free whole-unit software; PulseHub is built for bed-level, per-resident operations.',
+    excerpt:
+      'Innago is great free software for whole-unit landlords. If you rent by the room, here is an alternative built for bed-level occupancy and one bill per resident.',
+    category: 'Comparison',
+    primaryKeyword: 'innago alternative',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 5,
+    image: {
+      src: '/screenshots/us-dashboard.png',
+      width: 3024,
+      height: 1700,
+      alt: 'A PulseHub dashboard in US dollars showing room-level occupancy, rent collected and outstanding dues',
+      label: 'PulseHub · room by room, in US dollars',
+    },
+  },
+  {
+    slug: 'padsplit-alternative',
+    title: 'PadSplit Alternative: Run Your Own Rooms',
+    heading: 'A PadSplit Alternative: Software to Run Your Own Rooms',
+    description:
+      'A PadSplit alternative: PadSplit is a marketplace that places residents; PulseHub is software you run on your own rooms, bed by bed, without the fees.',
+    excerpt:
+      'PadSplit is a marketplace that places residents and takes a cut. If you would rather run your own rent-by-the-room housing, here is the software built for it.',
+    category: 'Comparison',
+    primaryKeyword: 'padsplit alternative',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 5,
+    image: {
+      src: '/screenshots/us-dashboard.png',
+      width: 3024,
+      height: 1700,
+      alt: 'A PulseHub dashboard in US dollars showing rooms let by the bed, rent collected and outstanding dues',
+      label: 'PulseHub · your own rooms, in US dollars',
+    },
+  },
+  {
+    slug: 'arthur-online-alternative',
+    title: 'Arthur Online Alternative for Shared Housing',
+    heading: 'An Arthur Online Alternative for Room-by-Room Operators',
+    description:
+      'An Arthur Online alternative for HMO and shared-housing operators who let by the room. PulseHub is bed-level software, not a whole-portfolio agency suite.',
+    excerpt:
+      'Arthur Online is a broad, agency-friendly platform. If you let HMOs and shared houses room by room, here is a focused, bed-level alternative.',
+    category: 'Comparison',
+    primaryKeyword: 'arthur online alternative',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 5,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard for an HMO operator showing room-level occupancy, rent collected and outstanding dues',
+      label: 'PulseHub · HMOs, room by room',
+    },
+  },
+  {
+    slug: 'august-hmo-software-alternative',
+    title: 'August Alternative for HMO Operators',
+    heading: 'An August Alternative for HMO and Shared-Housing Operators',
+    description:
+      'An August alternative for HMO operators. August leans on open-banking rent matching and MTD; PulseHub focuses on bed-level operations and metered bills.',
+    excerpt:
+      'August automates rent matching and tax filing. PulseHub focuses on the day-to-day operation: bed-level occupancy, metered bills and compliance tracking. Which fits you?',
+    category: 'Comparison',
+    primaryKeyword: 'august alternative',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 5,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard for an HMO operator showing occupancy, rent collected, metered electricity and compliance',
+      label: 'PulseHub · HMO operations',
+    },
+  },
+  {
+    slug: 'cloudbeds-alternative',
+    title: 'Cloudbeds Alternative for Long-Stay Beds',
+    heading: 'A Cloudbeds Alternative for Long-Stay, Not Nightly',
+    description:
+      'A Cloudbeds alternative for operators who let beds by the week or month, not nightly. PulseHub runs long-stay beds; it is not a hotel channel manager.',
+    excerpt:
+      'Cloudbeds is built for nightly stays and OTA distribution. If your beds are let by the week or month, here is a long-stay alternative built for the operation.',
+    category: 'Comparison',
+    primaryKeyword: 'cloudbeds alternative',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 5,
+    image: {
+      src: '/screenshots/pk-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A PulseHub hostel dashboard showing beds, rent collected, outstanding dues and kitchen costs for a long-stay property',
+      label: 'PulseHub · long-stay beds',
+    },
+  },
+  {
+    slug: 'spacebasic-alternative',
+    title: 'SpaceBasic Alternative for PG Operators',
+    heading: 'A SpaceBasic Alternative for Commercial PG and Hostel Operators',
+    description:
+      'A SpaceBasic alternative for commercial PG and hostel operators. PulseHub runs rooms, rent and metered bills bed by bed, across India and other markets.',
+    excerpt:
+      'SpaceBasic leans campus and institutional. If you run a PG or hostel as a commercial business, here is an operations-first alternative for India and beyond.',
+    category: 'Comparison',
+    primaryKeyword: 'spacebasic alternative',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 5,
+    image: {
+      src: '/screenshots/in-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A PulseHub dashboard in rupees showing PG and hostel occupancy, rent collected and metered electricity',
+      label: 'PulseHub · PGs and hostels, in rupees',
+    },
+  },
+  {
+    slug: 'how-to-manage-an-hmo',
+    title: 'How to Manage an HMO: A Landlord Guide',
+    heading: 'How to Manage an HMO: A Practical Guide for Landlords',
+    description:
+      'How to manage an HMO: licensing and compliance, room-by-room rent and bills, deposits, keeping rooms full, and the records that keep you compliant.',
+    excerpt:
+      'Managing an HMO means juggling compliance, room-by-room billing and full rooms at once. A practical guide to running one well and staying on the right side of the rules.',
+    category: 'Operations guide',
+    primaryKeyword: 'how to manage an hmo',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 6,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard for an HMO showing room-level occupancy, rent collected, outstanding dues and compliance',
+      label: 'PulseHub · running an HMO',
+    },
+  },
+  {
+    slug: 'how-to-start-a-rent-by-the-room-business',
+    title: 'How to Start a Rent-by-the-Room Business',
+    heading: 'How to Start a Rent-by-the-Room Business',
+    description:
+      'A practical guide to starting a rent-by-the-room business: local rules, rooms and per-room rent, splitting bills fairly, deposits, and finding residents.',
+    excerpt:
+      'Renting by the room earns more than a single whole-house let, but it runs differently. A step-by-step guide to setting one up, from local rules to bills and residents.',
+    category: 'Operations guide',
+    primaryKeyword: 'rent by the room business',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 6,
+    image: {
+      src: '/screenshots/us-dashboard.png',
+      width: 3024,
+      height: 1700,
+      alt: 'A PulseHub dashboard in US dollars showing a house let by the room, with occupancy and rent per resident',
+      label: 'PulseHub · renting by the room',
+    },
+  },
+  {
+    slug: 'how-to-start-a-pg-business',
+    title: 'How to Start a PG Business in India',
+    heading: 'How to Start a PG (Paying Guest) Business in India',
+    description:
+      'A practical guide to starting a PG business in India: choosing a property, rooms and pricing, food and bills, deposits, and finding tenants.',
+    excerpt:
+      'Thinking of starting a paying-guest business? A step-by-step guide to setting up a PG in India, from property and pricing to food, bills and finding tenants.',
+    category: 'Operations guide',
+    primaryKeyword: 'how to start a pg business',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 6,
+    image: {
+      src: '/screenshots/in-dashboard.png',
+      width: 3024,
+      height: 1650,
+      alt: 'A PulseHub dashboard in rupees showing a PG with rooms, residents, rent collected and kitchen costs',
+      label: 'PulseHub · running a PG, in rupees',
+    },
+  },
+  {
+    slug: 'how-to-start-a-student-accommodation-business',
+    title: 'How to Start a Student Accommodation Business',
+    heading: 'How to Start a Student Accommodation Business',
+    description:
+      'A practical guide to starting a student accommodation business: choosing a property, rooms and rent, bills, deposits, finding students, and compliance.',
+    excerpt:
+      'Student housing is a reliable room-by-room business if you set it up right. A step-by-step guide, from choosing a property to bills, deposits, compliance and filling rooms.',
+    category: 'Operations guide',
+    primaryKeyword: 'how to start a student accommodation business',
+    datePublished: '2026-11-27',
+    dateModified: '2026-11-27',
+    readingMinutes: 6,
+    image: {
+      src: '/screenshots/dashboard.png',
+      width: 3020,
+      height: 1612,
+      alt: 'A PulseHub dashboard for a student house showing room-level occupancy, rent collected and outstanding dues',
+      label: 'PulseHub · student rooms, by the room',
+    },
+  },
+  {
     slug: 'best-student-accommodation-management-software',
     title: 'Best Student Accommodation Software, Compared',
     heading: 'The Best Student Accommodation Management Software, Compared',
