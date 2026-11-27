@@ -38,11 +38,13 @@ export default function AnnouncementBar({ remaining, total }: { remaining: numbe
         href={routes.lifetime}
         className="group flex items-center gap-2 rounded-sm text-center text-[13px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 sm:text-sm"
       >
-        <span className="hidden rounded-full bg-primary px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-primary-foreground sm:inline">
+        <span className="inline-flex shrink-0 items-center rounded-full bg-primary px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-primary-foreground">
           Lifetime deal
         </span>
         <span className="group-hover:underline">
-          Pay once, keep PulseHub for life. {seatsLine}
+          {/* Full message on desktop; on mobile just the scarcity line so the pill fits on one line. */}
+          <span className="hidden sm:inline">Pay once, keep PulseHub for life. </span>
+          {seatsLine}
         </span>
       </Link>
       <button
