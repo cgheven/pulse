@@ -23,6 +23,13 @@ export const UPWORK_SETUP_URL =
 
 export const CONTACT_EMAIL = 'musab.khan@yourpulse.io'
 
+/** Official WhatsApp business line for direct enquiries (click-to-chat). */
+export const WHATSAPP_NUMBER = '923327857333'
+export const WHATSAPP_DISPLAY = '+92 332 7857333'
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  'Hi PulseHub, I would like to know more about PulseHub.',
+)}`
+
 /** Official brand profiles. Used for Organization sameAs (entity disambiguation) and the footer. */
 export const LINKEDIN_URL = 'https://www.linkedin.com/company/yourpulse-io'
 export const YOUTUBE_URL = 'https://www.youtube.com/@PulsehubSoftwares'

@@ -1,6 +1,7 @@
 import AnnouncementBar from '@/components/announcement-bar'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import WhatsAppButton from '@/components/whatsapp-button'
 import { getLtdSpots } from '@/lib/ltd-spots'
 
 export default async function SiteShell({ children }: { children: React.ReactNode }) {
@@ -25,6 +26,7 @@ export default async function SiteShell({ children }: { children: React.ReactNod
         {children}
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   )
 }
